@@ -31,7 +31,9 @@ const Nav = ({ path }) => {
   };
   return (
     <nav
-      className={`z-[30] h-[93px] flex items-center relative ${menu ? "opacity-3" : "opacity-[0.8]"}  bg-[#02020A] font-source font-[600]`}
+      className={`z-[30] h-[93px] flex items-center relative ${
+        menu ? "opacity-3" : "opacity-[0.8]"
+      }  bg-[#02020A] font-source font-[600]`}
       // style={{
       //   background: "rgba(6, 7, 32, 0.05)",
       //   borderBottom: "1px solid rgba(0, 166, 81, 0.3)",
@@ -69,11 +71,11 @@ const Nav = ({ path }) => {
             <li className="my-3 md:my-0">
               <Link
                 className={`${
-                  path === "/course"
+                  path === "/courses"
                     ? "text-[#006F36] border-2 py-1 border-[#006F36] px-1 rounded"
                     : ""
                 } text-[20px] font-[600]  duration-500 font-source`}
-                href="/"
+                href="/courses"
               >
                 Courses
               </Link>
@@ -85,7 +87,7 @@ const Nav = ({ path }) => {
                     ? "text-[#006F36] border-2 py-1 font-[600] border-[#006F36] px-1 rounded"
                     : ""
                 } text-[20px] font-[600]  duration-500 `}
-                href="/about"
+                href="/resources"
               >
                 Resources
               </Link>

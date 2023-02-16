@@ -8,7 +8,7 @@ import React from "react";
 const index = () => {
   return (
     <div>
-      <Meta title="Prompay | Home" />
+      <Meta title="Devcent | Home" />
       {/* <Animation style="flip-left" placement="center-center"> */}
       <div className="relative bg-[url('/images/homebg.png')] h-[140vh] bg-cover bg-center overflow-hidden">
         <div

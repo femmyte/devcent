@@ -19,9 +19,9 @@ const Meta = ({ title, description, keywords }) => {
 };
 
 Meta.defaultProps = {
-  title: "Prompay",
-  keywords: "learn and earn, online money",
+  title: "Devcent",
+  keywords: "Developing Worldclass Tech Talent at Devcent",
   description:
-    "Test your Ability with our online Exam and earn if you pass or learn if you fail.",
+    "Our Trainings are designed to help you learnfrom the best industry experts around.",
 };
 export default Meta;
