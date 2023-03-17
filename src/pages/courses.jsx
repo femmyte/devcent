@@ -5,8 +5,11 @@ import Meta from "components/Meta";
 import Instructor from "components/Instructor";
 import Footer from "components/Footer";
 import { FiArrowDownRight, FiArrowRight } from "react-icons/fi";
-
-const CourseCard = ({background, title, children, img, first, second, about }) => {
+import Link from "next/link";
+const CourseCard = ({ background, title, children, img, first, second, about }) => {
+  // ['#521C3C', '#3C2B68', '000000', '#19201D', '#433C28', '#1B2531']
+  // bg.map(bg=> console.log(bg))
+  // background == 1 ? '#521C3C' : 2 ? '#3C2B68' : 3 ? '000000' : 4 ? '#19201D' : 5 ? '#433C28' : '#1B2531'
  return (
     <div
       className={`${second != about ? ' md:pt-0' : ''} ${
@@ -21,7 +24,8 @@ const CourseCard = ({background, title, children, img, first, second, about }) =
         } md:flex  md:justify-between  my-0 md:mx-0 md:w-full`}
       >
         <article
-          className={` w-full md:w-[50%] bg-[${background}] pt-[30px] md:pt-[100px] px-[20px] md:px-[50px] text-white`}
+         className={` w-full md:w-[50%] bg-[$] pt-[30px] md:pt-[100px] px-[20px] md:px-[50px] text-white`}
+         style={{backgroundColor: background}}
         >
          {children}
         </article>
@@ -59,7 +63,6 @@ const courses = () => {
         <section className="gap-y-[120px] text-white w-screen">
           <CourseCard
             img="uiux"
-            title="UI/UX"
             background='#521C3C'>
               <h3 className="font-space font-[700] text-24px] leading-[19px]">UI/UX Design</h3>
             <p className="font-[400] font-dmsans text-[15px] leading-[27px]">Transform your passion for design into a career with our UI/UX Design Training. Learn the latest design tools, techniques and methodologies from industry experts, and build a portfolio of work that showcases your skills. Whether you're just starting out or looking to advance your career, our training program will equip you with the knowledge and hands-on experience needed to succeed in the dynamic world of UI/UX design. Enroll now and take the first step towards your dream career in design!</p>
@@ -70,62 +73,57 @@ const courses = () => {
             </div>
           </CourseCard>
           <CourseCard
-            img="uiux"
-            title="UI/UX"
+            img="dataScience"
             background='#3C2B68' second>
               <h3 className="font-space font-[700] text-24px] leading-[19px]">Data Science</h3>
             <p className="font-[400] font-dmsans text-[15px] leading-[27px]">Unlock the power of data with our Data Science Training. Learn to manipulate, analyze and visualize complex data sets using cutting-edge tools and techniques. Our program covers everything from data wrangling to machine learning, giving you a comprehensive understanding of the field. Led by experienced instructors, you'll gain hands-on experience with real-world projects, and graduate with a portfolio of work to showcase your skills to potential employers. Whether you're new to data science or looking to expand your skillset, our training program will prepare you for a successful career in this high-demand field. Enroll now and start your journey towards becoming a data scientist!</p>
             <p className="mt-[20px] md:mt-[36px] mb-[8px] font-dmsans font-[500] text-[24px]"></p>
             <div className="flex items-center gap-x-[20px]">
-              <p className="font-sora font-[600] text-[16px] leading-[20px]">Join us now</p>
+              <Link href='' className="font-sora font-[600] text-[16px] leading-[20px]">Join us now</Link>
               <FiArrowRight />
             </div>
           </CourseCard>
           <CourseCard
-            img="uiux"
-            title="UI/UX"
+            img="backend"
             background='#000000'>
               <h3 className="font-space font-[700] text-24px] leading-[19px]">Back-end Development</h3>
             <p className="font-[400] font-dmsans text-[15px] leading-[27px]">Take your coding skills to the next level with our Back-End Development Training. Learn to build robust, scalable and secure web applications from scratch using the latest back-end development technologies. Our program covers everything from server-side programming to database management, giving you a comprehensive understanding of the back-end development process. With hands-on experience working on real-world projects, you'll graduate with a portfolio of work to showcase your skills to potential employers. Whether you're new to back-end development or looking to advance your career, our training program will equip you with the knowledge and skills needed to succeed in this dynamic field. Enroll now and start your journey towards becoming a back-end developer!</p>
             <p className="mt-[20px] md:mt-[36px] mb-[8px] font-dmsans font-[500] text-[24px]"></p>
             <div className="flex items-center gap-x-[20px]">
-              <p className="font-sora font-[600] text-[16px] leading-[20px]">Join us now</p>
+              <Link href='' className="font-sora font-[600] text-[16px] leading-[20px]">Join us now</Link>
               <FiArrowRight />
             </div>
           </CourseCard>
           <CourseCard
-            img="uiux"
-            title="UI/UX"
+            img="fuulstack"
             background='#19201D' second>
               <h3 className="font-space font-[700] text-24px] leading-[19px]">Full Stack Web </h3>
             <p className="font-[400] font-dmsans text-[15px] leading-[27px]">Become a full-stack web developer with our comprehensive Full-Stack Web Development Training. Learn to build dynamic, responsive and interactive web applications using both front-end and back-end development technologies. Our program covers everything from HTML and CSS to JavaScript, React, Node.js, and more, giving you a complete understanding of the web development process. With hands-on experience working on real-world projects, you'll graduate with a portfolio of work to showcase your skills to potential employers. Whether you're just starting out or looking to advance your career, our training program will prepare you for a successful career in full-stack web development. Enroll now and take the first step towards becoming a full-stack web developer!</p>
             <p className="mt-[20px] md:mt-[36px] mb-[8px] font-dmsans font-[500] text-[24px]"></p>
             <div className="flex items-center gap-x-[20px]">
-              <p className="font-sora font-[600] text-[16px] leading-[20px]">Join us now</p>
+              <Link href='' className="font-sora font-[600] text-[16px] leading-[20px]">Join us now</Link>
               <FiArrowRight />
             </div>
           </CourseCard>
           <CourseCard
-            img="uiux"
-            title="UI/UX"
+            img="cyber"
             background='#433C28' >
               <h3 className="font-space font-[700] text-24px] leading-[19px]">Cyber Security</h3>
             <p className="font-[400] font-dmsans text-[15px] leading-[27px]">Protect against cyber threats with our Cyber Security Training. Learn the latest security techniques and methodologies to secure computer networks, data and applications from unauthorized access, attacks and breaches. Our program covers everything from network security to cryptography, giving you a comprehensive understanding of the cyber security landscape. With hands-on experience working on real-world projects, you'll graduate with a portfolio of work to showcase your skills to potential employers. Whether you're new to cyber security or looking to advance your career, our training program will equip you with the knowledge and skills needed to succeed in this critical field. Enroll now and start your journey towards becoming a cyber security expert!</p>
             <p className="mt-[20px] md:mt-[36px] mb-[8px] font-dmsans font-[500] text-[24px]"></p>
             <div className="flex items-center gap-x-[20px]">
-              <p className="font-sora font-[600] text-[16px] leading-[20px]">Join Us Now</p>
+              <Link href='' className="font-sora font-[600] text-[16px] leading-[20px]">Join Us Now</Link>
               <FiArrowRight />
             </div>
           </CourseCard>
           <CourseCard
-            img="uiux"
-            title="UI/UX"
+            img="frontend"
             background='#1B2531' second>
               <h3 className="font-space font-[700] text-24px] leading-[19px]">Front-end Development</h3>
             <p className="font-[400] font-dmsans text-[15px] leading-[27px]">Unlock your potential as a front-end web developer with our Front-End Development Training. Learn to build stunning, user-friendly and responsive web applications using the latest front-end development technologies. Our program covers everything from HTML and CSS to JavaScript, React, and more, giving you a comprehensive understanding of the front-end development process. With hands-on experience working on real-world projects, you'll graduate with a portfolio of work to showcase your skills to potential employers. Whether you're new to front-end development or looking to advance your career, our training program will prepare you for a successful career in this fast-paced field. Enroll now and start your journey towards becoming a front-end developer!</p>
             <p className="mt-[20px] md:mt-[36px] mb-[8px] font-dmsans font-[500] text-[24px]"></p>
             <div className="flex items-center gap-x-[20px]">
-              <p className="font-sora font-[600] text-[16px] leading-[20px]">Join us now</p>
+              <Link href='' className="font-sora font-[600] text-[16px] leading-[20px]">Join us now</Link>
               <FiArrowRight />
             </div>
             </CourseCard>
