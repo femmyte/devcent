@@ -24,7 +24,7 @@ const CourseCard = ({ background, title, children, img, first, second, about }) 
         } md:flex  md:justify-between  my-0 md:mx-0 md:w-full`}
       >
         <article
-         className={` w-full md:w-[50%] bg-[$] pt-[30px] md:pt-[100px] px-[20px] md:px-[50px] text-white`}
+         className={` w-full md:w-[50%] bg-[$] py-[30px] md:pt-[100px] px-[20px] md:px-[50px] text-white`}
          style={{backgroundColor: background}}
         >
          {children}
@@ -52,7 +52,7 @@ const courses = () => {
               Our Courses
             </h1>
             <p
-              className="font-dmsans font-[400] text-[24px] mt-[18px] md:mt-[80px] leading-[31.25px] w-[842px] text-white
+              className="font-dmsans font-[400] text-[24px] mt-[18px] md:mt-[80px] leading-[31.25px] mx-[15px]  md:w-[842px] text-white
           "
             >
               Our range of Skills resources will help you Build your career with
@@ -95,7 +95,7 @@ const courses = () => {
             </div>
           </CourseCard>
           <CourseCard
-            img="fuulstack"
+            img="fulstack"
             background='#19201D' second>
               <h3 className="font-space font-[700] text-24px] leading-[19px]">Full Stack Web </h3>
             <p className="font-[400] font-dmsans text-[15px] leading-[27px]">Become a full-stack web developer with our comprehensive Full-Stack Web Development Training. Learn to build dynamic, responsive and interactive web applications using both front-end and back-end development technologies. Our program covers everything from HTML and CSS to JavaScript, React, Node.js, and more, giving you a complete understanding of the web development process. With hands-on experience working on real-world projects, you'll graduate with a portfolio of work to showcase your skills to potential employers. Whether you're just starting out or looking to advance your career, our training program will prepare you for a successful career in full-stack web development. Enroll now and take the first step towards becoming a full-stack web developer!</p>
@@ -117,7 +117,7 @@ const courses = () => {
             </div>
           </CourseCard>
           <CourseCard
-            img="frontend"
+            img="frotend"
             background='#1B2531' second>
               <h3 className="font-space font-[700] text-24px] leading-[19px]">Front-end Development</h3>
             <p className="font-[400] font-dmsans text-[15px] leading-[27px]">Unlock your potential as a front-end web developer with our Front-End Development Training. Learn to build stunning, user-friendly and responsive web applications using the latest front-end development technologies. Our program covers everything from HTML and CSS to JavaScript, React, and more, giving you a comprehensive understanding of the front-end development process. With hands-on experience working on real-world projects, you'll graduate with a portfolio of work to showcase your skills to potential employers. Whether you're new to front-end development or looking to advance your career, our training program will prepare you for a successful career in this fast-paced field. Enroll now and start your journey towards becoming a front-end developer!</p>

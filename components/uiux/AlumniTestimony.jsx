@@ -64,14 +64,14 @@ const AlumniTestimony = () => {
       <p className="md:w-[1015px] mx-[20px] md:mx-auto text-center mt-[40px] mb-[80px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]">
         Seeing our students making impact at top tech companies and getting paid for their service gives us great joy.
       </p>
-      <div className="relative bg-[url('/images/alumnitestimonybg.png')] min-h-[120vh] w-full bg-cover bg-center overflow-hidden">
+      <div className="relative bg-[url('/images/alumnitestimonybg.png')] h-[80vh] md:min-h-[120vh] w-full bg-cover bg-center overflow-hidden">
         {/* <img src="/images/alumnitestimonybg.png" alt="alumnitestimonybg" /> */}
          <div
-          className="absolute top-[1px] left-0 right-0 bottom-0 min-h-[120vh] w-[95vw] md:w-[70vw] mx-auto z-[1]"
+          className="absolute top-[1px] left-0 right-0 bottom-0 h-[80vh] md:min-h-[120vh] w-[95vw] md:w-[70vw] mx-auto z-[1]"
           style={{
             background: "rgba(0, 0, 0, 0.2)",}}
         />
-        <div className="relative flex flex-col items-center justify-center w-[95vw] md:w-[70vw] h-[120vh] mx-auto">
+        <div className="relative flex flex-col items-center justify-center w-[95vw] md:w-[70vw] h-[80v] md:h-[120vh] mx-auto">
           <img src="/images/icons/video.png" alt="video icon" />
           <p className="font-space font-[500] text-[18px] md:text-[24px] leading-[40px]text-center text-white mt-[30px] md:mt-[56px] mb-[30px] md:mb-[80px]">“I was able to achieve my dreams and become the designer i’ve always dreamed to be thanks to Devcent”</p>
           <p className="font-space font-[700] leading-[40px] text-center text-[30px] md:text-[40px]">-  Mojoyin</p>
