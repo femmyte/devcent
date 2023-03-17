@@ -31,9 +31,9 @@ const Nav = ({ path }) => {
   };
   return (
     <nav
-      className={`z-[30] h-[93px] flex items-center relative ${
+      className={`z-[30] border-b border-[#494545] h-[64px] flex items-center relative ${
         menu ? "opacity-3" : "opacity-[0.8]"
-      }  bg-[#02020A] font-source font-[600]`}
+      }  bg-black font-source font-[600]`}
       // style={{
       //   background: "rgba(6, 7, 32, 0.05)",
       //   borderBottom: "1px solid rgba(0, 166, 81, 0.3)",
@@ -63,7 +63,7 @@ const Nav = ({ path }) => {
         <div
           className={`${
             menu
-              ? "top-[60px] opacity-100 pb-6 z-10 h-screen bg-white"
+              ? "top-[60px] opacity-100 pb-6 z-10 h-screen bg-black"
               : "hidden"
           } md:basis-[80%] md:flex  md:items-center md:static absolute md:bg-transparent bg-black w-full left-0 md:w-auto md:py-0 py-4 md:pl-0 pl-7 font-normal text-[20px]`}
         >

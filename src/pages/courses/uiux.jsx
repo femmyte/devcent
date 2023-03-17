@@ -2,12 +2,15 @@ import Meta from "components/Meta";
 import Nav from "components/Nav";
 import React, { useState } from "react";
 import Link from "next/link";
-import CourseOverview from "components/CourseOverview";
-import Curriculum from "components/Curriculum";
-import Schedule from "components/Schedule";
-import ToolsCard from "components/ToolsCard";
+import CourseOverview from "components/uiux/CourseOverview";
+import Curriculum from "components/uiux/Curriculum";
+import AlumniTestimony from "components/uiux/AlumniTestimony";
+import ToolsCard from "components/uiux/ToolsCard";
 import Instructor from "components/Instructor";
 import Footer from "components/Footer";
+import WhyDevcent from "components/uiux/WhyDevcent";
+import Pricing from "components/uiux/Pricing";
+import FAQ from "components/FAQ";
 
 const Card = ({ title, btnText, icon, children }) => {
   const [show, setShow] = useState(false);
@@ -54,43 +57,70 @@ const CollaborateCard = () => {
     </>
   );
 };
+
+
 const uiux = () => {
   return (
     <div>
       <Meta />
       <Nav />
-      <section className="flex justify-between pl-[120px] bg-black h-[600px] overflow-hidden">
-        <div className="md:max-w-[600px]">
-          <h1 className="font-space font-[700] text-[80px] leading-[102px] text-primaryYellow mt-[31px]">
-            UX/UI Design
-          </h1>
-          <h3 className="font-space font-[400] text-[60px] leading-[77px] mt-[18px] mb-[50px] text-[#C0BAA9]">
-            Duration · 12 weeks
-          </h3>
-          <p className="font-space font-[400] text-[32px] leading-[41px] mt-[18px] mb-[50px] text-[#C0BAA9]">
-            5/5 · 100% completion rate
-          </p>
-          <p className="font-dmsans font-[400] text-[24px] leading-[31px] text-[#f2f2f2] mb-[60px]">
-            Learn the skills of a UX/UI Designer with a micro class. Join
-            physically and collaborate in classmate. You'll create a series of
-            case studies and publish your UX/UI portfolio during the program!
-          </p>
-          <Link
-            href=""
-            className="bg-white  text-primaryPurple py-[16px] px-[32px] font-space font-bold text-[27px] hover:animate-pulse ease-out duration-300 rounded-[5px]"
-          >
-            Enroll Now
-          </Link>
-        </div>
-        <div className="h-[600px] w-[600px]">
+      <section className="md:flex justify-between p-[20px] md:p-[60px] bg-black overflow-hidden">
+          <div className="block md:hidden">
           <img
             src="/images/courses/uxui.png"
             alt="uxui course"
-            className="w-[600px] h-full"
+            // className="w-[600px] h-full"
+          />
+        </div>
+        <div className="md:max-w-[600px]">
+          <p className="mt-[34px] text-[#c0baa9] font-[400] font-space text-[24px] leading-[31px]">Beginner Friendly</p>
+          <h1 className="font-space font-[700] text-[30px] md:text-[80px] leading-[35px] md:leading-[102px] text-primaryYellow mt-[24px]">
+            UX/UI Design
+          </h1>
+          {/* <h3 className="font-space font-[400] text-[60px] leading-[77px] mt-[18px] mb-[50px] text-[#C0BAA9]">
+            Duration · 12 weeks
+          </h3> */}
+          {/* <p className="font-space font-[400] text-[32px] leading-[41px] mt-[18px] mb-[50px] text-[#C0BAA9]">
+            5/5 · 100% completion rate
+          </p> */}
+          <p className="font-dmsans font-[400] text-[18px] md:text-[24px] leading-[31px] text-[#f2f2f2] mb-[20px] md:mb-[60px] text-justify">
+            Become a seasoned UiUx designer as you learn from expert designers. Our project based approach will help you gain the skill sets needed to create high impact user experiences on digital products.
+          </p>
+          <div className="md:flex items-center mb-[20px] md:mb-[80px] gap-x-[8px]">
+            <div className="flex items-center gap-x-[8px]">
+          <p className="font-dmsans font-[700] text-[20px] leading-[26px] text-[#f2f2f2]">
+            5
+            </p> 
+               <img src="/images/icons/start.png" alt="start" /> <img src="/images/icons/start.png" alt="start" /> <img src="/images/icons/start.png" alt="start" /> <img src="/images/icons/start.png" alt="start" /> <img src="/images/icons/start.png" alt="start"  />
+            <img src="/images/icons/circle.png" alt="start" className="hidden md:block" />
+           </div>
+             <p className="font-dmsans font-[500] text-[20px] leading-[26px] text-[#f2f2f2]"> 100% completion rate + 70+ People Trained
+            </p> 
+          </div>
+          <div className="flex flex-col md:flex-row items-center gap-x-[60px]">
+          <Link
+            href=""
+            className="text-white  bg-primaryPurple py-[10px] md:py-[16px] px-[20px] md:px-[32px] font-space font-bold text-[18px] md:text-[24px] hover:animate-pulse ease-out duration-300 rounded-[5px]"
+          >
+            Enroll Now
+          </Link>
+           <Link
+            href=""
+            className="text-primaryPurple border border-primaryPurple py-[10px] md:py-[16px] px-[20px] md:px-[32px] font-space font-bold text-[18px] md:text-[24px] hover:animate-pulse ease-out duration-300 rounded-[5px] my-[20px] md:mt-0"
+          >
+           Contact us
+          </Link>
+          </div>
+        </div>
+        <div className="hidden md:block">
+          <img
+            src="/images/courses/uxui.png"
+            alt="uxui course"
+            // className="w-[600px] h-full"
           />
         </div>
       </section>
-      <section className="h-[106px] flex items-center pl-[120px] bg-[#0f0309]">
+      <section className="h-[106px] md:flex items-center pl-[120px] bg-[#0f0309] hidden ">
         <ul className="flex justify-between basis-[90%]">
           <li>
             <Link
@@ -167,200 +197,51 @@ const uiux = () => {
         </ul>
       </section>
       <CourseOverview />
-      <Curriculum />
-      <Schedule />
-      <section
-        id="schedule"
-        className="pt-[59px] pl-[64px] pb-[140px] bg-[#0a0909] text-center
-      "
-      >
-        <h3 className="font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow">
-          PROGRAM SCHEDULE
-        </h3>
-        <p className="mt-[43px] font-space font-[700] text-[26px] leading-[11.7px] text-[#cccccc]">
-          Learn UX/UI Design live with a micro class of 30 Designers
-        </p>
-        <p className="w-[1015px] mx-auto text-center mt-[40px] mb-[100px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]">
-          Our UX/UI Classes are intense and It will be a lot of work. We pride
-          ourselves on having a schedule that works for busy designers around
-          the world. Every step of the way you'll receive support from your
-          teacher, classmates, and our tribe of thousands of designers around
-          the world!
-        </p>
-        <div className="flex gap-x-[62px]">
-          <div
-            className="pt-[29px] pl-[17px] bg-black min-h-[334px] w-[334.81px] pb-[10px] border-b-2 border-b-[rgba(184, 168, 125, 0.25)] text-left pr-[15px] rounded-[8px]"
-            style={{ borderBottomColor: "rgba(184, 168, 125, 0.25)" }}
-          >
-            <img src="/images/icons/pee.png" alt="pee" />
-            <p className="my-[16px] font-space font-[700] text-[25px] leading-[31.9px] text-[#c0baa9]">
-              Expert educators
-            </p>
-            <p className="font-dmsans font-[700] text-[25px] leading-[32.55px] text-white">
-              You’ll learn live from the best in the design industry; Jerry is
-              the a designer @ Figma
-            </p>
-          </div>
-          <div
-            className="pt-[29px] pl-[17px] bg-black min-h-[334px] w-[334.81px] pb-[10px] border-b-2 border-b-[rgba(184, 168, 125, 0.25)] text-left pr-[15px] rounded-[8px]"
-            style={{ borderBottomColor: "rgba(184, 168, 125, 0.25)" }}
-          >
-            <img src="/images/icons/pee.png" alt="pee" />
-            <p className="my-[16px] font-space font-[700] text-[25px] leading-[31.9px] text-[#c0baa9]">
-              Certification
-            </p>
-            <p className="font-dmsans font-[700] text-[25px] leading-[32.55px] text-white">
-              You’ll learn live from the best in the design industry; Jerry is
-              the a designer @ Figma
-            </p>
-          </div>
-          <div
-            className="pt-[29px] pl-[17px] bg-black min-h-[334px] w-[334.81px] pb-[10px] border-b-2 border-b-[rgba(184, 168, 125, 0.25)] text-left pr-[15px] rounded-[8px]"
-            style={{ borderBottomColor: "rgba(184, 168, 125, 0.25)" }}
-          >
-            <img src="/images/icons/pee.png" alt="pee" />
-            <p className="my-[16px] font-space font-[700] text-[25px] leading-[31.9px] text-[#c0baa9]">
-              Live Design Critics
-            </p>
-            <p className="font-dmsans font-[700] text-[25px] leading-[32.55px] text-white">
-              You'll learn the value of asking for and giving feedback during
-              the tvelve weeks of our Program. Our live Design Crits are held by
-              our super Teaching Assistants
-            </p>
-          </div>
-        </div>
-      </section>
-      <section
-        id="collaborate"
-        className="pt-[59px] px-[64px] pb-[65px] bg-black text-center
-      "
-      >
-        <h3 className="font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow">
-          COLLABORATE WITH CLASSMATES
-        </h3>
-
-        <p className="w-[1015px] mx-auto text-center mt-[50px] mb-[80px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]">
-          We're doing our best to make it easy for you to learn UX/UI at a time
-          that works for you. Right now, we have multiple live micro classes in
-          every cohort. So, although you'll be learning live with a micro class,
-          you'll get the opportunity to connect with over 60 awesome designers
-          learning live around the world!
-        </p>
-        <div className="grid grid-rows-2 grid-cols-6 gap-4">
-          <div className="bg-red-400 w-[179px]"> mon</div>
-          <div className="bg-red-400 w-[179px]"> mon</div>
-          <div className="bg-red-400 w-[179px]">Tu</div>
-          <div className="bg-red-400 w-[179px]">we</div>
-          <div className="bg-red-400 w-[179px]">thur</div>
-          <div class="row-span-2 bg-red-400">fri</div>
-          <div class="row-span-2 bg-red-400">week</div>
-        </div>
-      </section>
-      <section
-        id="portfolio"
-        className="pt-[59px] pl-[64px] pb-[150px] bg-[#0a0909] text-center
-      "
-      >
-        <h3 className="font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow">
-          UX/UI PORTFOLIO
-        </h3>
-        <p className="mt-[43px] font-space font-[700] text-[26px] leading-[11.7px] text-[#cccccc]">
-          Build an interview-ready portfolio
-        </p>
-        <p className="w-[1015px] mx-auto text-center mt-[40px] mb-[80px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]">
-          We're proud to be the only UX/UI Program that helps you design and
-          launch your portfolio during Bootcamp. This ensures you complete our
-          Bootcamp with the skills of a UX/UI designer, and a portfolio to show
-          for it, helping you find your dream role sooner!
-        </p>
-        <div className="w-[1150px]">
-          <Card title="UX/UI Portfolio" btnText="launch during program">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum,
-              voluptatum.
-            </p>
-          </Card>
-          <Card title="UX/UI Career" btnText="Career support">
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum,
-              voluptatum.
-            </p>
-          </Card>
-        </div>
-      </section>
-      <section
+       <section
         id="tools"
-        className="pt-[59px] px-[220px] pb-[65px] bg-black text-center
+        className="pt-[10px] md:pt-[59px] px-[20px] md:px-[180px] pb-[65px] bg-black text-center
       "
       >
         <h3 className="font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow">
-          UX/UI DESIGN TOOLS
+          MASTER DESIGN AND COLLABORATIVE TOOLS
         </h3>
-        <p className="mt-[43px] font-space font-[700] text-[26px] leading-[11.7px] text-[#cccccc]">
-          Master the latest UX/UI design tools and workflows
+        <p className="mx-auto text-center mt-[40px] mb-[25px] md:mb-[130px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]">
+         Learn and master design and collaborative tools to empower you on your UiUx design career journey
         </p>
-        <p className="mx-auto text-center mt-[40px] mb-[130px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]">
-          Our Programs are designed around the latest UX/UI design tools. Unlike
-          corporate courses that have a fixed tool-stack from decades past, we
-          believe it's important to equip designers with the latest tool-stack
-          to excel in their career.
-        </p>
-        <div className="flex gap-x-[24px] mb-[20px]">
+        <div className="md:grid grid-cols-3 gap-x-[100px] mb-[20px]">
           <ToolsCard
             title="Figma"
             img="figma"
-            details="Collaborative interface design tool used by remote design team to collaborate live."
+            details="Figma is a design and prototyping tool used for user interface (UI) and user experience (UX) design. It allows designers to create, collaborate, and share designs with team members in real-time."
           />
+            <ToolsCard
+              title="Google Forms"
+              img="form"
+              details="Google Forms is a free online survey and questionnaire creation tool that allows designers to quickly and easily create custom forms to collect qualitative and quantitative data from users."
+            />
           <ToolsCard
             title="Notion"
             img="notion"
-            details="Collaborative interface design tool used by remote design team to collaborate live."
+            details="Notion is an all-in-one workspace and productivity tool that allows you to manage and organize your  tasks. it  has features such as note-taking , project management software, and databases."
           />
           <ToolsCard
-            title="Slack"
-            img="slack"
-            details="Collaborative interface design tool used by remote design team to collaborate live."
-          />
-        </div>
-        <div className="flex gap-x-[24px] ">
-          <ToolsCard
-            title="Maze"
+            title="Google Meet"
             img="figma"
-            details="Collaborative interface design tool used by remote design team to collaborate live."
+            details="Google Meet is a video conferencing and collaboration tool. It allows you to conduct virtual meetings, interviews, and presentations with individuals or groups no matter where you are."
           />
           <ToolsCard
-            title="Loom"
-            img="figma"
-            details="Collaborative interface design tool used by remote design team to collaborate live."
-          />
-          <ToolsCard
-            title="Typeform"
-            img="tee"
-            details="Collaborative interface design tool used by remote design team to collaborate live."
+            title="Miro"
+            img="mirro"
+            details="Miro  is a collaborative online whiteboard platform designed to help teams collaborate and communicate in real-time. It allows teams to brainstorm, design, plan projects, and more."
           />
         </div>
       </section>
-      <section
-        id="pricing"
-        className="pt-[59px] pl-[64px] pb-[65px] bg-[#0a0909] text-center"
-      >
-        <h3 className="font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow">
-          PRICING PLANS
-        </h3>
-        <p className="mt-[43px] font-space font-[700] text-[26px] leading-[11.7px] text-[#cccccc]">
-          Simple, transparent and flexible plans
-        </p>
-        <p className="w-[831px] mx-auto text-center mt-[40px] mb-[80px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]">
-          Unlike other courses who tuck away their prices, we are totally
-          transparent with our online Bootcamp pricing and take pride in being
-          accessible and affordable.
-        </p>
-      </section>
-      <section className="px-[57px] py-[62px]  bg-[url('/images/devcentbg.png')] min-h-[110vh] w-[100vw] overflow-hidden ">
+      <WhyDevcent />
+      <section className="px-[20px] md:px-[57px] py-[62px] bg-black md:bg-[url('/images/devcentbg.png')] min-h-[110vh] w-[100vw] overflow-hidden ">
         <h3 className="font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow">
           LEARN WITH THE BEST
         </h3>
-        <div className="flex gap-x-[50px] mb-[60px]">
+        <div className="md:flex gap-x-[50px] mb-[60px]">
           <Instructor
             img="mary"
             name="Mariam Omotola"
@@ -381,6 +262,45 @@ const uiux = () => {
           />
         </div>
       </section>
+      <AlumniTestimony />
+      <Pricing />
+      {/* <Curriculum /> */}
+     <FAQ />
+      <section
+        id="portfolio"
+        className="pt-[59px] px-[20px] md:pl-[64px] pb-[30px] md:pb-[150px] bg-[#0a0909] text-center
+      "
+      >
+        <h3 className="font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow">
+          JOIN US TODAY, LETS MAKE IMPACT TOGETHER
+        </h3>
+        <p className="md:w-[1015px] mx-auto text-center mt-[20px] md:mt-[40px] mb-[30px] md:mb-[62px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]">
+          Start your tech journey, transition in to design, build world class products and live the life of your dreams. All of this is possible, join us today!
+        </p>
+         <div className="flex flex-row items-center justify-center gap-x-[60px]">
+          <Link
+            href=""
+            className="text-white  bg-primaryPurple py-[10px] md:py-[16px] px-[20px] md:px-[32px] font-space font-bold text-[18px] md:text-[24px] hover:animate-pulse ease-out duration-300 rounded-[5px]"
+          >
+            Enroll Now
+          </Link>
+          </div>
+
+        {/* <div className="md:w-[1150px]">
+          <Card title="UX/UI Portfolio" btnText="launch during program">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum,
+              voluptatum.
+            </p>
+          </Card>
+          <Card title="UX/UI Career" btnText="Career support">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum,
+              voluptatum.
+            </p>
+          </Card>
+        </div> */}
+      </section>      
       <Footer />
     </div>
   );
