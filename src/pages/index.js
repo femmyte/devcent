@@ -39,7 +39,7 @@ const index = () => {
             </button>
           </div>
           <div>
-            {/* <img src="/images/map.png" /> */}
+            {/* <img src="./images/map.png" /> */}
           </div>
         </div>
         {/* </div> */}
@@ -67,24 +67,24 @@ const index = () => {
           <div className="">
             <div className="md:flex gap-x-[36px]">
               <Box
-                img="/images/icons/uiux.png"
+                img="./images/icons/uiux.png"
                 title="UI/UX Design"
                 description="Far far away, behind the word mountains, far from the countries Vokalia Separated..."
               />
               <Box
-                img="/images/icons/fulstack.png"
+                img="./images/icons/fulstack.png"
                 title="Full Stack Web"
                 description="Far far away, behind the word mountains, far from the countries Vokalia Separated..."
               />
             </div>
             <div className="md:flex gap-x-[36px] mt-[50px]">
               <Box
-                img="/images/icons/dataScience.png"
+                img="./images/icons/dataScience.png"
                 title="Data Science"
                 description="Far far away, behind the word mountains, far from the countries Vokalia Separated..."
               />
               <Box
-                img="/images/icons/backend.png"
+                img="./images/icons/backend.png"
                 title="Backend Development"
                 description="Far far away, behind the word mountains, far from the countries Vokalia Separated..."
               />
@@ -98,21 +98,21 @@ const index = () => {
               {/* <div className="flex gap-x-[36px] mt-[50px]"> */}
               <div className="md:grid md:grid-cols-3 gap-4 px-[10px] md:px-[120px] mt-[20px] md:mt-[50px]">
                 <div className="flex gap-x-[15px] md:gap-x-[24px] items-center">
-                  <img src="/images/icons/learning.png" alt="" />
+                  <img src="./images/icons/learning.png" alt="" />
                   <div>
                   <h3 className="font-space font-[500] text-[24px] leading-[31px] text-white">Effective Learning</h3>
                   <p className="text-[18px] font-space font-[400] leading-[23px] text-[#9b9b9b]">Get skilled through lectures and practical sessions.</p>
                   </div>
                 </div>
                  <div className="my-[20px] md:my-0 flex gap-x-[24px] items-center">
-                  <img src="/images/icons/capstone.png" alt="" />
+                  <img src="./images/icons/capstone.png" alt="" />
                   <div>
                   <h3 className="font-space font-[500] text-[24px] leading-[31px] text-white">Capstone Projects</h3>
                   <p className="text-[18px] font-space font-[400] leading-[23px] text-[#9b9b9b]">Get to work on multiple projects to gain know-how.</p>
                   </div>
                 </div>
                  <div className="flex gap-x-[24px] items-center">
-                  <img src="/images/icons/learning.png" alt="" />
+                  <img src="./images/icons/learning.png" alt="" />
                   <div>
                   <h3 className="font-space font-[500] text-[24px] leading-[31px] text-white">Intensive Training</h3>
                   <p className="text-[18px] font-space font-[400] leading-[23px] text-[#9b9b9b]">Get skilled through lectures and practical sessions.</p>
@@ -218,7 +218,7 @@ have never been more in-demand. Learn everything you need to take your career to
             <div className="rounded-[8px] py-[55px] px-[0px] md:px-[40px]">
           <div className="md:flex justify-between text-white gap-x-[100px] mb-[20px] md:mb-0">
             <div className="flex gap-x-[15px] md:gap-x-[30px] items-start">
-              <img src="/images/icons/markbg.png" className="" />
+              <img src="./images/icons/markbg.png" className="" />
             <div className="md:w-[400px]">
               <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">In-depth Knowledge</h3>
                 <p className="font-dmsans font-regular text-[18.5px] leading-[24px] pb-[20px] md:pb-0">
@@ -229,7 +229,7 @@ have never been more in-demand. Learn everything you need to take your career to
             </div>
             </div>
             <div className="flex gap-x-[15px] md:gap-x-[30px] items-start">
-              <img src="/images/icons/markbg.png" className="" />
+              <img src="./images/icons/markbg.png" className="" />
             <div className="md:w-[400px]">
               <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">In-depth Knowledge</h3>
                 <p className="font-dmsans font-regular text-[18.5px] leading-[24px]">
@@ -243,7 +243,7 @@ have never been more in-demand. Learn everything you need to take your career to
 
           <div className="md:flex justify-between text-white gap-x-[50px] md:mt-[50px]">
             <div className="flex gap-x-[15px] md:gap-x-[30px] items-start">
-              <img src="/images/icons/markbg.png" className="" />
+              <img src="./images/icons/markbg.png" className="" />
             <div className="md:w-[400px]">
               <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">In-depth Knowledge</h3>
                 <p className="font-dmsans font-regular text-[18.5px] leading-[24px] pb-[20px] md:pb-0">
@@ -253,7 +253,7 @@ have never been more in-demand. Learn everything you need to take your career to
                 </p> </div>
             </div>
             <div className="flex gap-x-[15px] md:gap-x-[30px] items-start">
-              <img src="/images/icons/markbg.png" className="" />
+              <img src="./images/icons/markbg.png" className="" />
             <div className="md:w-[400px]">
               <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">In-depth Knowledge</h3>
                 <p className="font-dmsans font-regular text-[18.5px] leading-[24px]">
@@ -280,7 +280,7 @@ have never been more in-demand. Learn everything you need to take your career to
           <div className="mt-[13px] md:ml-[28px] md:grid grid-cols-3 gap-4">
             <div className="mt-[40px]">
               <div className="flex items-center">
-                <img src="/images/icons/beginner.png" alt="beginner icon" />
+                <img src="./images/icons/beginner.png" alt="beginner icon" />
                 <h1 className="font-[700] font-space text-[30px] leading-[38px] text-white ml-[16px]">
                   Beginner Level
                 </h1>
@@ -291,7 +291,7 @@ have never been more in-demand. Learn everything you need to take your career to
             </div>
             <div className="mt-[40px]">
               <div className="flex items-center">
-                <img src="/images/icons/online.png" alt="beginner icon" />
+                <img src="./images/icons/online.png" alt="beginner icon" />
                 <h1 className="font-[700] font-space text-[30px] leading-[38px] text-white ml-[16px]">
                   Online and Physical
                 </h1>
@@ -302,7 +302,7 @@ have never been more in-demand. Learn everything you need to take your career to
             </div>
             <div className="mt-[40px]">
               <div className="flex items-center">
-                <img src="/images/icons/lectures.png" alt="beginner icon" />
+                <img src="./images/icons/lectures.png" alt="beginner icon" />
                 <h1 className="font-[700] font-space text-[30px] leading-[38px] text-white ml-[16px]">
                   Lectures are Flexible
                 </h1>
@@ -313,7 +313,7 @@ have never been more in-demand. Learn everything you need to take your career to
             </div>
             <div className="mt-[40px]">
               <div className="flex items-center">
-                <img src="/images/icons/certificate.png" alt="beginner icon" />
+                <img src="./images/icons/certificate.png" alt="beginner icon" />
                 <h1 className="font-[700] font-space text-[30px] leading-[38px] text-white ml-[16px]">
                   Certificates
                 </h1>
@@ -324,7 +324,7 @@ have never been more in-demand. Learn everything you need to take your career to
             </div>
             <div className="mt-[40px]">
               <div className="flex items-center">
-                <img src="/images/icons/language.png" alt="beginner icon" />
+                <img src="./images/icons/language.png" alt="beginner icon" />
                 <h1 className="font-[700] font-space text-[30px] leading-[38px] text-white ml-[16px]">
                   Language
                 </h1>
@@ -345,12 +345,12 @@ have never been more in-demand. Learn everything you need to take your career to
           }}
         />
         <div className="relative z-10 flex flex-col h-full items-center justify-center ">
-          <img src="/images/icons/quote.png" alt="quote acon" />
+          <img src="./images/icons/quote.png" alt="quote acon" />
           <h1 className="mt-[100px] mb-[74px] font-dmsans font-[400] text-[27px] leading-[45px] text-center w-[748px]">
             I can recommend Devcent for anybody who wants to <br /> transit into
             Tech, their classes are top notch
           </h1>
-          <img src="/images/testimony.png" alt="" />
+          <img src="./images/testimony.png" alt="" />
           <p className="mt-[13px] mb-[8px] text-[18.95px] font-[700] font-space">
             Azim
           </p>
@@ -380,9 +380,9 @@ have never been more in-demand. Learn everything you need to take your career to
           </button>
         </article>
         <div className="relative">
-          <img src="/images/video.png" alt="video" className="relative" />
+          <img src="./images/video.png" alt="video" className="relative" />
           <img
-            src="/images/icons/video.png"
+            src="./images/icons/video.png"
             alt="video icon"
             className="absolute top-[25%] md:top-[212.02px] left-[25%] md:left-[50%]"
           />

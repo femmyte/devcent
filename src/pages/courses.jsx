@@ -65,7 +65,7 @@ const courses = () => {
             <p className="font-[400] font-dmsans text-[15px] leading-[27px]">Transform your passion for design into a career with our UI/UX Design Training. Learn the latest design tools, techniques and methodologies from industry experts, and build a portfolio of work that showcases your skills. Whether you're just starting out or looking to advance your career, our training program will equip you with the knowledge and hands-on experience needed to succeed in the dynamic world of UI/UX design. Enroll now and take the first step towards your dream career in design!</p>
             <p className="mt-[20px] md:mt-[36px] mb-[8px] font-dmsans font-[500] text-[24px]">Ready to take  a career in UI/UX?</p>
             <div className="flex items-center gap-x-[20px]">
-              <p className="font-sora font-[600] text-[16px] leading-[20px]">Join us now</p>
+              <Link href='/courses/uiux' className="font-sora font-[600] text-[16px] leading-[20px]">Join us now</Link>
               <FiArrowRight />
             </div>
           </CourseCard>
