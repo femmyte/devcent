@@ -11,20 +11,20 @@ const index = () => {
       <Meta title="Devcent | Home" />
       {/* <Animation style="flip-left" placement="center-center"> */}
       {/* <div className="relative bg-[url('/images/homebg.png')] h-[140vh] bg-cover bg-center overflow-hidden"> */}
-        <div
-          className="absolute top-[1px] left-0 right-0 bottom-0 min-h-[110vh] z-[1] bg-black"
+        {/* <div
+          className="absolute top-[1px] left-0 right-0 bottom-0 min-h-[100vh] z-[1] bg-black"
           // style={{
           //   background: "rgba(0, 0, 0, 0.92)",
           //   // "linear-gradient(84.59deg, rgba(0, 0, 0, 0.58) 17.84%, rgba(0, 0, 0, 0.17) 52.14%, rgba(0, 0, 0, 0.65) 80.9%)",
           // }}
-        />
+        /> */}
         <Nav />
 
         {/* <div className='flex justify-between relative'> */}
 
-        <div className="flex justify-between text-white z-10 md:pr-[27px] md:ml-[40px] h-[65%] relative">
+        <div className="bg-black flex flex-col-reverse md:flex-row justify-between text-white z-10 md:pl-[96px] md:pr-[108px] relative">
           <div className="w-full md:w-[580px] mt-[20px] md:mt-[120px] text-center md:text-left">
-            <h1 className="text-white text-[30px] md:text-[48px] font-[700] leading-[35px] md:leading-[58px] font-space ">
+            <h1 className="text-white text-[40px] md:text-[48px] font-[700] leading-[50px] md:leading-[58px] font-space ">
               Developing <span className="text-[#FFBA0E]">Worldclass </span>{" "}
               <br />
               Tech <span className="text-[#FFBA0E]">Talent</span> at{" "}
@@ -34,17 +34,17 @@ const index = () => {
               Our Trainings are designed to help you learn <br /> from the best
               industry experts around.
             </p>
-            <button className="mt-[20px] text-white bg-[#E40084] w-[160px] h-[47px] font-source text-[18px] rounded-lg hover:animate-pulse ease-out duration-300 ">
+            <button className="mt-[20px] text-white bg-[#E40084] w-[160px] h-[47px] font-source text-[18px] rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 ">
               Get Started
             </button>
           </div>
-          <div>
-            {/* <img src="/images/map.png" /> */}
+          <div className="w-4/5 md:w-[550px]">
+            <img src="/images/hero.png" />
           </div>
         </div>
         {/* </div> */}
       {/* </div> */}
-      <section className="bg-black pt-[30px] md:pt-[90px] pb-[50px] md:pb-[150px] px-[10px] ">
+      <section className="bg-black pt-[30px] md:pt-[30px] pb-[50px] md:pb-[190px] px-[10px] relative">
         <h1 className="font-space font-[700] text-white text-[30px] md:text-[40px] leading-[35px] md:leading-[51px] text-center mx-[20px] md:mx-[70px] mt-[50px] ">
           Develop tech skills. save times. Build happier tech life. And
           transform your goals into gains. All with Devcent
@@ -54,18 +54,17 @@ const index = () => {
           learning via practice in a mini class of about 30 people globally.
         </p>
 
-        <div className="md:flex">
-          <div className="md:min-w-[500px] flex flex-col justify-center items-center md:items-start mb-[20px] md:mb-0 md:ml-[30px]">
-            <p className="font-bold font-space text-[30px] md:text-[48px] leading-[35px] md:leading-[61px] text-white text-center md:text-left md:w-[410px]">
-              Develop tech <br /> skills. save times. <br /> Build happier{" "}
-              <br /> tech life
+        <div className="md:flex md:pl-[45px] pr-[15px] ">
+          <div className="md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[20px] md:mb-0">
+            <p className="font-bold font-space text-[30px] md:text-[40px] leading-[35px] md:leading-[61px] text-white text-center md:text-left">
+              Develop tech skills. <br /> save times. <br /> Build happier tech life
             </p>
-            <button className="mt-[20px] md:mt-[115px] mx-auto md:mx-0 text-white bg-[#E40084] py-[20px] px-[56px] font-source text-[18px] rounded-lg hover:animate-pulse ease-out duration-300 ">
+            <button className="mt-[20px] md:mt-[115px] mx-auto md:mx-0 text-white bg-[#E40084] py-[20px] px-[56px] font-source text-[18px] rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 ">
               View all
             </button>
           </div>
           <div className="">
-            <div className="md:flex gap-x-[36px]">
+            <div className="md:flex gap-x-[20px]">
               <Box
                 img="/images/icons/uiux.png"
                 title="UI/UX Design"
@@ -91,12 +90,13 @@ const index = () => {
             </div>
           </div>
         </div>
-          <div className="mt-[30px] md:mt-[200px]">
+
+        <div className="mt-[30px] md:mt-[200px]">
               <h1 className="font-space font-[700] text-[#ffba0e] text-[20px] md:text-[40px] leading-[35px] md:leading-[51px] text-center  ">
                 THE BEST TIME TO START IS NOW
               </h1>
               {/* <div className="flex gap-x-[36px] mt-[50px]"> */}
-              <div className="md:grid md:grid-cols-3 gap-4 px-[10px] md:px-[120px] mt-[20px] md:mt-[50px]">
+              <div className="md:grid md:grid-cols-3 md:gap-x-[80px] px-[10px] md:px-[100px] mt-[20px] md:mt-[50px]">
                 <div className="flex gap-x-[15px] md:gap-x-[24px] items-center">
                   <img src="/images/icons/learning.png" alt="" />
                   <div>
@@ -119,10 +119,12 @@ const index = () => {
                   </div>
                 </div>
               </div>
-            </div>
+        </div>
+        
+          <img src="/images/gradinenthome.png" className="absolute bottom-[-240px] left-[50%] md:left-[35%]" />
       </section>
       <section className="md:py-[120px] bg-[#F9F9F9] md:px-[80px] relative md:min-h-[1000px]">
-        <div className="relative z-20 py-[52px]  text-white bg-[url('/images/counterbg.png')] bg-cover bg-center max-h-[100vh] md:h-[751px] w-full md:w-[751px] rounded-[10px] ">
+        <div className="relative z-20 py-[52px]  text-white bg-[url('/images/counterbg.png')] bg-cover bg-center max-h-[100vh] md:h-[751px] w-full md:w-[751px] rounded-[10px] " style={{boxShadow: '0px 3px 45px rgba(0, 0, 0, 0.14)'}}>
           <div
             className="absolute top-0 left-0 right-0 bottom-0 max-h-[100vh] md:h-[751px] w-full md:w-[751px] z-[1] rounded-[10px]"
             style={{
@@ -131,8 +133,8 @@ const index = () => {
             }}
           />
           <div className="relative z-10 flex flex-col h-full justify-center">
-            <div className="md:ml-[240px]text-center md:text-left">
-              <p className="font-roboto font-light text-[80px] md:text-[130px] leading-[90px] md:leading-[168px] text-center md:text-left">
+            <div className="md:ml-[240px] text-center md:text-left">
+              <p className="font-roboto font-light text-[80px] md:text-[130px] leading-[90px] md:leading-[168px]">
                 28
               </p>
               <p className="font-source font-regular text-[22px] leading-[55px] text-center md:text-left">
@@ -164,7 +166,7 @@ const index = () => {
             </div> */}
           </div>
         </div>
-        <div className="mt-[15px] md:mt-[52px] md:h-[751px] md:w-[687px] md:absolute md:top-[120px] md:left-[590px] rounded-[10px] bg-white border border-[rgba(0, 0, 0, 0.14)] z-[20] px-[20px] text-center md:text-left md:pl-[93px] pt-[40px] mb-[20px] md:mb-[40px]">
+        <div className="mt-[15px] md:mt-[52px] md:h-[751px] md:w-[687px] md:absolute md:top-[120px] md:left-[590px] rounded-[10px] bg-white border border-[rgba(0, 0, 0, 0.14)] z-[20] px-[20px] text-center md:text-left md:pl-[93px] pt-[40px] mb-[20px] md:mb-[40px]" style={{boxShadow: '0px 3px 45px rgba(0, 0, 0, 0.14)'}}>
           <p className="font-space font-[400] text-[30px] md:text-[42.88px] leading-[35px] md:leading-[54.72px] text-black">
             Take the next step towards <br /> your personal and <br />{" "}
             professional goals with <br />
@@ -223,7 +225,7 @@ have never been more in-demand. Learn everything you need to take your career to
               <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">In-depth Knowledge</h3>
                 <p className="font-dmsans font-regular text-[18.5px] leading-[24px] pb-[20px] md:pb-0">
                   We train and teach you Computer and ICT skills from scratch to
-                  professional level. Even if you are a novice in computer ,
+                  professional level. Even if you are a novice in computer,
                   then you are in the right place.
               </p>
             </div>
@@ -336,9 +338,9 @@ have never been more in-demand. Learn everything you need to take your career to
           </div>
         {/* </div> */}
       </section>
-      <section className="relative z-20 pt-[140px] py-[52px]  text-white bg-[url('/images/testimonybg.png')] bg-cover bg-fixed bg-center h-[120vh] break overflow-hidden">
+      <section className="relative z-20 pt-[140px] py-[52px]  text-white bg-[url('/images/testimonybg.png')] bg-cover bg-fixed bg-center min-h-[120vh] break overflow-hidden">
         <div
-          className="absolute top-0 left-0 right-0 bottom-0 h-[120vh] z-[1]"
+          className="absolute top-0 left-0 right-0 bottom-0 min-h-[120vh] z-[1]"
           style={{
             background:
               "linear-gradient(261.98deg, rgba(0, 7, 2, 0.9) 8.27%, rgba(6, 7, 0, 0.8) 91.06%)",
@@ -346,7 +348,7 @@ have never been more in-demand. Learn everything you need to take your career to
         />
         <div className="relative z-10 flex flex-col h-full items-center justify-center ">
           <img src="/images/icons/quote.png" alt="quote acon" />
-          <h1 className="mt-[100px] mb-[74px] font-dmsans font-[400] text-[27px] leading-[45px] text-center w-[748px]">
+          <h1 className="mt-[30px] md:mt-[100px] mb-[30px] md:mb-[74px] font-dmsans font-[400] text-[27px] leading-[45px] text-center mx-[15px] md:w-[748px]">
             I can recommend Devcent for anybody who wants to <br /> transit into
             Tech, their classes are top notch
           </h1>
@@ -375,7 +377,7 @@ have never been more in-demand. Learn everything you need to take your career to
             In our featured video, discover how A Leap Ahead IT team keeps its
             knowledge and skills relevant with training and certification.
           </p>
-          <button className="text-white bg-[#E40084] py-[14px] px-[34px] font-[7pp] font-source text-[25px] rounded-[20px] hover:animate-pulse ease-out duration-300 mb-[20px] md:mb-0">
+          <button className="text-white bg-[#E40084] py-[8px] md:py-[14px] px-[20px] md:px-[34px] font-[700] font-source text-[25px] rounded-[20px] hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 mb-[20px] md:mb-0">
             More stories
           </button>
         </article>

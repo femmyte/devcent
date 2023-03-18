@@ -95,7 +95,7 @@ const courses = () => {
             </div>
           </CourseCard>
           <CourseCard
-            img="fulstack"
+            img="fullstack"
             background='#19201D' second>
               <h3 className="font-space font-[700] text-24px] leading-[19px]">Full Stack Web </h3>
             <p className="font-[400] font-dmsans text-[15px] leading-[27px]">Become a full-stack web developer with our comprehensive Full-Stack Web Development Training. Learn to build dynamic, responsive and interactive web applications using both front-end and back-end development technologies. Our program covers everything from HTML and CSS to JavaScript, React, Node.js, and more, giving you a complete understanding of the web development process. With hands-on experience working on real-world projects, you'll graduate with a portfolio of work to showcase your skills to potential employers. Whether you're just starting out or looking to advance your career, our training program will prepare you for a successful career in full-stack web development. Enroll now and take the first step towards becoming a full-stack web developer!</p>
