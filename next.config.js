@@ -5,7 +5,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  staticPageGenerationTimeout: 100,
+  staticPageGenerationTimeout: 300,
 }
 
 module.exports = nextConfig
