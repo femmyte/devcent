@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
-const signin = () => {
+const Signin = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
@@ -92,4 +92,4 @@ const signin = () => {
   )
 }
 
-export default signin
+export default Signin

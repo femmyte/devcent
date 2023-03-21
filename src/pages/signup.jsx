@@ -3,7 +3,7 @@ import GoogleButton from '../../components/GoogleButton'
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useSession } from "next-auth/react";
-const signup = () => {
+const Signup = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
     // Retrieve the session and router so that we can navigate
@@ -67,4 +67,4 @@ const signup = () => {
   )
 }
 
-export default signup
+export default Signup
