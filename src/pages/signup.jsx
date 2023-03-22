@@ -32,7 +32,7 @@ const Signup = () => {
         <div className="mb-[13px]">
           <label htmlFor="email">Email</label>
           <div className="dark:text-gray-200  dark:hover:text-white flex w-full md:w-[379px] h-[45px] pl-[16px] items-center border border-[#cfcfcf] bg-white rounded-lg mt-[3px]">
-            <img src='/images/icons/email.png' />
+            <img src='/images/icons/email.png' alt='email' />
     <input
       type="text"
       className="p-2 bg-white outline-none w-[100%] text-[16px] rounded-r-lg"
@@ -45,7 +45,7 @@ const Signup = () => {
         <div className="mb-[13px]">
           <label htmlFor="password">Password</label>
           <div className="dark:text-gray-200 dark:bg-main-dark-bg dark:hover:text-white flex w-full md:w-[379px] h-[45px] pl-[16px] items-center border border-[#cfcfcf] bg-transparent rounded-lg mt-[3px]">
-            <img src='/images/icons/password.png' />
+            <img src='/images/icons/password.png' alt='ps' />
     <input
       type="password"
               className="p-2 bg-transparent outline-none active:bg-transparent placeholder:bg-transparent fill-transparent w-[100%] text-[16px] rounded-r-lg "

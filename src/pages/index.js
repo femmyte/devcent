@@ -39,7 +39,7 @@ const index = () => {
             </button>
           </div>
           <div className="w-4/5 md:w-[550px]">
-            <img src="/images/hero.png" />
+            <img src="/images/hero.png" alt="hero" />
           </div>
         </div>
         {/* </div> */}
@@ -121,7 +121,7 @@ const index = () => {
               </div>
         </div>
         
-          <img src="/images/gradinenthome.png" className="absolute bottom-[-240px] left-[50%] md:left-[35%]" />
+          <img src="/images/gradinenthome.png" alt="gra" className="absolute bottom-[-240px] left-[50%] md:left-[35%]" />
       </section>
       <section className="md:py-[120px] bg-[#F9F9F9] md:px-[80px] relative md:min-h-[1000px]">
         <div className="relative z-20 py-[52px]  text-white bg-[url('/images/counterbg.png')] bg-cover bg-center max-h-[100vh] md:h-[751px] w-full md:w-[751px] rounded-[10px] " style={{boxShadow: '0px 3px 45px rgba(0, 0, 0, 0.14)'}}>
@@ -220,7 +220,7 @@ have never been more in-demand. Learn everything you need to take your career to
             <div className="rounded-[8px] py-[55px] px-[0px] md:px-[40px]">
           <div className="md:flex justify-between text-white gap-x-[100px] mb-[20px] md:mb-0">
             <div className="flex gap-x-[15px] md:gap-x-[30px] items-start">
-              <img src="/images/icons/markbg.png" className="" />
+              <img src="/images/icons/markbg.png" alt="mark" className="" />
             <div className="md:w-[400px]">
               <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">In-depth Knowledge</h3>
                 <p className="font-dmsans font-regular text-[18.5px] leading-[24px] pb-[20px] md:pb-0">
@@ -231,7 +231,7 @@ have never been more in-demand. Learn everything you need to take your career to
             </div>
             </div>
             <div className="flex gap-x-[15px] md:gap-x-[30px] items-start">
-              <img src="/images/icons/markbg.png" className="" />
+              <img src="/images/icons/markbg.png" alt="mark" className="" />
             <div className="md:w-[400px]">
               <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">In-depth Knowledge</h3>
                 <p className="font-dmsans font-regular text-[18.5px] leading-[24px]">
@@ -245,7 +245,7 @@ have never been more in-demand. Learn everything you need to take your career to
 
           <div className="md:flex justify-between text-white gap-x-[50px] md:mt-[50px]">
             <div className="flex gap-x-[15px] md:gap-x-[30px] items-start">
-              <img src="/images/icons/markbg.png" className="" />
+              <img src="/images/icons/markbg.png" alt="" className="" />
             <div className="md:w-[400px]">
               <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">In-depth Knowledge</h3>
                 <p className="font-dmsans font-regular text-[18.5px] leading-[24px] pb-[20px] md:pb-0">
@@ -255,7 +255,7 @@ have never been more in-demand. Learn everything you need to take your career to
                 </p> </div>
             </div>
             <div className="flex gap-x-[15px] md:gap-x-[30px] items-start">
-              <img src="/images/icons/markbg.png" className="" />
+              <img src="/images/icons/markbg.png"alt="j" className="" />
             <div className="md:w-[400px]">
               <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">In-depth Knowledge</h3>
                 <p className="font-dmsans font-regular text-[18.5px] leading-[24px]">

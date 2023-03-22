@@ -16,7 +16,7 @@ const Overview = () => {
   const [courseInformation, setCourseInformationo] = useState(courseInfo)
   const fetchUser = async () => {
     try {
-      const response = await fetch('https://bluealgorithm-api-production.up.railway.app/v1/students')
+      const response = await fetch('students')
 
       const data = await response.json()
       // setFetchedUsers(data);
@@ -46,7 +46,7 @@ const Overview = () => {
                 courseInformation.map(info => {
                   const {number, title, reading, video,instructor, percent, isActive} = info
                   return (
-                    <div className="py-[12px]">
+                    <div className="py-[12px]" key={number}>
                       <CourseModuleCard number={number} title={title} reading={reading} video={video} instructor={instructor} percent={percent}  isActive={isActive} />
                     </div>
                   )
@@ -57,7 +57,7 @@ const Overview = () => {
                 <Schedular />
                 <div className='w-[90%] md:w-[290px] min-h-[146px] rounded-[8px] py-[16px] pl-[24px] pr-[6px] flex flex-col bg-white mt-[17px] text-[#828282]' style={{ boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)' }}>
                   <div className="flex justify-between items-center">
-                    <img src="/images/icons/dashboard/school.png" alt="" />
+                    <img src="/images/icons/dashboard/school.png" alt="school" />
                     <div className="text-[#828282]">
                       <p className='font-space font-[400] text-[14px] leading-[17px] mb-[4px]'>Due Date</p>
                       <p className='flex items-center justify-center font-[400] text-[12px] gap-x-[6.5px]'> <FiCalendar /> Due Date</p>

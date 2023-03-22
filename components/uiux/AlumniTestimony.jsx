@@ -20,7 +20,7 @@ const Card = ({ title, btnText, icon, children }) => {
           >
             {title}
           </h3>
-          {icon && <img src="/images/icons/move.png" />}
+          {icon && <img src="/images/icons/move.png" alt={icon} />}
         </div>
         <button
           className="px-[20px] py-[10px] text-[20px] font-[700] font-space leading-[25.52px] text-[#3f3d3d] border border-[#3f3d3d]"

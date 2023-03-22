@@ -10,7 +10,7 @@ const DashboardCard = ({ icon, figure, title, middle, bg, textColor }) => (
     }}
   >
     <div className='flex gap-[18px] items-center '>
-      <img src={icon} className='mx-[15px] md:mx-[29px]' />
+      <img src={icon} className='mx-[15px] md:mx-[29px]' alt={icon} />
       <div className=''>
         <p className='text-[16px] font-[400] mb-[8px] md:mb-[14px] text-[#8db0c2]'>
           {title}
