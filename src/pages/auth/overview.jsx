@@ -1,6 +1,6 @@
 // import Calendar from 'components/dashboard/Calendar'
 import CourseModuleCard from 'components/dashboard/CourseModuleCard'
-import Overview from 'components/dashboard/Overview'
+import OverviewComponent from 'components/dashboard/Overview'
 import Schedular from 'components/dashboard/SchedularPart'
 import React, {useEffect, useState} from 'react'
 import { FiCalendar } from 'react-icons/fi'
@@ -38,7 +38,7 @@ const Overview = () => {
       <DashboardLayout>
         <div className='dark:text-gray-200 dark:bg-main-dark-bg dark:hover:text-white pt-[50px] md:pt-0 pr-[30px]'>
           <div className=' pt-[30px] shadow pb-[30px]dark:text-gray-200 dark:bg-main-dark-bg dark:hover:text-white md:ml-[20px] pb-[20px]'>
-              <Overview />
+              <OverviewComponent />
            
             <div className='flex justify-between mt-[20px] md:mt-[31px]'>
               <div className="">
