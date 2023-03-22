@@ -26,7 +26,9 @@
   --secondary-glow: radial-gradient(
     rgba(255, 255, 255, 1),
     rgba(255, 255, 255, 0)
+    
   );
+
 
   --tile-start-rgb: 239, 245, 249;
   --tile-end-rgb: 228, 232, 233;
@@ -44,8 +46,20 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
-}
 
+
+  --fc-border-color: transparent;
+  --fc-daygrid-event-dot-width: 5px;
+  --fc-button-active-bg-color: red;
+  --fc-button-bg-color: transparent;
+  --fc-button-border-color: transparent;
+  --fc-button-border-radius: 50%;
+}
+.fc .fc-col-header-cell-cushion {
+  display: block;
+  padding: 2px 4px;
+  background-color: rgb(var(--fc-border-color));
+}
 @media (prefers-color-scheme: dark) {
   :root {
     --foreground-rgb: 255, 255, 255;

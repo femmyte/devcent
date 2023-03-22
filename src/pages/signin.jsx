@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
+import Image from 'next/image';
 const Signin = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -33,7 +34,7 @@ const Signin = () => {
   // If the user is authenticated, redirect them to the home
   // page
   if (status === "authenticated") {
-    router.replace("/");
+    router.replace("/auth/overview");
   }
   return (
     <div className='bg-[#1d171a] min-h-[100vh] py-[30px] md:py-[70px]'>

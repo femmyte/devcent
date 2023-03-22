@@ -20,7 +20,7 @@ export const authOptions = {
     //   // Add logic here to look up the user from the credentials supplied
         const { email, password } = credentials
         
-        const res = await fetch(`https://bluealgorithm-api-production.up.railway.app/v1/admin/login`, {
+        const res = await fetch(`https:/admin/login`, {
             method: 'POST',
             headers: { "Content-Type": 'application/json' },
             body: JSON.stringify({ email, password })

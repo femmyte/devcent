@@ -21,7 +21,7 @@ const Sidebar = () => {
   const normalLink =
     'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-[#8C8D8E] font-[400] text-[16px] dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2'
   return (
-    <div className='h-screen md:overflow-auto overflow-auto md:hover:overflow-auto pb-10 bg-[#101010]'>
+    <div className='h-screen overflow-y-auto md:overflow-x-hidden  md:hover:overflow-y-auto pb-10 w-[218px] bg-[#101010]'>
       {activeMenu && (
         <>
           <div className='flex justify-between items-center'>
@@ -59,7 +59,7 @@ const Sidebar = () => {
                       className={activeMenu ? normalLink : activeLink}
                     >
                       {link.icon}
-                      <span className='capitalize'>
+                      <span className='capitalize font-space font-[500] text-[14px] '>
                         {/* {link.name == '/' ? 'overview' : link.name} */}
                         {link.name}
                       </span>

@@ -5,7 +5,7 @@ import { HiOutlineUserGroup } from 'react-icons/hi'
 
 export const links = [
   {
-    title: 'Overview',
+    title: 'Dashboard',
     links: [
       {
         name: 'overview',
@@ -18,7 +18,27 @@ export const links = [
     title: 'Pages',
     links: [
       {
-        name: 'manage-users',
+        name: 'task',
+        icon: <HiOutlineUserGroup />,
+      },
+      {
+        name: 'instructors',
+        icon: <HiOutlineUserGroup />,
+      },
+      {
+        name: 'modules',
+        icon: <HiOutlineUserGroup />,
+      },
+      {
+        name: 'schedule',
+        icon: <HiOutlineUserGroup />,
+      },
+      {
+        name: 'technical-support',
+        icon: <HiOutlineUserGroup />,
+      },
+      {
+        name: 'fAQs-and-tutorials',
         icon: <HiOutlineUserGroup />,
       },
     ],

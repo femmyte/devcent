@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { AiOutlineMenu } from 'react-icons/ai'
+import { AiOutlineMail, AiOutlineMenu } from 'react-icons/ai'
 import { RiNotification3Line } from 'react-icons/ri'
 import { MdKeyboardArrowDown } from 'react-icons/md'
 import { FaToggleOn, FaToggleOff } from 'react-icons/fa'
@@ -11,19 +11,20 @@ import {useSession, signOut} from 'next-auth/react'
 
 import { useStateContext } from '../../AuthContext'
 
-const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
+const NavButton = ({ title, customFunc, icon, color, dotColor, num }) => (
+  <div className="relative">
   <button
     type='button'
     onClick={customFunc}
     style={{ color }}
     className='relative text-xl rounded-full p-3 hover:bg-light-gray'
   >
-    <span
-      style={{ backgroundColor: dotColor }}
-      className='absolute inline-flex rounded-full h-2 w-2 right-2 top-2'
-    />
     {icon}
-  </button>
+    </button>
+    <div
+      style={{ backgroundColor: dotColor }}
+      className='absolute rounded-full h-[15px] w-[15px] right-[7px] top-[4px] text-[10px] text-white flex items-center justify-center'>{ num }</div>
+    </div>
 )
 const Navbar = () => {
   const {
@@ -98,62 +99,17 @@ const Navbar = () => {
         icon={<AiOutlineMenu />}
       />
 
-      <div className='flex'>
-        {darkToggle ? (
+      <div className='flex gap-x-[50px]'>
+        
           <NavButton
             title='Mode'
             customFunc={() => setDarkToggle((prevState) => !prevState)}
             color='white'
-            icon={<FaToggleOn />}
-            dotColor='black'
+          icon={<AiOutlineMail />}
+          dotColor='red'
+          num={4}
           />
-        ) : (
-          <NavButton
-            title='Mode'
-            customFunc={() => setDarkToggle((prevState) => !prevState)}
-            color='blue'
-            icon={<FaToggleOff />}
-          />
-        )}
         {/* <NavButton title='Chat' dotColor='#03c9D7' customFunc={() => handleClick('chat')} color='blue' icon={<BsChatLeft />} /> */}
-        <div
-          className={`${
-            dropDown ? 'mt-[10px] md:mt-0' : 'my-3 md:my-0'
-          } md:mr-[30px]  relative flex items-center gap-2 cursor-pointer hover:bg-light-gray rounded-lg `}
-          onMouseEnter={handleDropDown}
-          onClick={() => setDropDown(!dropDown)}
-          onMouseLeave={() => setDropDown(false)}
-          // onClick={() => handleClick("userProfile")}
-        >
-          <img
-            src='/bright.jpeg'
-            alt='avatar'
-            className='rounded-full w-8 h-8 ml-4'
-          />
-          <p className='text-gray-400 text-[10px] md:text-14 font-bold ml-1'>
-            Bright Ogor
-          </p>
-          <MdKeyboardArrowDown className='text-gray-400 text-14 mr-3' />
-          <ul
-            className={`${
-              dropDown ? 'top-[40px] opacity-100 pb-6 z-20 ' : 'hidden'
-            } absolute  bg-white py-4  px-4 font-normal text-xl w-[149px]`}
-            style={{
-              zIndex: 2,
-              boxShadow:
-                '0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px -1px rgba(0, 0, 0, 0.1)',
-            }}
-          >
-            <li className='mb-2'>
-              <button
-                onClick={()=> signOut() }
-                className='text-[#F05252] hover:text-primary_blue-200 duration-500 font-[400] text-[14px] leading-6'
-              >
-                Sign Out
-              </button>
-            </li>
-          </ul>
-        </div>
 
         <div
           className={`${
@@ -165,9 +121,10 @@ const Navbar = () => {
         >
           <NavButton
             title='Notifications'
-            dotColor='#03c9D7'
+            dotColor='red'
             customFunc={() => setNotificationdropDown(!notificationdropDown)}
-            color='blue'
+            color='white'
+            num={2}
             icon={<RiNotification3Line />}
           />
           <ul
@@ -211,6 +168,44 @@ const Navbar = () => {
               </p>
             </div>
           </ul>
+        </div>
+         <div
+          className={`${
+            dropDown ? 'mt-[10px] md:mt-0' : 'my-3 md:my-0'
+          } md:mr-[30px]  relative flex items-center gap-2 cursor-pointer hover:bg-light-gray rounded-lg `}
+          onMouseEnter={handleDropDown}
+          onClick={() => setDropDown(!dropDown)}
+          onMouseLeave={() => setDropDown(false)}
+          // onClick={() => handleClick("userProfile")}
+        >
+          <p className='text-gray-400 text-[10px] md:text-14 font-bold ml-1'>
+            Tosin
+          </p>
+          <img
+            src="/images/instructor/alalade.png"
+            alt='avatar'
+            className='rounded-full w-8 h-8 ml-4'
+          />
+          {/* <MdKeyboardArrowDown className='text-gray-400 text-14 mr-3' />
+          <ul
+            className={`${
+              dropDown ? 'top-[40px] opacity-100 pb-6 z-20 ' : 'hidden'
+            } absolute  bg-white py-4  px-4 font-normal text-xl w-[149px]`}
+            style={{
+              zIndex: 2,
+              boxShadow:
+                '0px 1px 3px rgba(0, 0, 0, 0.1), 0px 1px 2px -1px rgba(0, 0, 0, 0.1)',
+            }}
+          >
+            <li className='mb-2'>
+              <button
+                onClick={()=> signOut() }
+                className='text-[#F05252] hover:text-primary_blue-200 duration-500 font-[400] text-[14px] leading-6'
+              >
+                Sign Out
+              </button>
+            </li>
+          </ul> */}
         </div>
         {/* { isClicked.cart && <Cart /> }
         { isClicked.chat && <Chat /> }

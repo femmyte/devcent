@@ -18,7 +18,7 @@ function DashboardLayout({ children }) {
             className={` ${
               login
                 ? "hidden w-0 md:w-0"
-                : "w-72 md:w-[20%] fixed sidebar dark:bg-secondary-dark-bg bg-white"
+                : "w-72 md:w-[218px] fixed sidebar dark:bg-secondary-dark-bg bg-white"
             } `}
           >
             <Sidebar />
@@ -36,7 +36,7 @@ function DashboardLayout({ children }) {
         <div
           className={`
               ${
-                activeMenu && !login ? "md:ml-[20%] w-[82%]" : "flex-2"
+                activeMenu && !login ? "md:ml-[218px] w-[82%]" : "flex-2"
               } dark:bg-main-bg bg-main-bg min-h-screen w-full`}
         >
           <div
