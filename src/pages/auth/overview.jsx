@@ -10,7 +10,7 @@ import DashboardLayout from '../../../components/dashboard/DashboardLayout'
 import courseInfo from '../../../courseInfo'
 
 
-const overview = () => {
+const Overview = () => {
   const [fetchedUsers, setFetchedUsers] = useState({})
   const [course, setCourse] = useState('')
   const [courseInformation, setCourseInformationo] = useState(courseInfo)
@@ -97,4 +97,4 @@ const overview = () => {
   )
 }
 
-export default overview
+export default Overview
