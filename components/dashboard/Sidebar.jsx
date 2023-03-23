@@ -1,10 +1,11 @@
 import React from 'react'
 import { SiShopware } from 'react-icons/si'
 import { MdOutlineCancel } from 'react-icons/md'
-import { FiLogOut } from 'react-icons/fi'
+import { FiLogOut, FiSettings } from 'react-icons/fi'
 import { links } from '../../links'
 import Link from 'next/link'
 import { useStateContext } from '../../AuthContext'
+import { signOut } from 'next-auth/react'
 
 const Sidebar = () => {
   let { activeMenu, setActiveMenu, screenSize, logout, login } =
@@ -21,7 +22,7 @@ const Sidebar = () => {
   const normalLink =
     'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-[#8C8D8E] font-[400] text-[16px] dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2'
   return (
-    <div className='h-screen overflow-y-auto md:overflow-x-hidden  md:hover:overflow-y-auto pb-10 w-[218px] bg-[#101010]'>
+    <div className='h-screen overflow-y-auto md:overflow-x-hidden  md:hover:overflow-y-auto pb-[10px] w-[218px] bg-[#101010]'>
       {activeMenu && (
         <>
           <div className='flex justify-between items-center'>
@@ -45,7 +46,7 @@ const Sidebar = () => {
               <MdOutlineCancel />
             </button>
           </div>
-          <div className='mt-10 w-[225px]'>
+          <div className='mt-5 w-[225px]'>
             {links.map((item) => (
               <div key={item.title}>
                 {/* <p className="text-gray-400 m-3 mt-4 uppercase">{item.title}</p> */}
@@ -53,7 +54,7 @@ const Sidebar = () => {
                 {item.links.map((link) => {
                   return (
                     <Link
-                      href={`/${link.name}`}
+                      href={`/auth/${link.name}`}
                       key={link.name}
                       onClick={handleCloseSidebar}
                       className={activeMenu ? normalLink : activeLink}
@@ -71,13 +72,20 @@ const Sidebar = () => {
           </div>
         </>
       )}
-      {/* <button
-        onClick={handleLogout}
-        className="flex items-center w-[90%] gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md m-2 bg-red-500 mt-[40px]"
+      <button
+        onClick={()=>signOut()}
+        className="flex items-center w-[90%] gap-x-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md  mt-[40px]"
+      >
+        <FiSettings />
+        <span className="capitalize">Settings</span>
+      </button>
+      <button
+        onClick={()=>signOut()}
+        className="flex items-center w-[90%] gap-x-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md "
       >
         <FiLogOut />
         <span className="capitalize">logout</span>
-      </button> */}
+      </button>
     </div>
   )
 }

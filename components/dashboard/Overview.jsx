@@ -40,14 +40,14 @@ const Card = ({title, number, icon}) => {
 }
 const Overview = () => {
   return (
-    <section className='flex gap-x-[30px] mt-[25px] md:mt-[48px]'>
+    <section className='pl-[15px] flex flex-col md:flex-row items-center justify-center gap-y-[20px] md:gap-y-0 md:gap-x-[30px] mt-[25px] md:mt-[48px]'>
       <div className="">
-      <h1 className='font-[700] text-white text-[24px] leading-[30.24px] '>Welcome back Tosin. 👋</h1>
+      <h1 className='font-[700] text-white text-[20px] md:text-[24px] leading-[30.24px] '>Welcome back Tosin. 👋</h1>
       <p className='font-plus font-[500] text-[16px] text-[#71717a] leading-[20.16px] mb-[20px] md:mb-[32px] mt-[8px]'>You’re making great progress. We’re rooting for you!     </p>
-    <div className='w-[90%] md:w-[620px] rounded-[16px] p-[16px] bg-[#1c1c1c] text-white'>
+    <div className='w-[96%] md:w-[620px] rounded-[16px] p-[16px] bg-[#1c1c1c] text-white'>
       <p className='font-space font-[700] text-[20px] leading-[25.5px]'>Overview</p>
       <p className='font-space font-[400] text-[14px] leading-[18px] mt-[8px]'>Track your progress</p>
-      <div className="md:flex justify-between items-center gap-[24px] ">
+      <div className="flex flex-col md:flex-row justify-between items-center gap-x-[24px] ">
         <Card title='TOTAL' number='5' icon='totalmodule' />
         <Card title='ACTIVE' number='10' icon='activemodule' />
         <Card title='COMPLETED' number='2' icon='completedmodule' />
@@ -64,7 +64,7 @@ const Overview = () => {
               
         </div>
       </div>
-      <div className='w-[90%] md:w-[428px] h-[352px] rounded-[24px] py-[20px] px-[36px] bg-[#323131] text-white flex flex-col items-center justify-center'>
+      <div className='w-[96%] md:w-[428px] h-[352px] rounded-[24px] py-[20px] px-[36px] bg-[#323131] text-white flex flex-col items-center justify-center'>
         <p className='font-space font-[700] text-[20px] text-white leading-[25.16px] mb-[20px] md:mb-[32px] mt-[8px]'>Overall Course Progress </p>
         <div className="w-[200px] h-[400px]">
          <Chart />

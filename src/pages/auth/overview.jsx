@@ -36,11 +36,10 @@ const Overview = () => {
   return (
     <div>
       <DashboardLayout>
-        <div className='dark:text-gray-200 dark:bg-main-dark-bg dark:hover:text-white pt-[50px] md:pt-0 pr-[30px]'>
-          <div className=' pt-[30px] shadow pb-[30px]dark:text-gray-200 dark:bg-main-dark-bg dark:hover:text-white md:ml-[20px] pb-[20px]'>
+        <>
               <OverviewComponent />
            
-            <div className='flex justify-between mt-[20px] md:mt-[31px]'>
+            <div className='w-full flex flex-col md:flex-row justify-center md:justify-between pl-[15px] mt-[20px] md:mt-[31px]'>
               <div className="">
               {
                 courseInformation.map(info => {
@@ -53,9 +52,9 @@ const Overview = () => {
                 })
                 }
               </div>
-              <div className='w-[90%] md:w-[322px] min-h-[601px] rounded-[24px] py-[20px] px-[16px] bg-[#323131] text-white flex flex-col'>
+              <div className='w-[96%] mx-auto md:w-[322px] min-h-[601px] rounded-[24px] py-[20px] px-[16px] bg-[#323131] text-white flex flex-col'>
                 <Schedular />
-                <div className='w-[90%] md:w-[290px] min-h-[146px] rounded-[8px] py-[16px] pl-[24px] pr-[6px] flex flex-col bg-white mt-[17px] text-[#828282]' style={{ boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)' }}>
+                <div className='w-[96%] md:w-[290px] min-h-[146px] rounded-[8px] py-[16px] pl-[10px] md:pl-[24px] pr-[6px] flex flex-col bg-white mt-[17px] text-[#828282]' style={{ boxShadow: '0px 2px 2px rgba(0, 0, 0, 0.25)' }}>
                   <div className="flex justify-between items-center">
                     <img src="/images/icons/dashboard/school.png" alt="school" />
                     <div className="text-[#828282]">
@@ -85,13 +84,8 @@ const Overview = () => {
                 </div>
                </div>
             </div>
-            <div className="bg-white">
-
-              {/* <Schedular /> */}
-              {/* <Calendar /> */}
-            </div>
-          </div>
-        </div>
+            
+          </>
       </DashboardLayout>
     </div>
   )
