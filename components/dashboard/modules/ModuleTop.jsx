@@ -4,7 +4,7 @@ import { FiPlayCircle, FiVideo, FiVideoOff } from 'react-icons/fi';
 const ModuleTop = () => {
 	return (
 		<>
-			<div className='md:pl-[45px]'>
+			<div className='px-[20px] md:px-0 md:pl-[45px]'>
 				<h1 className='font-[700] text-white text-[20px] md:text-[24px] leading-[30.24px] '>
 					Modules
 				</h1>
@@ -20,7 +20,7 @@ const ModuleTop = () => {
 					</h1>
 				</div>
 				<div className='md:flex items-center gap-x-[80px] '>
-					<div className='md:flex items-center gap-x-[26px] text-white'>
+					<div className='flex items-center gap-x-[15px] md:gap-x-[26px] text-white'>
 						<FiPlayCircle />
 						<p className='text-[18px] font-space font-[700]'>
 							20mins
@@ -30,7 +30,7 @@ const ModuleTop = () => {
 							</span>
 						</p>
 					</div>
-					<div className='md:flex items-center gap-x-[26px] text-white'>
+					<div className='flex items-center gap-x-[15px] md:gap-x-[26px] text-white'>
 						<FiPlayCircle />
 						<p className='text-[18px] font-space font-[700]'>
 							1hour
@@ -40,7 +40,7 @@ const ModuleTop = () => {
 							</span>
 						</p>
 					</div>
-					<div className='md:flex items-center gap-x-[26px] text-white'>
+					<div className='flex items-center gap-x-[15px] md:gap-x-[26px] text-white'>
 						<FiPlayCircle />
 						<p className='text-[18px] font-space font-[700]'>
 							2 ungraded
