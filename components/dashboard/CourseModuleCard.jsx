@@ -16,15 +16,15 @@ const CourseModuleCard = ({
 }) => {
 	return (
 		<div
-			className={` md:w-[720px] md:h-[80px] flex flex-col md:flex-row justify-center items-center rounded-[8px] gap-x-5 md:gap-x-[56px] px-[20px] md:px-[24px] py-[15px] md:py-0`}
+			className={` md:w-[720px] md:h-[80px] flex flex-col md:flex-row justify-center items-center rounded-[8px] gap-x-5 md:gap-x-[30px] px-[20px] md:px-[24px] py-[15px] md:py-0`}
 			style={{ backgroundColor: isActive ? 'white' : '#e0e0e0' }}
 		>
-			<div className='w-[20p md:w-[64px] h-[20px] md:h-[64px] rounded-[8px] hidden md:flex items-center justify-center bg-slate-600 '>
+			<div className='w-[20px] md:w-[64px] h-[20px] md:h-[50px] rounded-[8px] hidden md:flex items-center justify-center bg-slate-600 '>
 				<p className='font-space font-[700] text-[16px] md:text-[32px] leading-[12px] md:leading-[41px]'>
 					{number}
 				</p>
 			</div>
-			<div className='w-full md:w-[188px] flex flex-col items-center justify-center'>
+			<div className='w-full md:w-[300px] flex flex-col items-center justify-center'>
 				<p className='font-space font-[400] text-[16px] leading-[20px]'>
 					{title}
 				</p>
