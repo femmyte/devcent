@@ -19,9 +19,8 @@ const Schedular = () => {
 	return (
 		<>
 			<DashboardLayout>
-				{isReady && <p>Loading...</p>}
 				{showEventModal && <EventModal />}
-				<div className='min-h-screen flex flex-col text-white w-full px-2'>
+				<div className='min-h-screen flex flex-col text-white w-full px-2 pl-[15px] mt-[20px] md:mt-[31px]'>
 					<h1 className='font-[700] text-white text-[20px] md:text-[24px] leading-[30.24px] '>
 						Schedule
 					</h1>
@@ -30,7 +29,7 @@ const Schedular = () => {
 					</p>
 					<CalendarHeader />
 					<div className='flex flex-1'>
-						{/* <Sidebar /> */}
+						<Sidebar />
 						<Month month={currentMonth} />
 					</div>
 				</div>
