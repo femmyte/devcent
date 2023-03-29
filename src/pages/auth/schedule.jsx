@@ -1,9 +1,11 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { getMonth } from 'appData/calendarUtils';
 import DashboardLayout from 'components/dashboard/DashboardLayout';
+import SchedularPart from 'components/dashboard/Schedular';
 import CalendarHeader from 'components/dashboard/schedular/CalendarHeader';
 import Month from 'components/dashboard/schedular/Month';
 import Sidebar from 'components/dashboard/schedular/Sidebar';
+
 import { useStateContext } from 'AuthContext';
 import EventModal from 'components/dashboard/schedular/EventModal';
 const Schedular = () => {
@@ -27,11 +29,12 @@ const Schedular = () => {
 					<p className='font-plus font-[500] text-[16px] text-[#71717a] leading-[20.16px] mb-[20px] mt-[8px]'>
 						Your day to day activities
 					</p>
-					<CalendarHeader />
+					{/* <CalendarHeader />	 */}
 					<div className='flex flex-1'>
-						<Sidebar />
-						<Month month={currentMonth} />
+						{/* <Sidebar /> */}
+						{/* <Month month={currentMonth} /> */}
 					</div>
+					<SchedularPart />
 				</div>
 			</DashboardLayout>
 		</>

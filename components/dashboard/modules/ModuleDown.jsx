@@ -1,91 +1,82 @@
-import { courselist } from 'courselist';
 import Link from 'next/link';
-import React from 'react';
+import React, { useState } from 'react';
+import Grades from './Grades';
+import ModuleContent from './ModuleContent';
+import Reading from './Reading';
+import Task from './Task';
 
 const ModuleDown = () => {
+	const [content, setContent] = useState(true);
+	const [reading, setReading] = useState(false);
+	const [task, setTask] = useState(false);
+	const [grade, setGrade] = useState(false);
+
+	const handleTask = () => {
+		setContent(false);
+		setReading(false);
+		setGrade(false);
+		setTask(true);
+	};
+	const handleContent = () => {
+		setContent(true);
+		setReading(false);
+		setGrade(false);
+		setTask(false);
+	};
+	const handleGrade = () => {
+		setContent(false);
+		setReading(false);
+		setGrade(true);
+		setTask(false);
+	};
+	const handleReading = () => {
+		setContent(false);
+		setReading(true);
+		setGrade(false);
+		setTask(false);
+	};
 	return (
 		<div className='px-[20px] md:px-0 md:pl-[45px]'>
 			<section className='flex items-center'>
 				<ul className='flex justify-between basis-[90%]'>
 					<li>
-						<Link
-							href='#overview'
+						<button
+							onClick={handleContent}
 							className='font-space font-[400] text-[15px] leading-[26px]  text-white'
 						>
 							Module Contents
-						</Link>
+						</button>
 					</li>
 					<li>
-						<Link
-							href='#curriculum'
+						<button
+							onClick={handleReading}
 							className='font-space font-[400] text-[15px] leading-[26px]  text-[#6d7175]'
 						>
 							Additional Readings
-						</Link>
+						</button>
 					</li>
 					<li>
-						<Link
-							href='#schedule'
+						<button
+							onClick={handleTask}
 							className='font-space font-[400] text-[15px] leading-[26px]  text-[#6d7175]'
 						>
 							Tasks
-						</Link>
+						</button>
 					</li>
 					<li>
-						<Link
-							href='#portfolio'
+						<button
+							onClick={handleGrade}
 							className='font-space font-[400] text-[15px] leading-[26px]  text-[#6d7175]'
 						>
 							Grades
-						</Link>
+						</button>
 					</li>
 				</ul>
 			</section>
-			<section className='mt-[32px]'>
-				{courselist.map((course) => {
-					const {
-						title,
-						description,
-						objectiveTitle,
-						objective,
-						otheInfo,
-					} = course;
-					let obj = [];
-					for (let i = 0; i < objective.length; i++) {
-						obj.push(objective[i]);
-					}
-					console.log(obj);
-					return (
-						<div key={title} className='text-white md:w-[791px]'>
-							<p className='mb-[16px] font-[700] font-space text-[20px] '>
-								{title}
-							</p>
-							{description && (
-								<p className='mb-[11px] font-[400] text-[16px] leading-[26px] font-space'>
-									{description}
-								</p>
-							)}
-							{objectiveTitle && (
-								<p className='my-[35px] font-[400] text-[16px] leading-[26px] font-space'>
-									{objectiveTitle}
-								</p>
-							)}
-							{objectiveTitle && (
-								<ul className=''>
-									{obj.map((newOBj) => (
-										<li
-											key={title}
-											className='mb-[18px] font-[400] text-[16px] leading-[26px] font-space list-disc ml-[20px]'
-										>
-											{newOBj}
-										</li>
-									))}
-								</ul>
-							)}
-						</div>
-					);
-				})}
-			</section>
+			{content && <ModuleContent />}
+			{task && <Task />}
+			{reading && <Reading />}
+			{grade && <Grades />}
 		</div>
 	);
 };

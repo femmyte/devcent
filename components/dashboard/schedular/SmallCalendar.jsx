@@ -7,12 +7,23 @@ import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 const SmallCalendar = () => {
 	const [currentMonthId, setCurrentMonthId] = useState(dayjs().month());
 	const [currentMonth, setCurrentMonth] = useState(getMonth());
+	// const [dayEvent, setDayEvent] = useState([]);
 	useEffect(() => {
 		setCurrentMonth(getMonth(currentMonthId));
 	}, [currentMonthId]);
-	const { monthIndex, setSmallCalendarMonth, daySelected, setDaySelected } =
-		useStateContext();
+	const {
+		monthIndex,
+		setSmallCalendarMonth,
+		daySelected,
+		setDaySelected,
+		setSelectedEvent,
+		filteredEvents,
+		dayEvent,
+		setDayEvent,
+		evtday,
+	} = useStateContext();
 
+	console.log(evtday);
 	useEffect(() => {
 		setCurrentMonthId(monthIndex);
 	}, [monthIndex]);
@@ -36,6 +47,15 @@ const SmallCalendar = () => {
 			return '';
 		}
 	};
+
+	// useEffect(() => {
+	// 	const events = filteredEvents?.filter(
+	// 		(evt) =>
+	// 			dayjs(evt.day).format('DD-MM-YY') === day.format('DD-MM-YY')
+	// 	);
+	// 	setDayEvent(events);
+	// }, [filteredEvents, day]);
+
 	return (
 		<div className='mt-9'>
 			<header className='flex justify-between'>
@@ -67,20 +87,40 @@ const SmallCalendar = () => {
 				))}
 				{currentMonth.map((row, i) => (
 					<React.Fragment key={i}>
-						{row.map((day, idx) => (
-							<button
-								key={idx}
-								className={`py-1 w-full ${getDayClass(day)}`}
-								onClick={() => {
-									setSmallCalendarMonth(currentMonthId);
-									setDaySelected(day);
-								}}
-							>
-								<span className='text-sm'>
-									{day.format('D')}
-								</span>
-							</button>
-						))}
+						{row.map((day, idx) => {
+							return (
+								<button
+									key={idx}
+									className={`py-1 w-full ${getDayClass(
+										day
+									)}`}
+									onClick={() => {
+										setSmallCalendarMonth(currentMonthId);
+										setDaySelected(day);
+									}}
+								>
+									<span className='text-sm'>
+										{day.format('D')}
+									</span>
+									{/* <div className='w-2 h-2 bg-red-400 mx-auto'></div> */}
+									{dayEvent?.map((evt, idx) => (
+										<div
+											key={idx}
+											className={`bg-${evt.label}-200 w-2 h-2  mx-auto`}
+											style={{
+												backgroundColor: evt.label,
+											}}
+											onClick={() =>
+												setSelectedEvent(evt)
+											}
+										>
+											{/* <p>{evt.title}</p> */}
+											{/* <p>{evt.description}</p> */}
+										</div>
+									))}
+								</button>
+							);
+						})}
 					</React.Fragment>
 				))}
 			</div>

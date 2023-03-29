@@ -31,7 +31,7 @@ const Nav = ({ path }) => {
 	};
 	return (
 		<nav
-			className={`z-[30] border-b border-[#494545] h-[64px] flex items-center relative bg-black px-[43px] ${
+			className={`z-[30] border-b border-[#494545] h-[64px] flex items-center relative bg-black md:px-[43px] ${
 				menu ? 'opacity-3' : ''
 			}  bg-black font-source font-[600]`}
 			// style={{
@@ -39,7 +39,7 @@ const Nav = ({ path }) => {
 			//   borderBottom: "1px solid rgba(0, 166, 81, 0.3)",
 			// }}
 		>
-			<div className='md:py-3 ml-[33px] text-white h-[80px] md:h-[60px] w-screen md:flex md:items-center text-[20px] justify-between '>
+			<div className='md:py-3 md:ml-[33px] text-white h-[80px] md:h-[60px] w-screen md:flex md:items-center text-[20px] justify-between '>
 				<div className='flex justify-between items-center h-full cursor-pointer mx-3'>
 					<Link
 						className='text-[20px] hover:text-primary duration-500'
@@ -108,7 +108,7 @@ const Nav = ({ path }) => {
 							<IoIosArrowDown />
 						</li>
 					</ul>
-					<div className='md:ml-[139px] flex justify-center items-center '>
+					<div className='md:ml-[139px] md:flex md:justify-center md:items-center '>
 						{/* <Link
               href="/signup"
               className="bg-primaryGreen w-[94px] py-3 rounded-lg text-[14px] font-[500] text-center"
@@ -119,11 +119,11 @@ const Nav = ({ path }) => {
 
 						<Link
 							href='/signin'
-							className=' font-[400] py-[16px] px-[16px] rounded-lg text-[14px] leading-[17.6px] text-center ml-[54px] text-primaryPurple'
+							className=' font-[400] py-[16px] md:px-[16px] rounded-lg text-[14px] leading-[17.6px] text-left md:text-center mt-[20px] md:mt-0 block md:ml-[54px] text-primaryPurple'
 						>
 							Login
 						</Link>
-						<button className='ml-[48px] text-white bg-[#E40084] w-[149px] h-[40px] font-source text-[18px] rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 '>
+						<button className='md:ml-[48px] text-white bg-[#E40084] w-[149px] h-[40px] font-source text-[18px] rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 '>
 							Get Started
 						</button>
 					</div>

@@ -49,6 +49,8 @@ export const AuthContextProvider = ({ children }) => {
 	const [selectedEvent, setSelectedEvent] = useState(null);
 	const [storageEvents, setStorageEvents] = useState([]);
 	const [labels, setLabels] = useState([true]);
+	const [dayEvent, setDayEvent] = useState([]);
+	const [evtday, setDay] = useState([]);
 
 	const [isBusy, setIsBusy] = useState(true);
 
@@ -59,7 +61,11 @@ export const AuthContextProvider = ({ children }) => {
 			setStorageEvents(parsedEvents);
 		}
 	}, []);
-
+	const [savedEvents, dispatchCalEvent] = useReducer(
+		savedEventsReducer,
+		// [],
+		storageEvents
+	);
 	useEffect(() => {
 		setLabels((prevlabels) => {
 			return [...new Set(savedEvents.map((evt) => evt.label))].map(
@@ -74,12 +80,8 @@ export const AuthContextProvider = ({ children }) => {
 				}
 			);
 		});
-	});
-	const [savedEvents, dispatchCalEvent] = useReducer(
-		savedEventsReducer,
-		// [],
-		storageEvents
-	);
+	}, [savedEvents]);
+
 	const filteredEvents = useMemo(() => {
 		return savedEvents.filter((evt) =>
 			labels
@@ -106,6 +108,14 @@ export const AuthContextProvider = ({ children }) => {
 			setSelectedEvent(null);
 		}
 	}, [showEventModal]);
+
+	// useEffect(() => {
+	// 	const events = filteredEvents?.filter(
+	// 		(evt) =>
+	// 			dayjs(evt.day).format('DD-MM-YY') === day.format('DD-MM-YY')
+	// 	);
+	// 	setDayEvent(events);
+	// }, [filteredEvents, day]);
 	return (
 		<AuthContext.Provider
 			value={{
@@ -138,6 +148,10 @@ export const AuthContextProvider = ({ children }) => {
 				setLabels,
 				updateLabel,
 				filteredEvents,
+				dayEvent,
+				setDayEvent,
+				evtday,
+				setDay,
 			}}
 		>
 			{children}
