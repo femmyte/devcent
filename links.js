@@ -1,46 +1,46 @@
-import { AiFillHome } from 'react-icons/ai'
-import { ImUsers } from 'react-icons/im'
-import { MdCategory } from 'react-icons/md'
-import { HiOutlineUserGroup } from 'react-icons/hi'
+import { AiFillHome } from "react-icons/ai";
+import { ImUsers } from "react-icons/im";
+import { MdCategory } from "react-icons/md";
+import { HiOutlineUserGroup } from "react-icons/hi";
 
 export const links = [
   {
-    title: 'Dashboard',
+    title: "Dashboard",
     links: [
       {
-        name: 'overview',
+        name: "overview",
         icon: <AiFillHome />,
       },
     ],
   },
 
   {
-    title: 'Pages',
+    title: "Pages",
     links: [
       {
-        name: 'task',
+        name: "task",
         icon: <HiOutlineUserGroup />,
       },
       {
-        name: 'instructors',
+        name: "instructors",
         icon: <HiOutlineUserGroup />,
       },
       {
-        name: 'modules',
+        name: "modules",
         icon: <HiOutlineUserGroup />,
       },
       {
-        name: 'schedule',
+        name: "schedule",
         icon: <HiOutlineUserGroup />,
       },
       {
-        name: 'technical-support',
+        name: "technical-support",
         icon: <HiOutlineUserGroup />,
       },
       {
-        name: 'fAQs-and-tutorials',
+        name: "fAQs-and-tutorials",
         icon: <HiOutlineUserGroup />,
       },
     ],
   },
-]
+];
