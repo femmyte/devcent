@@ -5,50 +5,27 @@ import User from "models/User";
 import dbConnect from "lib/db";
 
 export const authOptions = {
-  // Configure one or more authentication providers
-  //   providers: [
-  //     GoogleProvider({
-  //       clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
-  //       clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET,
-  //     }),
-  //     CredentialsProvider({
-  //       //   name: 'Credentials',
-  //       //       credentials: {
-  //       //        email: { label: "Email", type: "text", placeholder: "Email" },
-  //       // password: { label: "Password", type: "password" }
-  //       //   },
-
-  //       async authorize(credentials, req) {
-  //         //   // Add logic here to look up the user from the credentials supplied
-  //         const { email, password } = credentials;
-
-  //         const res = await fetch(`https:/admin/login`, {
-  //           method: "POST",
-  //           headers: { "Content-Type": "application/json" },
-  //           body: JSON.stringify({ email, password }),
-  //         });
-  //         const user = await res.json();
-
-  //         console.log(res);
-  //         if (res.ok && user) {
-  //           return user;
-  //         } else return null;
-  //       },
-  //     }),
-  //     // ...add more providers here
-  //   ],
-  //   session: {
-  //     strategy: "jwt",
-  //   },
-  //   // add the sign in page
-  //   pages: {
-  //     signIn: "/signin",
-  //   },
-
   providers: [
     GoogleProvider({
       clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
       clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET,
+    }),
+    CredentialsProvider({
+      async authorize(credentials, req, res) {
+        await dbConnect();
+        // Add logic here to look up the user from the credentials supplied
+        const { email, password } = credentials;
+        const user = await User.findOne({ email });
+        if (!user) {
+          throw new Error("Invalid email or password");
+        }
+        const isValid = await user.comparePassword(password);
+        if (!isValid) {
+          throw new Error("Invalid email or passw");
+        }
+
+        return user;
+      },
     }),
   ],
 
@@ -60,7 +37,7 @@ export const authOptions = {
         const existingUser = await User.findOne({ email: user.email });
         if (existingUser) {
           user.id = existingUser._id;
-          user.customToken = existingUser.getJwtToken();
+          user.customToken = existingUser.getJwt();
           return user;
         }
 
@@ -72,10 +49,10 @@ export const authOptions = {
         await newUser.save();
 
         user.id = newUser._id;
-        user.customToken = newUser.getJwtToken();
+        user.customToken = newUser.getJwt();
         return user;
-      } catch (err) {
-        console.log(err);
+      } catch (error) {
+        console.log(error);
         return false;
       }
     },
