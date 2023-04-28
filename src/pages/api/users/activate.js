@@ -1,11 +1,7 @@
 import dbConnect from "lib/db";
-import { generateToken } from "lib/helpers/activationToken";
 import { isAllowedMethod } from "lib/helpers/isAllowed";
-import { sendAccountActivationMessage } from "lib/nodemailer/account-activation-message";
 import { validateSignup } from "lib/validations/userValidations";
 import User from "models/User";
-
-const clientUrl = process.env.NEXT_PUBLIC_CLIENT_URL;
 
 export default async function signup(req, res) {
   try {
@@ -15,13 +11,14 @@ export default async function signup(req, res) {
       return;
     }
 
-    const error = await validateSignup(req.body);
-    if (error) {
-      return res.status(400).json({
-        success: false,
-        message: error,
-      });
+    const activationToken = req.body?.activationToken;
+
+    const newUser = jwt.verify(activationToken, process.env.ACTIVATION_SECRET);
+
+    if (!newUser) {
+      return next(new ErrorHandler("Invalid token", 400));
     }
+    const { name, email, password } = newUser;
 
     const userExist = await User.findOne({ email: req.body.email });
     if (userExist) {
@@ -31,20 +28,17 @@ export default async function signup(req, res) {
       });
     }
 
-    const activationToken = generateToken(
-      { email: req.body.email, password: req.body.password },
-      "30m"
-    );
-    const activationUrl = `${clientUrl}/user/activation/${activationToken}`;
-    await sendAccountActivationMessage({
-      url: activationUrl,
+    const user = new User({
+      name: "New User",
       email: req.body.email,
-      expires: 30,
+      password: req.body.password,
     });
 
-    res.status(200).json({
+    await user.save();
+
+    res.status(201).json({
       success: true,
-      message: "Check your email to activate your account",
+      message: "User created successfully",
     });
   } catch (error) {
     console.error(error);
