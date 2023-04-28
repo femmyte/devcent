@@ -1,4 +1,6 @@
 import mongoose, { model, Schema, models } from "mongoose";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 const userSchema = new Schema(
   {
@@ -34,9 +36,13 @@ userSchema.pre("save", async function (next) {
 
 // jwt token
 userSchema.methods.getJwtToken = function () {
-  return jwt.sign({ id: this._id }, process.env.NEXT_PUBLIC_JWT_PRIVATE_KEY, {
-    expiresIn: process.env.NEXT_PUBLIC_JWT_EXPIRES,
-  });
+  return jwt.sign(
+    { _id: this._id, name: this.name, email: this.email },
+    process.env.NEXT_PUBLIC_JWT_PRIVATE_KEY,
+    {
+      expiresIn: process.env.NEXT_PUBLIC_JWT_EXPIRES,
+    }
+  );
 };
 
 // comapre password
