@@ -35,7 +35,7 @@ userSchema.pre("save", async function (next) {
 });
 
 // jwt token
-userSchema.methods.getJwtToken = function () {
+userSchema.methods.getJwt = function () {
   return jwt.sign(
     { _id: this._id, name: this.name, email: this.email },
     process.env.NEXT_PUBLIC_JWT_PRIVATE_KEY,
@@ -47,7 +47,8 @@ userSchema.methods.getJwtToken = function () {
 
 // comapre password
 userSchema.methods.comparePassword = async function (enteredPassword) {
-  return await bcrypt.compare(enteredPassword, this.password);
+  const password = this.password ? this.password : "0000000000";
+  return await bcrypt.compare(enteredPassword, password);
 };
 
 const User = models.User || model("User", userSchema);
