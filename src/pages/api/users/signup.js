@@ -1,5 +1,5 @@
 import dbConnect from "lib/db";
-import { generateToken } from "lib/helpers/activationToken";
+import { generateToken } from "lib/helpers/token";
 import { isAllowedMethod } from "lib/helpers/isAllowed";
 import { sendAccountActivationMessage } from "lib/nodemailer/account-activation-message";
 import { validateSignup } from "lib/validations/userValidations";
@@ -31,11 +31,17 @@ export default async function signup(req, res) {
       });
     }
 
-    const activationToken = generateToken(
-      { email: req.body.email, password: req.body.password },
-      "30m"
-    );
-    const activationUrl = `${clientUrl}/user/activation/${activationToken}`;
+    const activationToken = generateToken(20);
+    const user = new User({
+      name: "User",
+      email: req.body.email,
+      password: req.body.password,
+      activationToken: activationToken,
+      activationTokenExpiresIn: Date.now() + 30 * 60 * 1000, // 30 minutes
+    });
+    await user.save();
+
+    const activationUrl = `${clientUrl}/user/activate/${activationToken}`;
     await sendAccountActivationMessage({
       url: activationUrl,
       email: req.body.email,

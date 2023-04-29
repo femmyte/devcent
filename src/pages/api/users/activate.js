@@ -1,6 +1,6 @@
 import dbConnect from "lib/db";
 import { isAllowedMethod } from "lib/helpers/isAllowed";
-import { validateSignup } from "lib/validations/userValidations";
+import { sendWelcomeMessage } from "lib/nodemailer/welcome-message";
 import User from "models/User";
 
 export default async function signup(req, res) {
@@ -12,33 +12,27 @@ export default async function signup(req, res) {
     }
 
     const activationToken = req.body?.activationToken;
-
-    const newUser = jwt.verify(activationToken, process.env.ACTIVATION_SECRET);
-
-    if (!newUser) {
-      return next(new ErrorHandler("Invalid token", 400));
-    }
-    const { name, email, password } = newUser;
-
-    const userExist = await User.findOne({ email: req.body.email });
-    if (userExist) {
+    const user = await User.findOne({
+      activationToken: activationToken,
+      activationTokenExpiresIn: { $gt: Date.now() },
+    });
+    if (!user) {
       return res.status(400).json({
         success: false,
-        message: "User already exists",
+        message: "Invalid activation token",
       });
     }
 
-    const user = new User({
-      name: "New User",
-      email: req.body.email,
-      password: req.body.password,
-    });
+    user.isActivated = true;
+    user.activationToken = undefined;
+    user.activationTokenExpiresIn = undefined;
 
     await user.save();
 
+    await sendWelcomeMessage({ email: user.email });
     res.status(201).json({
       success: true,
-      message: "User created successfully",
+      message: "Account activated successfully",
     });
   } catch (error) {
     console.error(error);

@@ -3,6 +3,11 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
 import User from "models/User";
 import dbConnect from "lib/db";
+import { sendAccountActivationMessage } from "lib/nodemailer/account-activation-message";
+import { generateToken } from "lib/helpers/token";
+import { sendWelcomeMessage } from "lib/nodemailer/welcome-message";
+
+const clientUrl = process.env.NEXT_PUBLIC_CLIENT_URL;
 
 export const authOptions = {
   providers: [
@@ -11,8 +16,9 @@ export const authOptions = {
       clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET,
     }),
     CredentialsProvider({
-      async authorize(credentials, req, res) {
+      async authorize(credentials, req) {
         await dbConnect();
+
         // Add logic here to look up the user from the credentials supplied
         const { email, password } = credentials;
         const user = await User.findOne({ email });
@@ -21,7 +27,20 @@ export const authOptions = {
         }
         const isValid = await user.comparePassword(password);
         if (!isValid) {
-          throw new Error("Invalid email or passw");
+          throw new Error("Invalid email or password");
+        }
+        if (!user.isActivated) {
+          const activationToken = generateToken(20);
+          user.activationToken = activationToken;
+          user.activationTokenExpiresIn = Date.now() + 30 * 60 * 1000; // 30 minutes
+          await user.save();
+          const activationUrl = `${clientUrl}/user/activate/${activationToken}`;
+          await sendAccountActivationMessage({
+            url: activationUrl,
+            email: user.email,
+            expires: 30,
+          });
+          throw new Error("activate");
         }
 
         return user;
@@ -44,10 +63,13 @@ export const authOptions = {
         const newUser = new User({
           name: user.name,
           email: user.email,
+          isActivated: true,
+          isGoogleSignup: true,
         });
 
         await newUser.save();
 
+        await sendWelcomeMessage({ email: user.email });
         user.id = newUser._id;
         user.customToken = newUser.getJwt();
         return user;

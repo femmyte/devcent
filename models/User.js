@@ -17,10 +17,25 @@ const userSchema = new Schema(
       required: true,
       unique: true,
     },
-    phone: { type: String, trim: true, unique: true },
+    phone: { type: String, trim: true },
     password: {
       type: String,
       maxlength: 255,
+    },
+    isGoogleSignup: {
+      type: Boolean,
+      default: false,
+    },
+    isActivated: {
+      type: Boolean,
+      default: false,
+    },
+    activationToken: {
+      type: String,
+      trim: true,
+    },
+    activationTokenExpiresIn: {
+      type: Number,
     },
   },
   { timestamps: true }
@@ -47,7 +62,7 @@ userSchema.methods.getJwt = function () {
 
 // comapre password
 userSchema.methods.comparePassword = async function (enteredPassword) {
-  const password = this.password ? this.password : "0000000000";
+  const password = this.password ? this.password : "";
   return await bcrypt.compare(enteredPassword, password);
 };
 
