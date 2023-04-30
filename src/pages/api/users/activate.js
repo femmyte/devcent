@@ -3,7 +3,10 @@ import { isAllowedMethod } from "lib/helpers/isAllowed";
 import { sendWelcomeMessage } from "lib/nodemailer/welcome-message";
 import User from "models/User";
 
-export default async function signup(req, res) {
+// @description: User activate account
+// @Endpoint: api/users/activate
+// @AccessType: public
+export default async function activate(req, res) {
   try {
     const db = await dbConnect();
 
@@ -42,3 +45,15 @@ export default async function signup(req, res) {
     });
   }
 }
+
+/*
+The function first checks if the request method is POST and then checks if the activation token 
+provided in the request body is valid by querying the database for a user with that token and 
+checking if it hasn’t expired yet.
+
+If there are any errors in the activation process, it returns a JSON response with an error message.
+If there are no errors, it updates the user’s account status to activated and sends a welcome 
+message to their email address.
+
+Finally, it returns a JSON response with a success status and message.
+*/

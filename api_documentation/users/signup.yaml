@@ -1,0 +1,59 @@
+swagger: "2.0"
+info:
+  title: User Signup API
+  description: An API for user signup
+  version: "1.0"
+host: yourapi.com
+basePath: /api
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+path:
+  /users/signup:
+    post:
+      description: User signup
+      tags:
+        - Signup
+      parameters:
+        - in: body
+          name: body
+          description: Signup details
+          required: true
+          schema:
+            type: object
+            properties:
+              email:
+                type: string
+              password:
+                type: string
+      responses:
+        "200":
+          description: Success response
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              message:
+                type: string
+        "400":
+          description: Invalid input or user already exists
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              message:
+                type: string
+        "500":
+          description: Server error
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              message:
+                type: string

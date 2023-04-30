@@ -1,0 +1,57 @@
+swagger: "2.0"
+info:
+  title: User Activation API
+  description: An API for user account activation
+  version: "1.0"
+host: yourapi.com
+basePath: /api
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+path:
+  /users/activate:
+    post:
+      description: User activate account
+      tags:
+        - Activation
+      parameters:
+        - in: body
+          name: body
+          description: Activation token details
+          required: true
+          schema:
+            type: object
+            properties:
+              activationToken:
+                type: string
+      responses:
+        "201":
+          description: Success response
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              message:
+                type: string
+        "400":
+          description: Invalid activation token error
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              message:
+                type: string
+        "500":
+          description: Server error
+          schema:
+            type: object
+            properties:
+              success:
+                type: boolean
+              message:
+                type: string
