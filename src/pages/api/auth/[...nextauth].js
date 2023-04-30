@@ -107,4 +107,27 @@ export const authOptions = {
   },
 };
 
+/*
+  Credentials Provider:
+  Enables signin with email and password. 
+  If user supply invalid credentials, an error object will be returned from the session. The error 
+  object contains the error message and status code.
+
+  If user supply valid credentials, an object containing user info and custom token will be returned. 
+  The custom token is a JWT that must be sent to the server for authentication. This JWT must be
+  attatched to the header as a Bearer token.
+
+  If user with an unactivated account supplied valid credentials, account activation link is sent to the 
+  provided email address and an error object is returned from the session. This error object contains 
+  error property with value "activate" which can be checked for in order to display a screen that 
+  shows that activation link has been sent to the email address. 
+
+  Google Provider:
+  Enables signin and signup with Google.
+  If user signin/signup is successful, an object containing user info and custom token will be returned 
+  from session. The custom token is a JWT that must be sent to the server for authentication. This JWT 
+  must be attatched to the header as a Bearer token.
+
+*/
+
 export default NextAuth(authOptions);
