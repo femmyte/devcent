@@ -99,6 +99,7 @@ export const authOptions = {
       return session;
     },
   },
+  secret: process.env.NEXT_PUBLIC_NEXT_AUTH_SECRET,
   session: {
     jwt: true,
   },
