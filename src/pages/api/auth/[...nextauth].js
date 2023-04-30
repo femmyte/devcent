@@ -9,6 +9,9 @@ import { sendWelcomeMessage } from "lib/nodemailer/welcome-message";
 
 const clientUrl = process.env.NEXT_PUBLIC_CLIENT_URL;
 
+// @description: User signin
+// @Endpoint: api/auth/signin
+// @AccessType: public
 export const authOptions = {
   providers: [
     GoogleProvider({
