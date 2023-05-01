@@ -9,7 +9,7 @@ import Image from 'next/image';
 const Signin = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	const [error, setError] = useState('');
+	const [error, setError] = useState(null);
 	React.useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
@@ -22,16 +22,22 @@ const Signin = () => {
 				password: password,
 				redirect: false,
 			});
-			console.log(result);
+			// console.log(result);
 			if (result.ok === false) {
-				setError(result.error);
-				console.log(result.error);
+				if (result.error === 'activate') {
+					setError(
+						'You need to Activate your account before you can login, An Activation Link has been sent to your email Address'
+					);
+					console.log(result.error);
+				} else {
+					setError(result.error);
+				}
+				// console.log(result.error);
 			}
 		} catch (error) {
 			console.log(error);
 		}
 	};
-	console.log(error);
 	// Retrieve the session and router so that we can navigate
 	// the user back home if they are already authenticated
 	const { status } = useSession();
@@ -51,11 +57,11 @@ const Signin = () => {
 					className='mb-[18px]'
 				/>
 				<div className='bg-white w-[90%] px-[12px] md:w-[448px] rounded-lg flex flex-col items-center justify-between'>
-					{error && (
+					{error !== null && (
 						<Alert
 							type='error'
 							title={error}
-							message='Check your email address for your verification code'
+							// message='Check your email address for your verification code'
 						/>
 					)}
 					<p className='text-[24px] text-primaryPurple font-[700] font-dmsans leading-[31.25px] mt-[24px]'>

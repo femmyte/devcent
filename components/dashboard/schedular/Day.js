@@ -49,7 +49,7 @@ const Day = ({ day, rowIdx }) => {
 			<div
 				className='flex-1 cursor-pointer'
 				onClick={() => {
-					// setShowEventModal(true);
+					setShowEventModal(true);
 					setDaySelected(day);
 				}}
 			>

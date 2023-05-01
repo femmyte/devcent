@@ -1,22 +1,21 @@
 import React from 'react';
 import { FlutterWaveButton, closePaymentModal } from 'flutterwave-react-v3';
 
-export default function App() {
+export default function App({ amount, email, name, phoneNumber }) {
 	const config = {
-		// FLWPUBK-0440354d7beac1797e805aee21c81dd7-X
 		public_key: process.env.NEXT_PUBLIC_FLUTTER_KEY,
-		// public_key: 'FLWPUBK-0440354d7beac1797e805aee21c81dd7-X',
 		tx_ref: Date.now(),
-		amount: 100,
+		amount: amount,
 		currency: 'NGN',
-		payment_options: 'card,mobilemoney,ussd',
+		// payment_options: 'card,mobilemoney,ussd',
+		payment_options: 'card',
 		customer: {
-			email: 'user@gmail.com',
-			phone_number: '070********',
-			name: 'john doe',
+			email: email,
+			phone_number: phoneNumber,
+			name: name,
 		},
 		customizations: {
-			title: 'My store',
+			title: 'Devcent',
 			description: 'Payment for items in cart',
 			logo: 'https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg',
 		},

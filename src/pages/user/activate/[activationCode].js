@@ -23,10 +23,14 @@ const Activate = () => {
 			// }
 
 			try {
-				const response = await axios.post('/api/users/activate', {
-					activationToken: activationCode,
-				});
-				if (response.data.success === true) {
+				const response = await axios.post(
+					'/api/users/activate',
+					{
+						activationToken: activationCode,
+					},
+					{ headers: { 'Content-Type': 'application/json' } }
+				);
+				if (response?.data?.success === true) {
 					setStatus(response.data.message);
 					setShowAlert(true);
 				}
@@ -76,20 +80,27 @@ const Activate = () => {
 							<h3 className='text-lg leading-6 font-medium text-gray-900'>
 								{status}
 							</h3>
-							{activationStatus === 'success' && (
-								<div className='mt-2'>
+							<div className='mt-2'>
+								{activationStatus === 'success' ? (
 									<p className='text-sm leading-5 text-gray-500'>
 										Click the link below to log in to your
 										account:
 									</p>
-									<button
-										onClick={redirectToLogin}
-										className='mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
-									>
-										Log in
-									</button>
-								</div>
-							)}
+								) : (
+									<p className='text-sm leading-5 text-gray-500'>
+										Click the link below to log in to your
+										account in order to get a new
+										Activatation Link:
+									</p>
+								)}
+
+								<button
+									onClick={redirectToLogin}
+									className='mt-3 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+								>
+									Log in
+								</button>
+							</div>
 						</div>
 					</div>
 				</div>

@@ -2,6 +2,8 @@
 module.exports = {
 	// plugins: [require("daisyui")],
 	content: [
+		'./node_modules/flowbite-react/**/*.js',
+		'./public/**/*.html',
 		'./app/**/*.{js,ts,jsx,tsx}',
 		'./pages/**/*.{js,ts,jsx,tsx}',
 		'./components/**/*.{js,ts,jsx,tsx}',
@@ -26,5 +28,5 @@ module.exports = {
 			},
 		},
 	},
-	plugins: [require('@tailwindcss/forms')],
+	plugins: [require('@tailwindcss/forms'), require('flowbite/plugin')],
 };
