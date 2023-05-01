@@ -37,6 +37,12 @@ const userSchema = new Schema(
     activationTokenExpiresIn: {
       type: Number,
     },
+    enrolledCourses: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Course",
+      },
+    ],
   },
   { timestamps: true }
 );
