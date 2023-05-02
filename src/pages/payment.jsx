@@ -1,9 +1,121 @@
 import Nav from 'components/Nav';
-import Link from 'next/link';
 import React, { useState } from 'react';
+import { useRouter } from 'next/router';
 import ReactCountryFlag from 'react-country-flag';
 import FlutterPayment from '../../components/FlutterPayment';
 const Payment = () => {
+	const [clicked, setClicked] = useState(false);
+	const amount = 100000;
+	let total = 0;
+	const course = 'User Interface and User Experience Design';
+	const router = useRouter();
+	const [state, setState] = useState([
+		{
+			// outright: '',
+			paymentPlan: '',
+			firstName: '',
+			lastName: '',
+			email: '',
+			country: '',
+			street: '',
+			houseNumber: '',
+			city: '',
+			state: '',
+			postalCode: '',
+			phoneNumber: '',
+			info: '',
+			agreement: false,
+		},
+	]);
+	const [showMode, setShowMode] = useState(false);
+
+	const handleChange = (evt) => {
+		const value =
+			evt.target.type === 'checkbox'
+				? evt.target.checked
+				: evt.target.value;
+		setState({
+			...state,
+			[evt.target.name]: value,
+		});
+	};
+
+	let isFormFilled = false;
+	if (
+		// state.outright &&
+		state.paymentPlan &&
+		state.firstName &&
+		state.lastName &&
+		state.email &&
+		state.country &&
+		state.street &&
+		state.houseNumber &&
+		state.city &&
+		state.state &&
+		state.postalCode &&
+		state.phoneNumber &&
+		state.agreement === true
+	) {
+		isFormFilled = true;
+	}
+
+	const handleSubmit = (e) => {
+		e.preventDefault();
+		const createInfo = async () => {
+			try {
+				let myHeaders = new Headers();
+				myHeaders.append('Content-Type', 'application/json');
+				let response = await fetch(`/api/users/reg`, {
+					method: 'POST',
+					headers: myHeaders,
+					body: JSON.stringify({
+						// outright: state.outright,
+						paymentPlan: state.paymentPlan,
+						firstName: state.firstName,
+						lastName: state.lastName,
+						email: state.email,
+						country: state.country,
+						street: state.street,
+						houseNumber: state.houseNumber,
+						city: state.city,
+						state: state.state,
+						postalCode: state.postalCode,
+						phoneNumber: state.phoneNumber,
+						info: state.info,
+					}),
+				});
+				let data = await response.json();
+
+				if (response.ok) {
+					console.log('POST request successful');
+					setState('');
+					Array.from(document.querySelectorAll('input')).forEach(
+						(input) => (input.value = '')
+					);
+					setClicked(false);
+					router.replace('/orderPayment');
+				} else {
+					console.error(
+						'Error making POST request:',
+						response.status
+					);
+					// handleFormErrorAlert(data.error);
+					setClicked(false);
+				}
+			} catch (err) {
+				console.log(err);
+
+				// setError(err.message)
+			}
+		};
+		createInfo();
+	};
+	console.log(state);
+
+	state.paymentPlan == 'halfPayment'
+		? (total = amount / 2)
+		: (total = amount);
+
 	return (
 		<div className='bg-black min-h-screen '>
 			<Nav />
@@ -12,19 +124,24 @@ const Payment = () => {
 					Checkout
 				</p>
 				<div className='md:flex gap-x-2'>
-					<form className='flex-1'>
+					<form className='flex-1' onSubmit={handleSubmit}>
 						<p className='mt-[20px] md:mt-[66px] font-source font-[700] text-[28px] md:text-[32px] leading-[40.2px]'>
 							Payment Plan
 						</p>
 						<p className='my-[18px] md:my-[24px] font-source font-[700] text-[24px] leading-[30.2px] text-[#9b9b9b]'>
-							Select a payment plan
+							Select a payment plan{' '}
+							<span className='text-red-600'>*</span>
 						</p>
 						<div className='mb-[20px]'>
 							<input
 								className='bg-transparent'
-								type='checkbox'
-								name='stayLogin'
+								type='radio'
+								name='paymentPlan'
 								id='outright'
+								onChange={handleChange}
+								value='outright'
+								checked={state.paymentPlan === 'outright'}
+								required
 							/>
 							<label
 								htmlFor='outright'
@@ -36,18 +153,22 @@ const Payment = () => {
 						<div className='mb-[20px]'>
 							<input
 								className='bg-transparent'
-								type='checkbox'
-								name='stayLogin'
-								id='part2'
+								type='radio'
+								name='paymentPlan'
+								id='half'
+								onChange={handleChange}
+								value='halfPayment'
+								checked={state.paymentPlan === 'halfPayment'}
+								required
 							/>
 							<label
-								htmlFor='part2'
+								htmlFor='half'
 								className='font-[600] font-source text-[16px] leading-[20px] text-white ml-[12px]  '
 							>
-								Part Payment (75%)
+								Part Payment (50%)
 							</label>
 						</div>
-						<div className='mb-[20px]'>
+						{/* <div className='mb-[20px]'>
 							<input
 								className='bg-transparent'
 								type='checkbox'
@@ -59,8 +180,10 @@ const Payment = () => {
 								className='font-[600] font-source text-[16px] leading-[20px] text-white ml-[12px]  '
 							>
 								Part Payment (50%)
-							</label>
-						</div>
+							{' '}
+									<span className='text-red-600'>*</span>
+								</label>
+						</div> */}
 						<p className='mt-[30px] md:mt-[66px] font-source font-[700] text-[28px] md:text-[32px] leading-[40.2px]  mb-[24px]'>
 							Personal Details
 						</p>
@@ -70,13 +193,18 @@ const Payment = () => {
 									htmlFor='fname'
 									className='font-source font-[600] text-[24px] leading-[30px] text-[#9b9b9b] mb-[16px]'
 								>
-									First Name
+									First Name{' '}
+									<span className='text-red-600'>*</span>
 								</label>
 								<input
 									type='text'
 									className='p-4 border border-[#747474] text-[#747474] font-[600] text-[16px] leading-5 bg-transparent rounded-lg'
 									placeholder='John'
 									id='fname'
+									name='firstName'
+									onChange={handleChange}
+									value={state.firstName}
+									required
 								/>
 							</div>
 							<div className='flex flex-col flex-1'>
@@ -84,13 +212,18 @@ const Payment = () => {
 									htmlFor='lname'
 									className='font-source font-[600] text-[24px] leading-[30px] text-[#9b9b9b] mb-[16px]'
 								>
-									Last Name
+									Last Name{' '}
+									<span className='text-red-600'>*</span>
 								</label>
 								<input
 									type='text'
 									className='p-4 border border-[#747474] text-[#747474] font-[600] text-[16px] leading-5 bg-transparent w-[100%] rounded-lg'
 									placeholder='Doe'
 									id='lname'
+									name='lastName'
+									onChange={handleChange}
+									value={state.lastName}
+									required
 								/>
 							</div>
 						</div>
@@ -100,13 +233,18 @@ const Payment = () => {
 								htmlFor='email'
 								className='font-source font-[600] text-[24px] leading-[30px] text-[#9b9b9b] mb-[16px]'
 							>
-								Email Address
+								Email Address{' '}
+								<span className='text-red-600'>*</span>
 							</label>
 							<input
 								type='email'
 								className='p-4 border border-[#747474] text-[#747474] font-[600] text-[16px] leading-5 bg-transparent rounded-lg'
 								placeholder='johndoe@mail.com'
 								id='email'
+								name='email'
+								onChange={handleChange}
+								value={state.email}
+								required
 							/>
 						</div>
 						<div className='flex flex-col  mb-[24px]'>
@@ -114,13 +252,18 @@ const Payment = () => {
 								htmlFor='country'
 								className='font-source font-[600] text-[24px] leading-[30px] text-[#9b9b9b] mb-[16px]'
 							>
-								Country /Region
+								Country /Region{' '}
+								<span className='text-red-600'>*</span>
 							</label>
 							<input
 								type='text'
 								className='p-4 border border-[#747474] text-[#747474] font-[600] text-[16px] leading-5 bg-transparent rounded-lg'
 								placeholder='Nigeria'
 								id='country'
+								name='country'
+								onChange={handleChange}
+								value={state.country}
+								required
 							/>
 						</div>
 						<div className='md:flex gap-x-8 justify-between  mb-[24px]'>
@@ -129,13 +272,18 @@ const Payment = () => {
 									htmlFor='street'
 									className='font-source font-[600] text-[24px] leading-[30px] text-[#9b9b9b] mb-[16px]'
 								>
-									Street Name
+									Street Name{' '}
+									<span className='text-red-600'>*</span>
 								</label>
 								<input
 									type='text'
 									className='p-4 border border-[#747474] text-[#747474] font-[600] text-[16px] leading-5 bg-transparent rounded-lg'
-									placeholder='John'
+									placeholder='street'
 									id='street'
+									name='street'
+									onChange={handleChange}
+									value={state.street}
+									required
 								/>
 							</div>
 							<div className='flex flex-col flex-1'>
@@ -143,13 +291,18 @@ const Payment = () => {
 									htmlFor='houseNum'
 									className='font-source font-[600] text-[24px] leading-[30px] text-[#9b9b9b] mb-[16px]'
 								>
-									House Number
+									House Number{' '}
+									<span className='text-red-600'>*</span>
 								</label>
 								<input
 									type='text'
 									className='p-4 border border-[#747474] text-[#747474] font-[600] text-[16px] leading-5 bg-transparent w-[100%] rounded-lg'
-									placeholder='Doe'
+									placeholder='1234'
 									id='houseNum'
+									name='houseNumber'
+									onChange={handleChange}
+									value={state.houseNumber}
+									required
 								/>
 							</div>
 						</div>
@@ -160,13 +313,18 @@ const Payment = () => {
 									htmlFor='town'
 									className='font-source font-[600] text-[24px] leading-[30px] text-[#9b9b9b] mb-[16px]'
 								>
-									Town/City
+									Town/City{' '}
+									<span className='text-red-600'>*</span>
 								</label>
 								<input
 									type='text'
 									className='p-4 border border-[#747474] text-[#747474] font-[600] text-[16px] leading-5 bg-transparent rounded-lg'
-									placeholder='John'
+									placeholder='Town/City'
 									id='town'
+									name='city'
+									onChange={handleChange}
+									value={state.city}
+									required
 								/>
 							</div>
 							<div className='flex flex-col flex-1'>
@@ -174,13 +332,18 @@ const Payment = () => {
 									htmlFor='state'
 									className='font-source font-[600] text-[24px] leading-[30px] text-[#9b9b9b] mb-[16px]'
 								>
-									County/State
+									State{' '}
+									<span className='text-red-600'>*</span>
 								</label>
 								<input
 									type='text'
 									className='p-4 border border-[#747474] text-[#747474] font-[600] text-[16px] leading-5 bg-transparent w-[100%] rounded-lg'
-									placeholder='Doe'
+									placeholder='Ogun'
 									id='state'
+									name='state'
+									onChange={handleChange}
+									value={state.state}
+									required
 								/>
 							</div>
 						</div>
@@ -190,7 +353,8 @@ const Payment = () => {
 								htmlFor='postal'
 								className='font-source font-[600] text-[24px] leading-[30px] text-[#9b9b9b] mb-[16px]'
 							>
-								Postal code
+								Postal code{' '}
+								<span className='text-red-600'>*</span>
 							</label>
 							<input
 								type='number'
@@ -199,6 +363,10 @@ const Payment = () => {
 								max={6}
 								placeholder='123456'
 								id='postal'
+								name='postalCode'
+								onChange={handleChange}
+								value={state.postalCode}
+								required
 							/>
 						</div>
 						<div className='flex flex-col  mb-[24px]'>
@@ -206,13 +374,18 @@ const Payment = () => {
 								htmlFor='phone'
 								className='font-source font-[600] text-[24px] leading-[30px] text-[#9b9b9b] mb-[16px]'
 							>
-								Phone Number
+								Phone Number{' '}
+								<span className='text-red-600'>*</span>
 							</label>
 							<input
 								type='tel'
 								className='p-4 border border-[#747474] text-[#747474] font-[600] text-[16px] leading-5 bg-transparent rounded-lg'
 								placeholder='8178627581'
 								id='phone'
+								name='phoneNumber'
+								onChange={handleChange}
+								value={state.phoneNumber}
+								required
 							/>
 						</div>
 						<p className='font-source font-[700] text-[28px] md:text-[32px] leading-[40.2px]  mb-[24px]'>
@@ -223,6 +396,8 @@ const Payment = () => {
 							id='info'
 							rows='10'
 							className='p-4 border border-[#747474] text-[#747474] font-[600] text-[16px] leading-5 bg-transparent rounded-lg w-full'
+							onChange={handleChange}
+							value={state.info}
 						></textarea>
 					</form>
 					<div className='flex-1'>
@@ -257,36 +432,39 @@ const Payment = () => {
 							<div className='flex justify-between'>
 								<div className='flex justify-between w-[70%]'>
 									<p className='font-source font-[600] text-[16px] text-white leading-[20px] mb-[28px]'>
-										User Interface and User Experience
-										Design
+										{course}
 									</p>
 									<span className='ml-[16px] text-left'>
 										1X
 									</span>
 								</div>
 								<p className='font-source font-[600] text-[16px] text-white leading-[20px] mb-[28px]'>
-									N100,000
+									#{amount}
 								</p>
 							</div>
-							<div className='flex justify-between '>
-								<div className='flex justify-between w-[70%]'>
+
+							{state.paymentPlan == 'halfPayment' && (
+								<div className='flex justify-between '>
+									<div className='flex justify-between w-[70%]'>
+										<p className='font-source font-[600] text-[16px] text-white leading-[20px] mb-[28px]'>
+											Part Payment
+										</p>
+										<span className='ml-[16px] text-left'>
+											50%
+										</span>
+									</div>
 									<p className='font-source font-[600] text-[16px] text-white leading-[20px] mb-[28px]'>
-										Part Payment
+										#{amount / 2}
 									</p>
-									<span className='ml-[16px] text-left'>
-										50%
-									</span>
 								</div>
-								<p className='font-source font-[600] text-[16px] text-white leading-[20px] mb-[28px]'>
-									N50,00
-								</p>
-							</div>
+							)}
 							<div className='flex justify-between'>
 								<p className='font-source font-[600] text-[16px] text-white leading-[20px] mb-[28px]'>
 									Sub Total
 								</p>
 								<p className='font-source font-[600] text-[16px] text-white leading-[20px] mb-[28px]'>
-									N50,00
+									{/* {state.paymentPlan == 'halfPayment' ? `#${total}` : `#${amount}`} */}
+									#{total}
 								</p>
 							</div>
 							<div className='flex justify-between'>
@@ -294,7 +472,7 @@ const Payment = () => {
 									Total
 								</p>
 								<p className='font-source font-[600] text-[16px] text-white leading-[20px] mb-[28px]'>
-									N50,00
+									#{total}
 								</p>
 							</div>
 						</div>
@@ -331,9 +509,12 @@ const Payment = () => {
 							<div className='mb-[20px] md:mb-[60px] mt-[8px]'>
 								<input
 									type='checkbox'
-									name='stayLogin'
+									name='agreement'
 									id='terms'
 									className='bg-transparent'
+									required
+									value={state.agreement}
+									onChange={handleChange}
 								/>
 								<label
 									htmlFor='terms'
@@ -342,17 +523,21 @@ const Payment = () => {
 									I have read and agreed to Devcent’s{' '}
 									<span className='text-[#3776d4]'>
 										Terms and Conditions
-									</span>
+									</span>{' '}
+									<span className='text-red-600'>*</span>
 								</label>
 							</div>
 							<div className=' w-2/3 mx-auto'></div>
 							{/* <FlutterPayment /> */}
-							<Link
-								href='/orderPayment'
+							<button
+								type='submit'
 								className=' py-[10px] md:py-[16px] px-[20px] md:px-[32px] rounded-lg bg-primaryPurple text-[16px] font-dmsans font-[700] md:text-[24px]'
+								disabled={!isFormFilled && !state.agreement}
 							>
-								Proceed to payment
-							</Link>
+								{!isFormFilled && !state.agreement
+									? 'Fill the required field'
+									: 'Proceed to payment'}
+							</button>
 						</div>
 					</div>
 				</div>
