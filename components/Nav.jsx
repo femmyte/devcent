@@ -84,11 +84,11 @@ const Nav = ({ path }) => {
 						<li className='my-3 md:my-0 flex gap-x-[10px] items-center'>
 							<Link
 								className={`${
-									path === '/courses'
+									path === '/about'
 										? 'text-[#006F36] border-2 py-1 border-[#006F36] px-1 rounded'
 										: ''
 								} text-[14px] font-[600]  duration-500 font-source`}
-								href='/courses'
+								href='/about'
 							>
 								About
 							</Link>
@@ -123,9 +123,12 @@ const Nav = ({ path }) => {
 						>
 							Login
 						</Link>
-						<button className='md:ml-[48px] text-white bg-[#E40084] w-[149px] h-[40px] font-source text-[18px] rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 '>
+						<Link
+							href='/signup'
+							className='md:ml-[48px] text-white bg-[#E40084] w-[149px] text-center py-[10px]  font-source text-[18px] rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 '
+						>
 							Get Started
-						</button>
+						</Link>
 					</div>
 				</div>
 			</div>
