@@ -1,15 +1,30 @@
 import Nav from 'components/Nav';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import FlutterPayment from '../../components/FlutterPayment';
 import ReactCountryFlag from 'react-country-flag';
 
 const OrderPayment = () => {
-	const [name, setName] = useState('Adesare Adeforigbagi');
-	const [amount, setAmount] = useState(500000);
-	const [orderNumber, setorderNumber] = useState(123456);
-	const [email, setEmail] = useState('sanyaoluadefemi@gmail.com');
-	const [phoneNumber, setNumber] = useState('08131609892');
-	const [date, setDate] = useState('22 Aug 2021');
+	// const [name, setName] = useState('Adesare Adeforigbagi');
+	// const [amount, setAmount] = useState(500000);
+	// const [orderNumber, setorderNumber] = useState(123456);
+	// const [email, setEmail] = useState('sanyaoluadefemi@gmail.com');
+	// const [phoneNumber, setNumber] = useState('08131609892');
+	// const [date, setDate] = useState('22 Aug 2021');
+	const [data, setData] = useState({});
+
+	useEffect(() => {
+		axios
+			.get('api/payment-details')
+			.then((response) => {
+				setData(response.data);
+			})
+			.catch((error) => {
+				console.log(error);
+			});
+	}, []);
+
+	const { fullName, email, amount, orderNumber, phoneNumber, date } = data;
 	return (
 		<div className='bg-black min-h-screen '>
 			<Nav />
@@ -89,7 +104,7 @@ const OrderPayment = () => {
 						<FlutterPayment
 							amount={amount}
 							email={email}
-							name={name}
+							name={fullName}
 							phoneNumber={phoneNumber}
 						/>
 						<button className='mt-[20px] md:mt-0 py-[10px] md:py-[16px] px-[20px] md:px-[32px] rounded-lg border border-primaryPurple text-[18px] md:text-[24px] font-dmsans font-[700]'>
