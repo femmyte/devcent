@@ -27,7 +27,6 @@ const Payment = () => {
 			agreement: false,
 		},
 	]);
-	const [showMode, setShowMode] = useState(false);
 
 	const handleChange = (evt) => {
 		const value =
@@ -69,7 +68,6 @@ const Payment = () => {
 					method: 'POST',
 					headers: myHeaders,
 					body: JSON.stringify({
-						// outright: state.outright,
 						paymentPlan: state.paymentPlan,
 						firstName: state.firstName,
 						lastName: state.lastName,
