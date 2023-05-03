@@ -20,7 +20,7 @@ const SearchComponent = ({ onFilter, filterText }) => (
 );
 const Nav = ({ path }) => {
 	const currentPath = useRouter().pathname;
-	console.log(currentPath);
+	// console.log(currentPath);
 	const [menu, setMenu] = useState(false);
 	const handleMenu = () => {
 		if (menu) {

@@ -99,7 +99,7 @@ const uiux = () => {
           </div>
           <div className="flex flex-col md:flex-row items-center gap-x-[60px]">
           <Link
-            href=""
+            href="/payment"
             className="text-white  bg-primaryPurple py-[10px] md:py-[16px] px-[20px] md:px-[32px] font-space font-bold text-[18px] md:text-[24px] hover:animate-pulse ease-out duration-300 rounded-[5px]"
           >
             Enroll Now

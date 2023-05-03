@@ -1,7 +1,8 @@
 import React from "react";
 import { FlutterWaveButton, closePaymentModal } from "flutterwave-react-v3";
-
+import { useRouter } from "next/router";
 export default function App({ amount, email, name, phoneNumber }) {
+  const router = useRouter();
   const config = {
     public_key: process.env.NEXT_PUBLIC_FLUTTER_KEY,
     tx_ref: Date.now(),
@@ -27,10 +28,12 @@ export default function App({ amount, email, name, phoneNumber }) {
 
     callback: (response) => {
       console.log(response);
-      console.log("pay");
       closePaymentModal(); // this will close the modal programmatically
+      router.push("/congratulations");
     },
-    onClose: () => {},
+    onClose: (response) => {
+      console.log(response);
+    },
   };
 
   return (
