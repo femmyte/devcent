@@ -14,8 +14,6 @@ export default async function add(req, res) {
   try {
     const db = await dbConnect();
 
-    console.log(req.params);
-
     if (!isAllowedMethod(req, res, "POST")) {
       return;
     }
