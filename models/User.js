@@ -54,6 +54,19 @@ const userSchema = new Schema(
         ref: "Course",
       },
     ],
+    role: {
+      type: String,
+      enum: ["student", "admin", "instructor"],
+      default: "student",
+    },
+    isAuthorizedAdmin: {
+      type: Boolean,
+      default: false,
+    },
+    isAuthorizedInstructor: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );
@@ -71,8 +84,6 @@ userSchema.methods.getJwt = function () {
   return jwt.sign(
     {
       _id: this._id,
-      name: this.name,
-      email: this.email,
       userId: this.userId,
       urlName: this.urlName,
     },
