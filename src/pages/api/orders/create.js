@@ -1,19 +1,16 @@
 import dbConnect from "lib/db";
-import { createRouter } from "next-connect";
 import { isAllowedMethod } from "lib/helpers/isAllowed";
 import { generateId } from "lib/utils/random";
-import User from "models/User";
 import Course from "models/Course";
 import Order from "models/Order";
 import { validateOrder } from "lib/validations/orderValidation";
 import { isLogin, isStudent } from "lib/middleware/auth";
 import { router, handler } from "lib/helpers/router";
 const clientUrl = process.env.NEXT_PUBLIC_CLIENT_URL;
-// const router = createRouter();
 
 // @description: User create order
 // @Endpoint: api/orders/create
-// @AccessType: private
+// @AccessType: private/student
 
 async function createOrder(req, res) {
   try {
@@ -46,6 +43,7 @@ async function createOrder(req, res) {
       orderId,
       course: course._id,
       user: req.user._id,
+      amount: course.discountFee,
       status: "pending",
       payerInfo: {
         name: `${req.body.firstName} ${req.body.lastName}`,
@@ -59,13 +57,15 @@ async function createOrder(req, res) {
         postalCode: req.body.postalCode,
         info: req.body.info,
       },
-      payment: {
-        paymentPlan: req.body.paymentPlan,
-        amount:
-          req.body.paymentPlan === "part-payment"
-            ? (course.discountFee / 2).toFixed(2)
-            : course.discountFee,
-      },
+      payments: [
+        {
+          paymentPlan: req.body.paymentPlan,
+          amount:
+            req.body.paymentPlan === "part-payment"
+              ? parseInt((course.discountFee / 2).toFixed(2))
+              : parseInt(course.discountFee),
+        },
+      ],
     });
 
     res.status(201).json({

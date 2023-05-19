@@ -18,31 +18,41 @@ const orderSchema = new Schema(
       ref: "User",
       required: true,
     },
+    amount: {
+      type: Number,
+      required: true,
+    },
     status: {
       type: String,
-      enum: ["pending", "paid"],
+      enum: ["pending", "successful"],
       default: "pending",
     },
-    payment: {
-      paymentPlan: {
-        type: String,
-        enum: ["outright-payment", "part-payment"],
+    payments: [
+      {
+        paymentPlan: {
+          type: String,
+          enum: ["outright-payment", "part-payment"],
+        },
+        amount: {
+          type: Number,
+        },
+        status: {
+          type: String,
+        },
+        flw_ref: {
+          type: String,
+          trim: true,
+        },
+        transaction_id: {
+          type: String,
+          trim: true,
+        },
+        created_at: {
+          type: String,
+          trim: true,
+        },
       },
-      amount: {
-        type: Number,
-      },
-      status: {
-        type: String,
-      },
-      transaction_id: {
-        type: String,
-        trim: true,
-      },
-      created_at: {
-        type: String,
-        trim: true,
-      },
-    },
+    ],
     payerInfo: {
       name: {
         type: String,

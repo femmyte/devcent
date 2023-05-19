@@ -6,18 +6,17 @@ import { validatePayment } from "lib/validations/orderValidation";
 import { isLogin, isStudent } from "lib/middleware/auth";
 import { router, handler } from "lib/helpers/router";
 
-// @description: User make payment
-// @Endpoint: api/orders/:orderId/pay
+// @description: User pay balance
+// @Endpoint: api/orders/:orderId/pay-balance
 // @AccessType: private/student
-async function pay(req, res) {
+async function payBalance(req, res) {
   try {
     const db = await dbConnect();
 
-    if (!isAllowedMethod(req, res, "POST")) {
+    if (!isAllowedMethod(req, res, "PUT")) {
       return;
     }
 
-    console.log(req.body);
     const error = await validatePayment(req.body);
     if (error) {
       return res.status(400).json({
@@ -42,24 +41,16 @@ async function pay(req, res) {
       });
     }
 
-    const user = await User.findById(req.user._id);
-
     // order update
-    order.status = status;
-    order.payments = [
-      {
-        ...order.payments[0],
-        status,
-        transaction_id,
-        created_at,
-        flw_ref,
-      },
-    ];
+    order.payments.push({
+      paymentPlan: "part-payment",
+      amount,
+      status,
+      transaction_id,
+      created_at,
+      flw_ref,
+    });
     await order.save();
-
-    //update user
-    user.enrolledCourses.push(order.course);
-    await user.save();
 
     res.status(200).json({
       success: true,
@@ -75,7 +66,7 @@ async function pay(req, res) {
   }
 }
 
-router.post(isLogin, isStudent, pay);
+router.post(isLogin, isStudent, payBalance);
 
 export default handler();
 

@@ -8,7 +8,7 @@ const clientUrl = process.env.NEXT_PUBLIC_CLIENT_URL;
 
 // @description: Get order
 // @Endpoint: api/orders/:orderId/order
-// @AccessType: private
+// @AccessType: private/student
 async function getOrder(req, res) {
   try {
     const db = await dbConnect();

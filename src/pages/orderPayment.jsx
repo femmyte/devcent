@@ -5,12 +5,12 @@ import FlutterPayment from "../../components/FlutterPayment";
 import ReactCountryFlag from "react-country-flag";
 
 const OrderPayment = () => {
-  // const [name, setName] = useState('Adesare Adeforigbagi');
-  // const [amount, setAmount] = useState(500000);
-  // const [orderNumber, setorderNumber] = useState(123456);
-  // const [email, setEmail] = useState('sanyaoluadefemi@gmail.com');
-  // const [phoneNumber, setNumber] = useState('08131609892');
-  // const [date, setDate] = useState('22 Aug 2021');
+  const [fullName, setName] = useState("Adesare Adeforigbagi");
+  const [amount, setAmount] = useState(500000);
+  const [orderNumber, setorderNumber] = useState(123456);
+  const [email, setEmail] = useState("faleyeoluwafemi1@gmail.com");
+  const [phoneNumber, setNumber] = useState("08137192766");
+  const [date, setDate] = useState("22 Aug 2021");
   const [data, setData] = useState({});
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const OrderPayment = () => {
       });
   }, []);
 
-  const { fullName, email, amount, orderNumber, phoneNumber, date } = data;
+  // const { fullName, email, amount, orderNumber, phoneNumber, date } = data;
   return (
     <div className="bg-black min-h-screen ">
       <Nav />
