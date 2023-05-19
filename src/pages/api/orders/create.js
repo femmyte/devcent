@@ -1,20 +1,21 @@
 import dbConnect from "lib/db";
+import { createRouter } from "next-connect";
 import { isAllowedMethod } from "lib/helpers/isAllowed";
 import { generateId } from "lib/utils/random";
 import User from "models/User";
 import Course from "models/Course";
 import Order from "models/Order";
 import { validateOrder } from "lib/validations/orderValidation";
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "../auth/[...nextauth]";
-import { isLoggedIn } from "lib/helpers/auth";
-
+import { isLogin, isStudent } from "lib/middleware/auth";
+import { router, handler } from "lib/helpers/router";
 const clientUrl = process.env.NEXT_PUBLIC_CLIENT_URL;
+// const router = createRouter();
 
 // @description: User create order
 // @Endpoint: api/orders/create
 // @AccessType: private
-export default async function createOrder(req, res) {
+
+async function createOrder(req, res) {
   try {
     const db = await dbConnect();
 
@@ -22,12 +23,7 @@ export default async function createOrder(req, res) {
       return;
     }
 
-    const session = await getServerSession(req, res, authOptions);
-    let user = await isLoggedIn(res, session, User);
-    if (!user) {
-      return;
-    }
-
+    console.log(req.body);
     const error = await validateOrder(req.body);
     if (error) {
       return res.status(400).json({
@@ -85,3 +81,13 @@ export default async function createOrder(req, res) {
     });
   }
 }
+
+router.post(isLogin, isStudent, createOrder);
+
+export default handler();
+
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};

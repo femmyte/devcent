@@ -1,27 +1,19 @@
 import dbConnect from "lib/db";
 import { isAllowedMethod } from "lib/helpers/isAllowed";
-import User from "models/User";
 import Order from "models/Order";
-import { getServerSession } from "next-auth/next";
-import { authOptions } from "../auth/[...nextauth]";
-import { isLoggedIn } from "lib/helpers/auth";
+import { router, handler } from "lib/helpers/router";
+import { isLogin, isStudent } from "lib/middleware/auth";
 
 const clientUrl = process.env.NEXT_PUBLIC_CLIENT_URL;
 
 // @description: Get order
 // @Endpoint: api/orders/:orderId/order
 // @AccessType: private
-export default async function getOrder(req, res) {
+async function getOrder(req, res) {
   try {
     const db = await dbConnect();
 
     if (!isAllowedMethod(req, res, "GET")) {
-      return;
-    }
-
-    const session = await getServerSession(req, res, authOptions);
-    let user = await isLoggedIn(res, session, User);
-    if (!user) {
       return;
     }
 
@@ -48,3 +40,13 @@ export default async function getOrder(req, res) {
     });
   }
 }
+
+router.get(isLogin, isStudent, getOrder);
+
+export default handler();
+
+export const config = {
+  api: {
+    bodyParser: false,
+  },
+};
