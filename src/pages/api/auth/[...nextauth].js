@@ -4,7 +4,7 @@ import GoogleProvider from "next-auth/providers/google";
 import User from "models/User";
 import dbConnect from "lib/db";
 import { sendAccountActivationMessage } from "lib/nodemailer/account-activation-message";
-import { generateToken } from "lib/helpers/token";
+import { generateAccessToken, generateToken } from "lib/helpers/token";
 import { sendWelcomeMessage } from "lib/nodemailer/welcome-message";
 import { generateUserId } from "lib/utils/random";
 import { createUrlName } from "lib/utils/urlName";
@@ -95,7 +95,6 @@ export const authOptions = {
         return false;
       }
     },
-
     async session({ session }) {
       const user = await User.findOne({ email: session.user.email });
 
@@ -104,6 +103,12 @@ export const authOptions = {
       session.user.role = user.role;
       session.user.urlName = user.urlName;
       session.user.enrolledCourses = user.enrolledCourses;
+      session.user.accessToken = generateAccessToken({
+        id: user._id,
+        role: user.role,
+        isAuthorizedAdmin: user?.isAuthorizedAdmin || undefined,
+        isAuthorizedInstructor: user?.isAuthorizedInstructor || undefined,
+      });
 
       return session;
     },
