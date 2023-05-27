@@ -16,7 +16,7 @@ const Card = ({ title, btnText, icon, children }) => {
 							show
 								? 'text-[24px] font-[700] leading-[30.62px]'
 								: 'font-[400] text-[20px] leading-[25.52px] '
-						}font-space text-primaryPurple`}
+						} font-space text-primaryPurple`}
 					>
 						{title}
 					</h3>
@@ -63,13 +63,13 @@ const AlumniTestimony = ({ title, description, showVideo }) => {
 	return (
 		<div
 			id='schedule'
-			className='pt-[59px] pb-[65px] bg-black text-center
+			className='py-[30px] bg-black text-center
       '
 		>
 			<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow'>
 				{title}
 			</h3>
-			<p className='md:w-[1015px] mx-[20px] md:mx-auto text-center mt-[40px] mb-[80px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]'>
+			<p className='md:w-[1015px] mx-[20px] md:mx-auto text-center my-[20px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]'>
 				{description}
 			</p>
 			{showVideo && (

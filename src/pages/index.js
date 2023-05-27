@@ -5,7 +5,7 @@ import Nav from 'components/Nav';
 import Link from 'next/link';
 import React from 'react';
 
-const index = () => {
+const Index = () => {
 	return (
 		<div>
 			<Meta title='Devcent | Home' />
@@ -483,4 +483,4 @@ const index = () => {
 	);
 };
 
-export default index;
+export default Index;

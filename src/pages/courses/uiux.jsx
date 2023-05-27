@@ -215,13 +215,13 @@ const uiux = () => {
 			<CourseOverview />
 			<section
 				id='tools'
-				className='pt-[10px] md:pt-[59px] px-[20px] md:px-[180px] pb-[65px] bg-black text-center
+				className='pt-[10px] px-[20px] md:px-[180px] pb-[35px] bg-black text-center
       '
 			>
 				<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow'>
 					MASTER DESIGN AND COLLABORATIVE TOOLS
 				</h3>
-				<p className='mx-auto text-center mt-[40px] mb-[25px] md:mb-[130px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]'>
+				<p className='mx-auto text-center mt-[20px] mb-[25px] md:mb-[130px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]'>
 					Learn and master design and collaborative tools to empower
 					you on your UiUx design career journey
 				</p>
@@ -254,7 +254,7 @@ const uiux = () => {
 				</div>
 			</section>
 			<WhyDevcent />
-			<section className='px-[20px] md:px-[57px] py-[62px] bg-black  '>
+			<section className='px-[20px] md:px-[57px]  bg-black  '>
 				<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow'>
 					LEARN WITH THE BEST
 				</h3>
