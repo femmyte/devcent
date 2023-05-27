@@ -1,9 +1,9 @@
 import { useState } from 'react';
 // import { XIcon } from '@heroicons/react/outline';
 
-const Alert = ({ type, title, message }) => {
-	const [isOpen, setIsOpen] = useState(true);
-
+const Alert = ({ type, title, message, isOpen, setIsOpen }) => {
+	// const [isOpen, setIsOpen] = useState(true);
+	console.log(isOpen);
 	return (
 		<>
 			{isOpen && (
