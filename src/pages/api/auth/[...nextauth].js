@@ -4,8 +4,10 @@ import GoogleProvider from "next-auth/providers/google";
 import User from "models/User";
 import dbConnect from "lib/db";
 import { sendAccountActivationMessage } from "lib/nodemailer/account-activation-message";
-import { generateToken } from "lib/helpers/token";
+import { generateAccessToken, generateToken } from "lib/helpers/token";
 import { sendWelcomeMessage } from "lib/nodemailer/welcome-message";
+import { generateUserId } from "lib/utils/random";
+import { createUrlName } from "lib/utils/urlName";
 
 const clientUrl = process.env.NEXT_PUBLIC_CLIENT_URL;
 
@@ -24,7 +26,9 @@ export const authOptions = {
 
         // Add logic here to look up the user from the credentials supplied
         const { email, password } = credentials;
-        const user = await User.findOne({ email });
+        const user = await User.findOne({ email }).select(
+          "-isAuthorizedAdmin -isAuthorizedInstructor"
+        );
         if (!user) {
           throw new Error("Invalid email or password");
         }
@@ -32,6 +36,8 @@ export const authOptions = {
         if (!isValid) {
           throw new Error("Invalid email or password");
         }
+
+        // if user account is not activated
         if (!user.isActivated) {
           const activationToken = generateToken(20);
           user.activationToken = activationToken;
@@ -58,13 +64,22 @@ export const authOptions = {
       try {
         const existingUser = await User.findOne({ email: user.email });
         if (existingUser) {
-          user.id = existingUser._id;
-          user.customToken = existingUser.getJwt();
-          return user;
+          return true;
         }
 
+        // Create User from Google account
+        const usersCount = await User.countDocuments({});
+        const userId = generateUserId(usersCount);
+        const idExists = await User.findOne({ userId });
+        if (idExists) {
+          throw new Error("Server busy! Try again.");
+        }
+
+        const urlName = createUrlName(user.name, userId);
         const newUser = new User({
+          userId,
           name: user.name,
+          urlName,
           email: user.email,
           isActivated: true,
           isGoogleSignup: true,
@@ -73,28 +88,27 @@ export const authOptions = {
         await newUser.save();
 
         await sendWelcomeMessage({ email: user.email });
-        user.id = newUser._id;
-        user.customToken = newUser.getJwt();
-        return user;
+
+        return true;
       } catch (error) {
         console.log(error);
         return false;
       }
     },
-    async jwt({ token, user }) {
-      // Persist the custom token and the user id to the token right after signin
-      if (user) {
-        token.id = user.id;
-        token.customToken = user.customToken;
-      }
+    async session({ session }) {
+      const user = await User.findOne({ email: session.user.email });
 
-      return token;
-    },
-
-    async session({ session, token, user }) {
-      // Send properties to the client, like a custom token and user id from a provider.
-      session.customToken = token.customToken;
-      session.user.id = token.id;
+      session.user._id = user._id.toString();
+      session.user.userId = user.userId;
+      session.user.role = user.role;
+      session.user.urlName = user.urlName;
+      session.user.enrolledCourses = user.enrolledCourses;
+      session.user.accessToken = generateAccessToken({
+        id: user._id,
+        role: user.role,
+        isAuthorizedAdmin: user?.isAuthorizedAdmin || undefined,
+        isAuthorizedInstructor: user?.isAuthorizedInstructor || undefined,
+      });
 
       return session;
     },

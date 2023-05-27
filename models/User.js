@@ -4,9 +4,20 @@ import jwt from "jsonwebtoken";
 
 const userSchema = new Schema(
   {
+    userId: {
+      type: String,
+      trim: true,
+      required: true,
+      unique: true,
+    },
     name: {
       type: String,
       maxlength: 50,
+      trim: true,
+      required: true,
+    },
+    urlName: {
+      type: String,
       trim: true,
       required: true,
     },
@@ -43,6 +54,19 @@ const userSchema = new Schema(
         ref: "Course",
       },
     ],
+    role: {
+      type: String,
+      enum: ["student", "admin", "instructor"],
+      default: "student",
+    },
+    isAuthorizedAdmin: {
+      type: Boolean,
+      default: false,
+    },
+    isAuthorizedInstructor: {
+      type: Boolean,
+      default: false,
+    },
   },
   { timestamps: true }
 );
@@ -58,7 +82,11 @@ userSchema.pre("save", async function (next) {
 // jwt token
 userSchema.methods.getJwt = function () {
   return jwt.sign(
-    { _id: this._id, name: this.name, email: this.email },
+    {
+      _id: this._id,
+      userId: this.userId,
+      urlName: this.urlName,
+    },
     process.env.NEXT_PUBLIC_JWT_PRIVATE_KEY,
     {
       expiresIn: process.env.NEXT_PUBLIC_JWT_EXPIRES,

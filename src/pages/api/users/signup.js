@@ -4,6 +4,8 @@ import { isAllowedMethod } from "lib/helpers/isAllowed";
 import { sendAccountActivationMessage } from "lib/nodemailer/account-activation-message";
 import { validateSignup } from "lib/validations/userValidations";
 import User from "models/User";
+import { generateUserId } from "lib/utils/random";
+import { createUrlName } from "lib/utils/urlName";
 
 const clientUrl = process.env.NEXT_PUBLIC_CLIENT_URL;
 
@@ -34,9 +36,22 @@ export default async function signup(req, res) {
       });
     }
 
+    const usersCount = await User.countDocuments({});
+    const userId = generateUserId(usersCount);
+    const idExists = await User.findOne({ userId });
+    if (idExists) {
+      return res.status(500).json({
+        success: false,
+        message: "Server busy! Try again.",
+      });
+    }
+
+    const urlName = createUrlName("User", userId);
     const activationToken = generateToken(20);
     const user = new User({
+      userId,
       name: "User",
+      urlName,
       email: req.body.email,
       password: req.body.password,
       activationToken: activationToken,
