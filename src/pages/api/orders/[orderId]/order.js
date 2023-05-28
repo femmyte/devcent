@@ -45,8 +45,8 @@ router.get(isLogin, isStudent, getOrder);
 
 export default handler();
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
+// export const config = {
+//   api: {
+//     bodyParser: false,
+//   },
+// };
