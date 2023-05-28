@@ -48,7 +48,7 @@ const CourseCard = ({
     </div>
   );
 };
-
+// HEAD:src/pages/courses.jsx
 const Courses = () => {
 	const [courses, setCourses] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
@@ -64,134 +64,134 @@ const Courses = () => {
 			}
 		};
 
-const Courses = () => {
-  const [courses, setCourses] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("/api/courses/all-course");
-        setCourses(response.data.courses);
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setIsLoading(false);
-      }
-    };
+		const Courses = () => {
+			const [courses, setCourses] = useState([]);
+			const [isLoading, setIsLoading] = useState(true);
+			useEffect(() => {
+				const fetchData = async () => {
+					try {
+						const response = await axios.get("/api/courses/all-course");
+						setCourses(response.data.courses);
+						setIsLoading(false);
+					} catch (error) {
+						console.error("Error fetching data:", error);
+						setIsLoading(false);
+					}
+				};
 
-    fetchData();
-  }, []);
-  // console.log(courses);
-  let otherInfo = [
-    {
-      background: "#521C3C",
-      img: "uiux",
-      position: 1,
-      courseId: "21197094",
-    },
-    {
-      background: "#1B2531",
-      img: "dataScience",
-      position: 2,
-      courseId: "83224682",
-    },
-    {
-      background: "#3C2B68",
-      img: "backend",
-      position: 1,
-      courseId: "14246154",
-    },
-    {
-      background: "#000000",
-      img: "fullstack",
-      position: 2,
-      courseId: "63748970",
-    },
-    {
-      background: "#19201D",
-      img: "cyber",
-      position: 1,
-      courseId: "18556101",
-    },
-    {
-      background: "#433C28",
-      img: "frotend",
-      position: 2,
-      courseId: "15113559",
-    },
-  ];
+				fetchData();
+			}, []);
+			// console.log(courses);
+			let otherInfo = [
+				{
+					background: "#521C3C",
+					img: "uiux",
+					position: 1,
+					courseId: "21197094",
+				},
+				{
+					background: "#1B2531",
+					img: "dataScience",
+					position: 2,
+					courseId: "83224682",
+				},
+				{
+					background: "#3C2B68",
+					img: "backend",
+					position: 1,
+					courseId: "14246154",
+				},
+				{
+					background: "#000000",
+					img: "fullstack",
+					position: 2,
+					courseId: "63748970",
+				},
+				{
+					background: "#19201D",
+					img: "cyber",
+					position: 1,
+					courseId: "18556101",
+				},
+				{
+					background: "#433C28",
+					img: "frotend",
+					position: 2,
+					courseId: "15113559",
+				},
+			];
 
-  const combinedObj = otherInfo.map((item, index) => {
-    // Assuming the objects have a common identifier, such as "id"
-    const matchingObject = courses.find(
-      (obj) => obj.courseId === item.courseId
-    );
+			const combinedObj = otherInfo.map((item, index) => {
+				// Assuming the objects have a common identifier, such as "id"
+				const matchingObject = courses.find(
+					(obj) => obj.courseId === item.courseId
+				);
 
-    if (matchingObject) {
-      // Merge the properties from both arrays
-      return { ...item, ...matchingObject };
-    }
+				if (matchingObject) {
+					// Merge the properties from both arrays
+					return { ...item, ...matchingObject };
+				}
 
-    return item; // Or handle the case where there is no matching object
-  });
-  // console.log(combinedObj);
-  if (isLoading) {
-    return (
-      <div className="h-screen w-screen flex flex-col items-center justify-center bg-black text-white">
-        Loading...
-      </div>
-    );
-  }
-  return (
-    <>
-      <Meta />
-      <Nav />
-      <div className="bg-black">
-        <section className="h-[95vh] flex flex-col items-center justify-center bg-black">
-          <h1 className="font-space font-[700] text-[30px] md:text-[96px] leading-[35px] md:leading-[94.1px] text-[#ffba0e] ">
-            Our Courses
-          </h1>
-          <p
-            className="font-dmsans font-[400] text-[24px] mt-[18px] md:mt-[80px] leading-[31.25px] mx-[15px]  md:w-[842px] text-white
+				return item; // Or handle the case where there is no matching object
+			});
+			// console.log(combinedObj);
+			if (isLoading) {
+				return (
+					<div className="h-screen w-screen flex flex-col items-center justify-center bg-black text-white">
+						Loading...
+					</div>
+				);
+			}
+			return (
+				<>
+					<Meta />
+					<Nav />
+					<div className="bg-black">
+						<section className="h-[95vh] flex flex-col items-center justify-center bg-black">
+							<h1 className="font-space font-[700] text-[30px] md:text-[96px] leading-[35px] md:leading-[94.1px] text-[#ffba0e] ">
+								Our Courses
+							</h1>
+							<p
+								className="font-dmsans font-[400] text-[24px] mt-[18px] md:mt-[80px] leading-[31.25px] mx-[15px]  md:w-[842px] text-white
           "
-          >
-            Our range of Skills resources will help you Build your career with
-            as few bumps as possible. From pitching to clients, showing your
-            work, or securing your business’s future, we’ve got what you need.
-          </p>
-        </section>
-        <section className="gap-y-[120px] text-white w-screen">
-          {combinedObj.map((course, i) => {
-            return (
-              <CourseCard
-                img={course.img}
-                background={course.background}
-                key={course.courseId}
-                position={course.position}
-              >
-                <h3 className="font-space font-[700] text-24px] leading-[19px]">
-                  {course.name}
-                </h3>
-                <p className="font-[400] font-dmsans text-[15px] leading-[27px]">
-                  {course.description}
-                </p>
-                <p className="mt-[20px] md:mt-[36px] mb-[8px] font-dmsans font-[500] text-[24px]">
-                  Ready to take a career in {course.name}
-                </p>
-                <div className="flex items-center gap-x-[20px]">
-                  <Link
-                    href={`/courses/${course.urlName}`}
-                    className="font-sora font-[600] text-[16px] leading-[20px]"
-                  >
-                    Join us now
-                  </Link>
-                  <FiArrowRight />
-                </div>
-              </CourseCard>
-            );
-          })}
+							>
+								Our range of Skills resources will help you Build your career with
+								as few bumps as possible. From pitching to clients, showing your
+								work, or securing your business’s future, we’ve got what you need.
+							</p>
+						</section>
+						<section className="gap-y-[120px] text-white w-screen">
+							{combinedObj.map((course, i) => {
+								return (
+									<CourseCard
+										img={course.img}
+										background={course.background}
+										key={course.courseId}
+										position={course.position}
+									>
+										<h3 className="font-space font-[700] text-24px] leading-[19px]">
+											{course.name}
+										</h3>
+										<p className="font-[400] font-dmsans text-[15px] leading-[27px]">
+											{course.description}
+										</p>
+										<p className="mt-[20px] md:mt-[36px] mb-[8px] font-dmsans font-[500] text-[24px]">
+											Ready to take a career in {course.name}
+										</p>
+										<div className="flex items-center gap-x-[20px]">
+											<Link
+												href={`/courses/${course.urlName}`}
+												className="font-sora font-[600] text-[16px] leading-[20px]"
+											>
+												Join us now
+											</Link>
+											<FiArrowRight />
+										</div>
+									</CourseCard>
+								);
+							})}
 
-          {/* 
+							{/* 
 					<CourseCard img='uiux' background='#521C3C'>
 						<h3 className='font-space font-[700] text-24px] leading-[19px]'>
 							UI/UX Design
@@ -395,36 +395,36 @@ const Courses = () => {
 							<FiArrowRight />
 						</div>
 					</CourseCard> */}
-        </section>
-        <section className="px-[20px] md:px-[57px] py-[62px] bg-black md:bg-[url('/images/devcentbg.png')] min-h-[110vh] w-[100vw] overflow-hidden ">
-          <h3 className="font-space font-[700] text-[32px] leading-[35.2px] text-left text-white">
-            LEARN WITH THE BEST
-          </h3>
-          <div className="md:flex gap-x-[50px] mb-[60px]">
-            <Instructor
-              img="mary"
-              name="Mariam Omotola"
-              role="UI Designer, DevCent"
-              description="Mariam has enjoyed working in UX design across a variety of domains at Google, from YouTube, to technical cloud platforms. She is particularly interested in bringing a human touch to products. She received her Master's in Human Computer Interaction from The University of Michigan."
-            />
-            <Instructor
-              img="tosin"
-              name="Fakile Tosin"
-              role="UI Designer, Tinacle"
-              description="Tosin has enjoyed working in UX design across a variety of domains at Google, from YouTube, to technical cloud platforms. He is particularly interested in bringing a human touch to products. She received her Master's in Human Computer Interaction from The University of Michigan."
-            />
-            <Instructor
-              img="alalade"
-              name="Olanrewaju Alalade"
-              role="UI Designer, DevCent"
-              description="Olanrewaju has enjoyed working in UX design across a variety of domains at Google, from YouTube, to technical cloud platforms. He is particularly interested in bringing a human touch to products. She received her Master's in Human Computer Interaction from The University of Michigan."
-            />
-          </div>
-        </section>
-        <Footer />
-      </div>
-    </>
-  );
-};
-
-export default Courses;
+						</section>
+						<section className="px-[20px] md:px-[57px] py-[62px] bg-black md:bg-[url('/images/devcentbg.png')] min-h-[110vh] w-[100vw] overflow-hidden ">
+							<h3 className="font-space font-[700] text-[32px] leading-[35.2px] text-left text-white">
+								LEARN WITH THE BEST
+							</h3>
+							<div className="md:flex gap-x-[50px] mb-[60px]">
+								<Instructor
+									img="mary"
+									name="Mariam Omotola"
+									role="UI Designer, DevCent"
+									description="Mariam has enjoyed working in UX design across a variety of domains at Google, from YouTube, to technical cloud platforms. She is particularly interested in bringing a human touch to products. She received her Master's in Human Computer Interaction from The University of Michigan."
+								/>
+								<Instructor
+									img="tosin"
+									name="Fakile Tosin"
+									role="UI Designer, Tinacle"
+									description="Tosin has enjoyed working in UX design across a variety of domains at Google, from YouTube, to technical cloud platforms. He is particularly interested in bringing a human touch to products. She received her Master's in Human Computer Interaction from The University of Michigan."
+								/>
+								<Instructor
+									img="alalade"
+									name="Olanrewaju Alalade"
+									role="UI Designer, DevCent"
+									description="Olanrewaju has enjoyed working in UX design across a variety of domains at Google, from YouTube, to technical cloud platforms. He is particularly interested in bringing a human touch to products. She received her Master's in Human Computer Interaction from The University of Michigan."
+								/>
+							</div>
+						</section>
+						<Footer />
+					</div>
+				</>
+			);
+		};
+	
+export default Courses
