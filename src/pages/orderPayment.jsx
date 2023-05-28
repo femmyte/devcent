@@ -30,10 +30,10 @@ const OrderPayment = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				// const response = await axios.get(`api/orders/${orderId}/order`);
-				const response = await axios.get(
-					`api/orders/9518159586151938/order`
-				);
+				const response = await axios.get(`api/orders/${orderId}/order`);
+				// const response = await axios.get(
+				// 	`api/orders/9518159586151938/order`
+				// );
 				setOrder(response.data.order);
 				// setIsLoading(false);
 			} catch (error) {
@@ -43,7 +43,7 @@ const OrderPayment = () => {
 		};
 
 		fetchData();
-	}, []);
+	}, [orderId]);
 	console.log('order >', order);
 	const dateString = order?.createdAt;
 	const date = new Date(dateString);

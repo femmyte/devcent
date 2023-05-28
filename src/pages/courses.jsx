@@ -50,7 +50,7 @@ const CourseCard = ({
 		</div>
 	);
 };
-const courses = () => {
+const Courses = () => {
 	const [courses, setCourses] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
 	useEffect(() => {
@@ -414,4 +414,4 @@ const courses = () => {
 	);
 };
 
-export default courses;
+export default Courses;

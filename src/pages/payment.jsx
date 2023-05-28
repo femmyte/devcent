@@ -25,7 +25,7 @@ const Payment = () => {
 		};
 
 		fetchData();
-	}, []);
+	}, [courseName]);
 	// const course = JSON.parse(decodeURIComponent(data));
 	const amount = course?.discountFee;
 	const half = amount / 2;

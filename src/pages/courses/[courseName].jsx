@@ -87,7 +87,7 @@ const Uiux = () => {
 		};
 
 		fetchData();
-	}, []);
+	}, [courseName]);
 	// const encodedObject = encodeURIComponent(JSON.stringify(course));
 
 	if (isLoading) {
