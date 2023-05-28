@@ -86,8 +86,8 @@ router.post(isLogin, isStudent, createOrder);
 
 export default handler();
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
+// export const config = {
+//   api: {
+//     bodyParser: false,
+//   },
+// };
