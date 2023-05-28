@@ -13,20 +13,36 @@ const OrderPayment = () => {
 	const [phoneNumber, setNumber] = useState('08137192766');
 	const [date, setDate] = useState('22 Aug 2021');
 	const [data, setData] = useState({});
+	const [order, setOrder] = useState({});
 	const router = useRouter();
 	const { orderId } = router.query;
+
+	// useEffect(() => {
+	// 	axios
+	// 		.get('/api/payment-details')
+	// 		.then((response) => {
+	// 			setData(response.data);
+	// 		})
+	// 		.catch((error) => {
+	// 			console.log(error);
+	// 		});
+	// }, []);
 	useEffect(() => {
-		axios
-			.get('/api/payment-details')
-			.then((response) => {
-				setData(response.data);
-			})
-			.catch((error) => {
-				console.log(error);
-			});
+		const fetchData = async () => {
+			try {
+				const response = await axios.get(`api/orders/${orderId}/order`);
+				setOrder(response.data.order);
+				// setIsLoading(false);
+			} catch (error) {
+				console.error('Error fetching data:', error);
+				// setIsLoading(false);
+			}
+		};
+
+		fetchData();
 	}, []);
-	console.log(data);
-	// const { fullName, email, amount, orderNumber, phoneNumber, date } = data;
+	console.log(order);
+	// const { fullName, email, amount, orderNumber, phoneNumber, date } = order;
 	return (
 		<div className='bg-black min-h-screen '>
 			<Nav />
@@ -59,7 +75,7 @@ const OrderPayment = () => {
 								Order Number
 							</p>
 							<p className='font-source font-[600] text-[24px] text-white'>
-								{orderNumber}
+								{orderId}
 							</p>
 						</div>
 						<div className='w-[1px] h-[50px] hidden md:block bg-[#747474]'></div>
@@ -77,7 +93,7 @@ const OrderPayment = () => {
 								Amount
 							</p>
 							<p className='font-source font-[600] text-[24px] text-white'>
-								#{amount}
+								#{order?.amount?.toLocaleString()}
 							</p>
 						</div>
 						<div className='w-[1px] h-[50px] hidden md:block bg-[#747474]'></div>
@@ -108,6 +124,7 @@ const OrderPayment = () => {
 							email={email}
 							name={fullName}
 							phoneNumber={phoneNumber}
+							orderId={orderId}
 						/>
 						<button className='mt-[20px] md:mt-0 py-[10px] md:py-[16px] px-[20px] md:px-[32px] rounded-lg border border-primaryPurple text-[18px] md:text-[24px] font-dmsans font-[700]'>
 							Cancel Order

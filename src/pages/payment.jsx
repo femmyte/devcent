@@ -114,7 +114,7 @@ const Payment = () => {
 					router.replace('/orderPayment');
 					router.push({
 						pathname: '/orderPayment',
-						query: data.orderId,
+						query: { orderId: data.orderId },
 					});
 				} else {
 					console.error(
