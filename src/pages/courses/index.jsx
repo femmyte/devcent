@@ -48,7 +48,7 @@ const CourseCard = ({
     </div>
   );
 };
-<<<<<<< HEAD:src/pages/courses.jsx
+
 const Courses = () => {
 	const [courses, setCourses] = useState([]);
 	const [isLoading, setIsLoading] = useState(true);
@@ -63,8 +63,6 @@ const Courses = () => {
 				setIsLoading(false);
 			}
 		};
-=======
->>>>>>> 933d1a46232e865b36f665a0ddfcc8d0ff159a9e:src/pages/courses/index.jsx
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
