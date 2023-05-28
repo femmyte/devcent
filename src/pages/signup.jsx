@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import GoogleButton from '../../components/GoogleButton';
+import GoogleButton from '../../components/common/GoogleButton';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
