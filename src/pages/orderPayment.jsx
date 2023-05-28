@@ -6,17 +6,17 @@ import ReactCountryFlag from 'react-country-flag';
 import { useRouter } from 'next/router';
 
 const OrderPayment = () => {
-	const [fullName, setName] = useState('Adesare Adeforigbagi');
-	const [amount, setAmount] = useState(500000);
-	const [orderNumber, setorderNumber] = useState(123456);
-	const [email, setEmail] = useState('faleyeoluwafemi1@gmail.com');
-	const [phoneNumber, setNumber] = useState('08137192766');
-	const [date, setDate] = useState('22 Aug 2021');
+	// const [fullName, setName] = useState('Adesare Adeforigbagi');
+	// const [amount, setAmount] = useState(500000);
+	// const [orderNumber, setorderNumber] = useState(123456);
+	// const [email, setEmail] = useState('faleyeoluwafemi1@gmail.com');
+	// const [phoneNumber, setNumber] = useState('08137192766');
+	// const [date, setDate] = useState('22 Aug 2021');
 	const [data, setData] = useState({});
 	const [order, setOrder] = useState({});
 	const router = useRouter();
 	const { orderId } = router.query;
-
+	// "0022559190665529"
 	// useEffect(() => {
 	// 	axios
 	// 		.get('/api/payment-details')
@@ -30,7 +30,10 @@ const OrderPayment = () => {
 	useEffect(() => {
 		const fetchData = async () => {
 			try {
-				const response = await axios.get(`api/orders/${orderId}/order`);
+				// const response = await axios.get(`api/orders/${orderId}/order`);
+				const response = await axios.get(
+					`api/orders/9518159586151938/order`
+				);
 				setOrder(response.data.order);
 				// setIsLoading(false);
 			} catch (error) {
@@ -41,8 +44,15 @@ const OrderPayment = () => {
 
 		fetchData();
 	}, []);
-	console.log(order);
-	// const { fullName, email, amount, orderNumber, phoneNumber, date } = order;
+	console.log('order >', order);
+	const dateString = order?.createdAt;
+	const date = new Date(dateString);
+
+	const options = { day: 'numeric', month: 'long', year: 'numeric' };
+	const formattedDate = date.toLocaleDateString('en-US', options);
+
+	// console.log(formattedDate); // Output: "28 May 2023"
+
 	return (
 		<div className='bg-black min-h-screen '>
 			<Nav />
@@ -75,7 +85,7 @@ const OrderPayment = () => {
 								Order Number
 							</p>
 							<p className='font-source font-[600] text-[24px] text-white'>
-								{orderId}
+								{order?.orderId}
 							</p>
 						</div>
 						<div className='w-[1px] h-[50px] hidden md:block bg-[#747474]'></div>
@@ -84,7 +94,7 @@ const OrderPayment = () => {
 								Date
 							</p>
 							<p className='font-source font-[600] text-[24px] text-white'>
-								{date}
+								{formattedDate}
 							</p>
 						</div>
 						<div className='w-[1px] h-[50px] hidden md:block bg-[#747474]'></div>
@@ -120,10 +130,10 @@ const OrderPayment = () => {
 							Make Payment
 						</button> */}
 						<FlutterPayment
-							amount={amount}
-							email={email}
-							name={fullName}
-							phoneNumber={phoneNumber}
+							amount={order?.amount}
+							email={order?.payerInfo?.email}
+							name={order?.payerInfo?.name}
+							phoneNumber={order?.payerInfo?.phoneNumber}
 							orderId={orderId}
 						/>
 						<button className='mt-[20px] md:mt-0 py-[10px] md:py-[16px] px-[20px] md:px-[32px] rounded-lg border border-primaryPurple text-[18px] md:text-[24px] font-dmsans font-[700]'>

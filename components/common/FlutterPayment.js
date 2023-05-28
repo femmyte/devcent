@@ -5,7 +5,8 @@ export default function App({ orderId, amount, email, name, phoneNumber }) {
 	const router = useRouter();
 	const config = {
 		public_key: process.env.NEXT_PUBLIC_FLUTTER_KEY,
-		tx_ref: Date.now(),
+		// tx_ref: Date.now(),
+		tx_ref: orderId,
 		amount: amount,
 		currency: 'NGN',
 		// payment_options: 'card,mobilemoney,ussd',
@@ -18,7 +19,8 @@ export default function App({ orderId, amount, email, name, phoneNumber }) {
 		customizations: {
 			title: 'Devcent',
 			description: 'Payment for items in cart',
-			logo: 'https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg',
+			logo: '/images/logo.png',
+			// logo: 'https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg',
 		},
 	};
 
@@ -30,14 +32,14 @@ export default function App({ orderId, amount, email, name, phoneNumber }) {
 			console.log(response);
 			handleSubmitPayment(response);
 			closePaymentModal(); // this will close the modal programmatically
-			router.push('/congratulations');
 		},
 		onClose: (response) => {
 			console.log(response);
+			alert('Payment not successful');
 		},
 	};
 
-	const handleSubmitPayment = async (response) => {
+	const handleSubmitPayment = async (result) => {
 		try {
 			let myHeaders = new Headers();
 			myHeaders.append('Content-Type', 'application/json');
@@ -45,31 +47,19 @@ export default function App({ orderId, amount, email, name, phoneNumber }) {
 				method: 'POST',
 				headers: myHeaders,
 				body: JSON.stringify({
-					amount: response,
-					transaction_id: response,
-					created_at: response,
-					flw_ref: response,
-					status: 'successful',
+					amount,
+					transaction_id: result.transaction_id,
+					created_at: result.created_at,
+					flw_ref: result.flw_ref,
+					status: result.status,
 				}),
 			});
 			let data = await response.json();
 
-			console.log(data);
 			if (response.ok) {
-				setState({});
-				Array.from(document.querySelectorAll('input')).forEach(
-					(input) => (input.value = '')
-				);
-				setClicked(false);
-				router.replace('/orderPayment');
-				router.push({
-					pathname: '/orderPayment',
-					query: { orderId: data.orderId },
-				});
+				router.push('/congratulations');
 			} else {
 				console.error('Error making POST request:', response.status);
-				// handleFormErrorAlert(data.error);
-				setClicked(false);
 			}
 		} catch (err) {
 			console.log(err);

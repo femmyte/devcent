@@ -111,7 +111,6 @@ const Payment = () => {
 						(input) => (input.value = '')
 					);
 					setClicked(false);
-					router.replace('/orderPayment');
 					router.push({
 						pathname: '/orderPayment',
 						query: { orderId: data.orderId },
