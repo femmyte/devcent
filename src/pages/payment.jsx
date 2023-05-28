@@ -131,50 +131,6 @@ const Payment = () => {
 		createInfo();
 	};
 
-	// const handleSubmit = async (e) => {
-	// 	e.preventDefault();
-	// 	console.log(state);
-
-	// 	try {
-	// 		const response = await axios.post('/api/orders/create', {
-	// 			courseId: course.courseId,
-	// 			paymentPlan: state.paymentPlan,
-	// 			firstName: state.firstName,
-	// 			lastName: state.lastName,
-	// 			email: state.email,
-	// 			country: state.country,
-	// 			state: state.state,
-	// 			city: state.city,
-	// 			street: state.street,
-	// 			houseNumber: state.houseNumber,
-	// 			postalCode: state.postalCode,
-	// 			phoneNumber: state.phoneNumber,
-	// 			info: state.info,
-	// 		});
-
-	// 		console.log(response.data);
-
-	// 		if (response.status >= 200 && response.status < 300) {
-	// 			setState({});
-	// 			Array.from(document.querySelectorAll('input')).forEach(
-	// 				(input) => (input.value = '')
-	// 			);
-	// 			setClicked(false);
-	// 			// router.replace('/orderPayment');
-	// 			router.push({
-	// 				pathname: '/orderPayment',
-	// 				query: { name: 'Someone' },
-	// 			});
-	// 		} else {
-	// 			console.error('Error making POST request:', response.status);
-	// 			// handleFormErrorAlert(response.data.error);
-	// 			setClicked(false);
-	// 		}
-	// 	} catch (error) {
-	// 		console.error('Error making POST request:', error);
-	// 	}
-	// };
-
 	state.paymentPlan == 'part-payment'
 		? (total = course?.discountFee / 2)
 		: (total = course?.discountFee);
