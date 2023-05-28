@@ -1,6 +1,7 @@
 import dayjs from 'dayjs';
 import { useContext, createContext } from 'react';
 import { useState, useEffect, useReducer, useMemo } from 'react';
+import { getSession, useSession } from 'next-auth/react';
 
 const AuthContext = createContext();
 
@@ -30,12 +31,19 @@ const savedEventsReducer = (state, { type, payload }) => {
 // };
 // console.log(initEvents());
 export const AuthContextProvider = ({ children }) => {
-	const [user, setUser] = useState('');
+	// const [user, setUser] = useState('');
 	const [activeMenu, setActiveMenu] = useState(true);
 	const [isClicked, setIsClicked] = useState();
 	const [screenSize, setScreenSize] = useState(undefined);
 	const [darkToggle, setDarkToggle] = useState(false);
 	let login = false;
+
+	const session = useSession();
+	let authenticated = session.status === 'authenticated';
+	let user = null;
+	if (authenticated) {
+		user = session.data?.user;
+	}
 
 	const handleClick = (clicked) => {
 		setIsClicked({ ...isClicked, [clicked]: true });
@@ -51,7 +59,6 @@ export const AuthContextProvider = ({ children }) => {
 	const [labels, setLabels] = useState([true]);
 	const [dayEvent, setDayEvent] = useState([]);
 	const [evtday, setDay] = useState([]);
-
 	const [isBusy, setIsBusy] = useState(true);
 
 	useEffect(() => {
@@ -120,7 +127,7 @@ export const AuthContextProvider = ({ children }) => {
 		<AuthContext.Provider
 			value={{
 				login,
-				setUser,
+				// setUser,
 				user,
 				activeMenu,
 				setActiveMenu,

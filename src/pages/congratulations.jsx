@@ -1,5 +1,5 @@
-import Nav from 'components/Nav';
-import Footer from 'components/Footer';
+import Nav from 'components/common/Nav';
+import Footer from 'components/common/Footer';
 import React, { useState, useEffect } from 'react';
 
 const Congratulations = () => {

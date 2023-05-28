@@ -10,8 +10,10 @@ import DashboardLayout from '../../../components/dashboard/DashboardLayout';
 import courseInfo from '../../../courseInfo';
 import { getSession, useSession } from 'next-auth/react';
 import Link from 'next/link';
+import { useStateContext } from 'AuthContext';
 
 const Overview = () => {
+	const { user } = useStateContext();
 	const [fetchedUsers, setFetchedUsers] = useState({});
 	const [course, setCourse] = useState('');
 	const [courseInformation, setCourseInformationo] = useState(courseInfo);
@@ -38,18 +40,18 @@ const Overview = () => {
 		});
 	}, []);
 
-	const session = useSession();
+	// const session = useSession();
 
 	// console.log(session);
-	console.log(session.data?.user?.enrolledCourses);
+	// console.log(session.data?.user?.enrolledCourses);
 
 	// fetchedUsers.map((course) => setCourse(course))
 	return (
 		<div>
 			<DashboardLayout>
 				<>
-					{session.data?.user?.enrolledCourses.length <= 0 ? (
-						<div className='w-full flex flex-col items-center justify-center h-screen'>
+					{user?.enrolledCourses.length <= 0 ? (
+						<div className='w-full flex flex-col items-center justify-center h-screen px-[20px]'>
 							<p className='font-space text-white font-[500] text-[20px] leading-[25px] mb-[5px]'>
 								Kindly Register for a course to get full access
 								to the platform{' '}

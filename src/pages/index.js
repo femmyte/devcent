@@ -1,7 +1,7 @@
-import Box from 'components/Box';
-import Footer from 'components/Footer';
-import Meta from 'components/Meta';
-import Nav from 'components/Nav';
+import Box from 'components/common/Box';
+import Footer from 'components/common/Footer';
+import Meta from 'components/common/Meta';
+import Nav from 'components/common/Nav';
 import Link from 'next/link';
 import React from 'react';
 

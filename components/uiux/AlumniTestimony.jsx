@@ -1,4 +1,4 @@
-import Grid from 'components/Grid';
+import Grid from 'components/common/Grid';
 import React, { useState } from 'react';
 import { FcPlus } from 'react-icons/fc';
 

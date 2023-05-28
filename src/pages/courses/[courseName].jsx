@@ -1,17 +1,18 @@
-import Meta from 'components/Meta';
-import Nav from 'components/Nav';
-import React, { useState } from 'react';
+import Meta from 'components/common/Meta';
+import Nav from 'components/common/Nav';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import CourseOverview from 'components/uiux/CourseOverview';
 import Curriculum from 'components/uiux/Curriculum';
 import AlumniTestimony from 'components/uiux/AlumniTestimony';
 import ToolsCard from 'components/uiux/ToolsCard';
-import Instructor from 'components/Instructor';
-import Footer from 'components/Footer';
+import Instructor from 'components/common/Instructor';
+import Footer from 'components/common/Footer';
 import WhyDevcent from 'components/uiux/WhyDevcent';
 import Pricing from 'components/uiux/Pricing';
-import FAQ from 'components/FAQ';
-
+import FAQ from 'components/common/FAQ';
+import axios from 'axios';
+import { useRouter } from 'next/router';
 const Card = ({ title, btnText, icon, children }) => {
 	const [show, setShow] = useState(false);
 
@@ -60,7 +61,43 @@ const CollaborateCard = () => {
 	);
 };
 
-const uiux = () => {
+const Uiux = () => {
+	const [course, setCourse] = useState({});
+	const [isLoading, setIsLoading] = useState(true);
+	const router = useRouter();
+	const { courseName } = router.query;
+	const handleRoute = () => {
+		router.push({
+			pathname: '/payment',
+			query: { courseName: course.urlName },
+		});
+	};
+	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				const response = await axios.get(
+					`/api/courses/${courseName}/course`
+				);
+				setCourse(response.data.course);
+				setIsLoading(false);
+			} catch (error) {
+				console.error('Error fetching data:', error);
+				setIsLoading(false);
+			}
+		};
+
+		fetchData();
+	}, []);
+	// const encodedObject = encodeURIComponent(JSON.stringify(course));
+
+	if (isLoading) {
+		return (
+			<div className='h-screen w-screen flex flex-col items-center justify-center bg-black text-white'>
+				Loading...
+			</div>
+		);
+	}
+
 	return (
 		<div>
 			<Meta />
@@ -78,7 +115,7 @@ const uiux = () => {
 						Beginner Friendly
 					</p>
 					<h1 className='font-space font-[700] text-[30px] md:text-[80px] leading-[35px] md:leading-[102px] text-primaryYellow mt-[24px]'>
-						UX/UI Design
+						{course.name}
 					</h1>
 					{/* <h3 className="font-space font-[400] text-[60px] leading-[77px] mt-[18px] mb-[50px] text-[#C0BAA9]">
             Duration · 12 weeks
@@ -114,12 +151,19 @@ const uiux = () => {
 						</p>
 					</div>
 					<div className='flex flex-col md:flex-row items-center gap-x-[60px]'>
-						<Link
-							href='/payment'
+						{/* <Link
+							href={`/payment?courseName=${course.urlName}`}
 							className='text-white  bg-primaryPurple py-[10px] md:py-[16px] px-[20px] md:px-[32px] font-space font-bold text-[18px] md:text-[24px] hover:animate-pulse ease-out duration-300 rounded-[5px]'
 						>
 							Enroll Now
-						</Link>
+						</Link> */}
+						<button
+							// href={`/payment?courseName=${course.urlName}`}
+							onClick={handleRoute}
+							className='text-white  bg-primaryPurple py-[10px] md:py-[16px] px-[20px] md:px-[32px] font-space font-bold text-[18px] md:text-[24px] hover:animate-pulse ease-out duration-300 rounded-[5px]'
+						>
+							Enroll Now
+						</button>
 						<Link
 							href=''
 							className='text-primaryPurple border border-primaryPurple py-[10px] md:py-[16px] px-[20px] md:px-[32px] font-space font-bold text-[18px] md:text-[24px] hover:animate-pulse ease-out duration-300 rounded-[5px] my-[20px] md:mt-0'
@@ -292,7 +336,7 @@ const uiux = () => {
 				description='Seeing our students making impact at top tech companies and getting paid for their service gives us great joy.'
 				showVideo
 			/>
-			<Pricing />
+			<Pricing amount={course.discountFee} />
 			{/* <Curriculum /> */}
 			<FAQ />
 			<section
@@ -337,4 +381,4 @@ const uiux = () => {
 	);
 };
 
-export default uiux;
+export default Uiux;

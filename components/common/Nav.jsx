@@ -5,6 +5,8 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { FiSearch } from 'react-icons/fi';
 import { IoIosArrowDown } from 'react-icons/io';
+import { useStateContext } from 'AuthContext';
+import { useSession } from 'next-auth/react';
 const SearchComponent = ({ onFilter, filterText }) => (
 	<div className='dark:text-gray-200 dark:bg-main-dark-bg dark:hover:text-white flex w-4/5 md:w-[220px] h-[39px] py-[12-x] px-[6px] items-center border border-[#E40084] bg-transparent rounded-lg'>
 		<FiSearch />
@@ -20,7 +22,8 @@ const SearchComponent = ({ onFilter, filterText }) => (
 );
 const Nav = ({ path }) => {
 	const currentPath = useRouter().pathname;
-	// console.log(currentPath);
+	const session = useSession();
+	let authenticated = session.status === 'authenticated';
 	const [menu, setMenu] = useState(false);
 	const handleMenu = () => {
 		if (menu) {
@@ -108,7 +111,7 @@ const Nav = ({ path }) => {
 							<IoIosArrowDown />
 						</li>
 					</ul>
-					<div className='md:ml-[139px] md:flex md:justify-center md:items-center '>
+					<div className='md:ml-[139px] flex flex-col md:flex-row md:justify-center md:items-center  gap-x-[48px] gap-y-[20px] md:gap-y-0'>
 						{/* <Link
               href="/signup"
               className="bg-primaryGreen w-[94px] py-3 rounded-lg text-[14px] font-[500] text-center"
@@ -116,19 +119,29 @@ const Nav = ({ path }) => {
               Get Started
             </Link> */}
 						<SearchComponent />
-
-						<Link
-							href='/signin'
-							className=' font-[400] py-[16px] md:px-[16px] rounded-lg text-[14px] leading-[17.6px] text-left md:text-center mt-[20px] md:mt-0 block md:ml-[54px] text-primaryPurple'
-						>
-							Login
-						</Link>
-						<Link
-							href='/signup'
-							className='md:ml-[48px] text-white bg-[#E40084] w-[149px] text-center py-[10px]  font-source text-[18px] rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 '
-						>
-							Get Started
-						</Link>
+						{authenticated ? (
+							<Link
+								href='/auth/overview'
+								className=' text-white bg-[#E40084] w-[149px] text-center py-[10px] px-[20px]  font-source text-[18px] rounded-lg  hover:bg-primaryYellow'
+							>
+								Dashboard
+							</Link>
+						) : (
+							<>
+								<Link
+									href='/signin'
+									className=' font-[400] py-[16px] md:px-[16px] rounded-lg text-[14px] leading-[17.6px] text-left md:text-center mt-[20px] md:mt-0 block text-primaryPurple'
+								>
+									Login
+								</Link>
+								<Link
+									href='/signup'
+									className=' text-white bg-[#E40084] w-[149px] text-center font-source text-[18px] rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 py-[10px] px-[20px]'
+								>
+									Get Started
+								</Link>
+							</>
+						)}
 					</div>
 				</div>
 			</div>

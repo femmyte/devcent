@@ -1,10 +1,10 @@
 import React from 'react';
-import Meta from 'components/Meta';
-import Nav from 'components/Nav';
+import Meta from 'components/common/Meta';
+import Nav from 'components/common/Nav';
 import AlumniTestimony from 'components/uiux/AlumniTestimony';
-import Instructor from 'components/Instructor';
+import Instructor from 'components/common/Instructor';
 import Link from 'next/link';
-import Footer from 'components/Footer';
+import Footer from 'components/common/Footer';
 
 const ProcessCard = ({ title, number, description }) => {
 	return (

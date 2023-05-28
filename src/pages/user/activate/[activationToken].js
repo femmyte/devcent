@@ -5,7 +5,6 @@ import axios from 'axios';
 const Activate = () => {
 	const router = useRouter();
 	const { activationToken } = router.query;
-	console.log(activationToken);
 	const [status, setStatus] = useState('');
 	const [activationStatus, setActivationStatus] = useState('');
 
