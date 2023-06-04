@@ -22,7 +22,7 @@ const Index = () => {
 
       {/* <div className='flex justify-between relative'> */}
 
-      <div className="bg-black flex flex-col-reverse lg:flex-row justify-between text-white z-10 md:pl-[96px] md:pr-[95px] relative">
+      <div className="bg-black flex flex-col-reverse lg:flex-row justify-between text-white z-10 px-[25px] md:pl-[96px] md:pr-[95px] relative">
         <div className="w-full md:w-[580px] mt-[30px] md:mt-[160px] text-center md:text-left">
           <h1 className="text-white text-[40px] md:text-[48px] font-[700] leading-[50px] md:leading-[58px] font-space ">
             Developing <span className="text-[#FFBA0E]">Worldclass </span>{" "}
@@ -30,7 +30,7 @@ const Index = () => {
             Tech <span className="text-[#FFBA0E]">Talent</span> at{" "}
             <span className="text-[#FFBA0E]"> Devcent</span>
           </h1>
-          <p className="text-[20px] md:text-[24px] leading-6 md:leading-10 my-[20px]  ">
+          <p className="text-[20px] md:text-[24px] leading-6 md:leading-10 my-[20px]">
             Our Trainings are designed to help you learn <br /> from the best
             industry experts around.
           </p>

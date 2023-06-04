@@ -16,7 +16,7 @@ const Footer = () => {
         <div className="lg:flex gap-[30px] px-[25px] md:px-[50px] pt-[20px] md:pt-[100px] justify-between   text-white">
           <div className="flex flex-col justify-center items-center mb-[50px] md:flex-[30%]">
             <img src="/images/logo.png" alt="devcent logo" className="" />
-            <p className="font-[400] font-dmsans text-[20px] mt-[24px] text-center">
+            <p className="font-[400] font-dmsans text-[18px] md:text-[20px] mt-[24px] text-center">
               We are dedicated IT Training Establishment . We have excelled in
               IT Training/Education, IT Consultancy and IT Solutions
               Development.
