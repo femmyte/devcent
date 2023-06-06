@@ -143,29 +143,29 @@ const Index = () => {
           className="absolute bottom-[-240px] left-[50%] md:left-[35%]"
         />
       </section>
-      <section className="md:py-[120px] bg-[#F9F9F9] md:px-[80px] relative md:min-h-[1000px]">
+      <section className="xl:py-[120px] bg-[#F9F9F9] xl:px-[80px] relative xl:min-h-[1000px]">
         <div
-          className="relative z-20 py-[52px]  text-white bg-[url('/images/counterbg.png')] bg-cover bg-center max-h-[100vh] md:h-[751px] w-full md:w-[751px] rounded-[10px] "
+          className="relative z-20 py-[52px]  text-white bg-[url('/images/counterbg.png')] bg-cover bg-center max-h-[100vh] xl:h-[751px] w-full xl:w-[751px] rounded-[10px] "
           style={{ boxShadow: "0px 3px 45px rgba(0, 0, 0, 0.14)" }}
         >
           <div
-            className="absolute top-0 left-0 right-0 bottom-0 max-h-[100vh] md:h-[751px] w-full md:w-[751px] z-[1] rounded-[10px]"
+            className="absolute top-0 left-0 right-0 bottom-0 max-h-[100vh] xl:h-[751px] w-full xl:w-[751px] z-[1] rounded-[10px]"
             style={{
               background:
                 "linear-gradient(261.98deg, rgba(228, 0, 132, 0.74) 0%, rgba(255, 186, 14, 0.55) 100%)",
             }}
           />
           <div className="relative z-10 flex flex-col h-full justify-center">
-            <div className="md:ml-[200px] text-center md:text-left">
-              <p className="font-roboto font-[300] text-[80px] md:text-[130px] leading-[90px] md:leading-[168px]">
+            <div className="xl:ml-[200px] text-center xl:text-left">
+              <p className="font-roboto font-[300] text-[80px] xl:text-[130px] leading-[90px] xl:leading-[168px]">
                 28
               </p>
-              <p className="font-source font-regular text-[22px] leading-[55px] text-center  md:text-left ml-[30px]">
+              <p className="font-source font-regular text-[22px] leading-[55px] text-center  xl:text-left ml-[30px]">
                 COURSES
               </p>
             </div>
-            <div className="md:flex md:ml-[70px] mb-[20px] md:mb-0">
-              <div className="flex flex-col items-center md:items-start">
+            <div className="xl:flex xl:ml-[70px] mb-[20px] xl:mb-0">
+              <div className="flex flex-col items-center xl:items-start">
                 <p className="font-roboto font-light text-[45px] leading-[56px]">
                   +3500
                 </p>
@@ -173,7 +173,7 @@ const Index = () => {
                   LIVE PROJECTS
                 </p>
               </div>
-              <div className="flex flex-col items-center md:items-start md:ml-[70px]">
+              <div className="flex flex-col items-center xl:items-start xl:ml-[70px]">
                 <p className="font-roboto font-light text-[45px] leading-[56px] ml-[10px]">
                   100%
                 </p>
@@ -190,15 +190,15 @@ const Index = () => {
           </div>
         </div>
         <div
-          className="mt-[15px] md:mt-[52px] md:h-[751px] md:w-[687px] md:absolute md:top-[120px] md:left-[590px] rounded-[10px] bg-white border border-[rgba(0, 0, 0, 0.14)] z-[20] px-[20px] text-center md:text-left md:pl-[93px] pt-[40px] mb-[20px] md:mb-[40px]"
+          className="xl:mt-[52px] xl:h-[751px] xl:w-[687px] xl:absolute xl:top-[120px] xl:left-[590px] rounded-[10px] bg-white border border-[rgba(0, 0, 0, 0.14)] z-[20] px-[20px] text-center xl:text-left xl:pl-[93px] pt-[40px] xl:mb-[40px]"
           style={{ boxShadow: "0px 3px 45px rgba(0, 0, 0, 0.14)" }}
         >
-          <p className="font-space font-[400] text-[30px] md:text-[42.88px] leading-[35px] md:leading-[54.72px] text-black">
+          <p className="font-space font-[400] text-[30px] xl:text-[42.88px] leading-[35px] xl:leading-[54.72px] text-black">
             Take the next step towards <br /> your personal and <br />{" "}
             professional goals with <br />
             Devcent.
           </p>
-          <div className="flex justify-center md:justify-start mt-[20px] md:mt-[32px]">
+          <div className="flex justify-center xl:justify-start mt-[20px] xl:mt-[32px]">
             <div
               className=" h-[5px] w-[9px] mr-[6px] rounded-[20px]"
               style={{
@@ -212,7 +212,7 @@ const Index = () => {
               }}
             ></div>
           </div>
-          <p className="mt-[34px] md:mr-[60px]">
+          <p className="mt-[34px] xl:mr-[60px]">
             Lorem ipsum dolor sit amet consectetur. Ac venenatis turpis
             pellentesque sit quam egestas. Est viverra vitae at lobortis mi eget
             pulvinar. Sit orci sollicitudin enim habitant rhoncus donec. Nisi
@@ -229,8 +229,8 @@ const Index = () => {
           <p className="mt-[13px] ml-[10px]">
             Lorem ipsum dolor sit amet consectetur.
           </p>
-          <div className="mx-auto md:w-1/2 mb-[20px] md:mb-0">
-            <button className="mt-[20px] md:mt-[40px] mx-auto text-[#E40084] border border-[#E40084] py-[10px] md:py-[20px] px-[20px] md:px-[56px] font-dmsans font-bold text-[18px] rounded-lg hover:animate-pulse ease-out duration-300 ">
+          <div className="mx-auto xl:w-1/2 mb-[20px] xl:mb-0">
+            <button className="mt-[20px] xl:mt-[40px] mx-auto text-[#E40084] border border-[#E40084] py-[10px] xl:py-[20px] px-[20px] xl:px-[56px] font-dmsans font-bold text-[18px] rounded-lg hover:animate-pulse ease-out duration-300 ">
               Join now
             </button>
           </div>
