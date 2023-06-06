@@ -34,11 +34,11 @@ const Nav = ({ path }) => {
   };
   return (
     <nav
-      className={`z-[30] border-b border-[#494545] h-[64px] flex items-center relative bg-black md:px-[43px] ${
+      className={`z-[30] border-b border-[#494545] h-[64px] flex items-center relative bg-black md:px-[20px] ${
         menu ? "opacity-3" : ""
       }  bg-black font-source font-[600]`}
     >
-      <div className="md:py-3 md:ml-[33px] text-white h-[80px] md:h-[60px] w-screen md:flex md:items-center text-[20px] justify-between ">
+      <div className="md:py-3 text-white h-[80px] md:h-[60px] w-screen md:flex md:items-center text-[20px] justify-between ">
         <div className="flex justify-between items-center h-full cursor-pointer mx-3">
           <Link
             className="text-[20px] hover:text-primary duration-500"
@@ -107,7 +107,7 @@ const Nav = ({ path }) => {
               <IoIosArrowDown />
             </li>
           </ul>
-          <div className="md:ml-[100px] lg:ml-[130px] flex flex-col md:flex-row md:justify-center md:items-center  gap-x-[48px] gap-y-[20px] md:gap-y-0">
+          <div className="md:ml-[100px] lg:ml-[130px] flex flex-col md:flex-row md:justify-center md:items-center md:w-full  gap-x-[48px] gap-y-[20px] md:gap-y-0">
             {/* <Link
               href="/signup"
               className="bg-primaryGreen w-[94px] py-3 rounded-lg text-[14px] font-[500] text-center"

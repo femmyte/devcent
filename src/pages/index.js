@@ -52,12 +52,12 @@ const Index = () => {
           </h1>
         </div>
 
-        <p className="md:w-[886px] mt-[90px] text-[25px] text-center font-dmsans leading-[33px] mx-auto text-[#ffba0e] mb-[80px] md:mb-[100px]">
+        <p className="md:w-[70%] mt-[90px] text-[25px] text-center font-dmsans leading-[33px] mx-auto text-[#ffba0e] mb-[80px] md:mb-[100px]">
           Our online UX/UI & coding bootcamps are created to support you in
           learning via practice in a mini class of about 30 people globally.
         </p>
 
-        <div className="flex flex-col items-center xl:flex-row md:pl-[45px] xl:pr-[15px]">
+        <div className="flex flex-col gap-x-[30px] items-center xl:flex-row md:pl-[45px] xl:pr-[15px]">
           <div className="md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0">
             <p className="font-bold font-space text-[30px] md:text-[40px] leading-[35px] md:leading-[61px] text-white text-center md:text-left">
               Develop tech skills. <br /> save times. <br /> Build happier tech
@@ -250,10 +250,10 @@ const Index = () => {
         {/* <div className="md:flex"> */}
         {/* <div className="md:w-[900px] "> */}
         <div className="rounded-[8px] py-[55px] px-[0px] md:px-[40px]">
-          <div className="md:flex justify-between text-white gap-x-[100px] mb-[20px] md:mb-0">
+          <div className="md:flex justify-between text-white gap-x-[30px] lg:gap-x-[50px] mb-[20px] md:mb-0">
             <div className="flex gap-x-[15px] md:gap-x-[30px] items-start">
               <img src="/images/icons/markbg.png" alt="mark" className="" />
-              <div className="md:w-[400px]">
+              <div className="md:max-w-[400px]">
                 <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">
                   In-depth Knowledge
                 </h3>
@@ -266,7 +266,7 @@ const Index = () => {
             </div>
             <div className="flex gap-x-[15px] md:gap-x-[30px] items-start">
               <img src="/images/icons/markbg.png" alt="mark" className="" />
-              <div className="md:w-[400px]">
+              <div className="md:max-w-[400px]">
                 <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">
                   In-depth Knowledge
                 </h3>
@@ -279,10 +279,10 @@ const Index = () => {
             </div>
           </div>
 
-          <div className="md:flex justify-between text-white gap-x-[50px] md:mt-[50px]">
+          <div className="md:flex justify-between text-white gap-x-[30px] lg:gap-x-[50px] md:mt-[50px]">
             <div className="flex gap-x-[15px] md:gap-x-[30px] items-start">
               <img src="/images/icons/markbg.png" alt="" className="" />
-              <div className="md:w-[400px]">
+              <div className="md:max-w-[400px]">
                 <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">
                   In-depth Knowledge
                 </h3>
@@ -295,7 +295,7 @@ const Index = () => {
             </div>
             <div className="flex gap-x-[15px] md:gap-x-[30px] items-start">
               <img src="/images/icons/markbg.png" alt="j" className="" />
-              <div className="md:w-[400px]">
+              <div className="md:max-w-[400px]">
                 <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">
                   In-depth Knowledge
                 </h3>
