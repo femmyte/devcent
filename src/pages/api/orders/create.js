@@ -6,7 +6,6 @@ import Order from "models/Order";
 import { validateOrder } from "lib/validations/orderValidation";
 import { isLogin, isStudent } from "lib/middleware/auth";
 import { router, handler } from "lib/helpers/router";
-const clientUrl = process.env.NEXT_PUBLIC_CLIENT_URL;
 
 // @description: User create order
 // @Endpoint: api/orders/create

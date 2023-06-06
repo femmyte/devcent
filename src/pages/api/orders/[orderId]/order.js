@@ -4,8 +4,6 @@ import Order from "models/Order";
 import { router, handler } from "lib/helpers/router";
 import { isLogin, isStudent } from "lib/middleware/auth";
 
-const clientUrl = process.env.NEXT_PUBLIC_CLIENT_URL;
-
 // @description: Get order
 // @Endpoint: api/orders/:orderId/order
 // @AccessType: private/student

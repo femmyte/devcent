@@ -1,15 +1,11 @@
-import React from "react";
-import Meta from "./Meta";
-import styles from "../styles/Layout.module.css";
-import Footer from "./Footer";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const Layout = ({ children }) => {
   return (
     <>
-      <Meta />
-      {/* <div className=""> */}
+      <ToastContainer />
       <main>{children}</main>
-      {/* </div> */}
-      {/* <Footer /> */}
     </>
   );
 };

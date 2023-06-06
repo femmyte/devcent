@@ -56,16 +56,8 @@ const userSchema = new Schema(
     ],
     role: {
       type: String,
-      enum: ["student", "admin", "instructor"],
+      enum: ["student"],
       default: "student",
-    },
-    isAuthorizedAdmin: {
-      type: Boolean,
-      default: false,
-    },
-    isAuthorizedInstructor: {
-      type: Boolean,
-      default: false,
     },
   },
   { timestamps: true }

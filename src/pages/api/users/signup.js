@@ -7,7 +7,7 @@ import User from "models/User";
 import { generateUserId } from "lib/utils/random";
 import { createUrlName } from "lib/utils/urlName";
 
-const clientUrl = process.env.NEXT_PUBLIC_CLIENT_URL;
+const clientUrl = process.env.CLIENT_URL;
 
 // @description: User signup
 // @Endpoint: api/users/signup

@@ -9,7 +9,7 @@ import { sendWelcomeMessage } from "lib/nodemailer/welcome-message";
 import { generateUserId } from "lib/utils/random";
 import { createUrlName } from "lib/utils/urlName";
 
-const clientUrl = process.env.NEXT_PUBLIC_CLIENT_URL;
+const clientUrl = process.env.CLIENT_URL;
 
 // @description: User signin
 // @Endpoint: api/auth/signin
@@ -17,8 +17,8 @@ const clientUrl = process.env.NEXT_PUBLIC_CLIENT_URL;
 export const authOptions = {
   providers: [
     GoogleProvider({
-      clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
-      clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET,
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
     CredentialsProvider({
       async authorize(credentials, req) {
@@ -113,7 +113,7 @@ export const authOptions = {
       return session;
     },
   },
-  secret: process.env.NEXT_PUBLIC_NEXT_AUTH_SECRET,
+  secret: process.env.NEXT_AUTH_SECRET,
   session: {
     jwt: true,
   },

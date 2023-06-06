@@ -2,7 +2,7 @@ import dbConnect from "lib/db";
 import { isAllowedMethod } from "lib/helpers/isAllowed";
 import Course from "models/Course";
 
-const clientUrl = process.env.NEXT_PUBLIC_CLIENT_URL;
+const clientUrl = process.env.CLIENT_URL;
 
 // @description: Get all course
 // @Endpoint: api/courses/all-course
