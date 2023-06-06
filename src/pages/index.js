@@ -143,96 +143,98 @@ const Index = () => {
           className="absolute bottom-[-240px] left-[50%] md:left-[35%]"
         />
       </section>
-      <section className="xl:py-[120px] bg-[#F9F9F9] xl:px-[80px] relative xl:min-h-[1000px]">
-        <div
-          className="relative z-20 py-[52px]  text-white bg-[url('/images/counterbg.png')] bg-cover bg-center max-h-[100vh] xl:h-[751px] w-full xl:w-[751px] rounded-[10px] "
-          style={{ boxShadow: "0px 3px 45px rgba(0, 0, 0, 0.14)" }}
-        >
+      <section className="xl:pt-[120px] xl:pb-[160px] bg-[#F9F9F9] xl:px-[80px] relative">
+        <div className="xl:w-[95%] mx-auto relative">
           <div
-            className="absolute top-0 left-0 right-0 bottom-0 max-h-[100vh] xl:h-[751px] w-full xl:w-[751px] z-[1] rounded-[10px]"
-            style={{
-              background:
-                "linear-gradient(261.98deg, rgba(228, 0, 132, 0.74) 0%, rgba(255, 186, 14, 0.55) 100%)",
-            }}
-          />
-          <div className="relative z-10 flex flex-col h-full justify-center">
-            <div className="xl:ml-[200px] text-center xl:text-left">
-              <p className="font-roboto font-[300] text-[80px] xl:text-[130px] leading-[90px] xl:leading-[168px]">
-                28
-              </p>
-              <p className="font-source font-regular text-[22px] leading-[55px] text-center  xl:text-left ml-[30px]">
-                COURSES
-              </p>
-            </div>
-            <div className="xl:flex xl:ml-[70px] mb-[20px] xl:mb-0">
-              <div className="flex flex-col items-center xl:items-start">
-                <p className="font-roboto font-light text-[45px] leading-[56px]">
-                  +3500
+            className="relative z-20 py-[52px]  text-white bg-[url('/images/counterbg.png')] bg-cover bg-center max-h-[100vh] xl:h-[751px] w-full xl:max-w-[751px] rounded-[10px] "
+            style={{ boxShadow: "0px 3px 45px rgba(0, 0, 0, 0.14)" }}
+          >
+            <div
+              className="absolute top-0 left-0 right-0 bottom-0 max-h-[100vh] xl:h-[751px] w-full xl:w-[751px] z-[1] rounded-[10px]"
+              style={{
+                background:
+                  "linear-gradient(261.98deg, rgba(228, 0, 132, 0.74) 0%, rgba(255, 186, 14, 0.55) 100%)",
+              }}
+            />
+            <div className="relative z-10 flex flex-col h-full justify-center">
+              <div className="xl:ml-[200px] text-center xl:text-left">
+                <p className="font-roboto font-[300] text-[80px] xl:text-[130px] leading-[90px] xl:leading-[168px]">
+                  28
                 </p>
-                <p className="font-source font-regular text-[22px] leading-[30px]">
-                  LIVE PROJECTS
+                <p className="font-source font-regular text-[22px] leading-[55px] text-center  xl:text-left ml-[30px]">
+                  COURSES
                 </p>
               </div>
-              <div className="flex flex-col items-center xl:items-start xl:ml-[70px]">
-                <p className="font-roboto font-light text-[45px] leading-[56px] ml-[10px]">
-                  100%
-                </p>
-                <p className="font-source font-regular text-[22px] leading-[30px]">
-                  HAPPY TRAINEES
-                </p>
+              <div className="xl:flex xl:ml-[70px] mb-[20px] xl:mb-0">
+                <div className="flex flex-col items-center xl:items-start">
+                  <p className="font-roboto font-light text-[45px] leading-[56px]">
+                    +3500
+                  </p>
+                  <p className="font-source font-regular text-[22px] leading-[30px]">
+                    LIVE PROJECTS
+                  </p>
+                </div>
+                <div className="flex flex-col items-center xl:items-start xl:ml-[70px]">
+                  <p className="font-roboto font-light text-[45px] leading-[56px] ml-[10px]">
+                    100%
+                  </p>
+                  <p className="font-source font-regular text-[22px] leading-[30px]">
+                    HAPPY TRAINEES
+                  </p>
+                </div>
               </div>
-            </div>
-            {/* <div className="flex gap-x-[160px] mt-[15px] ml-[70px]">
+              {/* <div className="flex gap-x-[160px] mt-[15px] ml-[70px]">
               <p className="font-source font-regular text-[22px] leading-[30px]">
                 LIVE PROJECTS
               </p>
             </div> */}
+            </div>
           </div>
-        </div>
-        <div
-          className="xl:mt-[52px] xl:h-[751px] xl:w-[687px] xl:absolute xl:top-[120px] xl:left-[590px] rounded-[10px] bg-white border border-[rgba(0, 0, 0, 0.14)] z-[20] px-[20px] text-center xl:text-left xl:pl-[93px] pt-[40px] xl:mb-[40px]"
-          style={{ boxShadow: "0px 3px 45px rgba(0, 0, 0, 0.14)" }}
-        >
-          <p className="font-space font-[400] text-[30px] xl:text-[42.88px] leading-[35px] xl:leading-[54.72px] text-black">
-            Take the next step towards <br /> your personal and <br />{" "}
-            professional goals with <br />
-            Devcent.
-          </p>
-          <div className="flex justify-center xl:justify-start mt-[20px] xl:mt-[32px]">
-            <div
-              className=" h-[5px] w-[9px] mr-[6px] rounded-[20px]"
-              style={{
-                background: "linear-gradient(#FFBA0E 0%, #E40084 100%",
-              }}
-            ></div>
-            <div
-              className="h-[5px] w-[48px] rounded-[20px]"
-              style={{
-                background: "linear-gradient(#FFBA0E 0%, #E40084 100%",
-              }}
-            ></div>
-          </div>
-          <p className="mt-[34px] xl:mr-[60px]">
-            Lorem ipsum dolor sit amet consectetur. Ac venenatis turpis
-            pellentesque sit quam egestas. Est viverra vitae at lobortis mi eget
-            pulvinar. Sit orci sollicitudin enim habitant rhoncus donec. Nisi
-            amet tempor consequat ultrices suspendisse justo. Tortor et
-            adipiscing egestas gravida eu nibh. Ultrices nam enim tristique
-            sagittis auctor at penatibus neque urna. Non risus magna lacus.
-          </p>
-          <p className="mt-[8px] ml-[10px]">
-            Lorem ipsum dolor sit amet consectetur.
-          </p>
-          <p className="mt-[13px] ml-[10px]">
-            Lorem ipsum dolor sit amet consectetur.
-          </p>
-          <p className="mt-[13px] ml-[10px]">
-            Lorem ipsum dolor sit amet consectetur.
-          </p>
-          <div className="mx-auto xl:w-1/2 mb-[20px] xl:mb-0">
-            <button className="mt-[20px] xl:mt-[40px] mx-auto text-[#E40084] border border-[#E40084] py-[10px] xl:py-[20px] px-[20px] xl:px-[56px] font-dmsans font-bold text-[18px] rounded-lg hover:animate-pulse ease-out duration-300 ">
-              Join now
-            </button>
+          <div
+            className="xl:mt-[52px] xl:min-h-[751px] xl:max-w-[687px] xl:absolute xl:top-[30px] xl:left-[480px] rounded-[10px] bg-white border border-[rgba(0, 0, 0, 0.14)] z-[20] px-[20px] text-center xl:text-left xl:px-[50px] pt-[40px] xl:mb-[40px]"
+            style={{ boxShadow: "0px 3px 45px rgba(0, 0, 0, 0.14)" }}
+          >
+            <p className="font-space font-[400] text-[30px] xl:text-[42.88px] leading-[35px] xl:leading-[54.72px] text-black">
+              Take the next step towards <br /> your personal and <br />{" "}
+              professional goals with <br />
+              Devcent.
+            </p>
+            <div className="flex justify-center xl:justify-start mt-[20px] xl:mt-[32px]">
+              <div
+                className=" h-[5px] w-[9px] mr-[6px] rounded-[20px]"
+                style={{
+                  background: "linear-gradient(#FFBA0E 0%, #E40084 100%",
+                }}
+              ></div>
+              <div
+                className="h-[5px] w-[48px] rounded-[20px]"
+                style={{
+                  background: "linear-gradient(#FFBA0E 0%, #E40084 100%",
+                }}
+              ></div>
+            </div>
+            <p className="mt-[34px] xl:mr-[60px] text-black">
+              Lorem ipsum dolor sit amet consectetur. Ac venenatis turpis
+              pellentesque sit quam egestas. Est viverra vitae at lobortis mi
+              eget pulvinar. Sit orci sollicitudin enim habitant rhoncus donec.
+              Nisi amet tempor consequat ultrices suspendisse justo. Tortor et
+              adipiscing egestas gravida eu nibh. Ultrices nam enim tristique
+              sagittis auctor at penatibus neque urna. Non risus magna lacus.
+            </p>
+            <p className="mt-[8px] ml-[10px] text-black">
+              Lorem ipsum dolor sit amet consectetur.
+            </p>
+            <p className="mt-[13px] ml-[10px] text-black">
+              Lorem ipsum dolor sit amet consectetur.
+            </p>
+            <p className="mt-[13px] ml-[10px] text-black">
+              Lorem ipsum dolor sit amet consectetur.
+            </p>
+            <div className="mx-auto xl:w-1/2 mb-[20px] xl:mb-0">
+              <button className="mt-[20px] xl:my-[40px] mx-auto text-[#E40084] border border-[#E40084] py-[10px] xl:py-[20px] px-[20px] xl:px-[56px] font-dmsans font-bold text-[18px] rounded-lg hover:animate-pulse ease-out duration-300 ">
+                Join now
+              </button>
+            </div>
           </div>
         </div>
       </section>
