@@ -1,6 +1,6 @@
 import http from "./httpService";
 
-const apiEndpoint = "/api";
+const endPoint = "/api";
 
 const config = {
   headers: {
@@ -9,5 +9,9 @@ const config = {
 };
 
 export function createAccount(api, data) {
-  return http.post(apiEndpoint + api, data, config);
+  return http.post(endPoint + api, data, config);
+}
+
+export function activateAccount(api, data) {
+  return http.post(endPoint + api, data, config);
 }

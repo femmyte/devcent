@@ -41,7 +41,7 @@ const Signup = () => {
 
       setMessage({
         type: "success",
-        title: "Account created successfully",
+        title: "Sign up successful",
         content: data.message,
       });
       setIsOpen(true);
@@ -146,7 +146,7 @@ const Signup = () => {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="flex justify-center items-center mb-[35px] text-white bg-[#E40084] w-[160px] h-[47px] font-[700] font-source text-[18px] rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 "
+                    className="flex justify-center items-center mb-[35px] text-white bg-[#E40084] w-[160px] h-[47px] font-[700] font-source text-[18px] rounded-lg  hover:bg-primaryYellow"
                   >
                     {isLoading ? (
                       <span>

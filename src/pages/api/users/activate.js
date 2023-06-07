@@ -22,7 +22,7 @@ export default async function activate(req, res) {
     if (!user) {
       return res.status(400).json({
         success: false,
-        message: "Invalid activation token",
+        message: "Invalid link or link expired.",
       });
     }
 

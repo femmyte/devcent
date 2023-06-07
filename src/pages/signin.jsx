@@ -24,6 +24,7 @@ const Signin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log("fire");
 
     if (!email || !password) return;
     setIsLoading(true);
@@ -88,7 +89,7 @@ const Signin = () => {
             alt="devcent logo"
             className="mb-[18px]"
           />
-          <div className="bg-white w-[90%] md:w-[448px] rounded-lg relative">
+          <div className="bg-white w-[90%] sm:w-[70%] md:w-[448px] rounded-lg relative">
             {isOpen && (
               <Alert
                 type={message.type}
@@ -98,7 +99,7 @@ const Signin = () => {
                 message={message.content}
               />
             )}
-            <div className="px-[12px] flex flex-col items-center justify-between">
+            <div className="px-[12px] md:w-[448px] flex flex-col items-center justify-between">
               <p className="text-[24px] text-primaryPurple font-[700] font-dmsans leading-[31.25px] mt-[24px]">
                 Login
               </p>
@@ -118,54 +119,68 @@ const Signin = () => {
                   className="hidden md:block"
                 />
               </div>
-              <div className="mb-[13px]">
-                <label htmlFor="email">Email</label>
-                <div className="dark:text-gray-200  dark:hover:text-white flex w-full md:w-[379px] h-[45px] pl-[16px] items-center border border-[#cfcfcf] bg-white rounded-lg mt-[3px]">
-                  <img src="/images/icons/email.png" alt="email" />
-                  <input
-                    type="text"
-                    className="p-2 bg-white outline-none w-[100%] text-[16px] rounded-r-lg border-none"
-                    onChange={(e) => setEmail(e.target.value)}
-                    name={email}
-                    value={email}
-                  />
-                </div>
-              </div>
-              <div className="mb-[13px]">
-                <label htmlFor="password">Password</label>
-                <div className="dark:text-gray-200 dark:bg-main-dark-bg dark:hover:text-white flex w-full md:w-[379px] h-[45px] pl-[16px] items-center border border-[#cfcfcf] bg-transparent rounded-lg mt-[3px]">
-                  <img src="/images/icons/password.png" alt="password" />
-                  <input
-                    type="password"
-                    className="p-2 bg-transparent outline-none active:bg-transparent placeholder:bg-transparent fill-transparent w-[100%] text-[16px] rounded-r-lg border-none"
-                    id="password"
-                    onChange={(e) => setPassword(e.target.value)}
-                    name={password}
-                    value={password}
-                  />
-                </div>
-              </div>
-              <div className="w-full md:w-[379px] md:flex items-center justify-between mt-[11px] mb-[41px]">
-                <div className="">
-                  <input type="checkbox" name="stayLogin" id="login" />
+              <form onSubmit={handleSubmit} className="w-full">
+                <div className="mb-[13px]">
                   <label
-                    htmlFor="login"
-                    className="font-[400] font-dmsans text-[14px] leading-[18px] text-black md:w-[393px] ml-[12px]  "
+                    htmlFor="email"
+                    className="w-full md:w-[379px] mx-auto block"
                   >
-                    Stay logged in
+                    Email
                   </label>
+                  <div className="dark:text-gray-200  dark:hover:text-white flex mx-auto w-full md:w-[379px] h-[45px] pl-[16px] items-center border border-[#cfcfcf] bg-white rounded-lg mt-[3px]">
+                    <img src="/images/icons/email.png" alt="email" />
+                    <input
+                      type="text"
+                      className="p-2 bg-white outline-none w-[100%] text-[16px] rounded-r-lg border-none"
+                      onChange={(e) => setEmail(e.target.value)}
+                      name={email}
+                      value={email}
+                    />
+                  </div>
                 </div>
-                <Link href="" className="text-primaryPurple">
-                  Forgot your password?
-                </Link>
-              </div>
-              <button
-                className="mb-[35px] text-white bg-[#E40084] w-[160px] h-[47px] font-[700] font-source text-[18px] rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 "
-                onClick={handleSubmit}
-                disabled={isLoading}
-              >
-                {isLoading ? "Loading..." : "Login"}
-              </button>
+                <div className="mb-[13px]">
+                  <label
+                    htmlFor="password"
+                    className="w-full md:w-[379px] mx-auto block"
+                  >
+                    Password
+                  </label>
+                  <div className="dark:text-gray-200 dark:bg-main-dark-bg dark:hover:text-white flex mx-auto w-full md:w-[379px] h-[45px] pl-[16px] items-center border border-[#cfcfcf] bg-transparent rounded-lg mt-[3px]">
+                    <img src="/images/icons/password.png" alt="password" />
+                    <input
+                      type="password"
+                      className="p-2 bg-transparent outline-none active:bg-transparent placeholder:bg-transparent fill-transparent w-[100%] text-[16px] rounded-r-lg border-none"
+                      id="password"
+                      onChange={(e) => setPassword(e.target.value)}
+                      name={password}
+                      value={password}
+                    />
+                  </div>
+                </div>
+                <div className="w-full md:w-[379px] md:flex items-center justify-between mt-[11px] mb-[41px]">
+                  <div className="md:ml-[20px]">
+                    <input type="checkbox" name="stayLogin" id="login" />
+                    <label
+                      htmlFor="login"
+                      className="font-[400] font-dmsans text-[14px] leading-[18px] text-black md:w-[393px] ml-[12px]  "
+                    >
+                      Stay logged in
+                    </label>
+                  </div>
+                  <Link href="" className="text-primaryPurple">
+                    Forgot your password?
+                  </Link>
+                </div>
+                <div className="w-full flex justify-center">
+                  <button
+                    type="submit"
+                    className="mb-[35px] text-white bg-[#E40084] w-[160px] h-[47px] font-[700] font-source text-[18px] rounded-lg  hover:bg-primaryYellow"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? "Loading..." : "Login"}
+                  </button>
+                </div>
+              </form>
               <p className="mb-[30px] font-[400] font-dmsans text-[14px] leading-[18px] text-black text-center ">
                 Don’t have an account?{" "}
                 <Link href="/signup" className="text-primaryPurple">
