@@ -2,32 +2,33 @@ import { useState } from "react";
 // import { XIcon } from '@heroicons/react/outline';
 
 const Alert = ({ type, title, message, isOpen, setIsOpen }) => {
-  // const [isOpen, setIsOpen] = useState(true);
-  console.log(isOpen);
   return (
     <>
       {isOpen && (
         <div
-          className={`absolute top-0 left-0 right-0 w-full p-4 rounded-[4px] ${
+          className={`absolute top-0 left-0 right-0 w-full p-4 rounded-[4px] bg-[rgb(241,234,238)] ${
             isOpen
               ? "transform translate-y-0 transition ease-out duration-300"
               : "transform -translate-y-full transition ease-in duration-200"
           } `}
-          style={{ backgroundColor: "rgba(241, 234, 238, 0.94)" }}
         >
           <div className="flex justify-between items-center">
-            <div className="mr-3 flex gap-x-[20px] items-center">
+            <div className="w-full mr-3 flex gap-x-[20px] items-center">
               <img
                 src="/images/icons/markbg.png"
                 className="w-[20px] h-[20px] rounded-full"
                 alt="mark bg"
               />
-              <div className="">
-                <p className="font-[400] text-[14px] text-[#202223] leading-5">
+              <div className="w-[80%] flex flex-col items-center">
+                <h2 className="font-[600] text-[16px] capitalize text-center text-[#202223] leading-5">
                   {title}
-                </p>
+                </h2>
                 {message && (
-                  <p className="mt-[10px] font-[500] text-[14px] text-[#202223] leading-5">
+                  <p
+                    className={`mt-[10px] font-[400] text-[14px] ${
+                      type === "error" ? "text-red-500" : "text-primaryPurple"
+                    }  leading-5`}
+                  >
                     {message}{" "}
                   </p>
                 )}
@@ -40,7 +41,7 @@ const Alert = ({ type, title, message, isOpen, setIsOpen }) => {
 							/> */}
               <button
                 type="button"
-                className="mr-auto -mx-1.5 -my-1.5 bg-green-50 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex h-8 w-8 dark:bg-gray-800 dark:text-green-400 dark:hover:bg-gray-700 cursor-pointer"
+                className="mr-auto -mx-1.5 -my-1.5 bg-green-50 text-red-500 rounded-lg focus:ring-2 focus:ring-red-400 p-1.5 hover:bg-red-200 inline-flex h-8 w-8 dark:bg-gray-800 dark:text-green-400 dark:hover:bg-gray-700 cursor-pointer"
                 data-dismiss-target="#alert-border-3"
                 aria-label="Close"
                 onClick={() => setIsOpen(!isOpen)}

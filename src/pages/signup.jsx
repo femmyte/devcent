@@ -6,6 +6,7 @@ import { useSession } from "next-auth/react";
 import Alert from "components/dashboard/Alert";
 import Meta from "components/common/Meta";
 import { createAccount } from "services/commonService";
+import ButtonLoader from "components/loaders/ButtonLoader";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -16,7 +17,8 @@ const Signup = () => {
     content: "",
   });
   const [isOpen, setIsOpen] = useState(false);
-  const [isError, setIsError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+
   // Retrieve the session and router so that we can navigate
   // the user back home if they are already authenticated
   const { status } = useSession();
@@ -27,35 +29,35 @@ const Signup = () => {
   if (status === "authenticated") {
     router.replace("/auth/overview");
   }
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
 
-    const signup = async () => {
-      try {
-        const { data } = await createAccount("/users/signup", {
-          email: email,
-          password: password,
-        });
+    try {
+      const { data } = await createAccount("/users/signup", {
+        email: email,
+        password: password,
+      });
 
-        if (data.success === true) {
-          setMessage({
-            type: "success",
-            title: "Account created successfully",
-            content: data.message,
-          });
-          setIsOpen(true);
-        }
-      } catch (error) {
-        console.log(error?.response?.data.message);
-        setMessage({
-          type: "fail",
-          title: "Error signing up",
-          content: error?.response?.data.message,
-        });
-        setIsOpen(true);
-      }
-    };
-    signup();
+      setMessage({
+        type: "success",
+        title: "Account created successfully",
+        content: data.message,
+      });
+      setIsOpen(true);
+    } catch (error) {
+      console.log(error?.response?.data.message);
+      setMessage({
+        type: "error",
+        title: "Error signing up",
+        content: error?.response?.data.message,
+      });
+      setIsOpen(true);
+    } finally {
+      setIsLoading(false);
+      setEmail("");
+      setPassword("");
+    }
   };
 
   return (
@@ -143,9 +145,16 @@ const Signup = () => {
                 <div className="w-full flex justify-center">
                   <button
                     type="submit"
-                    className="mb-[35px] text-white bg-[#E40084] w-[160px] h-[47px] font-[700] font-source text-[18px] rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 "
+                    disabled={isLoading}
+                    className="flex justify-center items-center mb-[35px] text-white bg-[#E40084] w-[160px] h-[47px] font-[700] font-source text-[18px] rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 "
                   >
-                    Sign up
+                    {isLoading ? (
+                      <span>
+                        <ButtonLoader />
+                      </span>
+                    ) : (
+                      <span>Sign up</span>
+                    )}
                   </button>
                 </div>
               </form>

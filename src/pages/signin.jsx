@@ -10,7 +10,11 @@ import Meta from "components/common/Meta";
 const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
+  const [message, setMessage] = useState({
+    type: "",
+    title: "",
+    content: "",
+  });
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -20,11 +24,10 @@ const Signin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (isLoading) {
-      return; // Prevent duplicate requests while one is already in progress
-    }
 
+    if (!email || !password) return;
     setIsLoading(true);
+
     try {
       const result = await signIn("credentials", {
         email: email,
@@ -33,12 +36,19 @@ const Signin = () => {
       });
       if (result.ok === false) {
         if (result.error === "activate") {
-          setError(
-            "You need to Activate your account before you can login, An Activation Link has been sent to your email Address"
-          );
+          setMessage({
+            type: "error",
+            title: "Account is not activated",
+            content:
+              "You need to activate before log in. A link to activate your account has been sent to your email Address",
+          });
           setIsOpen(true);
         } else {
-          setError(result.error);
+          setMessage({
+            type: "error",
+            title: "Sign in error",
+            content: result.error,
+          });
           setIsOpen(true);
         }
       }
@@ -46,8 +56,11 @@ const Signin = () => {
       console.log(error);
     } finally {
       setIsLoading(false);
+      setEmail("");
+      setPassword("");
     }
   };
+
   // Retrieve the session and router so that we can navigate
   // the user back home if they are already authenticated
   const { status } = useSession();
@@ -61,7 +74,7 @@ const Signin = () => {
   useEffect(() => {
     setTimeout(() => {
       setIsOpen(false);
-    }, 5000);
+    }, 10000);
   }, [isOpen]);
 
   return (
@@ -78,11 +91,11 @@ const Signin = () => {
           <div className="bg-white w-[90%] md:w-[448px] rounded-lg relative">
             {isOpen && (
               <Alert
-                type="error"
-                title={error}
+                type={message.type}
+                title={message.title}
                 isOpen={isOpen}
                 setIsOpen={setIsOpen}
-                // message='Check your email address for your verification code'
+                message={message.content}
               />
             )}
             <div className="px-[12px] flex flex-col items-center justify-between">
