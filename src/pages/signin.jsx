@@ -8,6 +8,9 @@ import Alert from "../../components/dashboard/Alert";
 import Meta from "components/common/Meta";
 
 const Signin = () => {
+  const { status } = useSession();
+  const router = useRouter();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [message, setMessage] = useState({
@@ -24,7 +27,6 @@ const Signin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("fire");
 
     if (!email || !password) return;
     setIsLoading(true);
@@ -35,7 +37,10 @@ const Signin = () => {
         password: password,
         redirect: false,
       });
-      if (result.ok === false) {
+
+      if (result.ok === true) {
+        router.replace("/");
+      } else {
         if (result.error === "activate") {
           setMessage({
             type: "error",
@@ -62,16 +67,6 @@ const Signin = () => {
     }
   };
 
-  // Retrieve the session and router so that we can navigate
-  // the user back home if they are already authenticated
-  const { status } = useSession();
-  const router = useRouter();
-
-  // If the user is authenticated, redirect them to the home
-  // page
-  if (status === "authenticated") {
-    router.replace("/auth/overview");
-  }
   useEffect(() => {
     setTimeout(() => {
       setIsOpen(false);

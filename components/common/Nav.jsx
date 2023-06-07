@@ -7,6 +7,7 @@ import { FiSearch } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
 import { useStateContext } from "AuthContext";
 import { useSession } from "next-auth/react";
+
 const SearchComponent = ({ onFilter, filterText }) => (
   <div className="dark:text-gray-200 dark:bg-main-dark-bg dark:hover:text-white flex w-4/5 md:w-[220px] h-[39px] py-[12-x] px-[6px] items-center border border-[#E40084] bg-transparent rounded-lg">
     <FiSearch />
@@ -20,6 +21,7 @@ const SearchComponent = ({ onFilter, filterText }) => (
     />
   </div>
 );
+
 const Nav = ({ path }) => {
   const currentPath = useRouter().pathname;
   const session = useSession();
@@ -32,6 +34,13 @@ const Nav = ({ path }) => {
       setMenu(true);
     }
   };
+
+  const dashboardLinks = {
+    student: "/user/overview",
+    instructor: "/instructor/overview",
+    admin: "/admin/overview",
+  };
+
   return (
     <nav
       className={`z-[30] border-b border-[#494545] h-[64px] flex items-center relative bg-black md:px-[20px] ${
@@ -120,7 +129,7 @@ const Nav = ({ path }) => {
 
             {authenticated ? (
               <Link
-                href="/auth/overview"
+                href={dashboardLinks[session?.data?.user.role]}
                 className=" text-white bg-[#E40084] w-[149px] text-center py-[10px] px-[20px]  font-source text-[18px] rounded-lg  hover:bg-primaryYellow"
               >
                 Dashboard

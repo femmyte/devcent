@@ -1,10 +1,17 @@
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const GoogleButton = () => {
+  const router = useRouter();
+
   return (
     <button
       className="flex w-full justify-center items-center gap-5 md:w-[379px] h-[45px] rounded-lg border border-[#cfcfcf] mt-[24px] mb-[20px] md:mb-[47px]"
-      onClick={() => signIn("google")}
+      onClick={() =>
+        signIn("google", {
+          callbackUrl: process.env.NEXT_PUBLIC_CLIENT_URL,
+        })
+      }
     >
       <GoogleLogo />
       <div>Continue with Google</div>

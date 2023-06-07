@@ -5,8 +5,6 @@ import { createUrlName } from "lib/utils/urlName";
 import { validateCourse } from "lib/validations/courseValidation";
 import Course from "models/Course";
 
-const clientUrl = process.env.CLIENT_URL;
-
 // @description: Admin add course data
 // @Endpoint: api/courses/add
 // @AccessType: private/admin

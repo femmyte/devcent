@@ -9,7 +9,7 @@ import { sendWelcomeMessage } from "lib/nodemailer/welcome-message";
 import { generateUserId } from "lib/utils/random";
 import { createUrlName } from "lib/utils/urlName";
 
-const clientUrl = process.env.CLIENT_URL;
+const clientUrl = process.env.NEXT_PUBLIC_CLIENT_URL;
 
 // @description: User signin
 // @Endpoint: api/auth/signin
