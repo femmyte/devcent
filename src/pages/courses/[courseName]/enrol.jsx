@@ -2,32 +2,31 @@ import Nav from "components/common/Nav";
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import ReactCountryFlag from "react-country-flag";
-import FlutterPayment from "components/common/FlutterPayment";
-import axios from "axios";
+import { useFetch } from "services/hooks/fetch";
+import FullLoader from "components/loaders/FullLoader";
 
 const Enrol = () => {
-  const [clicked, setClicked] = useState(false);
-  const [course, setCourse] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
-
-  let total = 0;
   const router = useRouter();
   const { courseName } = router.query;
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`/api/courses/${courseName}/course`);
-        setCourse(response.data.course);
-        // setIsLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        // setIsLoading(false);
-      }
-    };
+  const [course, setCourse] = useState({});
+  const [clicked, setClicked] = useState(false);
 
-    fetchData();
-  }, [courseName]);
+  const { data, isLoading, isSuccess, refetch } = useFetch(
+    `/courses/${courseName}/course`,
+    "get-course"
+  );
+
+  let total = 0;
+
+  useEffect(() => {
+    if (isSuccess) {
+      console.log(data);
+      setCourse(data.course);
+    }
+
+    refetch();
+  }, [courseName, isSuccess, data, refetch]);
 
   // const course = JSON.parse(decodeURIComponent(data));
   const amount = course?.discountFee;
@@ -131,6 +130,10 @@ const Enrol = () => {
   state.paymentPlan == "part-payment"
     ? (total = course?.discountFee / 2)
     : (total = course?.discountFee);
+
+  if (isLoading) {
+    return <FullLoader />;
+  }
   return (
     <div className="bg-black min-h-screen ">
       <Nav />

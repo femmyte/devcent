@@ -4,9 +4,12 @@ import httpService from "services/httpService";
 const endPoint = "/api";
 
 export function useFetch(api, key, query = {}) {
-  return useQuery([key, query], () =>
-    httpService.get(endPoint + api, {
+  const fetchData = async () => {
+    const { data } = await httpService.get(endPoint + api, {
       params: { ...query },
-    })
-  );
+    });
+
+    return data;
+  };
+  return useQuery([key, query], () => fetchData());
 }
