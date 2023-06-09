@@ -6,6 +6,7 @@ import { signIn } from "next-auth/react";
 import { useSession } from "next-auth/react";
 import Alert from "../../components/dashboard/Alert";
 import Meta from "components/common/Meta";
+import withLogoutAuth from "components/auth/withLogoutAuth";
 
 const Signin = () => {
   const { status } = useSession();
@@ -190,4 +191,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default withLogoutAuth(Signin);

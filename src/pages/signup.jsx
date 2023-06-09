@@ -7,6 +7,7 @@ import Alert from "components/dashboard/Alert";
 import Meta from "components/common/Meta";
 import { createAccount } from "services/commonService";
 import ButtonLoader from "components/loaders/ButtonLoader";
+import withLogoutAuth from "components/auth/withLogoutAuth";
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -172,4 +173,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default withLogoutAuth(Signup);

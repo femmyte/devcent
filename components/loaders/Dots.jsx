@@ -19,7 +19,7 @@ const Dots = ({ color, width, height }) => {
 };
 
 Dots.defaultProps = {
-  color: "white",
+  color: "#E40084",
   width: "80",
   height: "80",
 };
