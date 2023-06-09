@@ -7,6 +7,8 @@ import Footer from "components/common/Footer";
 import { FiArrowDownRight, FiArrowRight } from "react-icons/fi";
 import Link from "next/link";
 import axios from "axios";
+import FullLoader from "components/loaders/FullLoader";
+
 const CourseCard = ({
   background,
   title,
@@ -121,11 +123,7 @@ const Courses = () => {
   });
   // console.log(combinedObj);
   if (isLoading) {
-    return (
-      <div className="h-screen w-screen flex flex-col items-center justify-center bg-black text-white">
-        Loading...
-      </div>
-    );
+    return <FullLoader />;
   }
   return (
     <>

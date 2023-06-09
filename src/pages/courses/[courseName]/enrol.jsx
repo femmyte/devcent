@@ -8,6 +8,8 @@ import axios from "axios";
 const Enrol = () => {
   const [clicked, setClicked] = useState(false);
   const [course, setCourse] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+
   let total = 0;
   const router = useRouter();
   const { courseName } = router.query;
