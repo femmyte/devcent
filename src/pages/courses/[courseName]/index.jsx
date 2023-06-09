@@ -13,6 +13,7 @@ import Pricing from "components/uiux/Pricing";
 import FAQ from "components/common/FAQ";
 import axios from "axios";
 import { useRouter } from "next/router";
+import FullLoader from "components/loaders/FullLoader";
 
 const Card = ({ title, btnText, icon, children }) => {
   const [show, setShow] = useState(false);
@@ -85,15 +86,11 @@ const Course = () => {
     };
 
     fetchData();
-  }, []);
+  }, [courseName]);
   // const encodedObject = encodeURIComponent(JSON.stringify(course));
 
   if (isLoading) {
-    return (
-      <div className="h-screen w-screen flex flex-col items-center justify-center bg-black text-white">
-        Loading...
-      </div>
-    );
+    return <FullLoader />;
   }
 
   return (
@@ -113,7 +110,7 @@ const Course = () => {
             Beginner Friendly
           </p>
           <h1 className="font-space font-[700] text-[30px] md:text-[80px] leading-[35px] md:leading-[102px] text-primaryYellow mt-[24px]">
-            {course.name}
+            {course?.name}
           </h1>
           {/* <h3 className="font-space font-[400] text-[60px] leading-[77px] mt-[18px] mb-[50px] text-[#C0BAA9]">
             Duration · 12 weeks
@@ -332,7 +329,7 @@ const Course = () => {
         description="Seeing our students making impact at top tech companies and getting paid for their service gives us great joy."
         showVideo
       />
-      <Pricing amount={course.discountFee} />
+      <Pricing amount={course?.discountFee} />
       {/* <Curriculum /> */}
       <FAQ />
       <section
@@ -350,7 +347,7 @@ const Course = () => {
         </p>
         <div className="flex flex-row items-center justify-center gap-x-[60px]">
           <Link
-            href=""
+            href={`/courses/${courseName}/enrol`}
             className="text-white  bg-primaryPurple py-[10px] md:py-[16px] px-[20px] md:px-[32px] font-space font-bold text-[18px] md:text-[24px] hover:animate-pulse ease-out duration-300 rounded-[5px]"
           >
             Enroll Now
