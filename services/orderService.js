@@ -6,10 +6,6 @@ const config = {
   },
 };
 
-export function createAccount(url, data) {
-  return http.post(endPoint + url, data, config);
-}
-
-export function activateAccount(url, data) {
+export function createOrder(url, data) {
   return http.post(url, data, config);
 }

@@ -11,6 +11,7 @@ import withLogoutAuth from "components/auth/withLogoutAuth";
 const Signin = () => {
   const { status } = useSession();
   const router = useRouter();
+  const { redirect } = router.query;
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -40,7 +41,7 @@ const Signin = () => {
       });
 
       if (result.ok === true) {
-        router.replace("/");
+        router.replace(redirect || "/");
       } else {
         if (result.error === "activate") {
           setMessage({

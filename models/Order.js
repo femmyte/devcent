@@ -68,19 +68,15 @@ const orderSchema = new Schema(
         type: String,
         trim: true,
       },
-      street: {
+      address: {
         type: String,
         trim: true,
       },
-      houseNumber: {
+      province: {
         type: String,
         trim: true,
       },
       city: {
-        type: String,
-        trim: true,
-      },
-      state: {
         type: String,
         trim: true,
       },
@@ -89,10 +85,6 @@ const orderSchema = new Schema(
         trim: true,
       },
       phoneNumber: {
-        type: String,
-        trim: true,
-      },
-      info: {
         type: String,
         trim: true,
       },

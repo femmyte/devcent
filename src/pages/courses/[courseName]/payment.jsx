@@ -16,17 +16,7 @@ const Payment = () => {
   const [order, setOrder] = useState({});
   const router = useRouter();
   const { order_number: orderId } = router.query;
-  // "0022559190665529"
-  // useEffect(() => {
-  // 	axios
-  // 		.get('/api/payment-details')
-  // 		.then((response) => {
-  // 			setData(response.data);
-  // 		})
-  // 		.catch((error) => {
-  // 			console.log(error);
-  // 		});
-  // }, []);
+
   useEffect(() => {
     const fetchData = async () => {
       try {

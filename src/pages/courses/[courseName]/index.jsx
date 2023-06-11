@@ -14,6 +14,8 @@ import FAQ from "components/common/FAQ";
 import axios from "axios";
 import { useRouter } from "next/router";
 import FullLoader from "components/loaders/FullLoader";
+import { useFetch } from "services/hooks/fetch";
+import FullError from "components/error/FullError";
 
 const Card = ({ title, btnText, icon, children }) => {
   const [show, setShow] = useState(false);
@@ -63,9 +65,21 @@ const CollaborateCard = () => {
 
 const Course = () => {
   const [course, setCourse] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
   const { courseName } = router.query;
+
+  const { data, isInitialLoading, isSuccess, isError, refetch } = useFetch(
+    `/courses/${courseName}/course`,
+    "get-course"
+  );
+
+  useEffect(() => {
+    if (isSuccess) {
+      setCourse(data.course);
+    }
+
+    refetch();
+  }, [courseName, isSuccess, data, refetch]);
 
   const handleRoute = () => {
     router.push({
@@ -73,24 +87,13 @@ const Course = () => {
     });
   };
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`/api/courses/${courseName}/course`);
-        setCourse(response.data.course);
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setIsLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [courseName]);
   // const encodedObject = encodeURIComponent(JSON.stringify(course));
 
-  if (isLoading) {
+  if (isInitialLoading) {
     return <FullLoader />;
+  }
+  if (isError) {
+    return <FullError />;
   }
 
   return (

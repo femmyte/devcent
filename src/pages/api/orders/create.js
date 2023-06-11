@@ -50,11 +50,9 @@ async function createOrder(req, res) {
         phoneNumber: req.body.phoneNumber,
         country: req.body.country,
         city: req.body.city,
-        state: req.body.state,
-        street: req.body.street,
-        houseNumber: req.body.houseNumber,
+        address: req.body.address,
+        province: req.body.province,
         postalCode: req.body.postalCode,
-        info: req.body.info,
       },
       payments: [
         {

@@ -8,6 +8,8 @@ import { FiArrowDownRight, FiArrowRight } from "react-icons/fi";
 import Link from "next/link";
 import axios from "axios";
 import FullLoader from "components/loaders/FullLoader";
+import { useFetch } from "services/hooks/fetch";
+import FullError from "components/error/FullError";
 
 const CourseCard = ({
   background,
@@ -53,21 +55,18 @@ const CourseCard = ({
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("/api/courses/all-course");
-        setCourses(response.data.courses);
-        setIsLoading(false);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setIsLoading(false);
-      }
-    };
 
-    fetchData();
-  }, []);
+  const { data, isInitialLoading, isSuccess, isError } = useFetch(
+    `/courses/all-course`,
+    "get-courses"
+  );
+
+  useEffect(() => {
+    if (isSuccess) {
+      setCourses(data.courses);
+    }
+  }, [isSuccess, data]);
+
   // console.log(courses);
   let otherInfo = [
     {
@@ -121,9 +120,12 @@ const Courses = () => {
 
     return item; // Or handle the case where there is no matching object
   });
-  // console.log(combinedObj);
-  if (isLoading) {
+
+  if (isInitialLoading) {
     return <FullLoader />;
+  }
+  if (isError) {
+    return <FullError />;
   }
   return (
     <>
