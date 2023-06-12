@@ -1,8 +1,8 @@
 import dbConnect from "lib/db";
 import { isAllowedMethod } from "lib/helpers/isAllowed";
 import User from "models/User";
-import Order from "models/Order";
-import { validatePayment } from "lib/validations/orderValidation";
+import Payment from "models/Payment";
+import { validatePayment } from "lib/validations/paymentValidation";
 import { isLogin, isStudent } from "lib/middleware/auth";
 import { router, handler } from "lib/helpers/router";
 
@@ -26,21 +26,7 @@ async function pay(req, res) {
       });
     }
 
-    const order = await Order.findOne({ orderId: req.query.orderId });
-    if (!order) {
-      return res.status(400).json({
-        success: false,
-        message: "Invalid order",
-      });
-    }
-
-    const { amount, transaction_id, created_at, flw_ref, status } = req.body;
-    if (status !== "successful" || amount !== order.payments[0].amount) {
-      return res.status(400).json({
-        success: false,
-        message: "Not a valid payment",
-      });
-    }
+    // verify payment
 
     const user = await User.findById(req.user._id);
 

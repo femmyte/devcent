@@ -84,7 +84,7 @@ const Enrol = () => {
     setIsLoadingCreate(true);
 
     try {
-      const { data } = await createOrder(`/orders/create`, {
+      const { data } = await createOrder(`/courses/${courseName}/enrol`, {
         courseId: course.courseId,
         paymentPlan: state.paymentPlan,
         firstName: state.firstName,
@@ -98,10 +98,13 @@ const Enrol = () => {
         phoneNumber: state.phoneNumber,
       });
 
-      router.push({
-        pathname: `/courses/${courseName}/payment`,
-        query: { order_number: data.orderId },
-      });
+      console.log(data);
+      router.push(data.redirect);
+
+      // router.push({
+      //   pathname: `/courses/${courseName}/payment`,
+      //   query: { order_number: data.orderId },
+      // });
     } catch (err) {
       if (err?.response?.data) {
         setErrorCreate(err.response.data.message);
@@ -348,7 +351,7 @@ const Enrol = () => {
             </div>
             <div className="flex-1">
               <p className="mt-[30px] md:mt-[66px] font-source font-[700] text-[28px] md:text-[32px] leading-[40.2px]">
-                Your Order
+                Billing
               </p>
               <div className="dark:text-gray-200 dark:bg-main-dark-bg dark:hover:text-white flex w-4/5 md:w-[240px]  px-4 items-center border border-[#747474] text-[14px] bg-transparent rounded-lg mt-[20px] md:mt-[100px] mb-[20px] md:mb-[50px]">
                 <ReactCountryFlag

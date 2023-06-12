@@ -3,7 +3,7 @@ import { isAllowedMethod } from "lib/helpers/isAllowed";
 import { generateId } from "lib/utils/random";
 import Course from "models/Course";
 import Order from "models/Order";
-import { validateOrder } from "lib/validations/orderValidation";
+import { validateOrder } from "lib/validations/paymentValidation";
 import { isLogin, isStudent } from "lib/middleware/auth";
 import { router, handler } from "lib/helpers/router";
 

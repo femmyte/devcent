@@ -2,7 +2,7 @@ import dbConnect from "lib/db";
 import { isAllowedMethod } from "lib/helpers/isAllowed";
 import User from "models/User";
 import Order from "models/Order";
-import { validatePayment } from "lib/validations/orderValidation";
+import { validatePayment } from "lib/validations/paymentValidation";
 import { isLogin, isStudent } from "lib/middleware/auth";
 import { router, handler } from "lib/helpers/router";
 

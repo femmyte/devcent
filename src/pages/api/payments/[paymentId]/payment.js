@@ -1,13 +1,13 @@
 import dbConnect from "lib/db";
 import { isAllowedMethod } from "lib/helpers/isAllowed";
-import Order from "models/Order";
+import Payment from "models/Payment";
 import { router, handler } from "lib/helpers/router";
 import { isLogin, isStudent } from "lib/middleware/auth";
 
-// @description: Get order
-// @Endpoint: api/orders/:orderId/order
+// @description: Get payment
+// @Endpoint: api/payment/:paymentId/payment
 // @AccessType: private/student
-async function getOrder(req, res) {
+async function getPayment(req, res) {
   try {
     const db = await dbConnect();
 
@@ -15,20 +15,22 @@ async function getOrder(req, res) {
       return;
     }
 
-    const order = await Order.findOne({ orderId: req.query.orderId }).populate({
+    const payment = await Payment.findOne({
+      paymentId: req.query.paymentId,
+    }).populate({
       path: "course",
       select: "-enrolledUsers -description",
     });
-    if (!order) {
+    if (!payment) {
       return res.status(404).json({
         success: false,
-        message: "Order not found",
+        message: "Payment not found",
       });
     }
 
     res.status(200).json({
       success: true,
-      order,
+      payment,
     });
   } catch (error) {
     console.error(error);
@@ -39,7 +41,7 @@ async function getOrder(req, res) {
   }
 }
 
-router.get(isLogin, isStudent, getOrder);
+router.get(isLogin, isStudent, getPayment);
 
 export default handler();
 
