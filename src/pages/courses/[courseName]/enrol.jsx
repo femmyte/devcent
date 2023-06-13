@@ -6,7 +6,7 @@ import ReactCountryFlag from "react-country-flag";
 import { useFetch } from "services/hooks/fetch";
 import FullLoader from "components/loaders/FullLoader";
 import FullError from "components/error/FullError";
-import { createOrder } from "services/orderService";
+import { enrolInCourse } from "services/paymentService";
 import Link from "next/link";
 import ButtonLoader from "components/loaders/ButtonLoader";
 
@@ -84,7 +84,7 @@ const Enrol = () => {
     setIsLoadingCreate(true);
 
     try {
-      const { data } = await createOrder(`/courses/${courseName}/enrol`, {
+      const { data } = await enrolInCourse(`/courses/${courseName}/enrol`, {
         courseId: course.courseId,
         paymentPlan: state.paymentPlan,
         firstName: state.firstName,

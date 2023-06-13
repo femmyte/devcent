@@ -8,6 +8,8 @@ import { isLogin, isStudent } from "lib/middleware/auth";
 import { router, handler } from "lib/helpers/router";
 import axios from "axios";
 
+const client_url = process.env.NEXT_PUBLIC_CLIENT_URL;
+
 // @description: User enrol in course
 // @Endpoint: api/courses/:urlName/enrol
 // @AccessType: private/student
@@ -47,29 +49,38 @@ async function enrolInCourse(req, res) {
       });
     }
 
-    const paymentId = generateId(16);
-
+    const tx_ref = generateId(15);
+    const amount =
+      req.body.paymentPlan === "part-payment"
+        ? parseInt((course.discountFee / 2).toFixed(2))
+        : parseInt(course.discountFee);
     // initiate payment
     const { data } = await axios.post(
       "https://api.flutterwave.com/v3/payments",
       {
-        tx_ref: paymentId,
-        amount: course.discountFee,
+        tx_ref: tx_ref,
+        amount: amount,
         currency: "NGN",
-        redirect_url: `http://localhost:3000/courses/${course.urlName}/payment`,
+        redirect_url: `${client_url}/courses/${course.urlName}/payment`,
         meta: {
-          consumer_id: 23,
-          consumer_mac: "92a3-912ba-1192a",
+          paymentPlan: req.body.paymentPlan,
+          courseId: course.courseId,
+          userId: req.user.userId,
+          country: req.body.country,
+          city: req.body.city,
+          address: req.body.address,
+          province: req.body.province,
+          postalCode: req.body.postalCode,
         },
         customer: {
-          email: req.body.email,
-          phonenumber: req.body.phoneNumber,
           name: `${req.body.firstName} ${req.body.lastName}`,
+          email: req.body.email,
+          phoneNumber: req.body.phoneNumber,
         },
       },
       {
         headers: {
-          Authorization: `Bearer ${process.env.FLW_SECRET_KEY}`,
+          Authorization: `Bearer ${process.env.FLW_TEST_SECRET_KEY}`,
         },
       }
     );
@@ -86,19 +97,19 @@ async function enrolInCourse(req, res) {
     //     name: `${req.body.firstName} ${req.body.lastName}`,
     //     email: req.body.email,
     //     phoneNumber: req.body.phoneNumber,
-    //     country: req.body.country,
-    //     city: req.body.city,
-    //     address: req.body.address,
-    //     province: req.body.province,
-    //     postalCode: req.body.postalCode,
+    // country: req.body.country,
+    // city: req.body.city,
+    // address: req.body.address,
+    // province: req.body.province,
+    // postalCode: req.body.postalCode,
     //   },
     //   payments: [
     //     {
     //       paymentPlan: req.body.paymentPlan,
     //       amount:
-    //         req.body.paymentPlan === "part-payment"
-    //           ? parseInt((course.discountFee / 2).toFixed(2))
-    //           : parseInt(course.discountFee),
+    // req.body.paymentPlan === "part-payment"
+    //   ? parseInt((course.discountFee / 2).toFixed(2))
+    //   : parseInt(course.discountFee),
     //     },
     //   ],
     // });

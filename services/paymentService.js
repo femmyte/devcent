@@ -6,6 +6,10 @@ const config = {
   },
 };
 
-export function createOrder(url, data) {
+export function enrolInCourse(url, data) {
+  return http.post(url, data, config);
+}
+
+export function processPayment(url, data) {
   return http.post(url, data, config);
 }
