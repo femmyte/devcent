@@ -25,7 +25,7 @@ const Payment = () => {
         setIsSuccess(true);
       } catch (error) {
         console.log(error);
-        if (error?.response?.data) {
+        if (error?.response?.data?.message) {
           console.log(error.response.data.message);
           if (
             error.response.data.message.toLowerCase() === "payment unsuccessful"
