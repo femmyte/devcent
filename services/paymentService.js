@@ -6,10 +6,20 @@ const config = {
   },
 };
 
-export function enrolInCourse(url, data) {
-  return http.post(url, data, config);
+export function enrolInCourse(url, data, accessToken) {
+  return http.post(url, data, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
 }
 
-export function processPayment(url, data) {
-  return http.post(url, data, config);
+export function processPayment(url, data, accessToken) {
+  return http.post(url, data, {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
 }

@@ -1,11 +1,7 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
-import User from "models/User";
 import { generateAccessToken } from "lib/helpers/token";
-import { sendWelcomeMessage } from "lib/nodemailer/welcome-message";
-import { generateUserId } from "lib/utils/random";
-import { createUrlName } from "lib/utils/urlName";
 import httpService from "services/httpService";
 
 const clientUrl = process.env.NEXT_PUBLIC_CLIENT_URL;
@@ -87,7 +83,7 @@ export const authOptions = {
         session.user.role = data.user.role;
         session.user.urlName = data.user.urlName;
         session.user.enrolledCourses = data.user.enrolledCourses;
-        session.user.accessToken = data.accessToken;
+        session.accessToken = data.accessToken;
 
         return session;
       } catch (error) {

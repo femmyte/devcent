@@ -9,10 +9,12 @@ import FullError from "components/error/FullError";
 import { enrolInCourse } from "services/paymentService";
 import Link from "next/link";
 import ButtonLoader from "components/loaders/ButtonLoader";
+import { useSession } from "next-auth/react";
 
 const Enrol = () => {
   const router = useRouter();
   const { courseName } = router.query;
+  const session = useSession();
 
   const [course, setCourse] = useState({});
 
@@ -49,8 +51,8 @@ const Enrol = () => {
     phoneNumber: "",
     agreement: false,
   });
-  const [errorCreate, setErrorCreate] = useState("");
-  const [isLoadingCreate, setIsLoadingCreate] = useState(false);
+  const [errorEnrol, setErrorEnrol] = useState("");
+  const [isLoadingEnrol, setIsLoadingEnrol] = useState(false);
 
   const handleChange = (evt) => {
     const value =
@@ -63,7 +65,7 @@ const Enrol = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setErrorCreate("");
+    setErrorEnrol("");
 
     if (
       !state.paymentPlan ||
@@ -78,25 +80,29 @@ const Enrol = () => {
       !state.phoneNumber ||
       !state.agreement
     ) {
-      setErrorCreate("Fields with * are required");
+      setErrorEnrol("Fields with * are required");
       return;
     }
-    setIsLoadingCreate(true);
+    setIsLoadingEnrol(true);
 
     try {
-      const { data } = await enrolInCourse(`/courses/${courseName}/enrol`, {
-        courseId: course.courseId,
-        paymentPlan: state.paymentPlan,
-        firstName: state.firstName,
-        lastName: state.lastName,
-        email: state.email,
-        country: state.country,
-        city: state.city,
-        address: state.address,
-        province: state.province,
-        postalCode: state.postalCode,
-        phoneNumber: state.phoneNumber,
-      });
+      const { data } = await enrolInCourse(
+        `/courses/${courseName}/enrol`,
+        {
+          courseId: course.courseId,
+          paymentPlan: state.paymentPlan,
+          firstName: state.firstName,
+          lastName: state.lastName,
+          email: state.email,
+          country: state.country,
+          city: state.city,
+          address: state.address,
+          province: state.province,
+          postalCode: state.postalCode,
+          phoneNumber: state.phoneNumber,
+        },
+        session?.data?.accessToken
+      );
 
       console.log(data);
       router.push(data.redirect);
@@ -107,10 +113,10 @@ const Enrol = () => {
       // });
     } catch (err) {
       if (err?.response?.data) {
-        setErrorCreate(err.response.data.message);
+        setErrorEnrol(err.response.data.message);
       }
     } finally {
-      setIsLoadingCreate(false);
+      setIsLoadingEnrol(false);
     }
   };
 
@@ -470,9 +476,9 @@ const Enrol = () => {
                 <button
                   type="submit"
                   className=" py-[10px] md:py-[16px] px-[20px] md:px-[32px] rounded-lg bg-primaryPurple text-[16px] font-dmsans font-[700] md:text-[24px]"
-                  disabled={!state.agreement || isLoadingCreate}
+                  disabled={!state.agreement || isLoadingEnrol}
                 >
-                  {isLoadingCreate ? (
+                  {isLoadingEnrol ? (
                     <ButtonLoader />
                   ) : !state.agreement ? (
                     "Fill the required field"
@@ -480,7 +486,7 @@ const Enrol = () => {
                     "Proceed to payment"
                   )}
                 </button>
-                {errorCreate && (
+                {errorEnrol && (
                   <motion.div
                     whileInView={{
                       opacity: [0, 1],
@@ -492,10 +498,10 @@ const Enrol = () => {
                     className="w-full flex flex-col items-center my-4"
                   >
                     <p className="text-red-500 my-4 text-[18px]">
-                      {errorCreate}
+                      {errorEnrol}
                     </p>
-                    {errorCreate?.toLowerCase() ===
-                    "please login to continue" ? (
+                    {errorEnrol?.toLowerCase() ===
+                    "please sign in to continue" ? (
                       <Link
                         href={`/signin?redirect=/courses/${courseName}/enrol`}
                         className="text-white underline"
