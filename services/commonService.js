@@ -7,7 +7,7 @@ const config = {
 };
 
 export function createAccount(url, data) {
-  return http.post(endPoint + url, data, config);
+  return http.post(url, data, config);
 }
 
 export function activateAccount(url, data) {

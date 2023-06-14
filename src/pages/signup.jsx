@@ -36,7 +36,7 @@ const Signup = () => {
 
     try {
       const { data } = await createAccount("/users/signup", {
-        email: email,
+        email: email?.toLowerCase(),
         password: password,
       });
 
@@ -47,13 +47,15 @@ const Signup = () => {
       });
       setIsOpen(true);
     } catch (error) {
-      console.log(error?.response?.data.message);
-      setMessage({
-        type: "error",
-        title: "Error signing up",
-        content: error?.response?.data.message,
-      });
-      setIsOpen(true);
+      console.log(error?.response?.data?.message);
+      if (error?.response?.data?.message) {
+        setMessage({
+          type: "error",
+          title: "Error signing up",
+          content: error?.response?.data.message,
+        });
+        setIsOpen(true);
+      }
     } finally {
       setIsLoading(false);
       setEmail("");
