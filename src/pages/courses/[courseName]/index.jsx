@@ -148,12 +148,6 @@ const Course = () => {
             </p>
           </div>
           <div className="flex flex-col md:flex-row items-center gap-x-[60px]">
-            {/* <Link
-							href={`/payment?courseName=${course.urlName}`}
-							className='text-white  bg-primaryPurple py-[10px] md:py-[16px] px-[20px] md:px-[32px] font-space font-bold text-[18px] md:text-[24px] hover:animate-pulse ease-out duration-300 rounded-[5px]'
-						>
-							Enroll Now
-						</Link> */}
             <button
               // href={`/payment?courseName=${course.urlName}`}
               onClick={handleRoute}
@@ -161,12 +155,6 @@ const Course = () => {
             >
               Enroll Now
             </button>
-            <Link
-              href=""
-              className="text-primaryPurple border border-primaryPurple py-[10px] md:py-[16px] px-[20px] md:px-[32px] font-space font-bold text-[18px] md:text-[24px] hover:animate-pulse ease-out duration-300 rounded-[5px] my-[20px] md:mt-0"
-            >
-              Contact us
-            </Link>
           </div>
         </div>
         <div className="hidden md:block">

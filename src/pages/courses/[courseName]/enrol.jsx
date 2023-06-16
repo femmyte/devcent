@@ -104,13 +104,7 @@ const Enrol = () => {
         session?.data?.accessToken
       );
 
-      console.log(data);
-      router.push(data.redirect);
-
-      // router.push({
-      //   pathname: `/courses/${courseName}/payment`,
-      //   query: { order_number: data.orderId },
-      // });
+      router.push(data.paymentPage);
     } catch (err) {
       if (err?.response?.data) {
         setErrorEnrol(err.response.data.message);
