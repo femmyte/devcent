@@ -50,6 +50,7 @@ const Payment = () => {
       }
     };
 
+    // process payment if all data is available
     if (status && tx_ref && transaction_id && courseName && token)
       processCoursePayment();
 
