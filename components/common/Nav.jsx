@@ -130,7 +130,7 @@ const Nav = ({ path }) => {
             {authenticated ? (
               <Link
                 href={dashboardLinks[session?.data?.user.role]}
-                className=" text-white bg-[#E40084] w-[149px] text-center py-[10px] px-[20px]  font-source text-[18px] rounded-lg  hover:bg-primaryYellow"
+                className=" text-white bg-[#E40084] w-[140px] text-center py-[8px] px-[20px]  font-source rounded-lg  hover:bg-primaryYellow"
               >
                 Dashboard
               </Link>
@@ -138,13 +138,13 @@ const Nav = ({ path }) => {
               <>
                 <Link
                   href="/signin"
-                  className="md:hidden lg:inline-block font-[400] py-[16px] md:px-[16px] rounded-lg text-[14px] leading-[17.6px] text-left md:text-center mt-[20px] md:mt-0 block text-primaryPurple"
+                  className="md:hidden lg:inline-block font-[400] py-[16px] md:px-[16px] rounded-lg leading-[17.6px] text-left md:text-center mt-[20px] md:mt-0 block text-primaryPurple"
                 >
                   Login
                 </Link>
                 <Link
                   href="/signup"
-                  className=" text-white bg-[#E40084] w-[149px] text-center font-source text-[18px] rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 py-[10px] px-[20px]"
+                  className=" text-white bg-[#E40084] w-[149px] text-center font-source rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 py-[10px] px-[20px]"
                 >
                   Get Started
                 </Link>

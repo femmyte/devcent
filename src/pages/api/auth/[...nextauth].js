@@ -46,18 +46,19 @@ export const authOptions = {
   ],
 
   callbacks: {
-    async signIn({ user }) {
+    async signIn({ user, profile }) {
       // proceed to session if it is credentials sign in
       if (user?.credentials) return true;
 
       try {
         const { data } = await httpService.post("/users/google-auth", {
           email: user.email,
-          name: user.name,
+          firstName: profile.given_name,
+          lastName: profile.family_name,
+          imgUrl: user.image,
           isGoogleSignup: true,
         });
 
-        console.log("data", data.user);
         return data.user;
       } catch (error) {
         console.log(err);
@@ -80,8 +81,11 @@ export const authOptions = {
 
         session.user._id = data.user._id.toString();
         session.user.userId = data.user.userId;
+        session.user.firstName = data.user.firstName;
+        session.user.lastName = data.user.lastName;
         session.user.role = data.user.role;
         session.user.urlName = data.user.urlName;
+        session.user.imgUrl = data.user.imgUrl;
         session.user.enrolledCourses = data.user.enrolledCourses;
         session.accessToken = data.accessToken;
 
