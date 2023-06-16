@@ -132,17 +132,17 @@ const Courses = () => {
       <Meta />
       <Nav />
       <div className="bg-black">
-        <section className="h-[95vh] flex flex-col items-center justify-center bg-black">
+        <section className="md:h-[95vh] py-[4rem] md:py-0 flex flex-col items-center justify-center bg-black">
           <h1 className="font-space font-[700] text-[30px] md:text-[96px] leading-[35px] md:leading-[94.1px] text-[#ffba0e] ">
             Our Courses
           </h1>
           <p
-            className="font-dmsans font-[400] text-[24px] mt-[18px] md:mt-[80px] leading-[31.25px] mx-[15px]  md:w-[842px] text-white
+            className="font-dmsans font-[400] text-[24px] mt-[18px] md:mt-[80px] leading-[31.25px] mx-[15px] md:w-[750px] lg:w-[842px] text-white
           "
           >
-            Our range of Skills resources will help you Build your career with
-            as few bumps as possible. From pitching to clients, showing your
-            work, or securing your business’s future, we’ve got what you need.
+            Our range of Skill resources will help you Build your career with as
+            few bumps as possible. From pitching to clients, showing your work,
+            or securing your business’s future, we’ve got what you need.
           </p>
         </section>
         <section className="gap-y-[120px] text-white w-screen">

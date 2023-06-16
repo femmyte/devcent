@@ -55,8 +55,8 @@ const Nav = ({ path }) => {
           >
             <Image
               src="/images/logo.png"
-              width={92}
-              height={50}
+              width={140}
+              height={90}
               className=""
               alt="logo1"
             />
@@ -82,7 +82,7 @@ const Nav = ({ path }) => {
                   path === "/courses"
                     ? "text-[#006F36] border-2 py-1 border-[#006F36] px-1 rounded"
                     : ""
-                } text-[14px] font-[600]  duration-500 font-source`}
+                } font-[600]  duration-500 font-source`}
                 href="/courses"
               >
                 Courses
@@ -95,7 +95,7 @@ const Nav = ({ path }) => {
                   path === "/about"
                     ? "text-[#006F36] border-2 py-1 border-[#006F36] px-1 rounded"
                     : ""
-                } text-[14px] font-[600]  duration-500 font-source`}
+                } font-[600]  duration-500 font-source`}
                 href="/about"
               >
                 About
@@ -108,7 +108,7 @@ const Nav = ({ path }) => {
                   path === "/courses"
                     ? "text-[#006F36] border-2 py-1 border-[#006F36] px-1 rounded"
                     : ""
-                } text-[14px] font-[600]  duration-500 font-source`}
+                } font-[600]  duration-500 font-source`}
                 href="/courses"
               >
                 Community
