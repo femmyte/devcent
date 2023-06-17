@@ -97,7 +97,7 @@ const Signup = () => {
 									alt=''
 									className='hidden md:block'
 								/>
-								<p className='mx-[24px] font-[400] font-dmsans text-[12px]'>
+								<p className='mx-[24px] font-[400] font-dmsans text-[12px] text-black'>
 									Or sign up with
 								</p>
 								<img
@@ -108,7 +108,12 @@ const Signup = () => {
 							</div>
 							<form onSubmit={handleSubmit}>
 								<div className='mb-[13px]'>
-									<label htmlFor='email'>Email</label>
+									<label
+										htmlFor='email'
+										className='text-black'
+									>
+										Email
+									</label>
 									<div className='dark:text-gray-200  dark:hover:text-white flex mx-auto w-full md:w-[379px] h-[45px] pl-[16px] items-center border border-[#cfcfcf] bg-white rounded-lg mt-[3px]'>
 										<img
 											src='/images/icons/email.png'
@@ -116,7 +121,7 @@ const Signup = () => {
 										/>
 										<input
 											type='text'
-											className='p-2 border-none bg-white outline-none w-[100%] text-[16px] rounded-r-lg'
+											className='p-2 border-none bg-white outline-none w-[100%] text-[16px] rounded-r-lg text-black'
 											onChange={(e) =>
 												setEmail(e.target.value)
 											}
@@ -126,7 +131,12 @@ const Signup = () => {
 									</div>
 								</div>
 								<div className='mb-[13px]'>
-									<label htmlFor='password'>Password</label>
+									<label
+										htmlFor='password'
+										className='text-black'
+									>
+										Password
+									</label>
 									<div className='dark:text-gray-200 dark:bg-main-dark-bg dark:hover:text-white flex mx-auto w-full md:w-[379px] h-[45px] pl-[16px] items-center border border-[#cfcfcf] bg-transparent rounded-lg mt-[3px]'>
 										<img
 											src='/images/icons/password.png'
@@ -134,7 +144,7 @@ const Signup = () => {
 										/>
 										<input
 											type='password'
-											className='p-2 bg-transparent outline-none active:bg-transparent placeholder:bg-transparent fill-transparent w-[100%] text-[16px] rounded-r-lg border-none'
+											className='p-2 bg-transparent outline-none active:bg-transparent placeholder:bg-transparent fill-transparent w-[100%] text-[16px] rounded-r-lg border-none text-black'
 											id='password'
 											onChange={(e) =>
 												setPassword(e.target.value)

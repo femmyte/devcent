@@ -98,6 +98,7 @@
 	box-sizing: border-box;
 	padding: 0;
 	margin: 0;
+	color: #fff;
 }
 
 html,
@@ -124,5 +125,20 @@ a {
 @media (prefers-color-scheme: dark) {
 	html {
 		color-scheme: dark;
+	}
+}
+.dropdown {
+	animation: rotateMenu 400ms ease-in-out forwards;
+	transform-origin: top center;
+}
+@keyframes rotateMenu {
+	0% {
+		transform: rotateX(-90deg);
+	}
+	70% {
+		transform: rotateX(20deg);
+	}
+	100% {
+		transform: rotateX(0deg);
 	}
 }
