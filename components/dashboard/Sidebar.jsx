@@ -89,19 +89,20 @@ const Sidebar = () => {
 				<FiSettings />
 				<span className='capitalize'>Settings</span>
 			</button>
-			<button
+			<Link
+				href='/user/logout'
 				// onClick={() => {
 				// 	signOut({
 				// 		redirect: true,
 				// 		callbackUrl: '/',
 				// 	});
 				// }}
-				onClick={handleLogout}
+				// onClick={handleLogout}
 				className='flex items-center w-[90%] gap-x-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md '
 			>
 				<FiLogOut />
 				<span className='capitalize'>logout</span>
-			</button>
+			</Link>
 		</div>
 	);
 };
