@@ -14,9 +14,9 @@ const NotificatioCard = ({ title, description, state }) => {
 				</p>
 			</div>
 			{state ? (
-				<MdToggleOn className='text-primaryPurple w-[41px] h-[22px]' />
+				<MdToggleOn className='text-primaryPurple w-[80px] h-[42px]' />
 			) : (
-				<MdToggleOff className='text-primaryPurple w-[41px] h-[22px]' />
+				<MdToggleOff className='text-primaryPurple w-[80px] h-[42px]' />
 			)}
 		</div>
 	);
