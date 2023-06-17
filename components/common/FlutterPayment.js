@@ -29,7 +29,7 @@ export default function App({ orderId, amount, email, name, phoneNumber }) {
 		text: 'Make Payment',
 
 		callback: (response) => {
-			console.log(response);
+			// console.log(response);
 			handleSubmitPayment(response);
 			closePaymentModal(); // this will close the modal programmatically
 		},
@@ -40,22 +40,23 @@ export default function App({ orderId, amount, email, name, phoneNumber }) {
 	};
 
 	const handleSubmitPayment = async (result) => {
+		console.log(result);
 		try {
 			let myHeaders = new Headers();
 			myHeaders.append('Content-Type', 'application/json');
-			let response = await fetch(`api/orders/${orderId}/pay`, {
+			let response = await fetch(`/api/orders/${orderId}/pay`, {
 				method: 'POST',
 				headers: myHeaders,
 				body: JSON.stringify({
-					amount,
-					transaction_id: result.transaction_id,
+					amount: result.amount,
 					created_at: result.created_at,
 					flw_ref: result.flw_ref,
+					transaction_id: result.transaction_id,
 					status: result.status,
 				}),
 			});
 			let data = await response.json();
-
+			console.log(data);
 			if (response.ok) {
 				router.push('/congratulations');
 			} else {

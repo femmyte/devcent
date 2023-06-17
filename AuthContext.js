@@ -45,6 +45,7 @@ export const AuthContextProvider = ({ children }) => {
 		user = session.data?.user;
 	}
 
+	
 	const handleClick = (clicked) => {
 		setIsClicked({ ...isClicked, [clicked]: true });
 	};

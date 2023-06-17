@@ -33,7 +33,7 @@ const Pricing = ({ amount }) => {
 							<div className='flex items-center'>
 								<div className='w-[10px] h-[10px] bg-white rounded-full'></div>
 								<p className='ml-[16px] text-[24px] font-[400] font-space leading-[35px]'>
-									Pay N{amount.toLocaleString()}
+									Pay N{amount?.toLocaleString()}
 								</p>
 							</div>
 							<p className='font-[500] font-space text-[16px] md:text-[32px] leading-[31px] mt-[20px] md:mt-[43px] mb-[17px] md:mb-[32px]  text-left'>

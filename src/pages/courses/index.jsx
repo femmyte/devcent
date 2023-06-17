@@ -108,8 +108,8 @@ const Courses = () => {
 		},
 	];
 
-	const combinedObj = otherInfo.map((item, index) => {
-		// Assuming the objects have a common identifier, such as "id"
+	const combinedObj = otherInfo.map((item) => {
+		// use the objects common identifier, such as "courseId"
 		const matchingObject = courses.find(
 			(obj) => obj.courseId === item.courseId
 		);
@@ -152,23 +152,23 @@ const Courses = () => {
 					{combinedObj.map((course, i) => {
 						return (
 							<CourseCard
-								img={course.img}
-								background={course.background}
-								key={course.courseId}
-								position={course.position}
+								img={course?.img}
+								background={course?.background}
+								key={course?.courseId}
+								position={course?.position}
 							>
 								<h3 className='font-space font-[700] text-24px] leading-[19px]'>
-									{course.name}
+									{course?.name}
 								</h3>
 								<p className='font-[400] font-dmsans text-[15px] leading-[27px]'>
-									{course.description}
+									{course?.description}
 								</p>
 								<p className='mt-[20px] md:mt-[36px] mb-[8px] font-dmsans font-[500] text-[24px]'>
-									Ready to take a career in {course.name}
+									Ready to take a career in {course?.name}
 								</p>
 								<div className='flex items-center gap-x-[20px]'>
 									<Link
-										href={`/courses/${course.urlName}`}
+										href={`/courses/${course?.urlName}`}
 										className='font-sora font-[600] text-[16px] leading-[20px]'
 									>
 										Join us now
