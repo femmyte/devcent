@@ -45,7 +45,6 @@ export const AuthContextProvider = ({ children }) => {
 		user = session.data?.user;
 	}
 
-	
 	const handleClick = (clicked) => {
 		setIsClicked({ ...isClicked, [clicked]: true });
 	};
@@ -74,6 +73,7 @@ export const AuthContextProvider = ({ children }) => {
 		// [],
 		storageEvents
 	);
+
 	useEffect(() => {
 		setLabels((prevlabels) => {
 			return [...new Set(savedEvents.map((evt) => evt.label))].map(

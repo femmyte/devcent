@@ -18,7 +18,7 @@ export default function App({ orderId, amount, email, name, phoneNumber }) {
 		},
 		customizations: {
 			title: 'Devcent',
-			description: 'Payment for items in cart',
+			description: 'Payment for course',
 			logo: '/images/logo.png',
 			// logo: 'https://st2.depositphotos.com/4403291/7418/v/450/depositphotos_74189661-stock-illustration-online-shop-log.jpg',
 		},
@@ -29,7 +29,7 @@ export default function App({ orderId, amount, email, name, phoneNumber }) {
 		text: 'Make Payment',
 
 		callback: (response) => {
-			// console.log(response);
+			console.log(response);
 			handleSubmitPayment(response);
 			closePaymentModal(); // this will close the modal programmatically
 		},
@@ -40,23 +40,22 @@ export default function App({ orderId, amount, email, name, phoneNumber }) {
 	};
 
 	const handleSubmitPayment = async (result) => {
-		console.log(result);
 		try {
 			let myHeaders = new Headers();
 			myHeaders.append('Content-Type', 'application/json');
-			let response = await fetch(`/api/orders/${orderId}/pay`, {
+			let response = await fetch(`api/orders/${orderId}/pay`, {
 				method: 'POST',
 				headers: myHeaders,
 				body: JSON.stringify({
-					amount: result.amount,
+					amount,
+					transaction_id: result.transaction_id,
 					created_at: result.created_at,
 					flw_ref: result.flw_ref,
-					transaction_id: result.transaction_id,
 					status: result.status,
 				}),
 			});
 			let data = await response.json();
-			console.log(data);
+
 			if (response.ok) {
 				router.push('/congratulations');
 			} else {

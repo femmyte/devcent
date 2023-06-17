@@ -1,13 +1,8 @@
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import GoogleProvider from "next-auth/providers/google";
-import User from "models/User";
-import dbConnect from "lib/db";
-import { sendAccountActivationMessage } from "lib/nodemailer/account-activation-message";
-import { generateAccessToken, generateToken } from "lib/helpers/token";
-import { sendWelcomeMessage } from "lib/nodemailer/welcome-message";
-import { generateUserId } from "lib/utils/random";
-import { createUrlName } from "lib/utils/urlName";
+import { generateAccessToken } from "lib/helpers/token";
+import httpService from "services/httpService";
 
 const clientUrl = process.env.NEXT_PUBLIC_CLIENT_URL;
 
@@ -17,103 +12,94 @@ const clientUrl = process.env.NEXT_PUBLIC_CLIENT_URL;
 export const authOptions = {
   providers: [
     GoogleProvider({
-      clientId: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_ID,
-      clientSecret: process.env.NEXT_PUBLIC_GOOGLE_CLIENT_SECRET,
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     }),
     CredentialsProvider({
       async authorize(credentials, req) {
-        await dbConnect();
-
         // Add logic here to look up the user from the credentials supplied
-        const { email, password } = credentials;
-        const user = await User.findOne({ email }).select(
-          "-isAuthorizedAdmin -isAuthorizedInstructor"
-        );
-        if (!user) {
-          throw new Error("Invalid email or password");
-        }
-        const isValid = await user.comparePassword(password);
-        if (!isValid) {
-          throw new Error("Invalid email or password");
-        }
 
-        // if user account is not activated
-        if (!user.isActivated) {
-          const activationToken = generateToken(20);
-          user.activationToken = activationToken;
-          user.activationTokenExpiresIn = Date.now() + 30 * 60 * 1000; // 30 minutes
-          await user.save();
-          const activationUrl = `${clientUrl}/user/activate/${activationToken}`;
-          await sendAccountActivationMessage({
-            url: activationUrl,
-            email: user.email,
-            expires: 30,
+        try {
+          const { email, password } = credentials;
+          const { data } = await httpService.post("/users/signin", {
+            email,
+            password,
           });
-          throw new Error("activate");
-        }
 
-        return user;
+          const user = {
+            ...data.user,
+            credentials: true, // set to true to indicate credentials signin
+          };
+
+          return user;
+        } catch (error) {
+          // console.log(err);
+          if (error?.response?.data?.message) {
+            console.log(error?.response?.data?.message);
+            throw new Error(error?.response?.data?.message);
+          }
+
+          throw new Error("Connection Problem");
+        }
       },
     }),
   ],
 
   callbacks: {
-    async signIn({ user, account, profile }) {
-      await dbConnect();
+    async signIn({ user, profile }) {
+      // proceed to session if it is credentials sign in
+      if (user?.credentials) return true;
 
       try {
-        const existingUser = await User.findOne({ email: user.email });
-        if (existingUser) {
-          return true;
-        }
-
-        // Create User from Google account
-        const usersCount = await User.countDocuments({});
-        const userId = generateUserId(usersCount);
-        const idExists = await User.findOne({ userId });
-        if (idExists) {
-          throw new Error("Server busy! Try again.");
-        }
-
-        const urlName = createUrlName(user.name, userId);
-        const newUser = new User({
-          userId,
-          name: user.name,
-          urlName,
+        const { data } = await httpService.post("/users/google-auth", {
           email: user.email,
-          isActivated: true,
+          firstName: profile.given_name,
+          lastName: profile.family_name,
+          imgUrl: user.image,
           isGoogleSignup: true,
         });
 
-        await newUser.save();
-
-        await sendWelcomeMessage({ email: user.email });
-
-        return true;
+        return data.user;
       } catch (error) {
-        console.log(error);
-        return false;
+        console.log(err);
+        if (error?.response?.data?.message) {
+          console.log(error?.response?.data?.message);
+          throw new Error(error?.response?.data?.message);
+        }
+
+        throw new Error("Connection Problem");
       }
     },
     async session({ session }) {
-      const user = await User.findOne({ email: session.user.email });
+      try {
+        const token = generateAccessToken({ email: session.user.email });
+        const { data } = await httpService.get("/users/auth", {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
-      session.user._id = user._id.toString();
-      session.user.userId = user.userId;
-      session.user.role = user.role;
-      session.user.urlName = user.urlName;
-      session.user.enrolledCourses = user.enrolledCourses;
-      session.user.accessToken = generateAccessToken({
-        id: user._id,
-        role: user.role,
-        isAuthorizedAdmin: user?.isAuthorizedAdmin || undefined,
-        isAuthorizedInstructor: user?.isAuthorizedInstructor || undefined,
-      });
+        session.user._id = data.user._id.toString();
+        session.user.userId = data.user.userId;
+        session.user.firstName = data.user.firstName;
+        session.user.lastName = data.user.lastName;
+        session.user.role = data.user.role;
+        session.user.urlName = data.user.urlName;
+        session.user.imgUrl = data.user.imgUrl;
+        session.user.enrolledCourses = data.user.enrolledCourses;
+        session.accessToken = data.accessToken;
 
-      return session;
+        return session;
+      } catch (error) {
+        console.error(error);
+        if (error?.response?.data?.message) {
+          console.log(error?.response?.data?.message);
+        }
+        return false;
+      }
     },
   },
-  secret: process.env.NEXT_PUBLIC_NEXT_AUTH_SECRET,
+  secret: process.env.NEXT_AUTH_SECRET,
   session: {
     jwt: true,
   },

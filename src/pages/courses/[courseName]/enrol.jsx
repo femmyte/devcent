@@ -1,53 +1,58 @@
 import Nav from 'components/common/Nav';
 import React, { useState, useEffect } from 'react';
+import { easeInOut, motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import ReactCountryFlag from 'react-country-flag';
-import FlutterPayment from 'components/common/FlutterPayment';
-import axios from 'axios';
+import { useFetch } from 'services/hooks/fetch';
+import FullLoader from 'components/loaders/FullLoader';
+import FullError from 'components/error/FullError';
+import { enrolInCourse } from 'services/paymentService';
+import Link from 'next/link';
+import ButtonLoader from 'components/loaders/ButtonLoader';
+import { useSession } from 'next-auth/react';
 
 const Enrol = () => {
-	const [clicked, setClicked] = useState(false);
-	const [course, setCourse] = useState({});
-	let total = 0;
 	const router = useRouter();
 	const { courseName } = router.query;
+	const session = useSession();
+
+	const [course, setCourse] = useState({});
+
+	const {
+		data,
+		isInitialLoading,
+		isSuccess,
+		isError: isErrorFetching,
+		refetch,
+	} = useFetch(`/courses/${courseName}/course`, 'get-course');
+
+	let total = 0;
 
 	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const response = await axios.get(
-					`/api/courses/${courseName}/course`
-				);
-				setCourse(response.data.course);
-				// setIsLoading(false);
-			} catch (error) {
-				console.error('Error fetching data:', error);
-				// setIsLoading(false);
-			}
-		};
+		if (isSuccess) {
+			setCourse(data.course);
+		}
 
-		fetchData();
-	}, [courseName]);
+		refetch();
+	}, [courseName, isSuccess, data, refetch]);
 
-	// const course = JSON.parse(decodeURIComponent(data));
 	const amount = course?.discountFee;
 	const half = amount / 2;
 	const [state, setState] = useState({
-		// outright: '',
 		paymentPlan: '',
 		firstName: '',
 		lastName: '',
 		email: '',
 		country: '',
-		street: '',
-		houseNumber: '',
+		address: '',
+		province: '',
 		city: '',
-		state: '',
 		postalCode: '',
 		phoneNumber: '',
-		info: '',
 		agreement: false,
 	});
+	const [errorEnrol, setErrorEnrol] = useState('');
+	const [isLoadingEnrol, setIsLoadingEnrol] = useState(false);
 
 	const handleChange = (evt) => {
 		const value =
@@ -60,82 +65,67 @@ const Enrol = () => {
 		});
 	};
 
-	let isFormFilled = false;
-	if (
-		// state.outright &&
-		state.paymentPlan &&
-		state.firstName &&
-		state.lastName &&
-		state.email &&
-		state.country &&
-		state.street &&
-		state.houseNumber &&
-		state.city &&
-		state.state &&
-		state.postalCode &&
-		state.phoneNumber &&
-		state.agreement === true
-	) {
-		isFormFilled = true;
-	}
-
-	const handleSubmit = (e) => {
+	const handleSubmit = async (e) => {
 		e.preventDefault();
-		console.log(state);
-		const createInfo = async () => {
-			try {
-				let myHeaders = new Headers();
-				myHeaders.append('Content-Type', 'application/json');
-				let response = await fetch(`/api/orders/create`, {
-					method: 'POST',
-					headers: myHeaders,
-					body: JSON.stringify({
-						courseId: course.courseId,
-						paymentPlan: state.paymentPlan,
-						firstName: state.firstName,
-						lastName: state.lastName,
-						email: state.email,
-						country: state.country,
-						state: state.state,
-						city: state.city,
-						street: state.street,
-						houseNumber: state.houseNumber,
-						postalCode: state.postalCode,
-						phoneNumber: state.phoneNumber,
-						info: state.info,
-					}),
-				});
-				let data = await response.json();
-				if (data.success === false) alert(data.message);
-				console.log(data);
-				if (response.ok) {
-					setState({});
-					Array.from(document.querySelectorAll('input')).forEach(
-						(input) => (input.value = '')
-					);
-					setClicked(false);
-					router.push({
-						pathname: `/courses/${courseName}/payment`,
-						query: { order_number: data.orderId },
-					});
-				} else {
-					console.error(
-						'Error making POST request:',
-						response.status
-					);
-					// handleFormErrorAlert(data.error);
-					setClicked(false);
-				}
-			} catch (err) {
-				console.log(err);
+		setErrorEnrol('');
+
+		if (
+			!state.paymentPlan ||
+			!state.firstName ||
+			!state.lastName ||
+			!state.email ||
+			!state.country ||
+			!state.address ||
+			!state.province ||
+			!state.city ||
+			!state.postalCode ||
+			!state.phoneNumber ||
+			!state.agreement
+		) {
+			setErrorEnrol('Fields with * are required');
+			return;
+		}
+		setIsLoadingEnrol(true);
+
+		try {
+			const { data } = await enrolInCourse(
+				`/courses/${courseName}/enrol`,
+				{
+					courseId: course.courseId,
+					paymentPlan: state.paymentPlan,
+					firstName: state.firstName,
+					lastName: state.lastName,
+					email: state.email,
+					country: state.country,
+					city: state.city,
+					address: state.address,
+					province: state.province,
+					postalCode: state.postalCode,
+					phoneNumber: state.phoneNumber,
+				},
+				session?.data?.accessToken
+			);
+
+			router.push(data.paymentPage);
+		} catch (err) {
+			if (err?.response?.data) {
+				setErrorEnrol(err.response.data.message);
 			}
-		};
-		createInfo();
+		} finally {
+			setIsLoadingEnrol(false);
+		}
 	};
 
 	state.paymentPlan == 'part-payment'
 		? (total = course?.discountFee / 2)
 		: (total = course?.discountFee);
+
+	if (isInitialLoading) {
+		return <FullLoader />;
+	}
+	if (isErrorFetching) {
+		return <FullError />;
+	}
 	return (
 		<div className='bg-black min-h-screen '>
 			<Nav />
@@ -161,9 +151,6 @@ const Enrol = () => {
 									id='outright'
 									onChange={handleChange}
 									value='outright-payment'
-									checked={
-										state.paymentPlan === 'outright-payment'
-									}
 									required
 								/>
 								<label
@@ -181,9 +168,6 @@ const Enrol = () => {
 									id='half'
 									onChange={handleChange}
 									value='part-payment'
-									checked={
-										state.paymentPlan === 'part-payment'
-									}
 									required
 								/>
 								<label
@@ -259,59 +243,59 @@ const Enrol = () => {
 							</div>
 							<div className='flex flex-col  mb-[24px]'>
 								<label
-									htmlFor='country'
+									htmlFor='phone'
 									className='font-source font-[600] text-[24px] leading-[30px] text-[#9b9b9b] mb-[16px]'
 								>
-									Country /Region{' '}
+									Phone Number{' '}
 									<span className='text-red-600'>*</span>
 								</label>
 								<input
-									type='text'
+									type='tel'
 									className='p-4 border border-[#747474] text-[#747474] font-[600] text-[16px] leading-5 bg-transparent rounded-lg'
-									placeholder='Nigeria'
-									id='country'
-									name='country'
+									placeholder='8178627581'
+									id='phone'
+									name='phoneNumber'
 									onChange={handleChange}
-									value={state.country}
+									value={state.phoneNumber}
 									required
 								/>
 							</div>
 							<div className='md:flex gap-x-8 justify-between  mb-[24px]'>
 								<div className='flex flex-col flex-1 mb-[24px] md:mb-0'>
 									<label
-										htmlFor='street'
+										htmlFor='address'
 										className='font-source font-[600] text-[24px] leading-[30px] text-[#9b9b9b] mb-[16px]'
 									>
-										Street Name{' '}
+										Address{' '}
 										<span className='text-red-600'>*</span>
 									</label>
 									<input
 										type='text'
 										className='p-4 border border-[#747474] text-[#747474] font-[600] text-[16px] leading-5 bg-transparent rounded-lg'
-										placeholder='street'
-										id='street'
-										name='street'
+										placeholder='address'
+										id='address'
+										name='address'
 										onChange={handleChange}
-										value={state.street}
+										value={state.address}
 										required
 									/>
 								</div>
 								<div className='flex flex-col flex-1'>
 									<label
-										htmlFor='houseNum'
+										htmlFor='province'
 										className='font-source font-[600] text-[24px] leading-[30px] text-[#9b9b9b] mb-[16px]'
 									>
-										House Number{' '}
+										Province{' '}
 										<span className='text-red-600'>*</span>
 									</label>
 									<input
 										type='text'
 										className='p-4 border border-[#747474] text-[#747474] font-[600] text-[16px] leading-5 bg-transparent w-[100%] rounded-lg'
-										placeholder='1234'
-										id='houseNum'
-										name='houseNumber'
+										placeholder='your province'
+										id='province'
+										name='province'
 										onChange={handleChange}
-										value={state.houseNumber}
+										value={state.province}
 										required
 									/>
 								</div>
@@ -339,79 +323,47 @@ const Enrol = () => {
 								</div>
 								<div className='flex flex-col flex-1'>
 									<label
-										htmlFor='state'
+										htmlFor='postal'
 										className='font-source font-[600] text-[24px] leading-[30px] text-[#9b9b9b] mb-[16px]'
 									>
-										State{' '}
+										Postal code{' '}
 										<span className='text-red-600'>*</span>
 									</label>
 									<input
-										type='text'
+										type='number'
 										className='p-4 border border-[#747474] text-[#747474] font-[600] text-[16px] leading-5 bg-transparent w-[100%] rounded-lg'
-										placeholder='Ogun'
-										id='state'
-										name='state'
+										placeholder='123456'
+										id='postal'
+										name='postalCode'
 										onChange={handleChange}
-										value={state.state}
+										value={state.postalCode}
 										required
 									/>
 								</div>
 							</div>
-							{/* multiple */}
 							<div className='flex flex-col  mb-[24px]'>
 								<label
-									htmlFor='postal'
+									htmlFor='country'
 									className='font-source font-[600] text-[24px] leading-[30px] text-[#9b9b9b] mb-[16px]'
 								>
-									Postal code{' '}
+									Country /Region{' '}
 									<span className='text-red-600'>*</span>
 								</label>
 								<input
-									type='number'
+									type='text'
 									className='p-4 border border-[#747474] text-[#747474] font-[600] text-[16px] leading-5 bg-transparent rounded-lg'
-									min={6}
-									placeholder='123456'
-									id='postal'
-									name='postalCode'
+									placeholder='Nigeria'
+									id='country'
+									name='country'
 									onChange={handleChange}
-									value={state.postalCode}
+									value={state.country}
 									required
 								/>
 							</div>
-							<div className='flex flex-col  mb-[24px]'>
-								<label
-									htmlFor='phone'
-									className='font-source font-[600] text-[24px] leading-[30px] text-[#9b9b9b] mb-[16px]'
-								>
-									Phone Number{' '}
-									<span className='text-red-600'>*</span>
-								</label>
-								<input
-									type='tel'
-									className='p-4 border border-[#747474] text-[#747474] font-[600] text-[16px] leading-5 bg-transparent rounded-lg'
-									placeholder='8178627581'
-									id='phone'
-									name='phoneNumber'
-									onChange={handleChange}
-									value={state.phoneNumber}
-									required
-								/>
-							</div>
-							<p className='font-source font-[700] text-[28px] md:text-[32px] leading-[40.2px]  mb-[24px]'>
-								Additional Information
-							</p>
-							<textarea
-								name='info'
-								id='info'
-								rows='10'
-								className='p-4 border border-[#747474] text-[#747474] font-[600] text-[16px] leading-5 bg-transparent rounded-lg w-full'
-								onChange={handleChange}
-								value={state.info}
-							></textarea>
 						</div>
 						<div className='flex-1'>
 							<p className='mt-[30px] md:mt-[66px] font-source font-[700] text-[28px] md:text-[32px] leading-[40.2px]'>
-								Your Order
+								Billing
 							</p>
 							<div className='dark:text-gray-200 dark:bg-main-dark-bg dark:hover:text-white flex w-4/5 md:w-[240px]  px-4 items-center border border-[#747474] text-[14px] bg-transparent rounded-lg mt-[20px] md:mt-[100px] mb-[20px] md:mb-[50px]'>
 								<ReactCountryFlag
@@ -553,13 +505,46 @@ const Enrol = () => {
 								<button
 									type='submit'
 									className=' py-[10px] md:py-[16px] px-[20px] md:px-[32px] rounded-lg bg-primaryPurple text-[16px] font-dmsans font-[700] md:text-[24px]'
-									// onClick={handleSubmit}
-									// disabled={!isFormFilled && !state.agreement}
+									disabled={
+										!state.agreement || isLoadingEnrol
+									}
 								>
-									{!isFormFilled && !state.agreement
-										? 'Fill the required field'
-										: 'Proceed to payment'}
+									{isLoadingEnrol ? (
+										<ButtonLoader />
+									) : !state.agreement ? (
+										'Fill the required field'
+									) : (
+										'Proceed to payment'
+									)}
 								</button>
+								{errorEnrol && (
+									<motion.div
+										whileInView={{
+											opacity: [0, 1],
+											scale: [0.8, 1],
+											y: [20, 0],
+										}}
+										transition={{
+											duration: 1,
+											type: easeInOut,
+										}}
+										viewport={{ once: true }}
+										className='w-full flex flex-col items-center my-4'
+									>
+										<p className='text-red-500 my-4 text-[18px]'>
+											{errorEnrol}
+										</p>
+										{errorEnrol?.toLowerCase() ===
+										'please sign in to continue' ? (
+											<Link
+												href={`/signin?redirect=/courses/${courseName}/enrol`}
+												className='text-white underline'
+											>
+												Log in
+											</Link>
+										) : null}
+									</motion.div>
+								)}
 							</div>
 						</div>
 					</div>

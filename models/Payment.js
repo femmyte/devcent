@@ -1,8 +1,8 @@
 import mongoose, { model, Schema, models } from "mongoose";
 
-const orderSchema = new Schema(
+const paymentSchema = new Schema(
   {
-    orderId: {
+    paymentId: {
       type: String,
       trim: true,
       required: true,
@@ -93,6 +93,6 @@ const orderSchema = new Schema(
   { timestamps: true }
 );
 
-const Order = models.Order || model("Order", orderSchema);
+const Payment = models.Payment || model("Payment", paymentSchema);
 
-export default Order;
+export default Payment;

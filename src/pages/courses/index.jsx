@@ -7,6 +7,10 @@ import Footer from 'components/common/Footer';
 import { FiArrowDownRight, FiArrowRight } from 'react-icons/fi';
 import Link from 'next/link';
 import axios from 'axios';
+import FullLoader from 'components/loaders/FullLoader';
+import { useFetch } from 'services/hooks/fetch';
+import FullError from 'components/error/FullError';
+
 const CourseCard = ({
 	background,
 	title,
@@ -53,21 +57,18 @@ const CourseCard = ({
 
 const Courses = () => {
 	const [courses, setCourses] = useState([]);
-	const [isLoading, setIsLoading] = useState(true);
-	useEffect(() => {
-		const fetchData = async () => {
-			try {
-				const response = await axios.get('/api/courses/all-course');
-				setCourses(response.data.courses);
-				setIsLoading(false);
-			} catch (error) {
-				console.error('Error fetching data:', error);
-				setIsLoading(false);
-			}
-		};
 
-		fetchData();
-	}, []);
+	const { data, isInitialLoading, isSuccess, isError } = useFetch(
+		`/courses/all-course`,
+		'get-courses'
+	);
+
+	useEffect(() => {
+		if (isSuccess) {
+			setCourses(data.courses);
+		}
+	}, [isSuccess, data]);
+
 	// console.log(courses);
 	let otherInfo = [
 		{
@@ -121,28 +122,27 @@ const Courses = () => {
 
 		return item; // Or handle the case where there is no matching object
 	});
-	// console.log(combinedObj);
-	if (isLoading) {
-		return (
-			<div className='h-screen w-screen flex flex-col items-center justify-center bg-black text-white'>
-				Loading...
-			</div>
-		);
+
+	if (isInitialLoading) {
+		return <FullLoader />;
+	}
+	if (isError) {
+		return <FullError />;
 	}
 	return (
 		<>
 			<Meta />
 			<Nav />
 			<div className='bg-black'>
-				<section className='h-[95vh] flex flex-col items-center justify-center bg-black'>
+				<section className='md:h-[95vh] py-[4rem] md:py-0 flex flex-col items-center justify-center bg-black'>
 					<h1 className='font-space font-[700] text-[30px] md:text-[96px] leading-[35px] md:leading-[94.1px] text-[#ffba0e] '>
 						Our Courses
 					</h1>
 					<p
-						className='font-dmsans font-[400] text-[24px] mt-[18px] md:mt-[80px] leading-[31.25px] mx-[15px]  md:w-[842px] text-white
+						className='font-dmsans font-[400] text-[24px] mt-[18px] md:mt-[80px] leading-[31.25px] mx-[15px] md:w-[750px] lg:w-[842px] text-white
           '
 					>
-						Our range of Skills resources will help you Build your
+						Our range of Skill resources will help you Build your
 						career with as few bumps as possible. From pitching to
 						clients, showing your work, or securing your business’s
 						future, we’ve got what you need.
@@ -152,23 +152,23 @@ const Courses = () => {
 					{combinedObj.map((course, i) => {
 						return (
 							<CourseCard
-								img={course?.img}
-								background={course?.background}
-								key={course?.courseId}
-								position={course?.position}
+								img={course.img}
+								background={course.background}
+								key={course.courseId}
+								position={course.position}
 							>
 								<h3 className='font-space font-[700] text-24px] leading-[19px]'>
-									{course?.name}
+									{course.name}
 								</h3>
 								<p className='font-[400] font-dmsans text-[15px] leading-[27px]'>
-									{course?.description}
+									{course.description}
 								</p>
 								<p className='mt-[20px] md:mt-[36px] mb-[8px] font-dmsans font-[500] text-[24px]'>
-									Ready to take a career in {course?.name}
+									Ready to take a career in {course.name}
 								</p>
 								<div className='flex items-center gap-x-[20px]'>
 									<Link
-										href={`/courses/${course?.urlName}`}
+										href={`/courses/${course.urlName}`}
 										className='font-sora font-[600] text-[16px] leading-[20px]'
 									>
 										Join us now
