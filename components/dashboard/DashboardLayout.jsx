@@ -1,7 +1,7 @@
 import Navbar from './Navbar';
 import Sidebar from './Sidebar';
 import { useStateContext } from '../../AuthContext';
-
+import RequireProfileUpdate from './RequireProfileUpdate';
 function DashboardLayout({ children }) {
 	const { activeMenu, darkToggle, login } = useStateContext();
 	// const { activeMenu, darkToggle, login } = false;
@@ -63,4 +63,5 @@ function DashboardLayout({ children }) {
 	);
 }
 
-export default DashboardLayout;
+// export default DashboardLayout;
+export default RequireProfileUpdate(DashboardLayout);
