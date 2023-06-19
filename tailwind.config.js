@@ -16,6 +16,10 @@ module.exports = {
 			colors: {
 				primaryYellow: '#FFBA0E',
 				primaryPurple: '#E40084',
+				success: '#027A48',
+				successLight: '#ECFDF3',
+				primaryBlue: '#2F80ED',
+				blueLight: 'rgba(47, 128, 237, 0.15)',
 			},
 			fontFamily: {
 				space: ['Space Grotesk'],
