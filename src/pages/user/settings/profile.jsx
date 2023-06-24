@@ -96,9 +96,14 @@ const Studentprofile = () => {
           <div className="flex flex-col gap-y-[20px] md:flex-row justify-between items-center">
             <div className="flex flex-col gap-y-[20px] md:flex-row gap-x-[63px] items-center">
               <Image
-                src="/images/profileImg.png"
+                src={
+                  userInfo?.imgUrl
+                    ? userInfo?.imgUrl
+                    : "/images/icons/avatar-icon.jpg"
+                }
                 height={100}
                 width={100}
+                className="rounded-[50%]"
                 alt="profile Image"
               />
               <button
