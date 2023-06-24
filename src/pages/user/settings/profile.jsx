@@ -1,20 +1,15 @@
 import React, { useEffect, useState } from "react";
 import DashboardLayout from "../../../../components/dashboard/DashboardLayout";
-import courseInfo from "../../../../courseInfo";
-import { getSession, useSession } from "next-auth/react";
-import { useStateContext } from "AuthContext";
-import { useRouter } from "next/router";
-import { useFetch } from "services/hooks/fetch";
-import FullLoader from "components/loaders/FullLoader";
-import FullError from "components/error/FullError";
-import { enrolInCourse } from "services/paymentService";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
-import ButtonLoader from "components/loaders/ButtonLoader";
 import Image from "next/image";
 import DateInput from "components/common/DateSelector";
+import { useUserStore } from "store/useUserStore";
 
 const Studentprofile = () => {
-  const { user } = useStateContext();
+  const { data } = useSession();
+  const { userInfo, isLoadingUpdate, errorUpdate, updateUserProfile } =
+    useUserStore((state) => state);
 
   const [profile, setProfile] = useState({
     firstName: "",
@@ -26,10 +21,21 @@ const Studentprofile = () => {
     year: "",
   });
 
+  useEffect(() => {
+    setProfile({
+      firstName: userInfo.firstName,
+      lastName: userInfo.lastName,
+      phoneNumber: userInfo.phoneNumber || "",
+      bio: userInfo.bio || "",
+      day: userInfo?.birthDay?.split("-")[0] || "",
+      month: userInfo?.birthDay?.split("-")[1] || "",
+      year: userInfo?.birthDay?.split("-")[2] || "",
+    });
+  }, [userInfo]);
+
   const handleChange = (evt) => {
-    console.log("change");
     const value = evt.target.value;
-    console.log(value);
+
     setProfile({
       ...profile,
       [evt.target.name]: value,
@@ -51,6 +57,16 @@ const Studentprofile = () => {
       setErrorEnrol("Fields with * are required");
       return;
     }
+
+    updateUserProfile(data?.user._id, data?.accessToken, {
+      firstName: profile.firstName,
+      lastName: profile.lastName,
+      phoneNumber: profile.phoneNumber,
+      bio: profile.bio,
+      birthDay: `${profile.day}-${profile.month}-${profile.year}`,
+    });
+
+    console.log("done");
   };
 
   return (

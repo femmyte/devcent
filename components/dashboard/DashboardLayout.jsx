@@ -2,13 +2,10 @@ import Navbar from "./Navbar";
 import Sidebar from "./Sidebar";
 import { useStateContext } from "../../AuthContext";
 import RequireProfileUpdate from "./RequireProfileUpdate";
+
 function DashboardLayout({ children }) {
   const { activeMenu, darkToggle, login } = useStateContext();
-  // const { activeMenu, darkToggle, login } = false;
 
-  // const location = useLocation();
-  // console.log('hash', location.hash);
-  // console.log(login)
   return (
     <div className={`${darkToggle && "dark"} App`}>
       {/* <HashRouter> */}

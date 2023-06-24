@@ -17,7 +17,7 @@ const Balance = () => {
   const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
-    console.log(status, tx_ref, transaction_id);
+    // console.log(status, tx_ref, transaction_id);
 
     const processCoursePayment = async () => {
       console.log("Processing...");
@@ -37,14 +37,13 @@ const Balance = () => {
       } catch (error) {
         if (error?.response?.data?.message) {
           if (
-            error.response.data.message.toLowerCase() === "payment unsuccessful"
-          )
-            router.replace("/payment/unsuccessful");
-          if (
             error.response.data.message.toLowerCase() ===
             "payment already processed"
-          )
+          ) {
             router.replace("/");
+          } else {
+            router.replace("/payment/unsuccessful");
+          }
         }
       }
     };

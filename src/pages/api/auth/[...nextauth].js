@@ -70,33 +70,48 @@ export const authOptions = {
         throw new Error("Connection Problem");
       }
     },
-    async session({ session }) {
-      try {
-        const token = generateAccessToken({ email: session.user.email });
-        const { data } = await httpService.get("/users/auth", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+    async jwt({ token, user }) {
+      // console.log("User: ", user);
+      // Persist the user to the token right after signin
+      if (user) {
+        try {
+          const jwt = generateAccessToken({ email: user.email });
+          const { data } = await httpService.get("/users/auth", {
+            headers: {
+              Authorization: `Bearer ${jwt}`,
+            },
+          });
 
-        session.user._id = data.user._id.toString();
-        session.user.userId = data.user.userId;
-        session.user.firstName = data.user.firstName;
-        session.user.lastName = data.user.lastName;
-        session.user.role = data.user.role;
-        session.user.urlName = data.user.urlName;
-        session.user.imgUrl = data.user.imgUrl;
-        session.user.enrolledCourses = data.user.enrolledCourses;
-        session.accessToken = data.accessToken;
+          token._id = data.user._id;
+          token.userId = data.user.userId;
+          token.firstName = data.user.firstName;
+          token.lastName = data.user.lastName;
+          token.role = data.user.role;
+          token.urlName = data.user.urlName;
+          token.imgUrl = data.user.imgUrl;
+          token.enrolledCourses = data.user.enrolledCourses;
+          token.accessToken = data.accessToken;
 
-        return session;
-      } catch (error) {
-        console.error(error);
-        if (error?.response?.data?.message) {
-          console.log(error?.response?.data?.message);
+          return token;
+        } catch (error) {
+          // console.error(error);
+          if (error?.response?.data?.message) {
+            console.log(error?.response?.data?.message);
+          }
+          return false;
         }
-        return false;
       }
+
+      return token;
+    },
+    async session({ session, token }) {
+      // console.log("Session token: ", token);
+      session.user._id = token._id;
+      session.user.userId = token.userId;
+      session.user.role = token.role;
+      session.accessToken = token.accessToken;
+
+      return session;
     },
   },
   secret: process.env.NEXT_AUTH_SECRET,

@@ -1,24 +1,22 @@
-import { useRouter } from 'next/router';
-import { useContext, useEffect } from 'react';
-import { useStateContext } from '../../AuthContext';
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { useUserStore } from "store/useUserStore";
 
 const RequireProfileUpdate = (WrappedComponent) => {
-	const ProfileUpdateCheck = (props) => {
-		const router = useRouter();
-		// const { user } = useStateContext();
-		let { activeMenu, setActiveMenu, screenSize, logout, login, user } =
-			useStateContext();
+  const ProfileUpdateCheck = (props) => {
+    const router = useRouter();
+    const { userInfo } = useUserStore((state) => state);
 
-		useEffect(() => {
-			if (user?.firstName === 'User') {
-				router.push('/user/settings/profile');
-			}
-		}, [user]);
+    useEffect(() => {
+      if (userInfo?.firstName === "User") {
+        router.push("/user/settings/profile");
+      }
+    }, [userInfo, router]);
 
-		return <WrappedComponent {...props} />;
-	};
+    return <WrappedComponent {...props} />;
+  };
 
-	return ProfileUpdateCheck;
+  return ProfileUpdateCheck;
 };
 
 export default RequireProfileUpdate;

@@ -5,7 +5,6 @@ import Image from "next/image";
 import { useRouter } from "next/router";
 import { FiSearch } from "react-icons/fi";
 import { IoIosArrowDown } from "react-icons/io";
-import { useStateContext } from "AuthContext";
 import { useSession } from "next-auth/react";
 
 const SearchComponent = ({ onFilter, filterText }) => (
@@ -25,6 +24,7 @@ const SearchComponent = ({ onFilter, filterText }) => (
 const Nav = ({ path }) => {
   const currentPath = useRouter().pathname;
   const session = useSession();
+
   let authenticated = session.status === "authenticated";
   const [menu, setMenu] = useState(false);
   const handleMenu = () => {
@@ -129,7 +129,11 @@ const Nav = ({ path }) => {
 
             {authenticated ? (
               <Link
-                href={dashboardLinks[session?.data?.user.role]}
+                href={
+                  session?.data?.user?.role
+                    ? dashboardLinks[session?.data?.user.role]
+                    : "/"
+                }
                 className=" text-white bg-[#E40084] w-[140px] text-center py-[8px] px-[20px]  font-source rounded-lg  hover:bg-primaryYellow"
               >
                 Dashboard
