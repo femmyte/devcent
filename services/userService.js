@@ -14,11 +14,13 @@ export function getUserInfo(id, accessToken) {
   });
 }
 
-export function updateUserProfile(id, accessToken, data) {
-  return http.put(`/users/${id}/update-profile`, data, {
+export async function updateUserProfile({ url, form, accessToken }) {
+  const { data } = await http.put(url, form, {
     headers: {
       "Content-Type": "application/json",
       Authorization: `Bearer ${accessToken}`,
     },
   });
+
+  return data;
 }

@@ -1,15 +1,27 @@
 import React, { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import DashboardLayout from "../../../../components/dashboard/DashboardLayout";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
 import DateInput from "components/common/DateSelector";
 import { useUserStore } from "store/useUserStore";
+import ButtonLoader from "components/loaders/ButtonLoader";
+import { toast } from "react-toastify";
+import { useProfileUpdate } from "services/hooks/users";
 
 const Studentprofile = () => {
   const { data } = useSession();
-  const { userInfo, isLoadingUpdate, errorUpdate, updateUserProfile } =
-    useUserStore((state) => state);
+  const { userInfo, updateUserInfo } = useUserStore((state) => state);
+
+  const {
+    data: dataUpdate,
+    isLoading: isLoadingUpdate,
+    isSuccess: isSuccessUpdate,
+    isError: isErrorUpdate,
+    error: errorUpdate,
+    mutate,
+  } = useProfileUpdate();
 
   const [profile, setProfile] = useState({
     firstName: "",
@@ -23,8 +35,8 @@ const Studentprofile = () => {
 
   useEffect(() => {
     setProfile({
-      firstName: userInfo.firstName,
-      lastName: userInfo.lastName,
+      firstName: userInfo.firstName || "",
+      lastName: userInfo.lastName || "",
       phoneNumber: userInfo.phoneNumber || "",
       bio: userInfo.bio || "",
       day: userInfo?.birthDay?.split("-")[0] || "",
@@ -32,6 +44,13 @@ const Studentprofile = () => {
       year: userInfo?.birthDay?.split("-")[2] || "",
     });
   }, [userInfo]);
+
+  useEffect(() => {
+    if (isSuccessUpdate) {
+      toast(dataUpdate?.message);
+      updateUserInfo(dataUpdate?.user);
+    }
+  }, [isSuccessUpdate, dataUpdate, updateUserInfo]);
 
   const handleChange = (evt) => {
     const value = evt.target.value;
@@ -49,24 +68,25 @@ const Studentprofile = () => {
       !profile.firstName ||
       !profile.lastName ||
       !profile.phoneNumber ||
-      !profile.bio ||
       !profile.day ||
       !profile.month ||
       !profile.year
     ) {
-      setErrorEnrol("Fields with * are required");
+      toast("Fields with * are required");
       return;
     }
 
-    updateUserProfile(data?.user._id, data?.accessToken, {
-      firstName: profile.firstName,
-      lastName: profile.lastName,
-      phoneNumber: profile.phoneNumber,
-      bio: profile.bio,
-      birthDay: `${profile.day}-${profile.month}-${profile.year}`,
+    mutate({
+      url: `/users/${data?.user._id}/update-profile`,
+      form: {
+        firstName: profile.firstName,
+        lastName: profile.lastName,
+        phoneNumber: profile.phoneNumber,
+        bio: profile.bio,
+        birthDay: `${profile.day}-${profile.month}-${profile.year}`,
+      },
+      accessToken: data?.accessToken,
     });
-
-    console.log("done");
   };
 
   return (
@@ -173,22 +193,44 @@ const Studentprofile = () => {
                 name="bio"
                 onChange={handleChange}
                 value={profile.bio}
-                required
               ></textarea>
             </div>
-            <p className="mt-[30px] font-dmsans font-[700] text-[14px] leading-[17px]  mb-[24px] md:w-[599px]">
+            <p className="text-white mt-[30px] font-dmsans font-[700] text-[14px] leading-[17px]  mb-[24px] md:w-[599px]">
               Please note that post you make in your discussion groups would
               display your name, image and student ID. To read full extent,
-              check our our{" "}
+              check out our{" "}
               <Link href="#" className="text-[#0A66C2]">
                 Terms and conditions
               </Link>
             </p>
+            {isErrorUpdate && (
+              <motion.p
+                whileInView={{
+                  opacity: [0, 1],
+                  y: [20, 0],
+                }}
+                transition={{
+                  duration: 1,
+                  type: "easeInOut",
+                }}
+                viewport={{ once: true }}
+                className="mb-2 text-red-500"
+              >
+                {errorUpdate?.response?.data?.message}
+              </motion.p>
+            )}
             <button
+              disabled={isLoadingUpdate}
               type="submit"
-              className=" py-[8px] px-[16px] rounded-lg bg-primaryPurple font-dmsans font-[500] text-[24px] hover:bg-primaryYellow"
+              className="flex items-center justify-center text-white py-[8px] w-[200px] rounded-lg bg-primaryPurple font-dmsans font-[500] text-[24px] hover:bg-primaryYellow"
             >
-              Save Changes
+              {isLoadingUpdate ? (
+                <span>
+                  <ButtonLoader />
+                </span>
+              ) : (
+                <span>Save Changes</span>
+              )}
             </button>
           </form>
         </div>
