@@ -10,6 +10,8 @@ import ButtonLoader from "components/loaders/ButtonLoader";
 import { toast } from "react-toastify";
 import { useProfileUpdate } from "services/hooks/users";
 import { uploadProfilePicture } from "services/userService";
+import { storage } from "lib/helpers/firebase";
+import { v4 as uuidv4 } from "uuid";
 
 const Studentprofile = () => {
   const { data } = useSession();
@@ -73,24 +75,59 @@ const Studentprofile = () => {
       toast("Edit picture then click save.");
       return;
     }
-    const formData = new FormData();
-    formData.append("image", imgUrl);
 
     setIsLoadingUpload(true);
+    const storageRef = storage.ref();
+    const uniqueId = uuidv4();
+
     try {
+      if (userInfo.imgPath) {
+        const existingImage = storageRef.child(userInfo.imgPath);
+        await existingImage.delete();
+      }
+
+      const fileRef = storageRef.child(`profile-images/${uniqueId}`);
+
+      const snapshot = await fileRef.put(imgUrl);
+      const downloadURL = await snapshot.ref.getDownloadURL();
+      const filePath = snapshot.ref.fullPath;
       const resData = await uploadProfilePicture(
         `/users/${data?.user._id}/profile-image/upload`,
-        formData,
+        {
+          imgUrl: downloadURL,
+          imgPath: filePath,
+        },
         data?.accessToken
       );
       updateUserInfo(resData.user);
       setImgUrl("");
       toast(resData.message);
     } catch (error) {
+      console.log(error);
       if (error?.response?.data?.message) toast(error.response.data.message);
+      else toast("Upload not successful");
     } finally {
       setIsLoadingUpload(false);
     }
+
+    // const formData = new FormData();
+    // formData.append("image", imgUrl);
+
+    // setIsLoadingUpload(true);
+    // try {
+    //   const resData = await uploadProfilePicture(
+    //     `/users/${data?.user._id}/profile-image/upload`,
+    //     formData,
+    //     data?.accessToken
+    //   );
+    //   updateUserInfo(resData.user);
+    //   setImgUrl("");
+    //   toast(resData.message);
+    // } catch (error) {
+    //   if (error?.response?.data?.message) toast(error.response.data.message);
+    // } finally {
+    //   setIsLoadingUpload(false);
+    // }
   };
 
   const handleSubmit = async (e) => {
@@ -162,6 +199,7 @@ const Studentprofile = () => {
 
                 <input
                   type="file"
+                  accept=".jpg, .jpeg, .png"
                   id="imgUrl"
                   name="imgUrl"
                   className="hidden"
@@ -171,7 +209,7 @@ const Studentprofile = () => {
               <button
                 onClick={uploadImage}
                 disabled={isLoadingUpload}
-                className="text-white py-[8px] px-[16px] rounded-lg border border-primaryPurple hover:bg-primaryPurple font-dmsans font-[500] text-[24px] cursor-pointer"
+                className="text-white py-[8px] px-[16px] rounded-lg border border-primaryPurple hover:bg-primaryPurple font-dmsans font-[500] text-[24px]"
               >
                 {isLoadingUpload ? "Uploading..." : "Save Picture"}
               </button>
