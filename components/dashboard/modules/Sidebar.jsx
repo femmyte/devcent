@@ -160,10 +160,11 @@ const ModuleSidebar = () => {
 														setCurrentItemId(
 															detail.id
 														);
-														setActiveMenu(
-															(prevState) =>
-																!prevState
-														);
+														// setActiveMenu(
+														// 	(prevState) =>
+														// 		!prevState
+														// );
+														handleCloseSidebar;
 													}}
 												>
 													<div className='flex gap-x-[6px] items-center'>

@@ -1,15 +1,17 @@
 import React, { useState } from 'react';
 import CourseModuleCard from 'components/dashboard/CourseModuleCard';
-import DashboardLayout from 'components/dashboard/DashboardLayout';
 import Schedular from 'components/dashboard/SchedularPart';
 import { FiCalendar } from 'react-icons/fi';
 import courseInfo from '../../../../courseInfo';
+import ModuleLayout from 'components/dashboard/modules/ModuleLayout';
+import DashboardLayout from 'components/dashboard/DashboardLayout';
 
 const Modules = () => {
 	const [courseInformation, setCourseInformationo] = useState(courseInfo);
 
 	return (
 		<div>
+			{/* <ModuleLayout> */}
 			<DashboardLayout>
 				<div className='w-full flex flex-col md:flex-row justify-center md:justify-between pl-[15px] mt-[20px] md:mt-[31px]'>
 					<div className=''>
@@ -83,6 +85,7 @@ const Modules = () => {
 					</div>
 				</div>
 			</DashboardLayout>
+			{/* </ModuleLayout> */}
 		</div>
 	);
 };
