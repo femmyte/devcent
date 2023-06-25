@@ -12,7 +12,7 @@ axios.interceptors.response.use(null, (error) => {
 
   // if it's an unexpected error
   if (!expectedError) {
-    toast("Server error.", { className: "toast-style" });
+    toast("Server error.");
   }
 
   return Promise.reject(error); // the error is sent to the catch block
@@ -21,7 +21,7 @@ axios.interceptors.response.use(null, (error) => {
 const httpService = {
   get: axios.get,
   post: axios.post,
-  patch: axios.patch,
+  put: axios.put,
   delete: axios.delete,
 };
 

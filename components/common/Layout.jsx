@@ -18,7 +18,7 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <ToastContainer />
+      <ToastContainer position="bottom-center" />
       <main>{children}</main>
     </>
   );
