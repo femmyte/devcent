@@ -10,6 +10,7 @@ import { getSession, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useUserStore } from "store/useUserStore";
 import Dots from "components/loaders/Dots";
+import withStudentAuth from "components/auth/withStudentAuth";
 
 const Overview = () => {
   const userInfo = useUserStore((state) => state.userInfo);
@@ -162,4 +163,4 @@ const Overview = () => {
   );
 };
 
-export default Overview;
+export default withStudentAuth(Overview);
