@@ -9,6 +9,7 @@ import { useUserStore } from "store/useUserStore";
 import ButtonLoader from "components/loaders/ButtonLoader";
 import { toast } from "react-toastify";
 import { useProfileUpdate } from "services/hooks/users";
+import { uploadProfilePicture } from "services/userService";
 
 const Studentprofile = () => {
   const { data } = useSession();
@@ -23,6 +24,8 @@ const Studentprofile = () => {
     mutate,
   } = useProfileUpdate();
 
+  const [imgUrl, setImgUrl] = useState("");
+  const [isLoadingUpload, setIsLoadingUpload] = useState(false);
   const [profile, setProfile] = useState({
     firstName: "",
     lastName: "",
@@ -52,6 +55,10 @@ const Studentprofile = () => {
     }
   }, [isSuccessUpdate, dataUpdate, updateUserInfo]);
 
+  const handleImageChange = (e) => {
+    setImgUrl(e.target.files[0]);
+  };
+
   const handleChange = (evt) => {
     const value = evt.target.value;
 
@@ -59,6 +66,31 @@ const Studentprofile = () => {
       ...profile,
       [evt.target.name]: value,
     });
+  };
+
+  const uploadImage = async () => {
+    if (!imgUrl) {
+      toast("Edit picture then click save.");
+      return;
+    }
+    const formData = new FormData();
+    formData.append("image", imgUrl);
+
+    setIsLoadingUpload(true);
+    try {
+      const resData = await uploadProfilePicture(
+        `/users/${data?.user._id}/profile-image/upload`,
+        formData,
+        data?.accessToken
+      );
+      updateUserInfo(resData.user);
+      setImgUrl("");
+      toast(resData.message);
+    } catch (error) {
+      if (error?.response?.data?.message) toast(error.response.data.message);
+    } finally {
+      setIsLoadingUpload(false);
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -92,35 +124,60 @@ const Studentprofile = () => {
   return (
     <>
       <DashboardLayout>
-        <div className="px-[20px]">
+        <div className="px-[20px] text-white">
           <div className="flex flex-col gap-y-[20px] md:flex-row justify-between items-center">
             <div className="flex flex-col gap-y-[20px] md:flex-row gap-x-[63px] items-center">
-              <Image
-                src={
-                  userInfo?.imgUrl
-                    ? userInfo?.imgUrl
-                    : "/images/icons/avatar-icon.jpg"
-                }
-                height={100}
-                width={100}
-                className="rounded-[50%]"
-                alt="profile Image"
-              />
+              {imgUrl ? (
+                <div className="relative w-[100px] h-[100px]">
+                  <Image
+                    src={URL.createObjectURL(imgUrl)}
+                    className="rounded-[50%] w-full h-full"
+                    alt="profile Image"
+                    fill
+                  />
+                </div>
+              ) : (
+                <div className="relative w-[100px] h-[100px]">
+                  <Image
+                    src={
+                      userInfo?.imgUrl
+                        ? userInfo?.imgUrl
+                        : "/images/icons/avatar-icon.jpg"
+                    }
+                    className="rounded-[50%] w-full h-full"
+                    alt="profile Image"
+                    fill
+                  />
+                </div>
+              )}
+
               <button
                 type="submit"
-                className=" py-[8px] px-[16px] rounded-lg bg-primaryPurple font-dmsans font-[500] text-[24px] hover:bg-primaryYellow"
+                className="text-white py-[8px] px-[16px] rounded-lg bg-primaryPurple font-dmsans font-[500] text-[24px] hover:bg-primaryYellow cursor-pointer"
               >
-                Upload New
+                <label htmlFor="imgUrl" className="cursor-pointer">
+                  {" "}
+                  Edit Picture
+                </label>
+
+                <input
+                  type="file"
+                  id="imgUrl"
+                  name="imgUrl"
+                  className="hidden"
+                  onChange={handleImageChange}
+                />
               </button>
               <button
-                type="submit"
-                className=" py-[8px] px-[16px] rounded-lg border border-primaryPurple hover:bg-primaryPurple font-dmsans font-[500] text-[24px]"
+                onClick={uploadImage}
+                disabled={isLoadingUpload}
+                className="text-white py-[8px] px-[16px] rounded-lg border border-primaryPurple hover:bg-primaryPurple font-dmsans font-[500] text-[24px] cursor-pointer"
               >
-                Delete Photo
+                {isLoadingUpload ? "Uploading..." : "Save Picture"}
               </button>
             </div>
-            <p className="font-space font-[700] text-[18px] leading-[22.97.2px]">
-              Student ID-123456
+            <p className="text-white font-space font-[700] text-[18px] leading-[22.97.2px]">
+              Student ID-{userInfo?.userId}
             </p>
           </div>
           <p className="mt-[30px] md:mt-[66px] font-source font-[700] text-[28px] md:text-[32px] leading-[40.2px]  mb-[24px]">
