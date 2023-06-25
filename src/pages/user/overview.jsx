@@ -53,7 +53,7 @@ const Overview = () => {
           ) : userInfo?.enrolledCourses?.length > 0 ? (
             <>
               {" "}
-              <OverviewComponent />
+              <OverviewComponent userInfo={userInfo} />
               <div className="w-full flex flex-col md:flex-row justify-center md:justify-between pl-[15px] mt-[20px] md:mt-[31px]">
                 <div className="">
                   {courseInformation.map((info) => {
