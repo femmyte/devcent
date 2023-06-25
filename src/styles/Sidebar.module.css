@@ -1,0 +1,81 @@
+.layout {
+	display: inline-flex;
+	padding: 1rem;
+	flex-direction: column;
+	/* align-items: center; */
+	gap: 2rem;
+	background: #202125;
+	height: 100vh;
+	/* width: 393px; */
+	/* z-index: 100px; */
+	padding-top: 70px;
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+.topBox {
+	display: flex;
+	align-items: flex-start;
+	gap: 1rem;
+}
+.topContent {
+	color: #fff;
+	text-align: center;
+	font-size: 0.9375rem;
+	font-family: Space Grotesk;
+	line-height: 1.25rem;
+}
+.searchBox {
+	width: 21.5625rem;
+	min-height: 2.25rem;
+	flex-shrink: 0;
+	gap: 0.62rem;
+	border-radius: 4px;
+	background: #343a40;
+	border-radius: 5px;
+}
+.courseBox {
+	display: flex;
+	padding: 1rem;
+	flex-direction: column;
+	align-items: flex-start;
+	gap: 1.5rem;
+	border-top: 1px solid #26282e;
+	border-bottom: 1px solid #26282e;
+	width: 100%;
+}
+
+.courseBoxTextWrap {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 5rem;
+	width: 100%;
+	cursor: pointer;
+}
+/* .sub {
+	display: flex;
+	padding: 0.5rem 1rem;
+	align-items: center;
+	gap: 3.6875rem;
+	width: 22rem;
+	cursor: pointer;
+} */
+.courseTitle {
+	color: #fff;
+	font-size: 1rem;
+	font-family: Space Grotesk;
+	font-weight: 700;
+}
+.courseSubTitle {
+	color: #fff;
+	font-size: 0.85rem;
+	font-family: 'Space Grotesk';
+	font-weight: 500;
+	width: 12.6875rem;
+}
+.percentText {
+	color: #fff;
+	font-size: 1rem;
+	font-family: Space Grotesk;
+	font-weight: 500;
+}
