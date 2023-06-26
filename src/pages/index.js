@@ -24,11 +24,14 @@ const Index = () => {
 			<Nav />
 			<div className='bg-black flex flex-col-reverse lg:flex-row justify-between items-center text-white z-10 px-[25px] md:pl-[90px] relative'>
 				<div className='w-full md:w-[580px] mt-[30px] md:mt-[160px] text-center md:text-left  '>
-					<h1 className='text-[#FFBA0E] text-[40px] md:text-[48px] font-[700] leading-[50px] md:leading-[58px] font-space h-[200px] md:h-[100px]'>
+					<h1 className='text-[#FFBA0E] text-[40px] md:text-[48px] font-[700] leading-[50px] md:leading-[58px] font-space min-h-max'>
 						<Typewriter
 							options={{
 								strings: [
 									'Developing Worldclass Tech Talent at Devcent',
+									'Welcome to Devecnt, where learning meets limitless possibilities in the world of tech',
+									'Discover the limitless possibilities of the digital world of tech at Devcent',
+									"Don't just dream about a rewarding career in tech make it a reality with Devecnt.",
 								],
 								autoStart: true,
 								loop: true,
@@ -41,7 +44,7 @@ const Index = () => {
 					</p>
 					<div className='flex flex-col items-center md:items-start'>
 						<Link
-							href='/signup'
+							// href='/signup'
 							className='block py-[18px] text-center mt-[20px] text-white bg-[#E40084] w-[160px] font-source text-[18px] rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 '
 						>
 							Get Started
@@ -51,7 +54,7 @@ const Index = () => {
 				<div className='w-4/5 md:w-[570px] my-[30px] md:mt-0'>
 					<img
 						src='/images/hero.png'
-						className='App-logo'
+						// className='App-logo'
 						alt='hero'
 					/>
 				</div>
@@ -124,7 +127,7 @@ const Index = () => {
 								<Box
 									img='/images/icons/dataScience.png'
 									title='Data Science'
-									description='FHarness the power of data. Our Data Science course is equipped to teach you how to unravel complex datasets, gain insights, and make data-driven decisions. Arm yourself with the necessary skills to tackle problems and drive innovation in any industry.'
+									description='Harness the power of data. Our Data Science course is equipped to teach you how to unravel complex datasets, gain insights, and make data-driven decisions. Arm yourself with the necessary skills to tackle problems and drive innovation in any industry.'
 								/>
 							</Animation>
 							<Animation

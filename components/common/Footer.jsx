@@ -21,9 +21,9 @@ const Footer = () => {
 							className=''
 						/>
 						<p className='font-[400] font-dmsans text-[16px] mt-[24px] text-center'>
-							We are dedicated IT Training Establishment . We have
-							excelled in IT Training/Education, IT Consultancy
-							and IT Solutions Development.
+							We are a dedicated IT Training Establishment . We
+							have excelled in IT Training/Education, IT
+							Consultancy and IT Solutions Development.
 						</p>
 					</div>
 
