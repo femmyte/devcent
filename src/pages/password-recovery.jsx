@@ -196,10 +196,8 @@ const RecoveryPage = () => {
       <div>
         <div className="flex gap-4 mb-6 text-white items-center justify-center px-4">
           <Link href={"/"}>
-            <Image src="/images/logo.png" width={100} height={100} alt="logo" />
+            <Image src="/images/logo.png" width={180} height={120} alt="logo" />
           </Link>
-
-          <h1 className="text-[1.7rem]">Trainings</h1>
         </div>
         <div className="text-black w-[92%] sm:w-[448px] mx-auto p-4 bg-white shadow-md rounded-md">
           {renderStepContent()}
