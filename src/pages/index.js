@@ -36,7 +36,7 @@ const Index = () => {
 					</h1>
 					<p className='text-[20px] md:text-[24px] leading-6 md:leading-10 my-[20px]'>
 						Master your craft and unleash your potential with our
-						online training from the best industry experts.
+						Online/Physical training from the best industry experts.
 					</p>
 					<div className='flex flex-col items-center md:items-start'>
 						<Link
@@ -81,7 +81,7 @@ const Index = () => {
 						</p>
 						<Link
 							href='/courses'
-							className='block mt-[20px] md:mt-[40px] mx-auto md:mx-0 text-white bg-[#E40084] py-[20px] px-[56px] font-source text-[18px] rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 w-max mb-[30px] md:mb-0'
+							className='block mt-[20px] md:mt-[40px] mx-auto md:mx-0 text-white bg-[#E40084] py-[20px] px-[56px] font-source text-[18px] rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 w-max mb-[100px] md:mb-0'
 						>
 							View all
 						</Link>
