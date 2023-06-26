@@ -15,7 +15,13 @@ import LogoutModal from './LogoutModal';
 const Sidebar = () => {
 	const userInfo = useUserStore((state) => state.userInfo);
 
-	let { activeMenu, setActiveMenu, screenSize } = useStateContext();
+	let {
+		activeMenu,
+		setActiveMenu,
+		screenSize,
+		openLogoutModal,
+		setOpenLogoutModal,
+	} = useStateContext();
 	const router = useRouter();
 	const [showSettings, setShowSettings] = useState(false);
 
@@ -30,6 +36,10 @@ const Sidebar = () => {
 		}
 	};
 
+	const handleShowModal = () => {
+		console.log('clicked =>', openLogoutModal);
+		setOpenLogoutModal(true);
+	};
 	const activeLink =
 		'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-[#e6098c] font-space font-[500] text-[14px] m-2';
 	const normalLink =
@@ -122,7 +132,7 @@ const Sidebar = () => {
 					<Link href='/user/settings/certificates'>Certificates</Link>
 				</li>
 			</ul>
-			<Link
+			{/* <Link
 				href='/user/logout'
 				// onClick={() => {
 				// 	signOut({
@@ -133,12 +143,18 @@ const Sidebar = () => {
 				// onClick={handleLogout}
 				// className='flex items-center w-[90%] gap-x-5 pl-4 pt-3 pb-2.5 rounded-lg text-white text-md '
 				className={!activeMenu ? normalLink : activeLink}
+			> */}
+			<button
+				onClick={() => {
+					handleShowModal();
+					handleCloseSidebar();
+				}}
+				className={!activeMenu ? normalLink : activeLink}
 			>
-				{/* <button onClick={handleOpen}>
 				<FiLogOut />
 				<span className='capitalize'>logout</span>
-			</button> */}
-			</Link>
+			</button>
+			{/* </Link> */}
 		</div>
 	);
 };

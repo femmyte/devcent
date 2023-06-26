@@ -40,6 +40,7 @@ export const AuthContextProvider = ({ children }) => {
 	const [courseContent, setCourseContent] = useState('');
 	const [courseIntro, setCourseIntro] = useState('');
 	const [currentItemId, setCurrentItemId] = useState(null);
+	const [openLogoutModal, setOpenLogoutModal] = useState(false);
 	let login = false;
 
 	const session = useSession();
@@ -172,6 +173,8 @@ export const AuthContextProvider = ({ children }) => {
 				currentItemId,
 				setCurrentItemId,
 				scrollContainerRef,
+				openLogoutModal,
+				setOpenLogoutModal,
 			}}
 		>
 			{children}
