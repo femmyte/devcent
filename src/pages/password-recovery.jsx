@@ -1,18 +1,37 @@
+import withLogoutAuth from "components/auth/withLogoutAuth";
 import React, { useState } from "react";
+import { toast } from "react-toastify";
+import httpService from "services/httpService";
 
 const RecoveryPage = () => {
   const [email, setEmail] = useState("");
-  const [verificationCode, setVerificationCode] = useState("");
+  const [recoveryCode, setRecoveryCode] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [step, setStep] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleEmailSubmit = (e) => {
+  const handleEmailSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Handle email submission and sending the verification code
-    setStep(2);
+    setError("");
+    setIsLoading(true);
+
+    try {
+      const { data } = await httpService.get("/users/password/recovery-token", {
+        params: { email },
+      });
+      toast(data.message);
+      setStep(2);
+    } catch (error) {
+      if (error?.response?.data?.message) {
+        setError(error.response.data.message);
+      }
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const handleVerificationCodeSubmit = (e) => {
+  const handleRecoveryCodeSubmit = (e) => {
     e.preventDefault();
     // TODO: Handle verification code submission and validation
     setStep(3);
@@ -39,13 +58,15 @@ const RecoveryPage = () => {
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="rounded-md py-2 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 focus:outline-none w-full"
+                className="rounded-md p-2 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 w-full"
               />
+              <p className="min-h-[30px] my-2 pl-2 text-red-500 ">{error}</p>
               <button
                 type="submit"
-                className="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+                disabled={isLoading}
+                className="mt-2 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
               >
-                Send Recovery Code
+                {isLoading ? "Loading..." : "Send Code"}
               </button>
             </form>
           </>
@@ -53,23 +74,25 @@ const RecoveryPage = () => {
       case 2:
         return (
           <>
-            <h2 className="text-2xl font-bold mb-4">Verify Code</h2>
+            <h2 className="text-2xl font-bold mb-4">Password Recovery Code</h2>
             <p className="mb-4">
-              Please enter the verification code you received via email.
+              Please enter the recovery code you received via email.
             </p>
-            <form onSubmit={handleVerificationCodeSubmit}>
+            <form onSubmit={handleRecoveryCodeSubmit}>
               <input
                 type="text"
-                placeholder="Enter the verification code"
-                value={verificationCode}
-                onChange={(e) => setVerificationCode(e.target.value)}
-                className="rounded-md border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 w-full"
+                placeholder="Enter the recovery code"
+                value={recoveryCode}
+                onChange={(e) => setRecoveryCode(e.target.value)}
+                className="rounded-md p-2 border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 w-full"
               />
+              <p className="min-h-[30px] my-2 pl-2 text-red-500 ">{error}</p>
               <button
                 type="submit"
-                className="mt-4 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
+                disabled={isLoading}
+                className="mt-2 px-4 py-2 bg-indigo-600 text-white rounded-md hover:bg-indigo-700"
               >
-                Verify Code
+                {isLoading ? "Loading..." : "Submit"}
               </button>
             </form>
           </>
@@ -115,11 +138,11 @@ const RecoveryPage = () => {
 
   return (
     <div className="w-full h-screen bg-black flex items-center">
-      <div className="max-w-md mx-auto p-4 bg-white shadow-md rounded-md">
+      <div className="text-black w-[92%] sm:w-[448px] mx-auto p-4 bg-white shadow-md rounded-md">
         {renderStepContent()}
       </div>
     </div>
   );
 };
 
-export default RecoveryPage;
+export default withLogoutAuth(RecoveryPage);
