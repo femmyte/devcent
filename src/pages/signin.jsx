@@ -41,7 +41,7 @@ const Signin = () => {
 			});
 
 			if (result.ok === true) {
-				router.replace(redirect || '/');
+				router.replace('/user/overview' || redirect);
 			} else {
 				if (result.error === 'activate') {
 					setMessage({
