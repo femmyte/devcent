@@ -70,7 +70,7 @@ const Signup = () => {
 
 			<div className='bg-[#1d171a] min-h-[100vh] py-[30px] md:py-[70px]'>
 				<div className='flex flex-col items-center justify-center '>
-					<Link>
+					<Link href='/'>
 						<img
 							src='/images/logo.png'
 							alt='devcent logo'

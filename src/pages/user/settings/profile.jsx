@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import DashboardLayout from "../../../../components/dashboard/DashboardLayout";
+import DashboardLayout from "components/dashboard/DashboardLayout";
 import { useSession } from "next-auth/react";
 import Link from "next/link";
 import Image from "next/image";
@@ -12,8 +12,9 @@ import { useProfileUpdate } from "services/hooks/users";
 import { uploadProfilePicture } from "services/userService";
 import { storage } from "lib/helpers/firebase";
 import { v4 as uuidv4 } from "uuid";
+import withStudentAuth from "components/auth/withStudentAuth";
 
-const Studentprofile = () => {
+const Profile = () => {
   const { data } = useSession();
   const { userInfo, updateUserInfo } = useUserStore((state) => state);
 
@@ -81,6 +82,7 @@ const Studentprofile = () => {
     const uniqueId = uuidv4();
 
     try {
+      // if profile image exist
       if (userInfo.imgPath) {
         const existingImage = storageRef.child(userInfo.imgPath);
         await existingImage.delete();
@@ -109,25 +111,6 @@ const Studentprofile = () => {
     } finally {
       setIsLoadingUpload(false);
     }
-
-    // const formData = new FormData();
-    // formData.append("image", imgUrl);
-
-    // setIsLoadingUpload(true);
-    // try {
-    //   const resData = await uploadProfilePicture(
-    //     `/users/${data?.user._id}/profile-image/upload`,
-    //     formData,
-    //     data?.accessToken
-    //   );
-    //   updateUserInfo(resData.user);
-    //   setImgUrl("");
-    //   toast(resData.message);
-    // } catch (error) {
-    //   if (error?.response?.data?.message) toast(error.response.data.message);
-    // } finally {
-    //   setIsLoadingUpload(false);
-    // }
   };
 
   const handleSubmit = async (e) => {
@@ -339,4 +322,4 @@ const Studentprofile = () => {
   );
 };
 
-export default Studentprofile;
+export default withStudentAuth(Profile);

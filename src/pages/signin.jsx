@@ -181,7 +181,7 @@ const Signin = () => {
 										</label>
 									</div>
 									<Link
-										href=''
+										href='/password-recovery'
 										className='text-primaryPurple'
 									>
 										Forgot your password?
