@@ -70,11 +70,13 @@ const Signup = () => {
 
 			<div className='bg-[#1d171a] min-h-[100vh] py-[30px] md:py-[70px]'>
 				<div className='flex flex-col items-center justify-center '>
-					<img
-						src='/images/logo.png'
-						alt='devcent logo'
-						className='mb-[18px]'
-					/>
+					<Link>
+						<img
+							src='/images/logo.png'
+							alt='devcent logo'
+							className='mb-[18px]'
+						/>
+					</Link>
 					<div className='bg-white w-[90%] md:w-[448px] rounded-lg relative'>
 						{isOpen && (
 							<Alert

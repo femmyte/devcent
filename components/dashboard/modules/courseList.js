@@ -2,6 +2,8 @@ export const courses = [
 	{
 		id: 1,
 		title: 'Course Introduction',
+		introduction:
+			"Many companies today require certain professionals' assistance to make their products",
 		modules: [
 			{
 				id: 1,

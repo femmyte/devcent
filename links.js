@@ -26,7 +26,7 @@ export const links = [
 				icon: <HiOutlineUserGroup />,
 			},
 			{
-				name: 'course-module',
+				name: 'modules',
 				icon: <HiOutlineUserGroup />,
 			},
 			{

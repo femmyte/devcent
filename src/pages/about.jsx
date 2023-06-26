@@ -5,6 +5,7 @@ import AlumniTestimony from 'components/uiux/AlumniTestimony';
 import Instructor from 'components/common/Instructor';
 import Link from 'next/link';
 import Footer from 'components/common/Footer';
+import Image from 'next/image';
 
 const ProcessCard = ({ title, number, description }) => {
 	return (
@@ -43,28 +44,31 @@ const About = () => {
 		<div>
 			<Meta title='Devcent | About Us' />
 			<Nav />
-			<div className="relative bg-[url('/images/aboutbg.png')] h-[100vh] md:h-[80vh] bg-cover bg-center overflow-hidden">
+			<div className="relative bg-[url('/images/aboutbg.jpg')] h-[100vh] md:h-[80vh] bg-cover bg-top overflow-hidden">
 				<div
 					className='absolute top-[1px] left-0 right-0 bottom-0 h-[100vh] md:h-[80vh] z-[1]'
 					style={{
-						background: 'rgba(0, 0, 0, 0.5)',
-						// "linear-gradient(84.59deg, rgba(0, 0, 0, 0.58) 17.84%, rgba(0, 0, 0, 0.17) 52.14%, rgba(0, 0, 0, 0.65) 80.9%)",
+						// background: 'rgba(0, 0, 0, 0.5)',
+						background:
+							'linear-gradient(84.59deg, rgba(0, 0, 0, 0.58) 17.84%, rgba(0, 0, 0, 0.17) 52.14%, rgba(0, 0, 0, 0.65) 80.9%)',
 					}}
 				/>
 				<div className='flex flex-col justify-center items-center relative z-[100] h-full px-[20px] md:px-[160px]'>
 					<h1 className='font-space font-[700] text-[30px] md:text-[48px] leading-[30px] md:leading-[52px] text-white text-center mt-[15px] md:mt-0'>
-						Welcome to Devcent Trainings
+						Welcome to Devcent
 					</h1>
-					<p className='font-dmsans font-[500] text-[18px] md:text-[24px] leading-[20px] md:leading-[40px] text-justify text-white mt-[30px] md:mt-[56px]'>
-						Our mission at DevCent is to provide affordable,
-						accessible, and industry-relevant e-learning courses in
-						UI/UX, web development, and data science. We are
-						committed to creating an inclusive and supportive
-						learning community that fosters creativity,
-						collaboration, and critical thinking. Our goal is to
-						equip learners with practical skills and knowledge that
-						enable them to succeed in their careers, pursue their
-						passions, and make a positive impact on society.
+					<p className='font-dmsans font-[500] text-[18px] md:text-[24px] leading-[20px] md:leading-[40px]  text-white mt-[30px] md:mt-[56px]'>
+						Our innovative online learning platform is designed to
+						equip learners with in-demand tech skills. We aim to
+						empower them to thrive in today's competitive economy
+						while earning professional certificates in a
+						cost-effective and time-efficient manner.
+					</p>
+					<p className='font-dmsans font-[500] text-[18px] md:text-[24px] leading-[20px] md:leading-[40px]  text-white mt-[30px] md:mt-[56px]'>
+						At Devcent, we are deeply committed to promoting an
+						inclusive and supportive learning community that
+						embraces diversity, encourages creativity, fosters
+						collaboration, and nurtures critical thinking.
 					</p>
 				</div>
 			</div>
@@ -78,23 +82,27 @@ const About = () => {
 				<div className='flex flex-col-reverse md:flex-row gap-x-[80px] '>
 					<ToolsCard
 						title='Our Mission'
-						details='Our mission at DevCent is to provide affordable, accessible, and industry-relevant e-learning courses in UI/UX, web development, and data science. We are committed to creating an inclusive and supportive learning community that fosters creativity, collaboration, and critical thinking. Our goal is to equip learners with practical skills and knowledge that enable them to succeed in their careers, pursue their passions, and make a positive impact on society.'
+						details='At DevCent, our mission is to provide affordable, accessible, and industry-relevant e-learning courses in UI/UX, web development, and data science. Our goal is to equip learners with practical skills and knowledge that enable them to succeed in their careers, pursue their passions, and make a positive impact on society.'
 					/>
-					<img
-						src='/images/mission.png'
+					<Image
+						width={588}
+						height={441}
+						src='/images/mission.jpg'
 						alt='mission image'
 						className='mb-[15px] md:mb-0'
 					/>
 				</div>
 				<div className='flex flex-col md:flex-row gap-x-[80px] mt-[30px] md:mt-[80px]'>
-					<img
-						src='/images/vision.png'
+					<Image
+						width={588}
+						height={441}
+						src='/images/vision.jpg'
 						alt='vision image'
 						className='mb-[15px] md:mb-0'
 					/>
 					<ToolsCard
 						title='Our Vision'
-						details='At DevCent, our vision is to empower individuals with the skills and knowledge needed to thrive in the ever-evolving tech industry. We aspire to be a leading e-learning platform that delivers high-quality education and training in UI/UX, web development, and data science, and inspires a generation of innovative problem solvers.'
+						details='Our vision is to empower individuals with the skills and knowledge needed to thrive in the ever-evolving tech industry. We aspire to be a leading e-learning platform that delivers high-quality education and training in UI/UX, web development, and data science, and inspires a generation of innovative problem solvers.'
 					/>
 				</div>
 			</section>
@@ -107,42 +115,42 @@ const About = () => {
 					Our 6-D Process
 				</h3>
 				<p className='md:w-[1015px] mx-[20px] md:mx-auto text-center my-[20px] md:mt-[20px] md:mb-[40px]  font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]'>
-					Explore how we create world class techies at Devcent
+					Our 6-D Process sets the foundation for your success as a
+					tech professional. Here is how we create world class techies
+					at Devcent.
 				</p>
 				<div className='md:flex justify-between'>
 					<ProcessCard
 						number='01'
 						title='Choose your Course'
-						description='Unsure of where to start? We’ve got something for everyone from
-				design, to web development. We’ll point you in the right
-				direction.'
+						description='Select from our wide range of courses designed to meet your specific tech goals. We have the perfect course to kickstart your tech journey.'
 					/>
 					<ProcessCard
 						number='02'
 						title='Learn By Doing'
-						description='Unsure of where to start?  We’ve got something for everyone from design, to web development. We’ll point you in the right direction.'
+						description="Our curriculum is designed to give you real-world skills and knowledge from day one. Through interactive projects and coding exercises, you'll gain the confidence and expertise required to tackle real-world challenges."
 					/>
 					<ProcessCard
 						number='03'
 						title='Get Instant Feedback'
-						description='Unsure of where to start?  We’ve got something for everyone from design, to web development. We’ll point you in the right direction.'
+						description="At Devcent, feedback is an essential part of the learning process. Our instructors provide timely and constructive feedback, helping you understand your strengths and areas for improvement. This personalized guidance ensures that you're constantly growing and evolving."
 					/>
 				</div>
 				<div className='md:flex justify-between mt-[30px] md:mt-[60px]'>
 					<ProcessCard
 						number='04'
 						title='Practice What You Learn'
-						description='Unsure of where to start?  We’ve got something for everyone from design, to web development. We’ll point you in the right direction.'
+						description="Put your newly acquired skills into practice. Through our immersive practice sessions, you'll have the opportunity to reinforce your learning and build a robust portfolio of projects that showcase your abilities."
 					/>
 					<ProcessCard
 						number='04'
 						title='Land Your Dream Job'
-						description='Unsure of where to start?  We’ve got something for everyone from design, to web development. We’ll point you in the right direction.'
+						description='At Devcent, our ultimate goal is to help you land your dream job in the tech industry. We provide career support, interview preparation, and networking opportunities to enhance your job prospects.'
 					/>
 					<ProcessCard
 						number='04'
 						title='Come Join Us'
-						description='Unsure of where to start?  We’ve got something for everyone from design, to web development. We’ll point you in the right direction.'
+						description='Ready to embark on an exciting journey? Join the vibrant community of learners at Devcent and experience the power of transformative tech education.'
 					/>
 				</div>
 				<div className='text-center mt-[30px] md:mt-[60px]'>
@@ -159,10 +167,11 @@ const About = () => {
 					Meet Our Team
 				</h3>
 				<p className='md:w-[1015px] mx-[20px] md:mx-auto text-center mt-[40px] mb-[80px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]'>
-					These are the People that do the transforming to world class
+					Meet the Extraordinary Individuals Behind Our Success at
+					Devcent
 				</p>
 				<div className="md:bg-[url('/images/devcentbg.png')] min-h-[100vh] bg-no-repeat overflow-hidden">
-					<div className='md:flex gap-x-[50px] mb-[60px]'>
+					<div className='md:flex gap-x-[50px]'>
 						<Instructor
 							img='mary'
 							name='Mariam Omotola'
@@ -170,16 +179,30 @@ const About = () => {
 							description="Mariam has enjoyed working in UX design across a variety of domains at Google, from YouTube, to technical cloud platforms. She is particularly interested in bringing a human touch to products. She received her Master's in Human Computer Interaction from The University of Michigan."
 						/>
 						<Instructor
-							img='tosin'
-							name='Fakile Tosin'
-							role='UI Designer, Tinacle'
-							description="Tosin has enjoyed working in UX design across a variety of domains at Google, from YouTube, to technical cloud platforms. He is particularly interested in bringing a human touch to products. She received her Master's in Human Computer Interaction from The University of Michigan."
-						/>
-						<Instructor
 							img='alalade'
 							name='Olanrewaju Alalade'
 							role='UI Designer, DevCent'
 							description="Olanrewaju has enjoyed working in UX design across a variety of domains at Google, from YouTube, to technical cloud platforms. He is particularly interested in bringing a human touch to products. She received her Master's in Human Computer Interaction from The University of Michigan."
+						/>
+						<Instructor
+							img='tosin'
+							name='Adefemi Sanyaolu'
+							role='Frontend Developer, Tinacle'
+							description="Tosin has enjoyed working in UX design across a variety of domains at Google, from YouTube, to technical cloud platforms. He is particularly interested in bringing a human touch to products. She received her Master's in Human Computer Interaction from The University of Michigan."
+						/>
+					</div>
+					<div className='md:flex gap-x-[50px] mb-[60px]'>
+						<Instructor
+							img='alalade'
+							name='Femi Faleye'
+							role='Fullstack Developer, DevCent'
+							description="Femi has enjoyed working in UX design across a variety of domains at Google, from YouTube, to technical cloud platforms. He is particularly interested in bringing a human touch to products. She received her Master's in Human Computer Interaction from The University of Michigan."
+						/>
+						<Instructor
+							img='alalade'
+							name='Seun Adeleke'
+							role='Cloud Engineer, DevCent'
+							description="Seun has enjoyed working in UX design across a variety of domains at Google, from YouTube, to technical cloud platforms. He is particularly interested in bringing a human touch to products. She received her Master's in Human Computer Interaction from The University of Michigan."
 						/>
 					</div>
 				</div>

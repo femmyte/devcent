@@ -2,9 +2,9 @@ import React, { useState, useContext, useRef } from 'react';
 import courseInfo from '../../../courseInfo';
 import ModuleLayout from 'components/dashboard/modules/ModuleLayout';
 import { useStateContext } from '../../../AuthContext';
-
+import { courses } from '../../../components/dashboard/modules/courseList';
 const CourseModule = () => {
-	const { courseContent, scrollContainerRef, currentItemId } =
+	const { courseContent, courseIntro, scrollContainerRef, currentItemId } =
 		useStateContext();
 
 	return (
@@ -16,6 +16,11 @@ const CourseModule = () => {
 					style={{ height: '90vh', overflowY: 'auto' }}
 				>
 					<div className=''>
+						<h1 className='mb-[20px] font-[700] text-white text-[20px] md:text-[24px] leading-[30.24px] '>
+							{courseContent.subTitle
+								? courseIntro.title
+								: courses[0].title}
+						</h1>
 						<h1 className='font-[700] text-white text-[20px] md:text-[24px] leading-[30.24px] '>
 							{courseContent.subTitle}
 						</h1>
@@ -24,7 +29,9 @@ const CourseModule = () => {
 							id={currentItemId}
 							ref={useRef(null)}
 						>
-							{courseContent.content}
+							{courseContent.content
+								? courseContent.content
+								: courses[0].introduction}
 						</p>
 					</div>
 				</div>

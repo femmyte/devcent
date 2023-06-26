@@ -81,11 +81,13 @@ const Signin = () => {
 
 			<div className='bg-[#1d171a] py-[20px] min-h-[100vh]'>
 				<div className='flex flex-col items-center justify-center'>
-					<img
-						src='/images/logo.png'
-						alt='devcent logo'
-						className='mb-[18px]'
-					/>
+					<Link href='/'>
+						<img
+							src='/images/logo.png'
+							alt='devcent logo'
+							className='mb-[18px]'
+						/>
+					</Link>
 					<div className='bg-white text-black w-[90%] sm:w-[70%] md:w-[448px] rounded-lg relative'>
 						{isOpen && (
 							<Alert

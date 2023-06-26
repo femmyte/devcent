@@ -33,7 +33,7 @@ const Sidebar = () => {
 	const activeLink =
 		'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-[#e6098c] font-space font-[500] text-[14px] m-2';
 	const normalLink =
-		'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white font-[500] text-[14px] dark:text-gray-200 dark:hover:text-black hover:bg-light-gray m-2';
+		'flex items-center gap-5 pl-4 pt-3 pb-2.5 rounded-lg text-white font-[500] text-[14px] dark:text-gray-200 dark:hover:text-primaryPurple hover:bg-light-gray m-2';
 	return (
 		<div className='h-screen overflow-y-auto md:overflow-x-hidden  md:hover:overflow-y-auto pb-[10px]  bg-[#101010]'>
 			<LogoutModal />

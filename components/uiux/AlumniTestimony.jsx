@@ -103,55 +103,54 @@ const AlumniTestimony = ({ title, description, showVideo }) => {
 						image='isaac'
 						name='Isaac Olorunfemi'
 						title='UiUx Designer'
-						info='Devcent helped me build strong confidence in my design skills  it was a really lovely and insightful experience. I met really interesting people who are fun to talk to.'
+						info=' Devcent helped me build strong confidence in my design skills. It was a really lovely and insightful experience. I met really interesting people who are fun to talk to.'
 					/>
 					<TestimonyCard
 						image='vivian'
 						name='Vivian Anyawu'
 						title='UiUx Designer'
-						info='Devcent helped me build strong confidence in my design skills  it was a really lovely and insightful experience. I met really interesting people who are fun to talk to.'
+						info="Devcent is so much more; it's a supportive community that feels like home. The instructors genuinely care about your success and go above and beyond to ensure you understand the material. The friendships I formed with fellow learners have been invaluable."
 					/>
 					<TestimonyCard
 						image='esther'
 						name='Esther Ayodele'
 						title='UiUx Designer'
-						info='Devcent helped me build strong confidence in my design skills  it was a really lovely and insightful experience. I met really interesting people who are fun to talk to.'
+						info='Their commitment to quality is unmatched. The courses are meticulously designed and taught by industry professionals. The knowledge I gained from Devcent has been instrumental in my career growth, and I continue to rely on their resources and community for ongoing learning and networking opportunities.'
 					/>
 					<TestimonyCard
 						image='leonard'
 						name='Leonard Victor'
 						title='UiUx Designer'
-						info='Devcent helped me build strong confidence in my design skills  it was a really lovely and insightful experience. I met really interesting people who are fun to talk to.'
+						info='The courses are well-structured, the instructors are knowledgeable, and the support from the Devcent team is outstanding. Thanks to Devcent, I gained the skills and confidence to land my dream job in the tech industry'
 					/>
 					<TestimonyCard
 						image='sanni'
 						name='Sanni Mustapha'
 						title='UiUx Designer'
-						info='Devcent helped me build strong confidence in my design skills  it was a really lovely and insightful experience. I met really interesting people who are fun to talk to.'
+						info="I had limited coding experience, but Devcent's beginner-friendly approach made it easy for me to grasp complex concepts. The interactive learning environment and hands-on projects helped me apply my knowledge effectively. I highly recommend Devcent to anyone looking to kickstart their tech career."
 					/>
 					<TestimonyCard
 						image='daniel'
 						name='Daniel Ifeanyi'
-						title='UiUx Designer'
-						info='Devcent helped me build strong confidence in my design skills  it was a really lovely and insightful experience. I met really interesting people who are fun to talk to.'
+						title=" Devcent's online platform provided me the flexibility to learn at my own pace, which was crucial while juggling a full-time job. Thanks to Devcent, I was able to upskill and transition into a new tech role."
 					/>
 					<TestimonyCard
 						image='amoebi'
 						name='Ameobi Jemima'
 						title='UiUx Designer'
-						info='Devcent helped me build strong confidence in my design skills  it was a really lovely and insightful experience. I met really interesting people who are fun to talk to.'
+						info='The Devcent community is incredible! I connected with fellow learners from around the world, allowing me to gain diverse perspectives and collaborate on exciting projects.'
 					/>
 					<TestimonyCard
 						image='akanni'
 						name='Akanni Hassan'
 						title='UiUx Designer'
-						info='Devcent helped me build strong confidence in my design skills  it was a really lovely and insightful experience. I met really interesting people who are fun to talk to.'
+						info="Devcent's data science course transformed my career. The curriculum covered all essential topics, and the hands-on exercises helped me build a strong foundation. The instructors were passionate and provided invaluable guidance throughout my learning journey."
 					/>
 					<TestimonyCard
 						image='buhari'
 						name='Buhari Raheemat'
 						title='UiUx Designer'
-						info='Devcent helped me build strong confidence in my design skills  it was a really lovely and insightful experience. I met really interesting people who are fun to talk to.'
+						info="I am super grateful for the support I received from the Devcent team. Whenever I had questions or faced challenges, they were there to provide assistance and guidance. I couldn't be happier with my decision to join Devcent."
 					/>
 				</Grid>
 			</section>

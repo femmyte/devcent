@@ -3,6 +3,7 @@ import Chart from './Chart';
 import { balanceCourse } from 'services/paymentService';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
+import { useUserStore } from 'store/useUserStore';
 const DashboardCard = ({ icon, figure, title, middle, bg, textColor }) => (
 	<div
 		className={`${
@@ -49,6 +50,7 @@ const Card = ({ title, number, icon }) => {
 	);
 };
 const Overview = () => {
+	const { userInfo } = useUserStore((state) => state);
 	const router = useRouter();
 	const { data } = useSession();
 
@@ -70,7 +72,7 @@ const Overview = () => {
 		<section className='pl-[15px] flex flex-col md:flex-row items-center justify-center gap-y-[20px] md:gap-y-0 md:gap-x-[30px] mt-[25px] md:mt-[48px]'>
 			<div className=''>
 				<h1 className='font-[700] text-white text-[20px] md:text-[24px] leading-[30.24px] '>
-					Welcome back {data?.user?.firstName}. 👋
+					Welcome back {userInfo.firstName}. 👋
 				</h1>
 				<button onClick={handlePayBalance} className='text-white'>
 					Pay balance
@@ -94,15 +96,6 @@ const Overview = () => {
 							icon='completedmodule'
 						/>
 					</div>
-					{/* <Link href="/total-votes"> */}
-					{/* <DashboardCard
-                icon='/images/icon/user.png'
-                // figure={fetchedUsers?.length}
-                title='Registered Students'
-                bg='rgba(221,252,220,1)'
-                textColor='#1A8F56'
-              /> */}
-					{/* </Link> */}
 				</div>
 			</div>
 			<div className='w-[96%] md:w-[428px] h-[352px] rounded-[24px] py-[20px] px-[36px] bg-[#323131] text-white flex flex-col items-center justify-center'>

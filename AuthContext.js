@@ -38,6 +38,7 @@ export const AuthContextProvider = ({ children }) => {
 	const [screenSize, setScreenSize] = useState(undefined);
 	const [darkToggle, setDarkToggle] = useState(false);
 	const [courseContent, setCourseContent] = useState('');
+	const [courseIntro, setCourseIntro] = useState('');
 	const [currentItemId, setCurrentItemId] = useState(null);
 	let login = false;
 
@@ -166,6 +167,8 @@ export const AuthContextProvider = ({ children }) => {
 				setDay,
 				setCourseContent,
 				courseContent,
+				setCourseIntro,
+				courseIntro,
 				currentItemId,
 				setCurrentItemId,
 				scrollContainerRef,

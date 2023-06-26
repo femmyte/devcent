@@ -41,7 +41,7 @@ const Modules = () => {
 										instructor={instructor}
 										percent={percent}
 										isActive={isActive}
-										link='moduleOne'
+										link='course-module'
 									/>
 								</div>
 							);

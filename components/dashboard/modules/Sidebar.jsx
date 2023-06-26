@@ -36,6 +36,7 @@ const ModuleSidebar = () => {
 		setActiveMenu,
 		screenSize,
 		setCourseContent,
+		setCourseIntro,
 		setCurrentItemId,
 	} = useStateContext();
 	const router = useRouter();
@@ -57,6 +58,7 @@ const ModuleSidebar = () => {
 		}
 	};
 	const CourseBox = ({
+		course,
 		title,
 		coursePercentage,
 		introduction,
@@ -64,21 +66,25 @@ const ModuleSidebar = () => {
 		courseId,
 	}) => {
 		return (
-			<div className={`${style.courseBox} `} key={courseId}>
+			<div
+				className={`${style.courseBox} cursor-pointer `}
+				key={courseId}
+				onClick={() => {
+					setActiveCourseId(courseId);
+					setShowCourse(!showCourse);
+					setCourseIntro(course);
+				}}
+			>
 				<div
 					className={`${
 						activeCourseId === courseId &&
 						showCourse &&
 						' bg-[#343840] p-4'
-					} w-full`}
+					} w-full cursor-pointer`}
 				>
 					<div
 						className={`${style.courseBoxTextWrap} `}
 						// onClick={() => setShowCourse((prevState) => !prevState)}
-						onClick={() => {
-							setActiveCourseId(courseId);
-							setShowCourse(!showCourse);
-						}}
 					>
 						<p className={style.courseTitle}>{title}</p>
 						{!introduction && (
@@ -164,10 +170,10 @@ const ModuleSidebar = () => {
 														// 	(prevState) =>
 														// 		!prevState
 														// );
-														handleCloseSidebar;
+														handleCloseSidebar();
 													}}
 												>
-													<div className='flex gap-x-[6px] items-center'>
+													<div className='flex gap-x-[6px] items-center cursor-pointer'>
 														<CircularProgressBar
 															currentItemId={
 																detail.id
@@ -237,6 +243,7 @@ const ModuleSidebar = () => {
 				return (
 					<CourseBox
 						key={course.id}
+						course={course}
 						title={course.title}
 						coursePercentage={course.progress}
 						introduction={course.id == 1}
