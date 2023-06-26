@@ -24,7 +24,7 @@ const Index = () => {
 			<Nav />
 			<div className='bg-black flex flex-col-reverse lg:flex-row justify-between items-center text-white z-10 px-[25px] md:pl-[90px] relative'>
 				<div className='w-full md:w-[580px] mt-[30px] md:mt-[160px] text-center md:text-left  '>
-					<h1 className='text-[#FFBA0E] text-[40px] md:text-[48px] font-[700] leading-[50px] md:leading-[58px] font-space min-h-max'>
+					<h1 className='text-[#FFBA0E] text-[35px] md:text-[48px] font-[700] leading-[40px] md:leading-[58px] font-space h-[15rem]'>
 						<Typewriter
 							options={{
 								strings: [
@@ -44,7 +44,7 @@ const Index = () => {
 					</p>
 					<div className='flex flex-col items-center md:items-start'>
 						<Link
-							// href='/signup'
+							href='/signup'
 							className='block py-[18px] text-center mt-[20px] text-white bg-[#E40084] w-[160px] font-source text-[18px] rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 '
 						>
 							Get Started
