@@ -24,7 +24,7 @@ const Index = () => {
 			{/* <div className='flex justify-between relative'> */}
 
 			<div className='bg-black flex flex-col-reverse lg:flex-row justify-between text-white z-10 px-[25px] md:pl-[96px] md:pr-[95px] relative'>
-				<div className='w-full md:w-[580px] mt-[30px] md:mt-[160px] text-center md:text-left'>
+				<div className='w-full md:w-[580px] mt-[30px] md:mt-[160px] text-center md:text-left  '>
 					<h1 className='text-white text-[40px] md:text-[48px] font-[700] leading-[50px] md:leading-[58px] font-space '>
 						Developing{' '}
 						<span className='text-[#FFBA0E]'>Worldclass </span>{' '}
@@ -38,12 +38,14 @@ const Index = () => {
 						Master your craft and unleash your potential with our
 						online training from the best industry experts.
 					</p>
-					<Link
-						href='/signup'
-						className='block py-[18px] text-center mt-[20px] text-white bg-[#E40084] w-[160px] font-source text-[18px] rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 '
-					>
-						Get Started
-					</Link>
+					<div className='flex flex-col items-center md:items-start'>
+						<Link
+							href='/signup'
+							className='block py-[18px] text-center mt-[20px] text-white bg-[#E40084] w-[160px] font-source text-[18px] rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 '
+						>
+							Get Started
+						</Link>
+					</div>
 				</div>
 				<div className='w-4/5 md:w-[570px]'>
 					<img src='/images/hero.png' alt='hero' />
@@ -79,7 +81,7 @@ const Index = () => {
 						</p>
 						<Link
 							href='/courses'
-							className='block mt-[20px] md:mt-[40px] mx-auto md:mx-0 text-white bg-[#E40084] py-[20px] px-[56px] font-source text-[18px] rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 w-max '
+							className='block mt-[20px] md:mt-[40px] mx-auto md:mx-0 text-white bg-[#E40084] py-[20px] px-[56px] font-source text-[18px] rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 w-max mb-[30px] md:mb-0'
 						>
 							View all
 						</Link>
