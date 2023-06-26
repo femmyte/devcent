@@ -3,6 +3,7 @@ import Box from 'components/common/Box';
 import Footer from 'components/common/Footer';
 import Meta from 'components/common/Meta';
 import Nav from 'components/common/Nav';
+import TestimonyCarousel from 'components/common/TestimonyCarousel';
 import Link from 'next/link';
 import React, { useEffect } from 'react';
 import Typewriter from 'typewriter-effect';
@@ -21,20 +22,9 @@ const Index = () => {
           // }}
         /> */}
 			<Nav />
-
-			{/* <div className='flex justify-between relative'> */}
-
 			<div className='bg-black flex flex-col-reverse lg:flex-row justify-between items-center text-white z-10 px-[25px] md:pl-[90px] relative'>
 				<div className='w-full md:w-[580px] mt-[30px] md:mt-[160px] text-center md:text-left  '>
-					<h1 className='text-[#FFBA0E] text-[40px] md:text-[48px] font-[700] leading-[50px] md:leading-[58px] font-space '>
-						{/* Developing{' '}
-						<span className='text-[#FFBA0E]'>Worldclass </span>{' '}
-						<br />
-						Tech <span className='text-[#FFBA0E]'>
-							Talent
-						</span> at{' '}
-						<span className='text-[#FFBA0E]'> Devcent</span> */}
-
+					<h1 className='text-[#FFBA0E] text-[40px] md:text-[48px] font-[700] leading-[50px] md:leading-[58px] font-space h-[200px] md:h-[100px]'>
 						<Typewriter
 							options={{
 								strings: [
@@ -66,8 +56,6 @@ const Index = () => {
 					/>
 				</div>
 			</div>
-			{/* </div> */}
-			{/* </div> */}
 			<section className='bg-black pt-[30px] md:pt-[30px] pb-[50px] md:pb-[190px] px-[25px] relative'>
 				<Animation
 					style='fade-right'
@@ -94,7 +82,6 @@ const Index = () => {
 						placement='center-center'
 						className='md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0'
 					>
-						{/* <div className='md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0'> */}
 						<p className='font-bold font-space text-[30px] md:text-[40px] leading-[35px] md:leading-[61px] text-white text-center md:text-left'>
 							Develop tech skills. <br /> save times. <br /> Build
 							happier tech life
@@ -105,7 +92,6 @@ const Index = () => {
 						>
 							View all
 						</Link>
-						{/* </div> */}
 					</Animation>
 					<div className=''>
 						<div className='flex flex-col items-center md:flex-row gap-[20px]'>
@@ -566,60 +552,58 @@ const Index = () => {
 				</Animation>
 				{/* </div> */}
 			</section>
-			<section className="relative z-20 pt-[140px] py-[52px]  text-white bg-[url('/images/testimonybg.jpg')] bg-cover bg-fixed bg-center min-h-[120vh] break overflow-hidden">
+			<section className="relative z-20 pt-[140px] py-[52px]  text-white bg-[url('/images/testimonybg.jpg')] bg-cover bg-fixed bg-center h-[100vh] break overflow-hidden w-screen">
 				<div
-					className='absolute top-0 left-0 right-0 bottom-0 min-h-[120vh] z-[1]'
+					className='absolute top-0 left-0 right-0 bottom-0 h-[100vh] z-[1]'
 					style={{
 						background:
 							'linear-gradient(261.98deg, rgba(0, 7, 2, 0.9) 8.27%, rgba(6, 7, 0, 0.8) 91.06%)',
 					}}
 				/>
-				<div className='relative z-10 flex flex-col h-full items-center justify-center '>
+				<div className='relative z-10 flex flex-col h-full items-center justify-center w-full'>
 					<img src='/images/icons/quote.png' alt='quote acon' />
-					<h1 className='mt-[30px] md:mt-[100px] mb-[30px] md:mb-[74px] font-dmsans font-[400] text-[27px] leading-[45px] text-center mx-[15px] md:w-[748px]'>
-						I can recommend Devcent for anybody who wants to <br />{' '}
-						transit into Tech, their classes are top notch
-					</h1>
-					<img src='/images/testimony.png' alt='' />
-					<p className='mt-[13px] mb-[8px] text-[18.95px] font-[700] font-space'>
-						Azim
-					</p>
-					<p className='font-dmsans font-[400] text-[18.95px] leading-[24.6px]'>
-						Product Designer
-					</p>
+					<div className='w-full md:w-[80%] mx-auto'>
+						<TestimonyCarousel />
+					</div>
 				</div>
 			</section>
-			<section className='pt-[20px] md:pt-[60px] pb-[39px] px-[15px] md:pl-[60px] md:flex gap-x-[120px] text-white bg-black'>
-				<article className='md:w-[314px]'>
-					<h3 className='font-[700] font-space text-[30px] md:text-[46px] leading-[35px] md:leading-[60px] '>
-						A message from the
-						<span className='font-[400] font-kaushan leading-[65.53px]'>
-							CEO.{' '}
-						</span>
-					</h3>
-					<p className='font-dmsans font-[400] text-[20.12px] leading-[26px] mt-[21px]'>
-						When it comes to sharing the true impact of learning our
-						learners tell it best.
-					</p>
-					<p className='font-dmsans font-[400] text-[20.12px] leading-[26px] my-[21px]'>
-						In our featured video, discover how A Leap Ahead IT team
-						keeps its knowledge and skills relevant with training
-						and certification.
-					</p>
-				</article>
-				<div className='relative'>
-					<img
-						src='/images/video.png'
-						alt='video'
-						className='relative'
-					/>
-					<img
-						src='/images/icons/video.png'
-						alt='video icon'
-						className='absolute top-[25%] md:top-[212.02px] left-[25%] md:left-[50%]'
-					/>
-				</div>
-			</section>
+			<Animation
+				style='flip-left'
+				placement='center-center'
+				className='md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0'
+			>
+				<section className='pt-[20px] md:pt-[60px] pb-[39px] px-[15px] md:pl-[60px] md:flex gap-x-[120px] text-white bg-black'>
+					<article className='md:w-[314px]'>
+						<h3 className='font-[700] font-space text-[30px] md:text-[46px] leading-[35px] md:leading-[60px] '>
+							A message from the
+							<span className='font-[400] font-kaushan leading-[65.53px]'>
+								CEO.{' '}
+							</span>
+						</h3>
+						<p className='font-dmsans font-[400] text-[20.12px] leading-[26px] mt-[21px]'>
+							When it comes to sharing the true impact of learning
+							our learners tell it best.
+						</p>
+						<p className='font-dmsans font-[400] text-[20.12px] leading-[26px] my-[21px]'>
+							In our featured video, discover how A Leap Ahead IT
+							team keeps its knowledge and skills relevant with
+							training and certification.
+						</p>
+					</article>
+					<div className='relative'>
+						<img
+							src='/images/video.png'
+							alt='video'
+							className='relative'
+						/>
+						<img
+							src='/images/icons/video.png'
+							alt='video icon'
+							className='absolute top-[25%] md:top-[212.02px] left-[25%] md:left-[50%]'
+						/>
+					</div>
+				</section>
+			</Animation>
 			<Footer />
 		</div>
 	);
