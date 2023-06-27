@@ -13,8 +13,9 @@ const InstructorCard = ({ name, expericience, bio, img, skills }) => {
           <Image
             src={`/images/instructor/${img}.png`}
             alt={name}
-            width={150}
-            height={150}
+            width={130}
+            height={130}
+            className="rounded-[50%]"
           />
         </div>
         <div className="flex flex-col items-center md:items-start md:justify-between md:h-[100px] gap-y-[10px]">
@@ -57,7 +58,7 @@ const Instructor = () => {
           </p>
           <InstructorCard
             name="Ayotomiwa Ajewole"
-            img="alalade"
+            img="human"
             expericience="4 years+ of experience"
             bio="Ayotomiwa is a seasoned designer with over four years experience in user research, interaction design and user interface design. He's design prowess has landed him jobs in global companies like Google, Amazon and Uber. He's the CEO of DuoAce Inc. a design agency with it's headquarters in Ontario, Canada. He's a very cheerful person and loves to teach designs. He also writes design related articles at his leisure. "
             skills={[
@@ -67,15 +68,15 @@ const Instructor = () => {
             ]}
           />
           <InstructorCard
-            name="Daniel Esther"
-            img="mary"
-            expericience="3 years+ of experience"
+            name="Oluwafemi Faleye"
+            img="oluwafemi"
+            expericience="5 years+ of experience"
             bio="Ayotomiwa is a seasoned designer with over four years experience in user research, interaction design and user interface design. He's design prowess has landed him jobs in global companies like Google, Amazon and Uber. He's the CEO of DuoAce Inc. a design agency with it's headquarters in Ontario, Canada. He's a very cheerful person and loves to teach designs. He also writes design related articles at his leisure. "
-            skills={["Interface designer", "Ux Writer"]}
+            skills={["Fullstack Developer"]}
           />
           <InstructorCard
             name="Ayotomiwa Ajewole"
-            img="tosin"
+            img="human"
             expericience="4 years+ of experience"
             bio="Ayotomiwa is a seasoned designer with over four years experience in user research, interaction design and user interface design. He's design prowess has landed him jobs in global companies like Google, Amazon and Uber. He's the CEO of DuoAce Inc. a design agency with it's headquarters in Ontario, Canada. He's a very cheerful person and loves to teach designs. He also writes design related articles at his leisure. "
             skills={[
