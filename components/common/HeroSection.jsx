@@ -40,7 +40,7 @@ const HeroSection = () => {
           <h1 className="font-bold text-[1.5rem] md:text-[2.1rem] mb-[5px] text-white">
             ABOUT US
           </h1>
-          <p className="font-dmsans md:text-[18px] leading-[22px] sm:leading-[30px] text-white">
+          <p className="font-dmsans md:text-[18px] leading-[22px] sm:leading-[26px] text-white">
             We are deeply committed to promoting an inclusive and supportive
             learning community that embraces diversity, encourages creativity,
             fosters collaboration, and nurtures critical thinking.

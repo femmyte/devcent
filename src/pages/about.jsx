@@ -46,7 +46,7 @@ const About = () => {
       <Meta title="Devcent | About Us" />
       <Nav />
       {/* <div className="relative bg-[url('/images/aboutbg.jpg')] h-[100vh] md:h-[80vh] bg-cover bg-top overflow-hidden"></div> */}
-      <div className="relative h-[40vh] sm:h-[60vh] md:h-[80vh] overflow-hidden">
+      <div className="relative h-[50vh] sm:h-[60vh] md:h-[80vh] overflow-hidden">
         <Image
           src={"/images/aboutbg.jpg"}
           alt="about us"
@@ -54,7 +54,7 @@ const About = () => {
           className="object-cover"
         />
         <div
-          className="absolute top-[1px] left-0 right-0 bottom-0 h-[40vh] sm:h-[60vh] md:h-[80vh] z-[1]"
+          className="absolute top-[1px] left-0 right-0 bottom-0 h-[50vh] sm:h-[60vh] md:h-[80vh] z-[1]"
           style={{
             // background: 'rgba(0, 0, 0, 0.5)',
             background:
