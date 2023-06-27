@@ -27,7 +27,7 @@ const HeroSection = () => {
   return (
     <div
       ref={ref}
-      className="flex justify-center items-center relative z-[100] h-full w-full"
+      className="hidden sm:flex justify-center items-center relative h-full w-full"
     >
       {isVisible && (
         <motion.div
@@ -35,7 +35,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           whileHover={{ opacity: 0 }}
-          className="w-[90%] sm:w-[80%] md:w-[50%] bg-[rgba(228,0,132,0.35)] px-[1.1rem] py-[1.6rem] md:py-[2.2rem]"
+          className="w-[90%] sm:w-[80%] md:w-[50%] bg-[rgba(228,0,132,0.38)] px-[1.1rem] py-[1.6rem] md:py-[2.2rem]"
         >
           <h1 className="font-bold text-[1.5rem] md:text-[2.1rem] mb-[5px] text-white">
             ABOUT US
