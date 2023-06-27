@@ -6,6 +6,7 @@ import Instructor from "components/common/Instructor";
 import Link from "next/link";
 import Footer from "components/common/Footer";
 import Image from "next/image";
+import HeroSection from "components/common/HeroSection";
 
 const ProcessCard = ({ title, number, description }) => {
   return (
@@ -53,32 +54,29 @@ const About = () => {
           className="object-cover"
         />
         <div
-          className="absolute top-[1px] left-0 right-0 bottom-0 h-[100vh] md:h-[80vh] z-[1]"
+          className="absolute top-[1px] left-0 right-0 bottom-0 h-[40vh] sm:h-[60vh] md:h-[80vh] z-[1]"
           style={{
             // background: 'rgba(0, 0, 0, 0.5)',
             background:
-              "linear-gradient(84.59deg, rgba(0, 0, 0, 0.58) 17.84%, rgba(0, 0, 0, 0.17) 52.14%, rgba(0, 0, 0, 0.65) 80.9%)",
+              "linear-gradient(84.59deg, rgba(0, 0, 0, 0.3) 17.84%, rgba(0, 0, 0, 0.3) 52.14%, rgba(0, 0, 0, 0.3) 80.9%)",
           }}
         />
-        <div className="flex flex-col justify-center items-center relative z-[100] h-full px-[20px] md:px-[160px]">
-          {/* <h1 className="font-space font-[700] text-[30px] md:text-[48px] leading-[30px] md:leading-[52px] text-white text-center mt-[15px] md:mt-0">
-            Welcome to Devcent
-          </h1>
-          <p className="font-dmsans font-[500] text-[18px] md:text-[24px] leading-[20px] md:leading-[40px]  text-white mt-[30px] md:mt-[56px]">
-            Our innovative online learning platform is designed to equip
-            learners with in-demand tech skills. We aim to empower them to
-            thrive in today's competitive economy while earning professional
-            certificates in a cost-effective and time-efficient manner.
-          </p>
-          <p className="font-dmsans font-[500] text-[18px] md:text-[24px] leading-[20px] md:leading-[40px]  text-white mt-[30px] md:mt-[56px]">
-            At Devcent, we are deeply committed to promoting an inclusive and
-            supportive learning community that embraces diversity, encourages
-            creativity, fosters collaboration, and nurtures critical thinking.
-          </p> */}
-        </div>
+        {/* <div className="flex justify-center items-center relative z-[100] h-full w-full">
+          <div className="w-[90%] sm:w-[80%] md:w-[50%] bg-[rgba(228,0,132,0.35)] px-[1.1rem] py-[1.6rem] md:py-[2.2rem]">
+            <h1 className="font-bold text-[1.5rem] md:text-[2.1rem] text-white">
+              ABOUT US
+            </h1>
+            <p className="font-dmsans md:text-[18px] leading-[22px] sm:leading-[30px] text-white">
+              We are deeply committed to promoting an inclusive and supportive
+              learning community that embraces diversity, encourages creativity,
+              fosters collaboration, and nurtures critical thinking.
+            </p>
+          </div>
+        </div> */}
+        <HeroSection />
       </div>
       <section className="px-[20px] md:px-[57px] py-[20px] md:py-[62px] bg-black w-full ">
-        <h3 className="font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow">
+        <h3 className="font-space font-[700] text-[32px] mt-[15px] leading-[35.2px] text-center text-primaryYellow">
           What Drives Us
         </h3>
         <p className="md:w-[1015px] mx-[20px] md:mx-auto text-center md:mt-[40px] my-[20px] md:mb-[80px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]">
