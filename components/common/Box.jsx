@@ -1,12 +1,12 @@
 const Box = ({ title, description, img }) => {
 	return (
-		<div className='md:w-[350px] py-[30px] bg-white rounded-[35px] shadow shadow-[rgba(0, 0, 0, 0.14)] flex flex-col justify-center px-[20px] xl:px-[30px] mb-[20px] md:mb-[0]'>
+		<div className='md:w-[350px] md:h-[400px] overflow-hidden py-[30px] bg-white rounded-[35px] shadow shadow-[rgba(0, 0, 0, 0.14)] flex flex-col justify-center px-[20px] xl:px-[30px] mb-[20px] md:mb-[0]'>
 			<img
 				src={img}
 				alt={title}
 				className='w-[57px] h-[57px] md:mb-[30px]'
 			/>
-			<p className='font-[space] font-[300] text-[29px] leading-[36px] text-[#202020]'>
+			<p className='font-space font-[300] text-[29px] leading-[36px] text-[#202020]'>
 				{title}
 			</p>
 			<p className='mt-[20px] font-dmsans text-[16px] leading-[24px] text-[#202020]'>

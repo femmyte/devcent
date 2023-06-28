@@ -79,8 +79,9 @@ const Footer = () => {
 							<div className='flex justify-center md:justify-start items-center gap-x-[15px] md:gap-x-[30px] mb-[29px]'>
 								<img src='/images/icons/location.png' alt='' />
 								<p className='font-dmsans font-[400] leading-[22px] text-center'>
-									18, 3rd floor, kay plaza, Lalubu <br />{' '}
-									Street, Oke Ilewo Abeokuta
+									By Lyceum, road 1 house 2, Seidu Ayodeji
+									Balogun street, Gra Ibara housing Estate,
+									Abeokuta
 								</p>
 							</div>
 							<div className='flex justify-center md:justify-start items-center gap-x-[15px] md:gap-x-[30px] mb-[15px] md:mb-[29px]'>
