@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import Grid from "components/common/Grid";
 import React, { useState } from "react";
 import { FcPlus } from "react-icons/fc";
@@ -39,7 +40,12 @@ const Card = ({ title, btnText, icon, children }) => {
 };
 const TestimonyCard = ({ image, name, title, info }) => {
   return (
-    <div className="bg-[#1F1D1D] px-[12px] md:px-[12px] py-[15px] md:py-[24px] rounded-[16px] text-white mb-[20px] md:mb-[40px]">
+    <motion.div
+      whileInView={{ opacity: [0, 1], y: [60, 0] }}
+      transition={{ duration: 1, type: "easeInOut" }}
+      viewport={{ once: true }}
+      className="bg-[#1F1D1D] px-[12px] md:px-[16px] py-[15px] md:py-[24px] rounded-[16px] text-white mb-[20px] md:mb-[40px]"
+    >
       <div className="flex items-center">
         <img
           src={`/images/testimony/${image}.png`}
@@ -55,10 +61,10 @@ const TestimonyCard = ({ image, name, title, info }) => {
           </p>
         </div>
       </div>
-      <p className="font-[400] font-space text-[16px] leading-[31px] text-left">
+      <p className="font-[400] text-[#9b9b9b] font-space text-[16px] leading-[26px] text-left">
         {info}
       </p>
-    </div>
+    </motion.div>
   );
 };
 const AlumniTestimony = ({ title, description, showVideo }) => {
