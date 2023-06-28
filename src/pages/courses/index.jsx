@@ -69,7 +69,6 @@ const Courses = () => {
 		}
 	}, [isSuccess, data]);
 
-	// console.log(courses);
 	let otherInfo = [
 		{
 			background: '#521C3C',

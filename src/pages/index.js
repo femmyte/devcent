@@ -31,7 +31,7 @@ const Index = () => {
 									'Developing Worldclass Tech Talent at Devcent',
 									'Welcome to Devecnt, where learning meets limitless possibilities in the world of tech',
 									'Discover the limitless possibilities of the digital world of tech at Devcent',
-									"Don't just dream about a rewarding career in tech make it a reality with Devecnt.",
+									"Don't just dream about a rewarding career in tech make it a reality with Devcent.",
 								],
 								autoStart: true,
 								loop: true,
@@ -565,7 +565,7 @@ const Index = () => {
 				/>
 				<div className='relative z-10 flex flex-col h-full items-center justify-center w-full'>
 					<img src='/images/icons/quote.png' alt='quote acon' />
-					<div className='w-full md:w-[80%] mx-auto'>
+					<div className='w-full md:w-[80%] h-[80%] mx-auto'>
 						<TestimonyCarousel />
 					</div>
 				</div>

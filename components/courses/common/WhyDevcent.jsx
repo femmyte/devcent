@@ -1,5 +1,5 @@
 import React from 'react';
-import Grid from '../common/Grid';
+import Grid from '../../common/Grid';
 import ToolsCard from './ToolsCard';
 
 const WhyDevcent = () => {

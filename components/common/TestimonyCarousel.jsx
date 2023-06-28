@@ -50,7 +50,7 @@ export default function TestimonyCarousel(props) {
 	];
 
 	return (
-		<Carousel className='w-full' animation='slide'>
+		<Carousel className='w-full h-full' animation='slide'>
 			{items.map((item, i) => (
 				<Item key={i} item={item} />
 			))}
@@ -60,7 +60,7 @@ export default function TestimonyCarousel(props) {
 
 function Item(props) {
 	return (
-		<div className='w-full my-5 flex flex-col items-center justify-center h-[80%]'>
+		<div className='w-full my-5 flex flex-col items-center justify-center h-full'>
 			<p className='mt-[30px] md:mt-[100px] mb-[30px] md:mb-[74px] font-dmsans font-[400] text-[18px] md:text-[27px] leading-[30px] md:leading-[45px] text-center mx-[15px] md:w-[748px]'>
 				{props.item.description}
 			</p>
