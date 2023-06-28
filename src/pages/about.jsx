@@ -120,16 +120,6 @@ const About = () => {
         </div>
       </div>
       <section className="px-[20px] md:px-[57px] py-[20px] md:py-[62px] bg-black w-full ">
-        <motion.p
-          whileInView={{ opacity: [0, 1] }}
-          transition={{ delay: 0.5, duration: 1, type: "tween" }}
-          viewport={{ once: true }}
-          className="block sm:hidden text-center my-[50px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]"
-        >
-          We are deeply committed to promoting an inclusive and supportive
-          learning community that embraces diversity, encourages creativity,
-          fosters collaboration, and nurtures critical thinking.
-        </motion.p>
         <motion.h3
           whileInView={{ opacity: [0, 1], y: [15, 0] }}
           transition={{ duration: 1, type: "tween" }}
