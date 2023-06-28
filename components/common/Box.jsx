@@ -6,7 +6,7 @@ const Box = ({ title, description, img }) => {
 				alt={title}
 				className='w-[57px] h-[57px] md:mb-[30px]'
 			/>
-			<p className='font-[space] font-[300] text-[29px] leading-[36px] text-[#202020]'>
+			<p className='font-space font-[300] text-[29px] leading-[36px] text-[#202020]'>
 				{title}
 			</p>
 			<p className='mt-[20px] font-dmsans text-[16px] leading-[24px] text-[#202020]'>

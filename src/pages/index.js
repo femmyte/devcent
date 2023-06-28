@@ -29,7 +29,7 @@ const Index = () => {
 							options={{
 								strings: [
 									'Developing Worldclass Tech Talent at Devcent',
-									'Welcome to Devecnt, where learning meets limitless possibilities in the world of tech',
+									'Welcome to Devcent, where learning meets limitless possibilities in the world of tech',
 									'Discover the limitless possibilities of the digital world of tech at Devcent',
 									"Don't just dream about a rewarding career in tech make it a reality with Devcent.",
 								],
@@ -79,7 +79,7 @@ const Index = () => {
 					a global community of passionate learners.
 				</p>
 
-				<div className='flex flex-col gap-x-[30px] items-center md:flex-row md:pl-[45px] xl:pr-[15px]'>
+				<div className='flex flex-col gap-x-[30px] items-center md:flex-row md:pl-[45px] xl:pr-[25px] justify-between'>
 					<Animation
 						style='zoom-in-right'
 						placement='center-center'
@@ -137,7 +137,7 @@ const Index = () => {
 								<Box
 									img='/images/icons/backend.png'
 									title='Backend Development'
-									description='Delve behind the scenes with our Back End Development course. Master server-side programming, database management, and learn how to build the backbone of powerful web applications, with seamless functionality and exceptional performance.'
+									description='Delve behind the scenes with our Back End Development course. Master server-side programming, database management, and learn how to build the backbone of powerful web applications, with seamless functionality and exceptional.'
 								/>
 							</Animation>
 						</div>
@@ -215,8 +215,8 @@ const Index = () => {
 					className='absolute bottom-[-240px] left-[50%] md:left-[35%]'
 				/>
 			</section>
-			<section className='xl:pt-[120px] pb-[100px] xl:pb-[200px] bg-[#F9F9F9] xl:px-[80px] relative'>
-				<div className='xl:w-[95%] mx-auto relative'>
+			<section className='xl:pt-[120px] pb-[100px] xl:pb-[200px] bg-[#F9F9F9] lg:px-[80px] relative'>
+				<div className='lg:w-[95%] mx-auto relative'>
 					<Animation
 						style='zoom-in-left'
 						placement='center-center'
@@ -359,7 +359,7 @@ const Index = () => {
 				{/* <div className="md:flex"> */}
 				{/* <div className="md:w-[900px] "> */}
 				<div className='rounded-[8px] py-[55px] px-[0px] md:px-[40px]'>
-					<div className='md:flex justify-between text-white gap-x-[30px] lg:gap-x-[50px] mb-[20px] md:mb-0'>
+					<div className='md:flex justify-between text-white gap-x-[30px] lg:gap-x-[50px] lg-[1134px] mb-[20px] md:mb-0'>
 						<Animation
 							style='fade-right'
 							placement='center-center'
@@ -555,22 +555,26 @@ const Index = () => {
 				</Animation>
 				{/* </div> */}
 			</section>
-			<section className="relative z-20 pt-[140px] py-[52px]  text-white bg-[url('/images/testimonybg.jpg')] bg-cover bg-fixed bg-center h-[100vh] break overflow-hidden w-screen">
+			<section className="relative z-20 pt-[140px] py-[52px]  text-white bg-[url('/images/testimonybg.jpg')] bg-cover bg-fixed bg-center h-[120vh] break overflow-hidden w-screen">
 				<div
-					className='absolute top-0 left-0 right-0 bottom-0 h-[100vh] z-[1]'
+					className='absolute top-0 left-0 right-0 bottom-0 h-[120vh] z-[1]'
 					style={{
 						background:
 							'linear-gradient(261.98deg, rgba(0, 7, 2, 0.9) 8.27%, rgba(6, 7, 0, 0.8) 91.06%)',
 					}}
 				/>
 				<div className='relative z-10 flex flex-col h-full items-center justify-center w-full'>
+					<h1 className='text-[#FFBA0E] text-[35px] md:text-[48px] font-[700] leading-[40px] md:leading-[58px] font-space mb-[30px]'>
+						{' '}
+						WHAT OUR ALUMNUS ARE SAYING
+					</h1>
 					<img src='/images/icons/quote.png' alt='quote acon' />
 					<div className='w-full md:w-[80%] h-[80%] mx-auto'>
 						<TestimonyCarousel />
 					</div>
 				</div>
 			</section>
-			<Animation
+			{/* <Animation
 				style='flip-left'
 				placement='center-center'
 				className='md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0'
@@ -606,7 +610,7 @@ const Index = () => {
 						/>
 					</div>
 				</section>
-			</Animation>
+			</Animation> */}
 			<Footer />
 		</div>
 	);
