@@ -1,6 +1,6 @@
 const Box = ({ title, description, img }) => {
 	return (
-		<div className='md:w-[350px] py-[30px] bg-white rounded-[35px] shadow shadow-[rgba(0, 0, 0, 0.14)] flex flex-col justify-center px-[20px] xl:px-[30px] mb-[20px] md:mb-[0]'>
+		<div className='md:w-[350px] md:h-[400px] overflow-hidden py-[30px] bg-white rounded-[35px] shadow shadow-[rgba(0, 0, 0, 0.14)] flex flex-col justify-center px-[20px] xl:px-[30px] mb-[20px] md:mb-[0]'>
 			<img
 				src={img}
 				alt={title}

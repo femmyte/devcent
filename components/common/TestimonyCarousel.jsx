@@ -61,7 +61,7 @@ export default function TestimonyCarousel(props) {
 function Item(props) {
 	return (
 		<div className='w-full my-5 flex flex-col items-center justify-center h-full'>
-			<p className='mt-[30px] md:mt-[80px] mb-[30px] md:mb-[54px] font-dmsans font-[400] text-[18px] leading-[30px] md:leading-[45px] text-center mx-[15px] md:w-[758px]'>
+			<p className='mt-[30px] md:mt-[50px] mb-[30px] md:mb-[54px] font-dmsans font-[400] text-[18px] leading-[30px] md:leading-[45px] text-center mx-[15px] md:w-[758px]'>
 				{props.item.description}
 			</p>
 			<img src={`/images/testimony/${props.item.img}.png`} alt='' />

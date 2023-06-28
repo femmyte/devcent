@@ -555,7 +555,7 @@ const Index = () => {
 				</Animation>
 				{/* </div> */}
 			</section>
-			<section className="relative z-20 pt-[140px] py-[52px]  text-white bg-[url('/images/testimonybg.jpg')] bg-cover bg-fixed bg-center h-[120vh] break overflow-hidden w-screen">
+			<section className="relative z-20  py-[52px]  text-white bg-[url('/images/testimonybg.jpg')] bg-cover bg-fixed bg-center h-[120vh] break overflow-hidden w-screen">
 				<div
 					className='absolute top-0 left-0 right-0 bottom-0 h-[120vh] z-[1]'
 					style={{
