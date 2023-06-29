@@ -3,6 +3,20 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     unoptimized: false,
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "lh3.googleusercontent.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "firebasestorage.googleapis.com",
+        port: "",
+        pathname: "/**",
+      },
+    ],
   },
   staticPageGenerationTimeout: 300,
   async headers() {
@@ -12,7 +26,10 @@ const nextConfig = {
         source: "/:path*",
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "true" },
-          { key: "Access-Control-Allow-Origin", value: "*" },
+          {
+            key: "Access-Control-Allow-Origin",
+            value: `${process.env.NEXT_PUBLIC_SERVER_URL}`,
+          },
           {
             key: "Access-Control-Allow-Methods",
             value: "GET,OPTIONS,PATCH,DELETE,POST,PUT",
