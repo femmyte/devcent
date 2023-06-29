@@ -122,7 +122,7 @@ const Fullstack = ({ course, handleRoute, courseName }) => {
 				</div>
 				<div className='hidden md:block'>
 					<img
-						src='/images/courses/fullstack.avif'
+						src='/images/courses/fullstack.jpg'
 						alt='uxui course'
 						// className="w-[600px] h-full"
 					/>

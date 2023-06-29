@@ -64,7 +64,12 @@ function Item(props) {
 			<p className='mt-[30px] md:mt-[50px] mb-[30px] md:mb-[54px] font-dmsans font-[400] text-[18px] leading-[30px] md:leading-[45px] text-center mx-[15px] md:w-[758px]'>
 				{props.item.description}
 			</p>
-			<img src={`/images/testimony/${props.item.img}.png`} alt='' />
+			<img
+				src={`/images/testimony/human.png`}
+				alt='human'
+				className='rounded-full w-[60px] h-[60px]'
+			/>
+			{/* <img src={`/images/testimony/${props.item.img}.png`} alt='' /> */}
 			<p className='mt-[13px] mb-[8px] text-[18.95px] font-[700] font-space'>
 				{props.item.name}
 			</p>

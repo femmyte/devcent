@@ -67,9 +67,8 @@ const Index = () => {
 				>
 					<div className='lg:w-[85%] lg:mx-auto'>
 						<h1 className='font-space font-[700] text-white text-[30px] md:text-[40px] leading-[35px] md:leading-[51px] text-center mx-[20px] md:mx-[70px] mt-[50px] '>
-							Develop In-Demand Tech Skills. Learn At Your Own
-							Pace. Build a happier tech life. Experience the
-							magic at Devcent
+							Develop In-Demand Tech Skills. Build a happier tech
+							life. Experience the magic at Devcent
 						</h1>
 					</div>
 				</Animation>
@@ -135,7 +134,7 @@ const Index = () => {
 							placement='center-center'
 						>
 							<Box
-								img='/images/icons/backend.png'
+								img='/images/icons/fulstack.png'
 								title='Backend Development'
 								description='Delve behind the scenes with our Back End Development course. Master server-side programming, database management, and learn how to build the backbone of powerful web applications, with seamless functionality and exceptional.'
 							/>

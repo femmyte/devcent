@@ -71,7 +71,7 @@ const Backend = ({ course, handleRoute, courseName }) => {
 			<section className='md:flex justify-between items-center gap-x-[30px] p-[20px] md:p-[60px] bg-black overflow-hidden'>
 				<div className='block md:hidden'>
 					<img
-						src='/images/courses/backend.avif'
+						src='/images/courses/backendweb.avif'
 						alt='uxui course'
 						// className="w-[600px] h-full"
 					/>
@@ -120,7 +120,7 @@ const Backend = ({ course, handleRoute, courseName }) => {
 				</div>
 				<div className='hidden md:block'>
 					<img
-						src='/images/courses/backend.avif'
+						src='/images/courses/backendweb.avif'
 						alt='uxui course'
 						// className="w-[600px] h-full"
 					/>
