@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 
 const InstructorCard = ({ name, img, role, description }) => {
 	return (
-		<div className='md:flex gap-x-[50px]'>
+		<div className='md:flex gap-x-[50px] w-[30%]'>
 			<div className='pt-[30px] bg-[rgba(228, 0, 132, 0.06)] text-white'>
 				<motion.div
 					initial={{ opacity: 0, visibility: 'hidden' }}
@@ -18,8 +18,8 @@ const InstructorCard = ({ name, img, role, description }) => {
 					style={{ background: 'rgba(228, 0, 132, 0.06)' }}
 				>
 					<img
-						src={`/images/instructor/${img}.png`}
-						className='rounded-[50%]'
+						src={`/images/instructor/${img}`}
+						className='rounded-[50%] h-[100px] w-[100px]'
 						alt={name}
 					/>
 					<p className='my-[10px] md:my-[14px] font-space font-[700] text-[20px] md:text-[25px] leading-[28px]'>
@@ -61,19 +61,19 @@ const Instructor = () => {
 			<div className="md:bg-[url('/images/devcentbg.png')] min-h-[100vh] bg-no-repeat overflow-hidden">
 				<div className='md:flex gap-x-[50px] mb-[60px] '>
 					<InstructorCard
-						img='oluwafemi'
+						img='oluwafemi.png'
 						name='Oluwafemi Faleye'
 						role='Fullstack Developer, DevCent'
 						description="Femi has enjoyed working in UX design across a variety of domains at Google, from YouTube, to technical cloud platforms. He is particularly interested in bringing a human touch to products. She received her Master's in Human Computer Interaction from The University of Michigan."
 					/>
 					<InstructorCard
-						img='tosin'
-						name='Fakile Tosin'
-						role='UI Designer, Tinacle'
-						description="Tosin has enjoyed working in UX design across a variety of domains at Google, from YouTube, to technical cloud platforms. He is particularly interested in bringing a human touch to products. She received her Master's in Human Computer Interaction from The University of Michigan."
+						img='femmyte.jpg'
+						name='Adefemi Sanyaolu'
+						role='Frontend Developer, Devcent'
+						description='Adefemi has'
 					/>
 					<InstructorCard
-						img='alalade'
+						img='human.png'
 						name='Olanrewaju Alalade'
 						role='UI Designer, DevCent'
 						description="Olanrewaju has enjoyed working in UX design across a variety of domains at Google, from YouTube, to technical cloud platforms. He is particularly interested in bringing a human touch to products. She received her Master's in Human Computer Interaction from The University of Michigan."
