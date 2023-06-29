@@ -53,10 +53,10 @@ const TestimonyCard = ({ image, name, title, info }) => {
           className="rounded-[50%] w-[50px] h-[50px] "
         />
         <div className="ml-[16px]">
-          <h3 className="font-[700] font-space text-[24px] leading-[31px] text-left">
+          <h3 className="font-[700] font-space text-[20px] leading-[31px] text-left">
             {name}
           </h3>
-          <p className="font-[500] font-space text-[16px] leading-[31px] mt-[2px] mb-[17px] text-left">
+          <p className="font-[500] text-[#9b9b9b] font-space text-[16px] leading-[31px] mt-[2px] mb-[17px] text-left">
             {title}
           </p>
         </div>
@@ -139,7 +139,8 @@ const AlumniTestimony = ({ title, description, showVideo }) => {
           <TestimonyCard
             image="human"
             name="Daniel Ifeanyi"
-            title=" Devcent's online platform provided me the flexibility to learn at my own pace, which was crucial while juggling a full-time job. Thanks to Devcent, I was able to upskill and transition into a new tech role."
+            title="Web Designer"
+            info=" Devcent's online platform provided me the flexibility to learn at my own pace, which was crucial while juggling a full-time job. Thanks to Devcent, I was able to upskill and transition into a new tech role."
           />
           <TestimonyCard
             image="human"

@@ -54,7 +54,7 @@ const ToolsCard = ({ title, details }) => {
 			<h3 className='font-space font-[500] text-[20px] md:text-[32px] leading-[40px] text-white mb-[8px] mt-[15px] md:mt-[32px]'>
 				{title}
 			</h3>
-			<p className='text-[18px] md:text-[24px] font-dmsans font-[400] leading-[30px] md:leading-[40px] text-[#9b9b9b] text-justify'>
+			<p className='text-[18px] md:text-[24px] font-sans font-[400] leading-[30px] md:leading-[40px] text-[#9b9b9b]'>
 				{details}
 			</p>
 			{/* </div> */}
@@ -66,54 +66,91 @@ const About = () => {
 		<div>
 			<Meta title='Devcent | About Us' />
 			<Nav />
-			{/* <div className="relative bg-[url('/images/aboutbg.jpg')] h-[100vh] md:h-[80vh] bg-cover bg-top overflow-hidden"></div> */}
-			<div className='relative h-[27vh] sm:h-[60vh] md:h-[80vh] overflow-hidden'>
-				<Image
-					src={'/images/aboutbg.jpg'}
-					alt='about us'
-					fill
-					priority
-					className='object-cover'
-				/>
-				<div
-					className='absolute top-[1px] left-0 right-0 bottom-0 h-[27vh] sm:h-[60vh] md:h-[80vh] z-[1]'
-					style={{
-						// background: 'rgba(0, 0, 0, 0.5)',
-						background:
-							'linear-gradient(84.59deg, rgba(0, 0, 0, 0.3) 17.84%, rgba(0, 0, 0, 0.3) 52.14%, rgba(0, 0, 0, 0.3) 80.9%)',
-					}}
-				/>
-				<div className='hidden sm:flex justify-center items-center relative h-full w-full'>
-					<motion.div
-						whileInView={{ opacity: [0, 1], y: [30, 0] }}
-						transition={{ delay: 1, duration: 1 }}
-						whileHover={{ opacity: 0 }}
-						className='w-[90%] sm:w-[80%] md:w-[50%] bg-[rgba(228,0,132,0.38)] px-[1.1rem] py-[1.6rem] md:py-[2.2rem]'
+			<div className='w-full bg-black py-[60px] md:py-[100px] lg:py-[150px]'>
+				<div className='px-[20px] md:mx-[3rem] lg:ml-[10%] w-full'>
+					<motion.h1
+						initial={{ opacity: 0, visibility: 'hidden' }}
+						whileInView={{
+							opacity: [0, 1],
+							y: [100, 0],
+							visibility: 'visible',
+						}}
+						transition={{ duration: 1, type: 'easeInOut' }}
+						className='text-[2.5rem] md:text-[4rem] font-sans font-bold text-primaryPurple leading-[3rem] md:leading-[4.5rem]'
 					>
-						<h1 className='font-bold text-[1.5rem] md:text-[2.1rem] mb-[5px] text-white'>
-							ABOUT US
-						</h1>
-						<p className='font-dmsans md:text-[18px] leading-[22px] sm:leading-[26px] text-white'>
-							We are deeply committed to promoting an inclusive
-							and supportive learning community that embraces
-							diversity, encourages creativity, fosters
-							collaboration, and nurtures critical thinking.
-						</p>
-					</motion.div>
+						Unleash Your{' '}
+						<span className='text-white'>Potential</span>, <br />{' '}
+						Revolutionize The
+						<br />
+						<span className='text-primaryYellow'>
+							Tech Industry
+						</span>
+					</motion.h1>
+					<div className='text-[#9b9b9b] md:w-[80%] lg:w-[800px] mt-[50px] md:mt-[80px] text-[18px] font-sans'>
+						<motion.p
+							initial={{ opacity: 0, visibility: 'hidden' }}
+							whileInView={{
+								opacity: [0, 1],
+								y: [100, 0],
+								visibility: 'visible',
+							}}
+							transition={{
+								delay: 0.8,
+								duration: 1,
+								type: 'tween',
+							}}
+							viewport={{ once: true }}
+							className='mb-4'
+						>
+							Our innovative online learning platform is designed
+							to equip learners with{' '}
+							<span className='text-primaryYellow'>
+								in-demand tech skills.
+							</span>{' '}
+							We aim to empower them to thrive in today's
+							competitive economy while earning professional
+							certificates in a cost-effective and
+							<span className='text-primaryYellow'>
+								{' '}
+								time-efficient{' '}
+							</span>{' '}
+							manner.
+						</motion.p>
+						<motion.p
+							initial={{ opacity: 0, visibility: 'hidden' }}
+							whileInView={{
+								opacity: [0, 1],
+								y: [100, 0],
+								visibility: 'visible',
+							}}
+							transition={{
+								delay: 0.5,
+								duration: 1,
+								type: 'tween',
+							}}
+							viewport={{ once: true }}
+						>
+							At <span className='text-primaryPurple'>Dev</span>
+							<span className='text-white'>Cent</span>, we are
+							deeply committed to promoting an{' '}
+							<span className='text-white'>inclusive</span> and{' '}
+							<span className='text-primaryYellow'>
+								supportive{' '}
+							</span>
+							learning community that{' '}
+							<span className='text-primaryYellow'>
+								{' '}
+								embraces diversity
+							</span>
+							, encourages creativity, fosters collaboration, and{' '}
+							<span className='text-primaryYellow'>
+								nurtures critical thinking.{' '}
+							</span>
+						</motion.p>
+					</div>
 				</div>
 			</div>
-			<section className='px-[20px] md:px-[57px] py-[20px] md:py-[62px] bg-black w-full '>
-				<motion.p
-					whileInView={{ opacity: [0, 1] }}
-					transition={{ delay: 0.5, duration: 1, type: 'tween' }}
-					viewport={{ once: true }}
-					className='block sm:hidden text-center my-[50px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]'
-				>
-					We are deeply committed to promoting an inclusive and
-					supportive learning community that embraces diversity,
-					encourages creativity, fosters collaboration, and nurtures
-					critical thinking.
-				</motion.p>
+			<section className='px-[20px] md:px-[57px] py-[20px] md:py-[30px] bg-black w-full '>
 				<motion.h3
 					whileInView={{ opacity: [0, 1], y: [15, 0] }}
 					transition={{ duration: 1, type: 'tween' }}
@@ -213,7 +250,7 @@ const About = () => {
 					</Link>
 				</div>
 			</section>
-			<section className='px-[20px] md:px-[57px] pt-[60px] bg-black  '>
+			<section className='px-[20px] md:px-[57px] pt-[30px] md:pt-[60px] bg-black  '>
 				{/* <h3 className="font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow">
           Meet Our Team
         </h3>

@@ -3,8 +3,8 @@ import { motion } from 'framer-motion';
 
 const InstructorCard = ({ name, img, role, description }) => {
 	return (
-		<div className='md:flex gap-x-[50px] mb-[60px] md:w-[30%]'>
-			<div className='pl-[18px] pt-[30px] bg-[rgba(228, 0, 132, 0.06)] text-white'>
+		<div className='md:flex gap-x-[50px]'>
+			<div className='pt-[30px] bg-[rgba(228, 0, 132, 0.06)] text-white'>
 				<motion.div
 					initial={{ opacity: 0, visibility: 'hidden' }}
 					whileInView={{
@@ -14,7 +14,7 @@ const InstructorCard = ({ name, img, role, description }) => {
 					}}
 					transition={{ duration: 1, type: 'easeInOut' }}
 					viewport={{ once: true }}
-					className='py-[38px] px-[18px] z-40'
+					className='pt-[38px] z-40'
 					style={{ background: 'rgba(228, 0, 132, 0.06)' }}
 				>
 					<img
@@ -22,10 +22,10 @@ const InstructorCard = ({ name, img, role, description }) => {
 						className='rounded-[50%]'
 						alt={name}
 					/>
-					<p className='my-[19px] font-space font-[700] text-[25px] leading-[28px]'>
+					<p className='my-[10px] md:my-[14px] font-space font-[700] text-[20px] md:text-[25px] leading-[28px]'>
 						{name}
 					</p>
-					<p className='mb-[19px] text-[#9b9b9b] font-space font-[700] text-[25.75px] leading-[28.33px]'>
+					<p className='my-[10px] md:my-[14px] text-[#9b9b9b] font-space font-[700] text-[18px] md:text-[20px] leading-[28.33px]'>
 						{role}
 					</p>
 					<p className='font-inter text-[#9b9b9b] text-[16.09px] leading-[22.53px]'>
