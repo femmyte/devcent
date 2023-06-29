@@ -20,8 +20,6 @@ const Payment = () => {
   const [isSuccess, setIsSuccess] = useState(false);
 
   useEffect(() => {
-    console.log(status, tx_ref, transaction_id);
-
     const processCoursePayment = async () => {
       // console.log('Processing...');
       // console.log(token);
