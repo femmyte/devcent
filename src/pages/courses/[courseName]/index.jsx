@@ -12,6 +12,8 @@ import Backend from 'components/courses/Backend';
 import Fullstack from 'components/courses/Fullstack';
 import Frontend from 'components/courses/Frontend';
 import CyberSecurity from 'components/courses/CyberSecurity';
+import CloudComputing from 'components/courses/CloudComputing';
+import DigitalMarketing from 'components/courses/DigitalMarketing';
 const Index = () => {
 	const [course, setCourse] = useState({});
 	const router = useRouter();
@@ -95,6 +97,24 @@ const Index = () => {
 		case 'Frontend-Development-15113559':
 			courseComponent = (
 				<Frontend
+					course={course}
+					handleRoute={handleRoute}
+					courseName={courseName}
+				/>
+			);
+			break;
+		case 'cloud-computing-11611476':
+			courseComponent = (
+				<CloudComputing
+					course={course}
+					handleRoute={handleRoute}
+					courseName={courseName}
+				/>
+			);
+			break;
+		case 'digital-marketing-83868296':
+			courseComponent = (
+				<DigitalMarketing
 					course={course}
 					handleRoute={handleRoute}
 					courseName={courseName}

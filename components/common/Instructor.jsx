@@ -59,7 +59,7 @@ const Instructor = () => {
 				needed to excel.
 			</motion.p>
 			<div className="md:bg-[url('/images/devcentbg.png')] min-h-[100vh] bg-no-repeat overflow-hidden">
-				<div className='md:flex flex-wrap gap-x-[50px] mb-[60px] '>
+				<div className='md:flex gap-x-[50px] mb-[60px] '>
 					<InstructorCard
 						img='oluwafemi'
 						name='Oluwafemi Faleye'

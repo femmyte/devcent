@@ -43,7 +43,7 @@ const CourseCard = ({
 					{children}
 				</article>
 				<img
-					src={`/images/courses/${img}.png`}
+					src={`/images/courses/${img}`}
 					alt={title}
 					className='w-full md:w-[50%]'
 					// className={`${
@@ -72,39 +72,51 @@ const Courses = () => {
 	let otherInfo = [
 		{
 			background: '#521C3C',
-			img: 'uiux',
+			img: 'uiux.png',
 			position: 1,
 			courseId: '21197094',
 		},
 		{
 			background: '#1B2531',
-			img: 'dataScience',
+			img: 'dataScience.png',
 			position: 2,
 			courseId: '83224682',
 		},
 		{
 			background: '#3C2B68',
-			img: 'backend',
+			img: 'backend.png',
 			position: 1,
 			courseId: '14246154',
 		},
 		{
 			background: '#000000',
-			img: 'fullstack',
+			img: 'fullstack.png',
 			position: 2,
 			courseId: '63748970',
 		},
 		{
 			background: '#19201D',
-			img: 'cyber',
+			img: 'cyber.png',
 			position: 1,
 			courseId: '18556101',
 		},
 		{
 			background: '#433C28',
-			img: 'frotend',
+			img: 'frotend.png',
 			position: 2,
 			courseId: '15113559',
+		},
+		{
+			background: '#085937',
+			img: 'cloud.avif',
+			position: 1,
+			courseId: '11611476',
+		},
+		{
+			background: '#80054a',
+			img: 'digital.jpg',
+			position: 2,
+			courseId: '83868296',
 		},
 	];
 
@@ -384,11 +396,12 @@ const Courses = () => {
 					</CourseCard> */}
 				</section>
 				<section className="px-[20px] md:px-[57px] py-[62px] bg-black md:bg-[url('/images/devcentbg.png')] min-h-[110vh] w-[100vw] overflow-hidden ">
-					<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-left text-white'>
+					{/* <h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-white'>
 						LEARN WITH THE BEST
-					</h3>
+					</h3> */}
 					<div className='md:flex gap-x-[50px] mb-[60px]'>
-						<Instructor
+						<Instructor />
+						{/* <Instructor
 							img='mary'
 							name='Mariam Omotola'
 							role='UI Designer, DevCent'
@@ -405,7 +418,7 @@ const Courses = () => {
 							name='Olanrewaju Alalade'
 							role='UI Designer, DevCent'
 							description="Olanrewaju has enjoyed working in UX design across a variety of domains at Google, from YouTube, to technical cloud platforms. He is particularly interested in bringing a human touch to products. She received her Master's in Human Computer Interaction from The University of Michigan."
-						/>
+						/> */}
 					</div>
 				</section>
 				<Footer />

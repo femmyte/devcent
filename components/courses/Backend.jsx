@@ -259,7 +259,31 @@ const Backend = ({ course, handleRoute, courseName }) => {
 						info='Common web vulnerabilities (e.g., cross-site scripting, SQL injection). Implementing secure coding practices. Protecting sensitive data and handling user input securely
 '
 					/>
-					{/* <LearnArea number='01' title='' info='' /> */}
+					<LearnArea
+						number='10'
+						title='API Integration and Third-Party Services'
+						info='Integrating external APIs into backend applications. Working with popular APIs (e.g., payment gateways, geolocation, social media). Handling asynchronous operations and callbacks'
+					/>
+					<LearnArea
+						number='11'
+						title='Scalability and Performance Optimization'
+						info=''
+					/>
+					<LearnArea
+						number='12'
+						title='Testing and Debugging'
+						info='Writing unit tests and integration tests for backend code. Debugging techniques and tools. Test-driven development (TDD) principles'
+					/>
+					<LearnArea
+						number='13'
+						title='Deployment and DevOps'
+						info='Deploying backend applications to web servers or cloud platforms. Configuration management and server administration. Continuous integration and deployment (CI/CD) practices'
+					/>
+					<LearnArea
+						number='14'
+						title='Monitoring and Logging'
+						info='Implementing logging and error handling mechanisms. Monitoring application performance and server health. Using tools for log analysis and debugging'
+					/>
 				</div>
 			</section>
 			{/* <section
