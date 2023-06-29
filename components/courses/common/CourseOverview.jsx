@@ -25,7 +25,7 @@ const CourseOverview = ({ overview }) => {
 	return (
 		<div
 			id='overview'
-			className=' px-[20px] md:pl-[50px] pb-[35px] md:py-[35px] bg-black text-center
+			className=' px-[20px] md:pl-[50px] pb-[35px] py-[35px] bg-black text-center
       '
 		>
 			<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow'>

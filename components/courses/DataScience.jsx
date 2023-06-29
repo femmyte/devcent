@@ -84,7 +84,7 @@ const DataScience = ({ course, handleRoute, courseName }) => {
 						{course?.name}
 					</h1>
 
-					<p className='font-dmsans font-[400] text-[18px] md:text-[24px] leading-[31px] text-[#f2f2f2] mb-[20px] md:mb-[60px] text-justify'>
+					<p className='font-dmsans font-[400] text-[18px] md:text-[24px] leading-[31px] text-[#f2f2f2] mb-[20px] md:mb-[60px]'>
 						{/* {course?.description} */}
 						Embark on an exciting journey to uncover the hidden
 						stories within data. Be prepared to delve into the world
@@ -207,7 +207,7 @@ const DataScience = ({ course, handleRoute, courseName }) => {
 				</ul>
 			</section>
 			<CourseOverview overview="Our Data Analytics Course is an immersive 12 week learning experience. You'll take a learn-by-doing approach during every class session. Learn how to gather, clean, and organize data, and then transform it into actionable insights. At the end of this course, you will have a portfolio showing your skill set." />
-			<section className='px-[20px] md:pl-[50px] pb-[35px] md:py-[35px] bg-black text-center'>
+			<section className='px-[20px] md:pl-[50px] pb-[35px] py-[35px] bg-black text-center'>
 				<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow mt-[30px] md:mt-[140px]'>
 					What you'll learn
 				</h3>
@@ -313,9 +313,9 @@ const DataScience = ({ course, handleRoute, courseName }) => {
 			/>
 			<Pricing amount={course?.discountFee} price={course?.fee} />
 			<Curriculum>
-				<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow'>
+				{/* <h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow'>
 					{course?.name} CURRICULUM
-				</h3>
+				</h3> */}
 				{/* <p className='mt-[43px] font-space font-[700] text-[26px] leading-[11.7px] text-[#cccccc]'>
 					Learn-by-doing with live classes
 				</p>

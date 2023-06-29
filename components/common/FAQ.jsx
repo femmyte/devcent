@@ -57,7 +57,7 @@ const FAQ = ({ children }) => {
 			</div>
 			<div className='mt-[30px] md:mt-[80px] px-[20px] md:px-[70px] md:flex gap-x-[80px] items-center'>
 				<div className=''>
-					<p className='font-space font-[400] text-[18px] md:text-[24px] text-white leading-[31px] text-left'>
+					<p className='font-space font-[400] text-[18px] md:text-[24px] text-[#9b9b9b] leading-[31px] text-center mb-[20px] md:mb-0 md:text-left'>
 						Do you still have questions that weren’t covered in this
 						FAQs? Feel free to send us a message
 					</p>
