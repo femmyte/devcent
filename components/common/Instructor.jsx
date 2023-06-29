@@ -3,14 +3,14 @@ import { motion } from "framer-motion";
 
 const InstructorCard = ({ name, img, role, description }) => {
   return (
-    <div className="md:flex gap-x-[50px] mb-[60px] ">
-      <div className=" pt-[30px] bg-[rgba(228, 0, 132, 0.06)] text-white">
+    <div className="md:flex gap-x-[50px]">
+      <div className="pt-[30px] bg-[rgba(228, 0, 132, 0.06)] text-white">
         <motion.div
           initial={{ opacity: 0, visibility: "hidden" }}
           whileInView={{ opacity: [0, 1], y: [100, 0], visibility: "visible" }}
           transition={{ duration: 1, type: "easeInOut" }}
           viewport={{ once: true }}
-          className="py-[38px] z-40"
+          className="pt-[38px] z-40"
           style={{ background: "rgba(228, 0, 132, 0.06)" }}
         >
           <img

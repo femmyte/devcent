@@ -46,7 +46,7 @@ const ToolsCard = ({ title, details }) => {
       <h3 className="font-space font-[500] text-[20px] md:text-[32px] leading-[40px] text-white mb-[8px] mt-[15px] md:mt-[32px]">
         {title}
       </h3>
-      <p className="text-[18px] md:text-[24px] font-dmsans font-[400] leading-[30px] md:leading-[40px] text-[#9b9b9b] text-justify">
+      <p className="text-[18px] md:text-[24px] font-sans font-[400] leading-[30px] md:leading-[40px] text-[#9b9b9b]">
         {details}
       </p>
       {/* </div> */}
@@ -119,7 +119,7 @@ const About = () => {
           </div>
         </div>
       </div>
-      <section className="px-[20px] md:px-[57px] py-[20px] md:py-[62px] bg-black w-full ">
+      <section className="px-[20px] md:px-[57px] py-[20px] md:py-[30px] bg-black w-full ">
         <motion.h3
           whileInView={{ opacity: [0, 1], y: [15, 0] }}
           transition={{ duration: 1, type: "tween" }}
@@ -218,7 +218,7 @@ const About = () => {
           </Link>
         </div>
       </section>
-      <section className="px-[20px] md:px-[57px] pt-[60px] bg-black  ">
+      <section className="px-[20px] md:px-[57px] pt-[30px] md:pt-[60px] bg-black  ">
         {/* <h3 className="font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow">
           Meet Our Team
         </h3>
