@@ -67,10 +67,10 @@ const Fullstack = ({ course, handleRoute, courseName }) => {
 	return (
 		<div>
 			<Nav />
-			<section className='md:flex justify-between p-[20px] md:p-[60px] bg-black overflow-hidden'>
+			<section className='md:flex justify-between items-center gap-x-[30px] p-[20px] md:p-[60px] bg-black overflow-hidden'>
 				<div className='block md:hidden'>
 					<img
-						src='/images/courses/uxui.png'
+						src='/images/courses/fullstack.avif'
 						alt='uxui course'
 						// className="w-[600px] h-full"
 					/>
@@ -121,7 +121,7 @@ const Fullstack = ({ course, handleRoute, courseName }) => {
 				</div>
 				<div className='hidden md:block'>
 					<img
-						src='/images/courses/uxui.png'
+						src='/images/courses/fullstack.avif'
 						alt='uxui course'
 						// className="w-[600px] h-full"
 					/>
@@ -386,7 +386,7 @@ const Fullstack = ({ course, handleRoute, courseName }) => {
 				description='Seeing our students making impact at top tech companies and getting paid for their service gives us great joy.'
 				showVideo
 			/>
-			<Pricing amount={course?.discountFee} />
+			<Pricing amount={course?.discountFee} price={course?.fee} />
 			<Curriculum>
 				<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow'>
 					{course?.name} CURRICULUM

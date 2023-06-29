@@ -66,10 +66,10 @@ const Course = ({ course, handleRoute, courseName }) => {
 	return (
 		<div>
 			<Nav />
-			<section className='md:flex justify-between p-[20px] md:p-[60px] bg-black overflow-hidden'>
+			<section className='md:flex justify-between items-center gap-x-[30px] p-[20px] md:p-[60px] bg-black overflow-hidden'>
 				<div className='block md:hidden'>
 					<img
-						src='/images/courses/uxui.png'
+						src='/images/courses/uiux.avif'
 						alt='uxui course'
 						// className="w-[600px] h-full"
 					/>
@@ -118,7 +118,7 @@ const Course = ({ course, handleRoute, courseName }) => {
 				</div>
 				<div className='hidden md:block'>
 					<img
-						src='/images/courses/uxui.png'
+						src='/images/courses/uiux.avif'
 						alt='uxui course'
 						// className="w-[600px] h-full"
 					/>
