@@ -102,7 +102,7 @@ const Nav = ({ path }) => {
 							</Link>
 							{/* <IoIosArrowDown /> */}
 						</li>
-						<li className='my-3 md:my-0 flex gap-x-[10px] items-center'>
+						{/* <li className='my-3 md:my-0 flex gap-x-[10px] items-center'>
 							<Link
 								className={`${
 									path === '/courses'
@@ -113,8 +113,8 @@ const Nav = ({ path }) => {
 							>
 								Community
 							</Link>
-							{/* <IoIosArrowDown /> */}
-						</li>
+							{/* <IoIosArrowDown /> *
+						</li> */}
 					</ul>
 					<div className='md:ml-[100px] lg:ml-[130px] flex flex-col md:flex-row md:justify-center md:items-center md:w-full  gap-x-[48px] gap-y-[20px] md:gap-y-0'>
 						{/* <Link
