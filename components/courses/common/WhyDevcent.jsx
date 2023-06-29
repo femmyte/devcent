@@ -2,18 +2,14 @@ import React from 'react';
 import Grid from '../../common/Grid';
 import ToolsCard from './ToolsCard';
 
-const WhyDevcent = () => {
+const WhyDevcent = ({ reason }) => {
 	return (
 		<div className='pt-[10px] md:pt-[35px] px-[20px] md:px-[80px]  pb-[35px] bg-black text-center'>
 			<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow'>
 				WHY SHOULD YOU CHOOSE DEVECNT
 			</h3>
 			<p className='mx-auto text-center mt-[40px] mb-[25px] md:mb-[130px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b] md:px-[100px]'>
-				"At Devcent, we take pride in our ability to produce world-class
-				designers through our course. The course is instructed by
-				industry leaders and employs a project-based learning model,
-				guaranteeing students gain practical experience in crafting
-				digital products."
+				{reason}
 			</p>
 			<Grid>
 				<ToolsCard

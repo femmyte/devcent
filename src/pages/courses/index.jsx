@@ -68,7 +68,7 @@ const Courses = () => {
 			setCourses(data.courses);
 		}
 	}, [isSuccess, data]);
-
+	console.log(courses);
 	let otherInfo = [
 		{
 			background: '#521C3C',

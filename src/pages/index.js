@@ -375,7 +375,7 @@ const Index = () => {
 									<h3 className='font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]'>
 										Global Community
 									</h3>
-									<p className='font-dmsans font-regular text-[18.5px] leading-[24px] pb-[20px] md:pb-0'>
+									<p className='font-dmsans font-regular text-[18.5px] leading-[24px] pb-[20px] md:pb-0 text-[#9b9b9b]'>
 										Connect with a diverse community of
 										learners and industry experts. Expand
 										your network, fostering collaborations
@@ -400,7 +400,7 @@ const Index = () => {
 									<h3 className='font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]'>
 										Support and Mentorship
 									</h3>
-									<p className='font-dmsans font-regular text-[18.5px] leading-[24px]'>
+									<p className='font-dmsans font-regular text-[18.5px] leading-[24px] text-[#9b9b9b]'>
 										Receive 24/7 support and mentorship
 										throughout your learning journey. You
 										are ensured that you stay motivated,
@@ -428,7 +428,7 @@ const Index = () => {
 									<h3 className='font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]'>
 										Industry Insights
 									</h3>
-									<p className='font-dmsans font-regular text-[18.5px] leading-[24px] pb-[20px] md:pb-0'>
+									<p className='font-dmsans font-regular text-[18.5px] leading-[24px] pb-[20px] md:pb-0 text-[#9b9b9b]'>
 										Benefit from the experience of seasoned
 										instructors and industry professionals.
 										Gain a deeper understanding of the field
@@ -564,7 +564,7 @@ const Index = () => {
 					}}
 				/>
 				<div className='relative z-10 flex flex-col h-full items-center justify-center w-full'>
-					<h1 className='text-[#FFBA0E] text-[35px] md:text-[48px] font-[700] leading-[40px] md:leading-[58px] font-space mb-[30px]'>
+					<h1 className='text-[#FFBA0E] text-[30px] md:text-[40px] font-[700] leading-[40px] md:leading-[58px] font-space mb-[30px]'>
 						{' '}
 						WHAT OUR ALUMNUS ARE SAYING
 					</h1>

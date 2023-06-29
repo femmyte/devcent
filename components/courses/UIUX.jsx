@@ -12,6 +12,7 @@ import FAQ from 'components/common/FAQ';
 import Tools from './common/Tools';
 import Portfolio from './common/Portfolio';
 import WhatYouWillLearn from './common/WhatYouWillLearn';
+import ToolsCard from './common/ToolsCard';
 
 const Card = ({ title, btnText, icon, children }) => {
 	const [show, setShow] = useState(false);
@@ -212,15 +213,47 @@ const Course = ({ course, handleRoute, courseName }) => {
 				to achieve these through user research, ideation, bringing your
 				ideas to life through prototypes and testing them with users."
 			/>
-			<Tools />
-			<WhyDevcent />
+			<Tools>
+				<ToolsCard
+					title='Figma'
+					img='figma'
+					details='Figma is a design and prototyping tool used for user interface (UI) and user experience (UX) design. It allows designers to create, collaborate, and share designs with team members in real-time.'
+				/>
+				<ToolsCard
+					title='Google Forms'
+					img='form'
+					details='Google Forms is a free online survey and questionnaire creation tool that allows designers to quickly and easily create custom forms to collect qualitative and quantitative data from users.'
+				/>
+				<ToolsCard
+					title='Notion'
+					img='notion'
+					details='Notion is an all-in-one workspace and productivity tool that allows you to manage and organize your  tasks. it  has features such as note-taking , project management software, and databases.'
+				/>
+				<ToolsCard
+					title='Google Meet'
+					img='figma'
+					details='Google Meet is a video conferencing and collaboration tool. It allows you to conduct virtual meetings, interviews, and presentations with individuals or groups no matter where you are.'
+				/>
+				<ToolsCard
+					title='Miro'
+					img='mirro'
+					details='Miro  is a collaborative online whiteboard platform designed to help teams collaborate and communicate in real-time. It allows teams to brainstorm, design, plan projects, and more.'
+				/>
+			</Tools>
+			<WhyDevcent
+				reason='"At Devcent, we take pride in our ability to produce world-class
+				designers through our course. The course is instructed by
+				industry leaders and employs a project-based learning model,
+				guaranteeing students gain practical experience in crafting
+				digital products."'
+			/>
 			<Instructor />
 			<AlumniTestimony
 				title='WHAT OUR ALUMNI ARE SAYING'
 				description='Seeing our students making impact at top tech companies and getting paid for their service gives us great joy.'
 				showVideo
 			/>
-			<Pricing amount={course?.discountFee} />
+			<Pricing amount={course?.discountFee} price={course?.fee} />
 			<Curriculum>
 				<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow'>
 					UX/UI CURRICULUM

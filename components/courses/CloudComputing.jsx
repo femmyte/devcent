@@ -14,6 +14,7 @@ import Portfolio from './common/Portfolio';
 import WhatYouWillLearn from './common/WhatYouWillLearn';
 import FAQCard from 'components/common/FAQCard';
 import LearnArea from './common/LearnArea';
+import ToolsCard from './common/ToolsCard';
 
 const Card = ({ title, btnText, icon, children }) => {
 	const [show, setShow] = useState(false);
@@ -63,7 +64,7 @@ const CollaborateCard = () => {
 	);
 };
 
-const Fullstack = ({ course, handleRoute, courseName }) => {
+const CloudComputing = ({ course, handleRoute, courseName }) => {
 	return (
 		<div>
 			<Nav />
@@ -84,9 +85,12 @@ const Fullstack = ({ course, handleRoute, courseName }) => {
 					</h1>
 
 					<p className='font-dmsans font-[400] text-[18px] md:text-[24px] leading-[31px] text-[#f2f2f2] mb-[20px] md:mb-[60px] text-justify'>
-						Gain a comprehensive understanding of the skills and
-						knowledge needed to excel in building interactive and
-						visually appealing websites and applications.
+						{/* {course?.description} */}
+						Gain proficiency in cloud computing fundamentals and
+						begin utilizing Azure services, ranging from virtual
+						machines and databases to web apps. Learn about the core
+						AWS services, including compute, storage, networking,
+						and databases.
 					</p>
 					<div className='md:flex items-center mb-[20px] md:mb-[80px] gap-x-[8px]'>
 						<div className='flex items-center gap-x-[8px]'>
@@ -145,7 +149,7 @@ const Fullstack = ({ course, handleRoute, courseName }) => {
 							{course?.name?.toUpperCase()} Curriculum
 						</Link>
 					</li>
-					<li>
+					{/* <li>
 						<Link
 							href='#schedule'
 							className='font-space font-[700] text-[20px] leading-[26px]  text-white'
@@ -160,7 +164,7 @@ const Fullstack = ({ course, handleRoute, courseName }) => {
 						>
 							{course?.name?.toUpperCase()} Porfolio
 						</Link>
-					</li>
+					</li> */}
 					<li>
 						<Link
 							href='#instructor'
@@ -203,155 +207,126 @@ const Fullstack = ({ course, handleRoute, courseName }) => {
 					</li>
 				</ul>
 			</section>
-			<CourseOverview overview='Our Full-Stack Development Course is an immersive 12 week learning experience. Cover fundamental concepts of backend development, programming languages, frameworks, databases, server management, and API integration.' />
+			<CourseOverview overview="Our Cloud Computing Course is an immersive 12 week learning experience. You'll take a learn-by-doing approach during every class session. Embark on a learning path that introduces you to the Microsoft Azure cloud platform and Amazon Web Services." />
 			<section className='px-[20px] md:pl-[50px] pb-[35px] md:py-[35px] bg-black text-center'>
 				<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow mt-[30px] md:mt-[140px]'>
 					What you'll learn
 				</h3>
 				<p className='md:w-[1015px] mx-auto text-center mt-[24px] mb-[20px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]'>
-					In this course, you will learn how to design and develop the
-					server-side logic that powers web applications, handle data
-					storage and retrieval, implement security measures, and
-					optimize performance.
+					In this course, you will learn the fundamentals of cloud
+					computing and its various service models. Explore topics
+					such as cloud infrastructure, security, deployment, cost
+					optimization, and gain practical knowledge to leverage cloud
+					technologies effectively for business success.
 				</p>
 				<div className='py-[30px] md:py-[50px]'>
 					<LearnArea
 						number='01'
-						title='Introduction to Web Development'
-						info='Overview of frontend, backend, and full-stack development. Introduction to HTML, CSS, and JavaScript. Basics of web architecture and client-server communication.'
+						title='Introduction to Cloud Computing'
+						info='Introduction into the world of Cloud Computing; solutions, services and concepts'
 					/>
 					<LearnArea
 						number='02'
-						title='HTML Fundamentals'
-						info='Understanding HTML tags and elements. Structuring web pages with HTML. Working with text, links, images, and media'
+						title='Core Azure concepts and services'
+						info='Microsoft Azure fundamentals and core Azure architectural components. Microsoft Azure compute services, storage services, analytics and database.'
 					/>
 					<LearnArea
 						number='03'
-						title='CSS Fundamentals:'
-						info='Introduction to CSS syntax and selectors. Applying styles to HTML elements. Layout techniques, including box model, positioning, and flexbox'
+						title='Core Azure Management Tools'
+						info='Learn the skill of managing and configuring your Azure environment, using tools to build better solutions.'
 					/>
 					<LearnArea
 						number='04'
-						title='Advanced CSS'
-						info='Responsive design principles and media queries. CSS frameworks and libraries (e.g., Bootstrap, Tailwind CSS). CSS preprocessors (e.g., Sass, Less) and post-processors (e.g., PostCSS)'
+						title='Azure Network Security Features'
+						info='strategies for protecting against threat and securing your network connectivity on Microsoft Azure.'
 					/>
 					<LearnArea
 						number='05'
-						title='JavaScript Fundamentals'
-						info='JavaScript syntax, variables, data types, and operators. Control structures (conditionals, loops). Functions, scope, and closures'
+						title='Azure Identity & Compliance Features'
+						info='using the Microsoft Azure identity services features to secure access to your application.'
 					/>
 					<LearnArea
 						number='06'
-						title='DOM Manipulation and Event Handling'
-						info='Understanding the Document Object Model (DOM). Manipulating DOM elements with JavaScript. Handling user interactions and events'
+						title='Azure Cost Management and SLA'
+						info='Manage Microsoft Azure costs, and choose the right Microsoft Azure services by examining SLAs and lifecycles.'
 					/>
 					<LearnArea
 						number='07'
-						title='Frontend Frameworks and Libraries'
-						info='Introduction to popular frontend frameworks (e.g., React, Angular, Vue.js). Building dynamic and interactive user interfaces with frameworks. Working with component-based architecture and state management.'
+						title='Introduction to Virtual Machines (VM)'
+						info='Learn how to connect to a VM with a remote desktop, add virtual hard drives, and scale the VM.'
 					/>
 					<LearnArea
 						number='08'
-						title='Web Accessibility'
-						info='Importance of accessibility and inclusive design. Techniques for making web content accessible (e.g., semantic HTML, ARIA). Testing and evaluating accessibility compliance'
+						title='AWS Identity and Access Management (IAM)'
+						info='Manage AWS user accounts and access control. Implement IAM policies and secure AWS resources with IAM.'
 					/>
 					<LearnArea
 						number='09'
-						title='UI/UX Design Principles'
-						info='Principles of user-centered design. Wireframing, prototyping, and mockup creation. Usability testing and user feedback analysis'
+						title='Compute and Storage Services'
+						info='Amazon Elastic Compute Cloud (EC2). Launching and managing EC2 instances. Amazon Simple Storage Service (S3). Amazon Elastic Block Store (EBS) and Amazon Glacier'
 					/>
 					<LearnArea
 						number='10'
-						title='Responsive Web Design and Mobile Development'
-						info='Creating responsive layouts and media queries. Mobile-first design approach. Mobile app development considerations (e.g., PWAs, native vs. hybrid apps)'
+						title='Networking and Content Delivery'
+						info='Configuring virtual private clouds (VPCs). AWS Direct Connect and Amazon CloudFront'
 					/>
 					<LearnArea
 						number='11'
-						title='Testing and Debugging'
-						info='Writing and running frontend tests (unit tests, integration tests). Debugging techniques and tools. Cross-browser compatibility testing'
+						title='Security and Compliance'
+						info='AWS security best practices and network security measures. Understanding AWS compliance frameworks and services.'
 					/>
 					<LearnArea
 						number='12'
-						title='Deployment and Web Hosting'
-						info='Deploying frontend applications to web servers. Domain management and DNS configuration. Continuous integration and deployment (CI/CD) pipelines'
+						title='Monitoring and Management Services'
+						info='AWS CloudWatch. Monitoring AWS resources and setting up alerts. AWS CloudFormation and AWS Elastic Beanstalk'
 					/>
 					<LearnArea
 						number='13'
-						title='Web APIs and Data Fetching'
-						info='Working with HTTP and RESTful APIs. Fetching and manipulating data using AJAX and Fetch API. Asynchronous programming with Promises and async/await'
+						title='Career coaching services'
+						info='Projects and portfolio building. Interview prep and coaching. Tech visa coaching'
 					/>
-					<LearnArea
-						number='14'
-						title='Portfolio Development and Career Support'
-						info='Building a portfolio showcasing frontend projects. Resume writing and interview preparation. Job search strategies and industry networking'
-					/>
-					<LearnArea
-						number='15'
-						title='Introduction to Backend Development'
-						info='Overview of backend development and its role in web applications. Understanding the client-server architecture and HTTP protocol. Introduction to server-side languages and frameworks'
-					/>
-					<LearnArea
-						number='16'
-						title='Database Fundamentals'
-						info='Relational database concepts (tables, relationships, queries). Introduction to SQL (Structured Query Language). Database design and normalization principles'
-					/>
-					<LearnArea
-						number='17'
-						title='Backend Programming Languages'
-						info='Introduction to server-side programming languages (e.g., Python, Java, Node.js). Syntax, data types, variables, and control structures. Working with functions, modules, and libraries'
-					/>
-					<LearnArea
-						number='18'
-						title='Web Frameworks'
-						info="Introduction to popular web frameworks (e.g., Django, Ruby on Rails, Express.js). Building web applications using a framework' s MVC (Model-View-Controller) architecture. Handling routing, requests, and responses"
-					/>
-					<LearnArea
-						number='19'
-						title='APIs and RESTful Web Services'
-						info='Understanding APIs (Application Programming Interfaces). Building and consuming RESTful APIs. Authentication and authorization mechanisms (e.g., JWT, OAuth)'
-					/>
-					<LearnArea
-						number='20'
-						title='Database Management Systems'
-						info='Introduction to database management systems (e.g., MySQL, PostgreSQL, MongoDB). Querying databases using SQL or NoSQL techniques. Working with database connectors and ORMs (Object-Relational Mapping)'
-					/>
-					<LearnArea
-						number='21'
-						title='Data Modeling and Persistence'
-						info='Designing database schemas and data models. Implementing CRUD (Create, Read, Update, Delete) operations. Working with database transactions and concurrency'
-					/>
-					<LearnArea
-						number='22'
-						title='Authentication and Authorization'
-						info='User authentication techniques (e.g., username/password, social login). Implementing access control and role-based permissions. Security considerations (e.g., encryption, input validation)'
-					/>
-					<LearnArea
-						number='23'
-						title='Web Security and Best Practices'
-						info='Common web vulnerabilities (e.g., cross-site scripting, SQL injection). Implementing secure coding practices. Protecting sensitive data and handling user input securely
-'
-					/>
+					{/* <LearnArea number='14' title='' info='' /> */}
 				</div>
 			</section>
-			{/* <section
+			<section
 				id='tools'
 				className='pt-[10px] px-[20px] md:px-[100px] lg:px-[180px] pb-[35px] bg-black text-center
       '
 			>
 				<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow uppercase'>
-					Full-Stack Development Tools
+					Cloud Computing Tools
 				</h3>
 				<p className='mx-auto text-center mt-[20px] mb-[25px] md:mb-[130px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]'>
 					Learn and master cloud computing tools to empower you on
 					your journey as a cloud engineer
 				</p>
 				<div className='md:grid md:grid-cols-2 lg:grid-cols-3 gap-x-[100px] mb-[20px]'>
-					 <ToolsCard title='' img='figma' details='' />
+					<ToolsCard
+						title='AWS'
+						img='figma'
+						details='AWS offers reliable, scalable, and inexpensive cloud computing services. It provides a comprehensive suite of cloud services, including compute, storage, database, networking, and more.'
+					/>
+					<ToolsCard
+						title='Microsoft Azure'
+						img='figma'
+						details='Azure is a cloud platform by Microsoft that provides access, management, and development of applications and services through global data centers. It offers tools like Azure Virtual Machines, Blob Storage, SQL Database, and Azure Functions.'
+					/>
+					<ToolsCard
+						title='Kubernetes'
+						img='figma'
+						details='Kubernetes (K8s) is an open-source system for automating deployment, scaling, and management of containerized applications. It allows for efficient scaling, load balancing, and automated management of containerized workloads.'
+					/>
+					<ToolsCard
+						title='CloudFormation'
+						img='figma'
+						details='CloudFormation, offered by AWS, is an infrastructure-as-code service that allows you to define and provision cloud resources using templates. It simplifies the management and deployment of AWS resources in a consistent and repeatable manner.'
+					/>
+					{/* <ToolsCard title='' img='figma' details='' /> */}
 				</div>
-			</section> */}
+			</section>
 			<WhyDevcent
 				reason='"At Devcent, we take pride in our ability to produce world-class
-				Fullstack Developers through our course. The course is instructed by
+				Cloud Engineers through our course. The course is instructed by
 				industry leaders and employs a project-based learning model,
 				guaranteeing students gain practical experience."'
 			/>
@@ -366,10 +341,10 @@ const Fullstack = ({ course, handleRoute, courseName }) => {
 				<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow'>
 					{course?.name} CURRICULUM
 				</h3>
-				<p className='mt-[43px] font-space font-[700] text-[26px] leading-[11.7px] text-[#cccccc]'>
+				{/* <p className='mt-[43px] font-space font-[700] text-[26px] leading-[11.7px] text-[#cccccc]'>
 					Learn-by-doing with live classes
 				</p>
-				{/* <p className='w-[1015px] mx-auto text-center mt-[40px] mb-[80px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]'>
+				<p className='w-[1015px] mx-auto text-center mt-[40px] mb-[80px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]'>
 					Our course is setup to make you learn UX/UI step by step
 					with a practical curriculum that focuses 100% on
 					learn-by-doing. Unlike a lotta UX/UI courses who teach the
@@ -393,11 +368,31 @@ const Fullstack = ({ course, handleRoute, courseName }) => {
 				</p> */}
 			</Curriculum>
 			<FAQ>
-				<FAQCard title='' content='' />
-				<FAQCard title='' content='' />
-				<FAQCard title='' content='' />
-				<FAQCard title='' content='' />
-				<FAQCard title='' content='' />
+				<FAQCard
+					title='Who is this course for?'
+					content='The course is designed for beginners who wish to learn and start a career in cloud computing. We will start from the basics and gradually build your knowledge and skills.'
+				/>
+				<FAQCard
+					title='What are the requirements for this course?'
+					content='You will need a laptop with internet access. Specific software requirements will be discussed during the course, but we will primarily use cloud platforms like AWS and Azure, which can be accessed through a web browser.'
+				/>
+				<FAQCard
+					title='Can I take this course at my own pace?'
+					content='Yes, this course is self-paced, giving you the flexibility to study at your convenience. You will also have access to the course materials and resources.'
+				/>
+				<FAQCard
+					title='Are there any hands-on projects or practical exercises in this course?'
+					content='Absolutely! You will have the opportunity to work on real-world projects and exercises that simulate common cloud computing scenarios.'
+				/>
+				<FAQCard
+					title='Can I interact with instructors and fellow learners during the course?'
+					content='You will have opportunities to interact with instructors and other learners through discussion forums and Q&A sessions. '
+				/>
+				<FAQCard
+					title='Are there any prerequisites for this course?'
+					content='There are no specific prerequisites for this course.'
+				/>
+				{/* <FAQCard title='' content='' /> */}
 			</FAQ>
 			<Portfolio courseName={courseName} />
 			<Footer />
@@ -405,4 +400,4 @@ const Fullstack = ({ course, handleRoute, courseName }) => {
 	);
 };
 
-export default Fullstack;
+export default CloudComputing;

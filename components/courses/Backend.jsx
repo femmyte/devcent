@@ -12,6 +12,8 @@ import FAQ from 'components/common/FAQ';
 import Tools from './common/Tools';
 import Portfolio from './common/Portfolio';
 import WhatYouWillLearn from './common/WhatYouWillLearn';
+import FAQCard from 'components/common/FAQCard';
+import LearnArea from './common/LearnArea';
 
 const Card = ({ title, btnText, icon, children }) => {
 	const [show, setShow] = useState(false);
@@ -200,13 +202,88 @@ const Backend = ({ course, handleRoute, courseName }) => {
 				</ul>
 			</section>
 			<CourseOverview overview='overview text' />
-			{/* <WhatYouWillLearn
-				description="This course equips you with the skill set needed to design user centered product while meeting business needs. You'd learn how
-				to achieve these through user research, ideation, bringing your
-				ideas to life through prototypes and testing them with users."
-			/> */}
-			{/* <Tools /> */}
-			<WhyDevcent />
+			<section className='px-[20px] md:pl-[50px] pb-[35px] md:py-[35px] bg-black text-center'>
+				<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow mt-[30px] md:mt-[140px]'>
+					What you'll learn
+				</h3>
+				<p className='md:w-[1015px] mx-auto text-center mt-[24px] mb-[20px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]'>
+					In this course, you will learn how to design and develop the
+					server-side logic that powers web applications, handle data
+					storage and retrieval, implement security measures, and
+					optimize performance.
+				</p>
+				<div className='py-[30px] md:py-[50px]'>
+					<LearnArea
+						number='01'
+						title='Introduction to Backend Development'
+						info='Overview of backend development and its role in web applications. Understanding the client-server architecture and HTTP protocol. Introduction to server-side languages and frameworks'
+					/>
+					<LearnArea
+						number='02'
+						title='Database Fundamentals'
+						info='Relational database concepts (tables, relationships, queries). Introduction to SQL (Structured Query Language). Database design and normalization principles'
+					/>
+					<LearnArea
+						number='03'
+						title='Backend Programming Languages'
+						info='Introduction to server-side programming languages (e.g., Python, Java, Node.js). Syntax, data types, variables, and control structures. Working with functions, modules, and libraries'
+					/>
+					<LearnArea
+						number='04'
+						title='Web Frameworks'
+						info="Introduction to popular web frameworks (e.g., Django, Ruby on Rails, Express.js). Building web applications using a framework' s MVC (Model-View-Controller) architecture. Handling routing, requests, and responses"
+					/>
+					<LearnArea
+						number='05'
+						title='APIs and RESTful Web Services'
+						info='Understanding APIs (Application Programming Interfaces). Building and consuming RESTful APIs. Authentication and authorization mechanisms (e.g., JWT, OAuth)'
+					/>
+					<LearnArea
+						number='06'
+						title='Database Management Systems'
+						info='Introduction to database management systems (e.g., MySQL, PostgreSQL, MongoDB). Querying databases using SQL or NoSQL techniques. Working with database connectors and ORMs (Object-Relational Mapping)'
+					/>
+					<LearnArea
+						number='07'
+						title='Data Modeling and Persistence'
+						info='Designing database schemas and data models. Implementing CRUD (Create, Read, Update, Delete) operations. Working with database transactions and concurrency'
+					/>
+					<LearnArea
+						number='08'
+						title='Authentication and Authorization'
+						info='User authentication techniques (e.g., username/password, social login). Implementing access control and role-based permissions. Security considerations (e.g., encryption, input validation)'
+					/>
+					<LearnArea
+						number='09'
+						title='Web Security and Best Practices'
+						info='Common web vulnerabilities (e.g., cross-site scripting, SQL injection). Implementing secure coding practices. Protecting sensitive data and handling user input securely
+'
+					/>
+					{/* <LearnArea number='01' title='' info='' /> */}
+				</div>
+			</section>
+			{/* <section
+				id='tools'
+				className='pt-[10px] px-[20px] md:px-[100px] lg:px-[180px] pb-[35px] bg-black text-center
+      '
+			>
+				<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow uppercase'>
+					Full-Stack Development Tools
+				</h3>
+				<p className='mx-auto text-center mt-[20px] mb-[25px] md:mb-[130px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]'>
+					Learn and master cloud computing tools to empower you on
+					your journey as a cloud engineer
+				</p>
+				<div className='md:grid md:grid-cols-2 lg:grid-cols-3 gap-x-[100px] mb-[20px]'>
+					 <ToolsCard title='' img='figma' details='' />
+				</div>
+			</section> */}
+			<WhyDevcent
+				reason='"At Devcent, we take pride in our ability to produce world-class
+				Backend Developers through our course. The course is instructed by
+				industry leaders and employs a project-based learning model,
+				guaranteeing students gain practical experience."'
+			/>
 			<Instructor />
 			<AlumniTestimony
 				title='WHAT OUR ALUMNI ARE SAYING'
@@ -244,7 +321,13 @@ const Backend = ({ course, handleRoute, courseName }) => {
 					pertinent case studies using actual products!
 				</p> */}
 			</Curriculum>
-			<FAQ />
+			{/* <FAQ>
+				<FAQCard title='' content='' />
+				<FAQCard title='' content='' />
+				<FAQCard title='' content='' />
+				<FAQCard title='' content='' />
+				<FAQCard title='' content='' />
+			</FAQ> */}
 			<Portfolio courseName={courseName} />
 			<Footer />
 		</div>

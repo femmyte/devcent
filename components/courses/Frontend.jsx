@@ -12,6 +12,8 @@ import FAQ from 'components/common/FAQ';
 import Tools from './common/Tools';
 import Portfolio from './common/Portfolio';
 import WhatYouWillLearn from './common/WhatYouWillLearn';
+import FAQCard from 'components/common/FAQCard';
+import LearnArea from './common/LearnArea';
 
 const Card = ({ title, btnText, icon, children }) => {
 	const [show, setShow] = useState(false);
@@ -141,7 +143,7 @@ const Frontend = ({ course, handleRoute, courseName }) => {
 							{course?.name?.toUpperCase()} Curriculum
 						</Link>
 					</li>
-					<li>
+					{/* <li>
 						<Link
 							href='#schedule'
 							className='font-space font-[700] text-[20px] leading-[26px]  text-white'
@@ -156,7 +158,7 @@ const Frontend = ({ course, handleRoute, courseName }) => {
 						>
 							{course?.name?.toUpperCase()} Porfolio
 						</Link>
-					</li>
+					</li> */}
 					<li>
 						<Link
 							href='#instructor'
@@ -200,13 +202,113 @@ const Frontend = ({ course, handleRoute, courseName }) => {
 				</ul>
 			</section>
 			<CourseOverview overview='overview text' />
-			{/* <WhatYouWillLearn
-				description="This course equips you with the skill set needed to design user centered product while meeting business needs. You'd learn how
-				to achieve these through user research, ideation, bringing your
-				ideas to life through prototypes and testing them with users."
-			/> */}
-			{/* <Tools /> */}
-			<WhyDevcent />
+			<section className='px-[20px] md:pl-[50px] pb-[35px] md:py-[35px] bg-black text-center'>
+				<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow mt-[30px] md:mt-[140px]'>
+					What you'll learn
+				</h3>
+				<p className='md:w-[1015px] mx-auto text-center mt-[24px] mb-[20px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]'>
+					In this course, you'll dive into the world of data
+					exploration, unlocking hidden insights and unraveling the
+					stories within. You will learn how to harness the power of
+					data - from deciphering customer behaviors to predicting
+					market trends.
+				</p>
+				<div className='py-[30px] md:py-[50px]'>
+					<LearnArea
+						number='01'
+						title='Introduction to Web Development'
+						info='Overview of frontend, backend, and full-stack development. Introduction to HTML, CSS, and JavaScript. Basics of web architecture and client-server communication.'
+					/>
+					<LearnArea
+						number='02'
+						title='HTML Fundamentals'
+						info='Understanding HTML tags and elements. Structuring web pages with HTML. Working with text, links, images, and media'
+					/>
+					<LearnArea
+						number='03'
+						title='CSS Fundamentals:'
+						info='Introduction to CSS syntax and selectors. Applying styles to HTML elements. Layout techniques, including box model, positioning, and flexbox'
+					/>
+					<LearnArea
+						number='04'
+						title='Advanced CSS'
+						info='Responsive design principles and media queries. CSS frameworks and libraries (e.g., Bootstrap, Tailwind CSS). CSS preprocessors (e.g., Sass, Less) and post-processors (e.g., PostCSS)'
+					/>
+					<LearnArea
+						number='05'
+						title='JavaScript Fundamentals'
+						info='JavaScript syntax, variables, data types, and operators. Control structures (conditionals, loops). Functions, scope, and closures'
+					/>
+					<LearnArea
+						number='06'
+						title='DOM Manipulation and Event Handling'
+						info='Understanding the Document Object Model (DOM). Manipulating DOM elements with JavaScript. Handling user interactions and events'
+					/>
+					<LearnArea
+						number='07'
+						title='Frontend Frameworks and Libraries'
+						info='Introduction to popular frontend frameworks (e.g., React, Angular, Vue.js). Building dynamic and interactive user interfaces with frameworks. Working with component-based architecture and state management.'
+					/>
+					<LearnArea
+						number='08'
+						title='Web Accessibility'
+						info='Importance of accessibility and inclusive design. Techniques for making web content accessible (e.g., semantic HTML, ARIA). Testing and evaluating accessibility compliance'
+					/>
+					<LearnArea
+						number='09'
+						title='UI/UX Design Principles'
+						info='Principles of user-centered design. Wireframing, prototyping, and mockup creation. Usability testing and user feedback analysis'
+					/>
+					<LearnArea
+						number='10'
+						title='Responsive Web Design and Mobile Development'
+						info='Creating responsive layouts and media queries. Mobile-first design approach. Mobile app development considerations (e.g., PWAs, native vs. hybrid apps)'
+					/>
+					<LearnArea
+						number='11'
+						title='Testing and Debugging'
+						info='Writing and running frontend tests (unit tests, integration tests). Debugging techniques and tools. Cross-browser compatibility testing'
+					/>
+					<LearnArea
+						number='12'
+						title='Deployment and Web Hosting'
+						info='Deploying frontend applications to web servers. Domain management and DNS configuration. Continuous integration and deployment (CI/CD) pipelines'
+					/>
+					<LearnArea
+						number='13'
+						title='Web APIs and Data Fetching'
+						info='Working with HTTP and RESTful APIs. Fetching and manipulating data using AJAX and Fetch API. Asynchronous programming with Promises and async/await'
+					/>
+					<LearnArea
+						number='14'
+						title='Portfolio Development and Career Support'
+						info='Building a portfolio showcasing frontend projects. Resume writing and interview preparation. Job search strategies and industry networking'
+					/>
+					{/* <LearnArea number='14' title='' info='' /> */}
+				</div>
+			</section>
+			{/* <section
+				id='tools'
+				className='pt-[10px] px-[20px] md:px-[100px] lg:px-[180px] pb-[35px] bg-black text-center
+      '
+			>
+				<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow uppercase'>
+					Frontend Development Tools
+				</h3>
+				<p className='mx-auto text-center mt-[20px] mb-[25px] md:mb-[130px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]'>
+					Learn and master data analytics tools to empower you on your
+					journey as a data analyst
+				</p>
+				<div className='md:grid md:grid-cols-2 lg:grid-cols-3 gap-x-[100px] mb-[20px]'>
+					<ToolsCard title='' img='figma' details='' />
+				</div>
+			</section> */}
+			<WhyDevcent
+				reason='"At Devcent, we take pride in our ability to produce world-class
+				Frontend Developers through our course. The course is instructed by
+				industry leaders and employs a project-based learning model,
+				guaranteeing students gain practical experience."'
+			/>
 			<Instructor />
 			<AlumniTestimony
 				title='WHAT OUR ALUMNI ARE SAYING'
@@ -244,7 +346,13 @@ const Frontend = ({ course, handleRoute, courseName }) => {
 					pertinent case studies using actual products!
 				</p> */}
 			</Curriculum>
-			<FAQ />
+			{/* <FAQ>
+				<FAQCard title='' content='' />
+				<FAQCard title='' content='' />
+				<FAQCard title='' content='' />
+				<FAQCard title='' content='' />
+				<FAQCard title='' content='' />
+			</FAQ> */}
 			<Portfolio courseName={courseName} />
 			<Footer />
 		</div>
