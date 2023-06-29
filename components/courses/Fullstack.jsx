@@ -14,6 +14,7 @@ import Portfolio from './common/Portfolio';
 import WhatYouWillLearn from './common/WhatYouWillLearn';
 import FAQCard from 'components/common/FAQCard';
 import LearnArea from './common/LearnArea';
+import ToolsCard from './common/ToolsCard';
 
 const Card = ({ title, btnText, icon, children }) => {
 	const [show, setShow] = useState(false);
@@ -204,7 +205,7 @@ const Fullstack = ({ course, handleRoute, courseName }) => {
 				</ul>
 			</section>
 			<CourseOverview overview='Our Full-Stack Development Course is an immersive 12 week learning experience. Cover fundamental concepts of backend development, programming languages, frameworks, databases, server management, and API integration.' />
-			<section className='px-[20px] md:pl-[50px] pb-[35px] md:py-[35px] bg-black text-center'>
+			<section className='px-[20px] md:pl-[50px] pb-[35px] py-[35px] bg-black text-center'>
 				<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow mt-[30px] md:mt-[140px]'>
 					What you'll learn
 				</h3>
@@ -358,7 +359,7 @@ const Fullstack = ({ course, handleRoute, courseName }) => {
 					/>
 				</div>
 			</section>
-			{/* <section
+			<section
 				id='tools'
 				className='pt-[10px] px-[20px] md:px-[100px] lg:px-[180px] pb-[35px] bg-black text-center
       '
@@ -367,13 +368,38 @@ const Fullstack = ({ course, handleRoute, courseName }) => {
 					Full-Stack Development Tools
 				</h3>
 				<p className='mx-auto text-center mt-[20px] mb-[25px] md:mb-[130px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]'>
-					Learn and master cloud computing tools to empower you on
-					your journey as a cloud engineer
+					Learn and master Fullstack Development tools to empower you
+					on your journey as a Fullstack Developer
 				</p>
 				<div className='md:grid md:grid-cols-2 lg:grid-cols-3 gap-x-[100px] mb-[20px]'>
-					 <ToolsCard title='' img='figma' details='' />
+					<ToolsCard
+						title='Git'
+						img='figma'
+						details='Git is a distributed version control system that allows developers to track changes, collaborate with teammates, and manage code repositories efficiently.'
+					/>
+					<ToolsCard
+						title='JavaScript Frameworks'
+						img='figma'
+						details='JavaScript frameworks like React, Angular, and Vue.js are widely used for building interactive and responsive user interfaces. They provide libraries and tools for efficient front-end development.'
+					/>
+					<ToolsCard
+						title='Backend Frameworks'
+						img='figma'
+						details='Backend frameworks such as Node.js, Django, and Ruby offer a foundation for server-side development, providing features like routing, database integration, and API development.'
+					/>
+					<ToolsCard
+						title='Databases'
+						img='figma'
+						details='Databases like MySQL, PostgreSQL, MongoDB, and SQLite are commonly used and enable developers to store and manage data efficiently.'
+					/>
+					<ToolsCard
+						title='RESTful APIs'
+						img='figma'
+						details='Representational State Transfer (REST) is an architectural style used for building web services. Tools like Express.js and Django REST Framework simplify the creation and management of RESTful APIs.'
+					/>
+					{/* <ToolsCard title='' img='figma' details='' /> */}
 				</div>
-			</section> */}
+			</section>
 			<WhyDevcent
 				reason='"At Devcent, we take pride in our ability to produce world-class
 				Fullstack Developers through our course. The course is instructed by
@@ -388,12 +414,12 @@ const Fullstack = ({ course, handleRoute, courseName }) => {
 			/>
 			<Pricing amount={course?.discountFee} price={course?.fee} />
 			<Curriculum>
-				<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow'>
+				{/* <h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow'>
 					{course?.name} CURRICULUM
 				</h3>
 				<p className='mt-[43px] font-space font-[700] text-[26px] leading-[11.7px] text-[#cccccc]'>
 					Learn-by-doing with live classes
-				</p>
+				</p> */}
 				{/* <p className='w-[1015px] mx-auto text-center mt-[40px] mb-[80px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]'>
 					Our course is setup to make you learn UX/UI step by step
 					with a practical curriculum that focuses 100% on
@@ -418,11 +444,26 @@ const Fullstack = ({ course, handleRoute, courseName }) => {
 				</p> */}
 			</Curriculum>
 			<FAQ>
-				{/* <FAQCard title='' content='' />
-				<FAQCard title='' content='' />
-				<FAQCard title='' content='' />
-				<FAQCard title='' content='' />
-				<FAQCard title='' content='' /> */}
+				<FAQCard
+					title='Do I need prior programming experience?'
+					content='While prior programming experience can be beneficial, this course is designed to accommodate learners at various skill levels, including beginners.'
+				/>
+				<FAQCard
+					title='Will I be able to build real-world applications after completing this course?'
+					content="Through practical projects and hands-on exercises, you'll build and deploy applications that encompass both front-end and back-end components."
+				/>
+				<FAQCard
+					title='How much time should I dedicate to the course each week?'
+					content='This course is self-paced, allowing you to learn at your own convenience and set a learning schedule that works best for you.'
+				/>
+				<FAQCard
+					title='Are the course materials accessible after completion?'
+					content='Yes, you will have access to the course materials even after completion.'
+				/>
+				<FAQCard
+					title='Will I have access to instructor support during the course?'
+					content='Absolutely! Our instructors and teaching assistants are available to provide guidance and support throughout your learning journey.'
+				/>
 			</FAQ>
 			<Portfolio courseName={courseName} />
 			<Footer />

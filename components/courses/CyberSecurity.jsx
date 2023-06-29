@@ -83,7 +83,7 @@ const CyberSecurity = ({ course, handleRoute, courseName }) => {
 						{course?.name}
 					</h1>
 
-					<p className='font-dmsans font-[400] text-[18px] md:text-[24px] leading-[31px] text-[#f2f2f2] mb-[20px] md:mb-[60px] text-justify'>
+					<p className='font-dmsans font-[400] text-[18px] md:text-[24px] leading-[31px] text-[#f2f2f2] mb-[20px] md:mb-[60px]'>
 						{course?.description}
 					</p>
 					<div className='md:flex items-center mb-[20px] md:mb-[80px] gap-x-[8px]'>

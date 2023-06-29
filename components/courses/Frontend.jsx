@@ -14,6 +14,7 @@ import Portfolio from './common/Portfolio';
 import WhatYouWillLearn from './common/WhatYouWillLearn';
 import FAQCard from 'components/common/FAQCard';
 import LearnArea from './common/LearnArea';
+import ToolsCard from './common/ToolsCard';
 
 const Card = ({ title, btnText, icon, children }) => {
 	const [show, setShow] = useState(false);
@@ -83,7 +84,7 @@ const Frontend = ({ course, handleRoute, courseName }) => {
 						{course?.name}
 					</h1>
 
-					<p className='font-dmsans font-[400] text-[18px] md:text-[24px] leading-[31px] text-[#f2f2f2] mb-[20px] md:mb-[60px] text-justify'>
+					<p className='font-dmsans font-[400] text-[18px] md:text-[24px] leading-[31px] text-[#f2f2f2] mb-[20px] md:mb-[60px]'>
 						{course?.description}
 					</p>
 					<div className='md:flex items-center mb-[20px] md:mb-[80px] gap-x-[8px]'>
@@ -201,17 +202,15 @@ const Frontend = ({ course, handleRoute, courseName }) => {
 					</li>
 				</ul>
 			</section>
-			<CourseOverview overview='overview text' />
-			<section className='px-[20px] md:pl-[50px] pb-[35px] md:py-[35px] bg-black text-center'>
+			<CourseOverview overview='Our Front-End Development Course is an immersive 12 week learning experience. Learn essential programming languages such as HTML, CSS, and JavaScript, along with frameworks and libraries like React or Angular.' />
+			<section className='px-[20px] md:pl-[50px] pb-[35px] py-[35px] bg-black text-center'>
 				<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow mt-[30px] md:mt-[140px]'>
 					What you'll learn
 				</h3>
 				<p className='md:w-[1015px] mx-auto text-center mt-[24px] mb-[20px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]'>
-					In this course, you'll dive into the world of data
-					exploration, unlocking hidden insights and unraveling the
-					stories within. You will learn how to harness the power of
-					data - from deciphering customer behaviors to predicting
-					market trends.
+					In this course, you will learn how to create stunning,
+					responsive, and interactive user interfaces using front-end
+					development technologies.
 				</p>
 				<div className='py-[30px] md:py-[50px]'>
 					<LearnArea
@@ -287,7 +286,7 @@ const Frontend = ({ course, handleRoute, courseName }) => {
 					{/* <LearnArea number='14' title='' info='' /> */}
 				</div>
 			</section>
-			{/* <section
+			<section
 				id='tools'
 				className='pt-[10px] px-[20px] md:px-[100px] lg:px-[180px] pb-[35px] bg-black text-center
       '
@@ -296,13 +295,38 @@ const Frontend = ({ course, handleRoute, courseName }) => {
 					Frontend Development Tools
 				</h3>
 				<p className='mx-auto text-center mt-[20px] mb-[25px] md:mb-[130px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]'>
-					Learn and master data analytics tools to empower you on your
-					journey as a data analyst
+					Learn and master Frontend Development tools to empower you
+					on your journey as a Frontend Developer
 				</p>
 				<div className='md:grid md:grid-cols-2 lg:grid-cols-3 gap-x-[100px] mb-[20px]'>
-					<ToolsCard title='' img='figma' details='' />
+					<ToolsCard
+						title='HTML/CSS Frameworks'
+						img='figma'
+						details='Frameworks like Bootstrap offer pre-designed components and CSS styling that can be easily incorporated into web projects, saving time and effort.'
+					/>
+					<ToolsCard
+						title='JavaScript Libraries and Frameworks'
+						img='figma'
+						details='React, Angular, and Vue.js provide powerful tools for building interactive and dynamic user interfaces.'
+					/>
+					<ToolsCard
+						title='Browser Developer Tools'
+						img='figma'
+						details='Built-in browser developer tools, such as Chrome DevTools and Firefox Developer Tools, provide a suite of debugging and profiling features for inspecting and manipulating HTML, CSS, and JavaScript.'
+					/>
+					<ToolsCard
+						title='Version Control Systems'
+						img='figma'
+						details='Git enable developers to track changes, collaborate with teammates, and manage code repositories effectively.'
+					/>
+					<ToolsCard
+						title='Text Editors'
+						img='figma'
+						details='Visual Studio Code, Sublime Text, and Atom provides a feature-rich environment for writing and editing code.'
+					/>
+					{/* <ToolsCard title='' img='figma' details='' /> */}
 				</div>
-			</section> */}
+			</section>
 			<WhyDevcent
 				reason='"At Devcent, we take pride in our ability to produce world-class
 				Frontend Developers through our course. The course is instructed by
@@ -317,12 +341,12 @@ const Frontend = ({ course, handleRoute, courseName }) => {
 			/>
 			<Pricing amount={course?.discountFee} price={course?.fee} />
 			<Curriculum>
-				<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow'>
+				{/* <h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow'>
 					{course?.name} CURRICULUM
 				</h3>
 				<p className='mt-[43px] font-space font-[700] text-[26px] leading-[11.7px] text-[#cccccc]'>
 					Learn-by-doing with live classes
-				</p>
+				</p> */}
 				{/* <p className='w-[1015px] mx-auto text-center mt-[40px] mb-[80px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]'>
 					Our course is setup to make you learn UX/UI step by step
 					with a practical curriculum that focuses 100% on
@@ -346,13 +370,28 @@ const Frontend = ({ course, handleRoute, courseName }) => {
 					pertinent case studies using actual products!
 				</p> */}
 			</Curriculum>
-			{/* <FAQ>
-				<FAQCard title='' content='' />
-				<FAQCard title='' content='' />
-				<FAQCard title='' content='' />
-				<FAQCard title='' content='' />
-				<FAQCard title='' content='' />
-			</FAQ> */}
+			<FAQ>
+				<FAQCard
+					title='Who is this course for?'
+					content='The course is designed for beginners who wish to learn and start a career in front-end development. We will start from the basics and gradually build your knowledge and skills.'
+				/>
+				<FAQCard
+					title='Can I take this course at my own pace?'
+					content='Yes, this course is self-paced, giving you the flexibility to study at your convenience. You will also have access to the course materials and resources.'
+				/>
+				<FAQCard
+					title='Are there any hands-on projects or practical exercises in this course?'
+					content='Absolutely! You will have the opportunity to work on real-world projects and exercises.'
+				/>
+				<FAQCard
+					title='Can I interact with instructors and fellow learners during the course?'
+					content='You will have opportunities to interact with instructors and other learners through discussion forums and Q&A sessions. '
+				/>
+				<FAQCard
+					title='Are there any prerequisites for this course?'
+					content='There are no specific prerequisites for this course.'
+				/>
+			</FAQ>
 			<Portfolio courseName={courseName} />
 			<Footer />
 		</div>

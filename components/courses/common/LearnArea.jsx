@@ -10,7 +10,7 @@ const LearnArea = ({ number, title, info }) => {
 						{title}
 					</p>
 				</div>
-				<p className='md:w-[580px] font-dmsans font-[400] text-[18px] leading-[35px] text-white text-left'>
+				<p className='md:w-[580px] font-dmsans font-[400] text-[18px] leading-[35px] text-[#9b9b9b] text-left'>
 					{info}
 				</p>
 			</div>

@@ -13,6 +13,7 @@ import Tools from './common/Tools';
 import Portfolio from './common/Portfolio';
 import WhatYouWillLearn from './common/WhatYouWillLearn';
 import ToolsCard from './common/ToolsCard';
+import LearnArea from './common/LearnArea';
 
 const Card = ({ title, btnText, icon, children }) => {
 	const [show, setShow] = useState(false);
@@ -82,7 +83,7 @@ const Course = ({ course, handleRoute, courseName }) => {
 						{course?.name}
 					</h1>
 
-					<p className='font-dmsans font-[400] text-[18px] md:text-[24px] leading-[31px] text-[#f2f2f2] mb-[20px] md:mb-[60px] text-justify'>
+					<p className='font-dmsans font-[400] text-[18px] md:text-[24px] leading-[31px] text-[#f2f2f2] mb-[20px] md:mb-[60px] '>
 						{course?.description}
 					</p>
 					<div className='md:flex items-center mb-[20px] md:mb-[80px] gap-x-[8px]'>
@@ -207,12 +208,55 @@ const Course = ({ course, handleRoute, courseName }) => {
 				thinking process, master the latest design tools, build case
 				studies and importantly, design and launch your portfolio!"
 			/>
-			<WhatYouWillLearn
-				description="This course equips you with the skill set needed to design user
-				centered product while meeting business needs. You'd learn how
-				to achieve these through user research, ideation, bringing your
-				ideas to life through prototypes and testing them with users."
-			/>
+			<section className='px-[20px] md:pl-[50px] pb-[35px] py-[30px] md:py-[35px] bg-black text-center'>
+				<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow mt-[30px] md:mt-[140px]'>
+					What you'll learn
+				</h3>
+				<p className='md:w-[1015px] mx-auto text-center mt-[24px] mb-[20px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]'>
+					This course equips you with the skill set needed to design
+					user centered product while meeting business needs. You'd
+					learn how to achieve these through user research, ideation,
+					bringing your ideas to life through prototypes and testing
+					them with users.
+				</p>
+				<div className='py-[30px] md:py-[50px]'>
+					<LearnArea
+						number='01'
+						title='Introduction to UIUX'
+						info='Designing tools, identifying good and bad design, design critique, understanding design briefs'
+					/>
+					<LearnArea
+						number='02'
+						title='Design-thinking Research'
+						info='Designing tools, identifying good and bad design, design critique, understanding design briefs'
+					/>
+					<LearnArea
+						number='03'
+						title='Fundamentals of UX Design'
+						info='User research.  User flow.  User Stories. User testing. Usability. Information architecture.'
+					/>
+					<LearnArea
+						number='04'
+						title=' Elements of  (UI) Design'
+						info='Typography. Color. Grids and layout. Atomic design. Design systems. Responsive design. Accessibility.'
+					/>
+					<LearnArea
+						number='05'
+						title='High-fidelity Prototypes'
+						info='User flows. Low to high fidelity design. Creating interactive prototypes.'
+					/>
+					<LearnArea
+						number='06'
+						title='Handoff and documentation'
+						info='Documenting design. Handoff workflow. Working with developer. Measuring product success with analytics.'
+					/>
+					<LearnArea
+						number='07'
+						title='Projects and career support'
+						info='Personal project. Inter-track project. Client Project. Career profile review.'
+					/>
+				</div>
+			</section>
 			<Tools>
 				<ToolsCard
 					title='Figma'

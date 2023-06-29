@@ -14,6 +14,7 @@ import Portfolio from './common/Portfolio';
 import WhatYouWillLearn from './common/WhatYouWillLearn';
 import FAQCard from 'components/common/FAQCard';
 import LearnArea from './common/LearnArea';
+import ToolsCard from './common/ToolsCard';
 
 const Card = ({ title, btnText, icon, children }) => {
 	const [show, setShow] = useState(false);
@@ -83,7 +84,7 @@ const Backend = ({ course, handleRoute, courseName }) => {
 						{course?.name}
 					</h1>
 
-					<p className='font-dmsans font-[400] text-[18px] md:text-[24px] leading-[31px] text-[#f2f2f2] mb-[20px] md:mb-[60px] text-justify'>
+					<p className='font-dmsans font-[400] text-[18px] md:text-[24px] leading-[31px] text-[#f2f2f2] mb-[20px] md:mb-[60px]'>
 						{course?.description}
 					</p>
 					<div className='md:flex items-center mb-[20px] md:mb-[80px] gap-x-[8px]'>
@@ -201,8 +202,8 @@ const Backend = ({ course, handleRoute, courseName }) => {
 					</li>
 				</ul>
 			</section>
-			<CourseOverview overview='overview text' />
-			<section className='px-[20px] md:pl-[50px] pb-[35px] md:py-[35px] bg-black text-center'>
+			<CourseOverview overview='Our Back-End Development Course is an immersive 12 week learning experience. Learn how to design and develop the server-side logic that powers web applications, handle data storage and retrieval, implement security measures, and optimize performance.' />
+			<section className='px-[20px] md:pl-[50px] pb-[35px] py-[35px] bg-black text-center'>
 				<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow mt-[30px] md:mt-[140px]'>
 					What you'll learn
 				</h3>
@@ -286,22 +287,51 @@ const Backend = ({ course, handleRoute, courseName }) => {
 					/>
 				</div>
 			</section>
-			{/* <section
+			<section
 				id='tools'
 				className='pt-[10px] px-[20px] md:px-[100px] lg:px-[180px] pb-[35px] bg-black text-center
       '
 			>
 				<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow uppercase'>
-					Full-Stack Development Tools
+					Backend Development Tools
 				</h3>
 				<p className='mx-auto text-center mt-[20px] mb-[25px] md:mb-[130px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]'>
-					Learn and master cloud computing tools to empower you on
-					your journey as a cloud engineer
+					Learn and master Backend Development tools to empower you on
+					your journey as a Backend Developer
 				</p>
 				<div className='md:grid md:grid-cols-2 lg:grid-cols-3 gap-x-[100px] mb-[20px]'>
-					 <ToolsCard title='' img='figma' details='' />
+					<ToolsCard
+						title='Programming Languages'
+						img='figma'
+						details='Popular languages include Python, JavaScript (Node.js), Ruby, Java, and PHP. Each language has its own set of frameworks and libraries for building server-side applications.'
+					/>
+					<ToolsCard
+						title='erver-Side Frameworks'
+						img='figma'
+						details='Frameworks like Django (Python), Express.js (Node.js), Ruby on Rails (Ruby), Spring (Java), and Laravel (PHP).'
+					/>
+					<ToolsCard
+						title='Databases'
+						img='figma'
+						details='Use databases to store and manage data. Commonly used databases include MySQL, PostgreSQL, MongoDB, and SQLite.'
+					/>
+					<ToolsCard
+						title='RESTful APIs:'
+						img='figma'
+						details='Building robust APIs is crucial for enabling communication between the front-end and back-end systems. Tools like Express.js (Node.js), Flask (Python), and Ruby on Rails (Ruby) simplify the creation and management of RESTful APIs.'
+					/>
+					<ToolsCard
+						title='Testing Frameworks'
+						img='figma'
+						details='Tools like pytest (Python), Jest (JavaScript), JUnit (Java), and PHPUnit (PHP) enable developers to write and execute unit tests, integration tests, and automated tests.'
+					/>
+					<ToolsCard
+						title='Deployment Tools'
+						img='figma'
+						details='Tools like Docker and Kubernetes facilitate the deployment and management of back-end applications. They help simplify the deployment process and infrastructure management.'
+					/>
 				</div>
-			</section> */}
+			</section>
 			<WhyDevcent
 				reason='"At Devcent, we take pride in our ability to produce world-class
 				Backend Developers through our course. The course is instructed by
@@ -316,12 +346,12 @@ const Backend = ({ course, handleRoute, courseName }) => {
 			/>
 			<Pricing amount={course?.discountFee} price={course?.fee} />
 			<Curriculum>
-				<h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow'>
+				{/* <h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow'>
 					{course?.name} CURRICULUM
 				</h3>
 				<p className='mt-[43px] font-space font-[700] text-[26px] leading-[11.7px] text-[#cccccc]'>
 					Learn-by-doing with live classes
-				</p>
+				</p> */}
 				{/* <p className='w-[1015px] mx-auto text-center mt-[40px] mb-[80px] font-dmsasns font-[400] text-[20px] leading-[26px] text-[#9b9b9b]'>
 					Our course is setup to make you learn UX/UI step by step
 					with a practical curriculum that focuses 100% on
@@ -345,13 +375,28 @@ const Backend = ({ course, handleRoute, courseName }) => {
 					pertinent case studies using actual products!
 				</p> */}
 			</Curriculum>
-			{/* <FAQ>
-				<FAQCard title='' content='' />
-				<FAQCard title='' content='' />
-				<FAQCard title='' content='' />
-				<FAQCard title='' content='' />
-				<FAQCard title='' content='' />
-			</FAQ> */}
+			<FAQ>
+				<FAQCard
+					title='Who is this course for?'
+					content='The course is designed for beginners who wish to learn and start a career in back-end development. We will start from the basics and gradually build your knowledge and skills.'
+				/>
+				<FAQCard
+					title='Can I take this course at my own pace?'
+					content='Yes, this course is self-paced, giving you the flexibility to study at your convenience. You will also have access to the course materials and resources.'
+				/>
+				<FAQCard
+					title='Are there any hands-on projects or practical exercises in this course?'
+					content='Absolutely! You will have the opportunity to work on real-world projects and exercises'
+				/>
+				<FAQCard
+					title='Can I interact with instructors and fellow learners during the course?'
+					content='You will have opportunities to interact with instructors and other learners through discussion forums and Q&A sessions.'
+				/>
+				<FAQCard
+					title='Are there any prerequisites for this course?'
+					content='There are no specific prerequisites for this course.'
+				/>
+			</FAQ>
 			<Portfolio courseName={courseName} />
 			<Footer />
 		</div>
