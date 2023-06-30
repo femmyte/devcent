@@ -25,7 +25,7 @@ const Index = () => {
       <Nav />
       <section className="bg-black w-full">
         <div
-          className={`${styles.maxWidth} md:px-[3rem] lg:px-auto py-[60px] md:py-[100px] lg:py-[140px] flex flex-col lg:flex-row gap-x-[50px] items-center text-white z-10 relative`}
+          className={`${styles.maxWidth} md:px-[3rem] lg:px-auto py-[60px] md:py-[100px] lg:pt-[140px] lg:pb-[90px] flex flex-col lg:flex-row gap-x-[50px] items-center text-white z-10 relative`}
         >
           <div className="w-full lg:w-[56%] text-center md:text-left">
             <h1 className="text-[#FFBA0E] text-[35px] md:text-[48px] font-[700] leading-[40px] md:leading-[58px] font-space h-[15rem]">
@@ -55,7 +55,7 @@ const Index = () => {
               </Link>
             </div>
           </div>
-          <div className="w-4/5 mx-auto lg:mx-[initial] lg:w-[40%] my-[30px] md:mt-0">
+          <div className="w-4/5 mx-auto lg:mx-[initial] lg:w-[40%]">
             <img
               src="/images/hero.png"
               // className='App-logo'
@@ -64,44 +64,33 @@ const Index = () => {
           </div>
         </div>
       </section>
-      <section className="bg-black pt-[30px] md:pt-[60px] pb-[50px] md:pb-[190px] px-[25px] relative">
-        <Animation
-          style="fade-right"
-          placement="center-center"
-          className="md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0"
-        >
-          <div className="lg:w-[85%] lg:mx-auto">
-            <h1 className="font-space font-[700] text-white text-[30px] md:text-[40px] leading-[35px] md:leading-[51px] text-center mx-[20px] md:mx-[70px] mt-[50px] ">
-              Develop In-Demand Tech Skills. Build a happier tech life.
-              Experience the magic at Devcent
-            </h1>
-          </div>
-        </Animation>
-        {/* <p className='md:w-[70%] mt-[90px] text-[25px] text-center font-dmsans leading-[33px] mx-auto text-[#ffba0e] mb-[80px] md:mb-[100px]'>
-					Embark on an exciting learning journey with our online UX/UI
-					& coding bootcamps, designed to provide hands-on practice in
-					a global community of passionate learners.
-				</p> */}
+      <section
+        className={`bg-black pt-[30px] pb-[50px] md:pb-[190px] relative`}
+      >
+        <div className={`${styles.maxWidth}`}>
+          <Animation
+            style="fade-right"
+            placement="center-center"
+            className="md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0"
+          >
+            <div className="sm:mb-[30px] lg:w-[85%] lg:mx-auto">
+              <h1 className=" font-space font-[700] text-white text-[30px] md:text-[40px] leading-[35px] md:leading-[51px] text-center mx-[20px] md:mx-[70px] mt-[50px] ">
+                Develop{" "}
+                <span className="text-primaryYellow">
+                  In-Demand Tech Skills.
+                </span>{" "}
+                Build a{" "}
+                <span className="text-primaryPurple">happier tech life.</span>{" "}
+                Experience
+                <span className="text-primaryYellow">
+                  {" "}
+                  the magic at Devcent
+                </span>{" "}
+              </h1>
+            </div>
+          </Animation>
 
-        {/* <div className='flex flex-col gap-x-[30px] items-center md:flex-row md:pl-[45px] xl:pr-[25px] justify-between'> */}
-        {/* <Animation
-						style='zoom-in-right'
-						placement='center-center'
-						className='md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0'
-					>
-						<p className='font-bold font-space text-[30px] md:text-[40px] leading-[35px] md:leading-[61px] text-white text-center md:text-left'>
-							Develop tech skills. <br /> save times. <br /> Build
-							happier tech life
-						</p>
-						<Link
-							href='/courses'
-							className='block mt-[20px] md:mt-[40px] mx-auto md:mx-0 text-white bg-[#E40084] py-[20px] px-[56px] font-source text-[18px] rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 w-max mb-[100px] md:mb-0'
-						>
-							View all
-						</Link>
-					</Animation> */}
-        <div className="">
-          <div className="flex flex-wrap flex-col items-center justify-between md:flex-row gap-[20px] md:px-[80px] mt-[40px]">
+          <div className="flex flex-wrap flex-col items-center justify-center md:flex-row gap-[20px] mt-[40px]">
             <Animation style="zoom-in-left" placement="center-center">
               <Box
                 img="/images/icons/uiux.png"
@@ -129,7 +118,7 @@ const Index = () => {
               <Box
                 img="/images/icons/fulstack.png"
                 title="Backend Development"
-                description="Delve behind the scenes with our Back End Development course. Master server-side programming, database management, and learn how to build the backbone of powerful web applications, with seamless functionality and exceptional."
+                description="Master server-side programming, database management, and learn how to build the backbone of powerful web applications, with seamless functionality and exceptional."
               />
             </Animation>
             <Animation style="zoom-in-left" placement="center-center">
@@ -147,82 +136,83 @@ const Index = () => {
               />
             </Animation>
           </div>
-        </div>
-        <Link
-          href="/courses"
-          className="block mt-[30px] md:mt-[60px] mx-auto text-white bg-[#E40084] py-[20px] px-[56px] font-source text-[18px] rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 w-max mb-[100px] md:mb-0"
-        >
-          View all
-        </Link>
-        {/* </div> */}
 
-        <div className="mt-[30px] md:mt-[200px]">
-          <h1 className="font-space font-[700] text-[#ffba0e] text-[20px] md:text-[40px] leading-[35px] md:leading-[51px] text-center  ">
-            THE BEST TIME TO START IS NOW
-          </h1>
-          {/* <div className="flex gap-x-[36px] mt-[50px]"> */}
-          <div className="md:grid md:grid-cols-3 md:gap-x-[80px] px-[10px] md:px-[100px] mt-[20px] md:mt-[50px]">
-            <Animation
-              style="fade-right"
-              placement="center-center"
-              className="md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0"
-            >
-              <div className="flex gap-x-[15px] md:gap-x-[24px] items-center">
-                <img src="/images/icons/learning.png" alt="" />
-                <div>
-                  <h3 className="font-space font-[500] text-[24px] leading-[31px] text-white">
-                    Effective Learning
-                  </h3>
-                  <p className="text-[18px] font-space font-[400] leading-[23px] text-[#9b9b9b]">
-                    Get skilled through lectures and practical sessions.
-                  </p>
+          <Link
+            href="/courses"
+            className="block mt-[30px] md:mt-[60px] mx-auto text-white bg-[#E40084] py-[10px] px-[56px] font-source text-[18px] rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 w-max mb-[100px] md:mb-0"
+          >
+            View all
+          </Link>
+          {/* </div> */}
+
+          <div className="mt-[30px] md:mt-[200px]">
+            <h1 className="font-space font-[700] text-[#ffba0e] text-[20px] md:text-[40px] leading-[35px] md:leading-[51px] text-center  ">
+              THE BEST TIME TO START IS NOW
+            </h1>
+            {/* <div className="flex gap-x-[36px] mt-[50px]"> */}
+            <div className="md:grid md:grid-cols-3 md:gap-x-[80px] px-[10px] md:px-[100px] mt-[20px] md:mt-[50px]">
+              <Animation
+                style="fade-right"
+                placement="center-center"
+                className="md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0"
+              >
+                <div className="flex gap-x-[15px] md:gap-x-[24px] items-center">
+                  <img src="/images/icons/learning.png" alt="" />
+                  <div>
+                    <h3 className="font-space font-[500] text-[24px] leading-[31px] text-white">
+                      Effective Learning
+                    </h3>
+                    <p className="text-[18px] font-space font-[400] leading-[23px] text-[#9b9b9b]">
+                      Get skilled through lectures and practical sessions.
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </Animation>
-            <Animation
-              style="fade-left"
-              placement="center-center"
-              className="md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0"
-            >
-              <div className="my-[20px] md:my-0 flex gap-x-[24px] items-center">
-                <img src="/images/icons/capstone.png" alt="" />
-                <div>
-                  <h3 className="font-space font-[500] text-[24px] leading-[31px] text-white">
-                    Capstone Projects
-                  </h3>
-                  <p className="text-[18px] font-space font-[400] leading-[23px] text-[#9b9b9b]">
-                    Work on multiple projects to gain hands-on exposure and real
-                    world work experience.
-                  </p>
+              </Animation>
+              <Animation
+                style="fade-left"
+                placement="center-center"
+                className="md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0"
+              >
+                <div className="my-[20px] md:my-0 flex gap-x-[24px] items-center">
+                  <img src="/images/icons/capstone.png" alt="" />
+                  <div>
+                    <h3 className="font-space font-[500] text-[24px] leading-[31px] text-white">
+                      Capstone Projects
+                    </h3>
+                    <p className="text-[18px] font-space font-[400] leading-[23px] text-[#9b9b9b]">
+                      Work on multiple projects to gain hands-on exposure and
+                      real world work experience.
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </Animation>
-            <Animation
-              style="fade-right"
-              placement="center-center"
-              className="md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0"
-            >
-              <div className="flex gap-x-[24px] items-center">
-                <img src="/images/icons/learning.png" alt="" />
-                <div>
-                  <h3 className="font-space font-[500] text-[24px] leading-[31px] text-white">
-                    Intensive Training
-                  </h3>
-                  <p className="text-[18px] font-space font-[400] leading-[23px] text-[#9b9b9b]">
-                    Our training pushes your limits, sharpens your skills, and
-                    propels you towards mastery in your field.
-                  </p>
+              </Animation>
+              <Animation
+                style="fade-right"
+                placement="center-center"
+                className="md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0"
+              >
+                <div className="flex gap-x-[24px] items-center">
+                  <img src="/images/icons/learning.png" alt="" />
+                  <div>
+                    <h3 className="font-space font-[500] text-[24px] leading-[31px] text-white">
+                      Intensive Training
+                    </h3>
+                    <p className="text-[18px] font-space font-[400] leading-[23px] text-[#9b9b9b]">
+                      Our training pushes your limits, sharpens your skills, and
+                      propels you towards mastery in your field.
+                    </p>
+                  </div>
                 </div>
-              </div>
-            </Animation>
+              </Animation>
+            </div>
           </div>
-        </div>
 
-        <img
-          src="/images/gradinenthome.png"
-          alt="gra"
-          className="absolute bottom-[-240px] left-[50%] md:left-[35%]"
-        />
+          <img
+            src="/images/gradinenthome.png"
+            alt="gra"
+            className="absolute bottom-[-240px] left-[50%] md:left-[35%]"
+          />
+        </div>
       </section>
       <section className="xl:pt-[120px] pb-[100px] xl:pb-[200px] bg-[#F9F9F9] lg:px-[80px] relative">
         <div className="lg:w-[95%] mx-auto relative">
