@@ -214,7 +214,7 @@ const Index = () => {
           />
         </div>
       </section>
-      <section className="xl:pt-[120px] pb-[100px] xl:pb-[200px] bg-[#F9F9F9] lg:px-[80px] relative">
+      <section className="lg:py-[120px] bg-[#F9F9F9] lg:px-[80px] relative">
         <div className="lg:w-[95%] mx-auto relative">
           <Animation
             style="zoom-in-left"
@@ -310,13 +310,13 @@ const Index = () => {
                 Everything you need in one place
               </p>
               <ul>
-                <li className="mt-[13px] ml-[10px] text-black list-disc">
+                <li className="mt-[13px] ml-[10px] text-black xl:list-disc">
                   A Global Community
                 </li>
-                <li className="mt-[13px] ml-[10px] text-black list-disc">
+                <li className="mt-[13px] ml-[10px] text-black xl:list-disc">
                   A 24/7 Support System
                 </li>
-                <li className="mt-[13px] ml-[10px] text-black list-disc">
+                <li className="mt-[13px] ml-[10px] text-black xl:list-disc">
                   Perfect for beginners
                 </li>
               </ul>
