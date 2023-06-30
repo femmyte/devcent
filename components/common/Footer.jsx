@@ -25,7 +25,7 @@ const Footer = () => {
 
           <div className="flex px-[15px] justify-between flex-wrap md:flex-[70%] text-white">
             <div className="md:w-[101px] mb-[20px] md:mb-0">
-              <h3 className="font-[700] font-space text-[20px] leading-[22px]">
+              <h3 className="font-[500] font-space text-[20px] leading-[22px]">
                 Company
               </h3>
               <ul className="text-[#9b9b9b]">
@@ -47,7 +47,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="w-[127px]">
-              <h3 className="font-[700] font-space text-[20px] leading-[22px]">
+              <h3 className="font-[500] font-space text-[20px] leading-[22px]">
                 Information
               </h3>
               <ul className="text-[#9b9b9b]">
@@ -69,7 +69,7 @@ const Footer = () => {
               </ul>
             </div>
             <div className="mt-[30px] md:mt-0 md:w-[354px] text-center md:text-left">
-              <h3 className="font-[700] font-space text-[20px] leading-[22px] mb-[29px]">
+              <h3 className="font-[500] font-space text-[20px] leading-[22px] mb-[29px]">
                 Get in Touch
               </h3>
               <div className="flex justify-center md:justify-start items-center gap-x-[15px] md:gap-x-[30px] mb-[29px]">
@@ -121,7 +121,7 @@ const Footer = () => {
             className="w-[25px]"
           />
         </div>
-        <p className="mb-[20px] mt-[20px] md:mt-[6px]font-space font-[700] leading-[33px] md:leading-[22px] text-center text-white">
+        <p className="text-[#9b9b9b] mb-[20px] mt-[20px] md:mt-[6px]font-space font-[700] leading-[33px] md:leading-[22px] text-center">
           Copyright © {new Date().getFullYear()} Devcent Trainings
         </p>
       </div>

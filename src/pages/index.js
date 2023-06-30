@@ -215,112 +215,113 @@ const Index = () => {
         </div>
       </section>
       <section className="lg:py-[120px] bg-[#F9F9F9] lg:px-[80px] relative">
-        <div className="lg:w-[95%] mx-auto relative">
-          <Animation
-            style="zoom-in-left"
-            placement="center-center"
-            className="md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0"
-          >
-            <div
-              className="relative z-20 py-[52px]  text-white bg-[url('/images/counterbg.png')] bg-cover bg-center max-h-[100vh] xl:h-[751px] w-full xl:max-w-[751px] rounded-[10px] "
-              style={{
-                boxShadow: "0px 3px 45px rgba(0, 0, 0, 0.14)",
-              }}
+        <div className={`${styles.maxWidth} !px-0 relative`}>
+          <div className="xl:w-[1150px] mx-auto relative">
+            <Animation
+              style="zoom-in-left"
+              placement="center-center"
+              className="md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0"
             >
               <div
-                className="absolute top-0 left-0 right-0 bottom-0 max-h-[100vh] xl:h-[751px] w-full xl:w-[751px] z-[1] rounded-[10px]"
+                className="relative z-20 py-[52px]  text-white bg-[url('/images/counterbg.png')] bg-cover bg-center max-h-[100vh] xl:h-[751px] w-full xl:max-w-[751px] rounded-[10px] "
                 style={{
-                  background:
-                    "linear-gradient(261.98deg, rgba(228, 0, 132, 0.74) 0%, rgba(255, 186, 14, 0.55) 100%)",
+                  boxShadow: "0px 3px 45px rgba(0, 0, 0, 0.14)",
                 }}
-              />
-              <div className="relative z-10 flex flex-col h-full justify-center">
-                <div className="xl:ml-[200px] text-center xl:text-left">
-                  <p className="font-roboto font-[300] text-[80px] xl:text-[130px] leading-[90px] xl:leading-[168px]">
-                    7
-                  </p>
-                  <p className="font-source font-regular text-[22px] leading-[55px] text-center  xl:text-left ml-[30px]">
-                    COURSES
-                  </p>
-                </div>
-                <div className="xl:flex xl:ml-[70px] mb-[20px] xl:mb-0">
-                  <div className="flex flex-col items-center xl:items-start">
-                    <p className="font-roboto font-light text-[45px] leading-[56px]">
-                      +100
+              >
+                <div
+                  className="absolute top-0 left-0 right-0 bottom-0 max-h-[100vh] xl:h-[751px] w-full xl:w-[751px] z-[1] rounded-[10px]"
+                  style={{
+                    background:
+                      "linear-gradient(261.98deg, rgba(228, 0, 132, 0.74) 0%, rgba(255, 186, 14, 0.55) 100%)",
+                  }}
+                />
+                <div className="relative z-10 flex flex-col h-full justify-center">
+                  <div className="xl:ml-[200px] text-center xl:text-left">
+                    <p className="font-roboto font-[300] text-[80px] xl:text-[130px] leading-[90px] xl:leading-[168px]">
+                      7
                     </p>
-                    <p className="font-source font-regular text-[22px] leading-[30px]">
-                      LIVE PROJECTS
+                    <p className="font-source font-regular text-[22px] leading-[55px] text-center  xl:text-left ml-[30px]">
+                      COURSES
                     </p>
                   </div>
-                  <div className="flex flex-col items-center xl:items-start xl:ml-[70px]">
-                    <p className="font-roboto font-light text-[45px] leading-[56px] ml-[10px]">
-                      100%
-                    </p>
-                    <p className="font-source font-regular text-[22px] leading-[30px]">
-                      HAPPY TRAINEES
-                    </p>
+                  <div className="xl:flex xl:ml-[70px] mb-[20px] xl:mb-0">
+                    <div className="flex flex-col items-center xl:items-start">
+                      <p className="font-roboto font-light text-[45px] leading-[56px]">
+                        +100
+                      </p>
+                      <p className="font-source font-regular text-[22px] leading-[30px]">
+                        LIVE PROJECTS
+                      </p>
+                    </div>
+                    <div className="flex flex-col items-center xl:items-start xl:ml-[70px]">
+                      <p className="font-roboto font-light text-[45px] leading-[56px] ml-[10px]">
+                        100%
+                      </p>
+                      <p className="font-source font-regular text-[22px] leading-[30px]">
+                        HAPPY TRAINEES
+                      </p>
+                    </div>
                   </div>
-                </div>
-                {/* <div className="flex gap-x-[160px] mt-[15px] ml-[70px]">
+                  {/* <div className="flex gap-x-[160px] mt-[15px] ml-[70px]">
               <p className="font-source font-regular text-[22px] leading-[30px]">
                 LIVE PROJECTS
               </p>
             </div> */}
+                </div>
               </div>
-            </div>
-          </Animation>
-          <Animation
-            style="fzoom-in-right"
-            placement="center-center"
-            className="md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0"
-          >
-            <div
-              className="xl:mt-[12px] xl:min-h-min  xl:max-w-[687px] xl:absolute xl:top-[30px] xl:left-[480px] rounded-[10px] bg-white border border-[rgba(0, 0, 0, 0.14)] z-[20] px-[20px] text-center xl:text-left xl:px-[50px] pt-[40px] xl:mb-[40px]"
-              style={{
-                boxShadow: "0px 3px 45px rgba(0, 0, 0, 0.14)",
-              }}
+            </Animation>
+            <Animation
+              style="fzoom-in-right"
+              placement="center-center"
+              className="md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0"
             >
-              <p className="font-space font-[400] text-[30px] xl:text-[37px] leading-[35px] xl:leading-[44.72px] text-black">
-                Take the next step towards <br /> your personal and <br />{" "}
-                professional goals with <br />
-                Devcent.
-              </p>
-              <div className="flex justify-center xl:justify-start mt-[20px] xl:mt-[32px]">
-                <div
-                  className=" h-[5px] w-[9px] mr-[6px] rounded-[20px]"
-                  style={{
-                    background: "linear-gradient(#FFBA0E 0%, #E40084 100%",
-                  }}
-                ></div>
-                <div
-                  className="h-[5px] w-[48px] rounded-[20px]"
-                  style={{
-                    background: "linear-gradient(#FFBA0E 0%, #E40084 100%",
-                  }}
-                ></div>
-              </div>
-              <p className="mt-[34px] xl:mr-[60px] text-black">
-                At Devcent, we are more than a learning platform. We are your
-                partner in growth and success. With our wide range of advanced
-                courses, expert instructors, and hands-on learning experiences,
-                you'll be equipped with the required skills and knowledge to
-                master your craft.
-              </p>
-              <p className="mt-[8px] ml-[10px] text-black font-[700]">
-                Everything you need in one place
-              </p>
-              <ul>
-                <li className="mt-[13px] ml-[10px] text-black xl:list-disc">
-                  A Global Community
-                </li>
-                <li className="mt-[13px] ml-[10px] text-black xl:list-disc">
-                  A 24/7 Support System
-                </li>
-                <li className="mt-[13px] ml-[10px] text-black xl:list-disc">
-                  Perfect for beginners
-                </li>
-              </ul>
-              {/* <p className='mt-[13px] ml-[10px] text-black'>
+              <div
+                className="xl:mt-[12px] xl:min-h-min  xl:max-w-[687px] xl:absolute xl:top-[30px] xl:left-[480px] rounded-[10px] bg-white border border-[rgba(0, 0, 0, 0.14)] z-[20] px-[20px] text-center xl:text-left xl:px-[50px] pt-[40px] xl:mb-[40px]"
+                style={{
+                  boxShadow: "0px 3px 45px rgba(0, 0, 0, 0.14)",
+                }}
+              >
+                <p className="font-space font-[400] text-[30px] xl:text-[37px] leading-[35px] xl:leading-[44.72px] text-black">
+                  Take the next step towards <br /> your personal and <br />{" "}
+                  professional goals with <br />
+                  Devcent.
+                </p>
+                <div className="flex justify-center xl:justify-start mt-[20px] xl:mt-[32px]">
+                  <div
+                    className=" h-[5px] w-[9px] mr-[6px] rounded-[20px]"
+                    style={{
+                      background: "linear-gradient(#FFBA0E 0%, #E40084 100%",
+                    }}
+                  ></div>
+                  <div
+                    className="h-[5px] w-[48px] rounded-[20px]"
+                    style={{
+                      background: "linear-gradient(#FFBA0E 0%, #E40084 100%",
+                    }}
+                  ></div>
+                </div>
+                <p className="mt-[34px] xl:mr-[60px] text-black">
+                  At Devcent, we are more than a learning platform. We are your
+                  partner in growth and success. With our wide range of advanced
+                  courses, expert instructors, and hands-on learning
+                  experiences, you'll be equipped with the required skills and
+                  knowledge to master your craft.
+                </p>
+                <p className="mt-[8px] ml-[10px] text-black font-[700]">
+                  Everything you need in one place
+                </p>
+                <ul>
+                  <li className="mt-[13px] ml-[10px] text-black xl:list-disc">
+                    A Global Community
+                  </li>
+                  <li className="mt-[13px] ml-[10px] text-black xl:list-disc">
+                    A 24/7 Support System
+                  </li>
+                  <li className="mt-[13px] ml-[10px] text-black xl:list-disc">
+                    Perfect for beginners
+                  </li>
+                </ul>
+                {/* <p className='mt-[13px] ml-[10px] text-black'>
 							A Global Community
 						</p>
 						<p className='mt-[13px] ml-[10px] text-black'>
@@ -329,184 +330,189 @@ const Index = () => {
 						<p className='mt-[13px] ml-[10px] text-black'>
 							Perfect for beginners
 						</p> */}
-              <div className="mx-auto xl:w-1/2 mb-[20px] xl:mb-0">
-                <Link
-                  href="/signup"
-                  className="block mt-[20px] xl:my-[40px] mx-auto text-[#E40084] border border-[#E40084] py-[10px] xl:py-[20px] px-[20px] xl:px-[56px] font-dmsans font-bold text-[18px] rounded-lg hover:animate-pulse ease-out duration-300 text-center"
-                >
-                  Join now
-                </Link>
+                <div className="mx-auto xl:w-1/2 mb-[20px] xl:mb-0">
+                  <Link
+                    href="/signup"
+                    className="block mt-[20px] xl:my-[40px] mx-auto text-[#E40084] border border-[#E40084] py-[10px] xl:py-[20px] px-[20px] xl:px-[56px] font-dmsans font-bold text-[18px] rounded-lg hover:animate-pulse ease-out duration-300 text-center"
+                  >
+                    Join now
+                  </Link>
+                </div>
+              </div>
+            </Animation>
+          </div>
+        </div>
+      </section>
+      <section className="pt-[70px] pb-[40px] md:pb-[200px] bg-black text-white">
+        <div className={`${styles.maxWidth}`}>
+          <h3 className="font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow">
+            WHAT YOU STAND TO GAIN
+          </h3>
+          <p className="md:w-[740px] mx-auto text-center mt-[40px] mb-[20px] md:mb-[80px] font-dmsans font-[400] text-[20px] leading-[26px] text-[#9b9b9b]">
+            At Devcent, we are committed to your success and strive to provide
+            you with the tools, resources, and necessary guidance. Learn
+            everything required to take your career to the next level.
+          </p>
+          {/* <div className="md:flex"> */}
+          {/* <div className="md:w-[900px] "> */}
+          <div className="rounded-[8px] py-[55px]">
+            <div className="md:flex justify-center text-white gap-x-[80px] mb-[30px] md:mb-0">
+              <Animation
+                style="fade-right"
+                placement="center-center"
+                className="md:flex-[45%] flex flex-col justify-center items-center md:items-start xl:mb-0"
+              >
+                <div className="flex gap-x-[15px] md:gap-x-[30px] items-start">
+                  <img src="/images/icons/markbg.png" alt="mark" className="" />
+                  <div className="">
+                    <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">
+                      Global Community
+                    </h3>
+                    <p className="font-dmsans font-regular text-[18.5px] leading-[24px] pb-[30px] md:pb-0 text-[#9b9b9b]">
+                      Connect with a diverse community of learners and industry
+                      experts. Expand your network, fostering collaborations
+                      that can lead to exciting opportunities and lifelong
+                      connections.
+                    </p>
+                  </div>
+                </div>
+              </Animation>
+              <Animation
+                style="fade-left"
+                placement="center-center"
+                className="md:flex-[45%] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0"
+              >
+                <div className="flex gap-x-[15px] md:gap-x-[30px] items-start">
+                  <img src="/images/icons/markbg.png" alt="mark" className="" />
+                  <div className="">
+                    <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">
+                      Support and Mentorship
+                    </h3>
+                    <p className="font-dmsans font-regular text-[18.5px] leading-[24px] text-[#9b9b9b]">
+                      Receive 24/7 support and mentorship throughout your
+                      learning journey. You are ensured that you stay motivated,
+                      overcome obstacles, and reach your full potential.
+                    </p>
+                  </div>
+                </div>
+              </Animation>
+            </div>
+
+            <div className="md:flex justify-center text-white gap-x-[80px] md:mt-[50px]">
+              <Animation
+                style="fade-right"
+                placement="center-center"
+                className="md:flex-[45%] flex flex-col justify-center items-center md:items-start xl:mb-0"
+              >
+                <div className="flex gap-x-[15px] md:gap-x-[30px] items-start">
+                  <img src="/images/icons/markbg.png" alt="" className="" />
+                  <div className="">
+                    <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">
+                      Industry Insights
+                    </h3>
+                    <p className="font-dmsans font-regular text-[18.5px] leading-[24px] pb-[30px] md:pb-0 text-[#9b9b9b]">
+                      Benefit from the experience of seasoned instructors and
+                      industry professionals. Gain a deeper understanding of the
+                      field from their shared insights, best practices, and
+                      real-world examples.
+                    </p>{" "}
+                  </div>
+                </div>
+              </Animation>
+              <Animation
+                style="fade-left"
+                placement="center-center"
+                className="md:flex-[45%] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0"
+              >
+                <div className="flex gap-x-[15px] md:gap-x-[30px] items-start">
+                  <img src="/images/icons/markbg.png" alt="j" className="" />
+                  <div className="">
+                    <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">
+                      In-demand Skills
+                    </h3>
+                    <p className="text-[#9b9b9b] font-dmsans font-regular text-[18.5px] leading-[24px]">
+                      Acquire the latest and most sought-after skills in the
+                      tech industry. Equip yourself with the skills that
+                      companies are actively seeking. Engage in practical,
+                      real-world projects that mirror the challenges encountered
+                      in the industry.
+                    </p>
+                  </div>
+                </div>
+              </Animation>
+            </div>
+          </div>
+          <Animation
+            style="zoom-in-down"
+            placement="center-center"
+            className="md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0"
+          >
+            <div className="mt-[13px] md:ml-[28px] flex flex-col md:flex-row items-center gap-x-[80px] gap-y-[40px] justify-center flex-wrap">
+              <div className="mt-[40px] max-w-[299px]">
+                <div className="flex items-center">
+                  <img src="/images/icons/beginner.png" alt="beginner icon" />
+                  <h1 className="font-[700] font-space text-[24px] leading-[38px] text-white ml-[16px]">
+                    Beginner Level
+                  </h1>
+                </div>
+                <p className="mt-[13px] font-dmsans font-[700] text-[15px] leading-[20px] text-[#9b9b9b] ">
+                  With our beginner-friendly approach, you'll build a solid
+                  foundation and gain the confidence needed to navigate the
+                  exciting world of tech.
+                </p>
+              </div>
+              <div className="mt-[40px] max-w-[299px]">
+                <div className="flex items-center">
+                  <img src="/images/icons/online.png" alt="beginner icon" />
+                  <h1 className="font-[700] font-space text-[24px] leading-[38px] text-white ml-[16px]">
+                    Online and Physical
+                  </h1>
+                </div>
+                <p className="mt-[13px] font-dmsans font-[700] text-[15px] leading-[20px] text-[#9b9b9b] ">
+                  Tailor your educational experience to fit your schedule and
+                  preference.
+                </p>
+              </div>
+              <div className="mt-[40px] max-w-[299px]">
+                <div className="flex items-center">
+                  <img src="/images/icons/lectures.png" alt="beginner icon" />
+                  <h1 className="font-[700] font-space text-[24px] leading-[38px] text-white ml-[16px]">
+                    Lectures are Flexible
+                  </h1>
+                </div>
+                <p className="mt-[13px] font-dmsans font-[700] text-[15px] leading-[20px] text-[#9b9b9b] ">
+                  At Devcent, we offer the flexibility to take your lectures at
+                  your convenient time.
+                </p>
+              </div>
+              <div className="mt-[40px] max-w-[299px]">
+                <div className="flex items-center">
+                  <img
+                    src="/images/icons/certificate.png"
+                    alt="beginner icon"
+                  />
+                  <h1 className="font-[700] font-space text-[24px] leading-[38px] text-white ml-[16px]">
+                    Certificates
+                  </h1>
+                </div>
+                <p className="mt-[13px] font-dmsans font-[700] text-[15px] leading-[20px] text-[#9b9b9b] ">
+                  Earn a certificate upon successful completion of our courses.
+                </p>
+              </div>
+              <div className="mt-[40px] max-w-[299px]">
+                <div className="flex items-center">
+                  <img src="/images/icons/language.png" alt="beginner icon" />
+                  <h1 className="font-[700] font-space text-[24px] leading-[38px] text-white ml-[16px]">
+                    Language
+                  </h1>
+                </div>
+                <p className="mt-[13px] font-dmsans font-[700] text-[15px] leading-[20px] text-[#9b9b9b] ">
+                  Our courses are conducted in the English Language.
+                </p>
               </div>
             </div>
           </Animation>
         </div>
-      </section>
-      <section className="pt-[40px] pb-[40px] md:pb-[200px] px-[20px] md:px-[80px] bg-black text-white">
-        <h3 className="font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow">
-          WHAT YOU STAND TO GAIN
-        </h3>
-        <p className="md:w-[1015px] mx-auto text-center mt-[40px] mb-[20px] md:mb-[80px] font-dmsans font-[400] text-[20px] leading-[26px] text-[#9b9b9b]">
-          At Devcent, we are committed to your success and strive to provide you
-          with the tools, resources, and necessary guidance. Learn everything
-          required to take your career to the next level.
-        </p>
-        {/* <div className="md:flex"> */}
-        {/* <div className="md:w-[900px] "> */}
-        <div className="rounded-[8px] py-[55px] px-[0px] md:px-[40px]">
-          <div className="md:flex justify-between text-white gap-x-[30px] lg:gap-x-[50px] lg-[1134px] mb-[20px] md:mb-0">
-            <Animation
-              style="fade-right"
-              placement="center-center"
-              className="md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0"
-            >
-              <div className="flex gap-x-[15px] md:gap-x-[30px] items-start">
-                <img src="/images/icons/markbg.png" alt="mark" className="" />
-                <div className="md:max-w-[400px]">
-                  <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">
-                    Global Community
-                  </h3>
-                  <p className="font-dmsans font-regular text-[18.5px] leading-[24px] pb-[20px] md:pb-0 text-[#9b9b9b]">
-                    Connect with a diverse community of learners and industry
-                    experts. Expand your network, fostering collaborations that
-                    can lead to exciting opportunities and lifelong connections.
-                  </p>
-                </div>
-              </div>
-            </Animation>
-            <Animation
-              style="fade-left"
-              placement="center-center"
-              className="md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0"
-            >
-              <div className="flex gap-x-[15px] md:gap-x-[30px] items-start">
-                <img src="/images/icons/markbg.png" alt="mark" className="" />
-                <div className="md:max-w-[400px]">
-                  <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">
-                    Support and Mentorship
-                  </h3>
-                  <p className="font-dmsans font-regular text-[18.5px] leading-[24px] text-[#9b9b9b]">
-                    Receive 24/7 support and mentorship throughout your learning
-                    journey. You are ensured that you stay motivated, overcome
-                    obstacles, and reach your full potential.
-                  </p>
-                </div>
-              </div>
-            </Animation>
-          </div>
-
-          <div className="md:flex justify-between text-white gap-x-[30px] lg:gap-x-[50px] md:mt-[50px]">
-            <Animation
-              style="fade-right"
-              placement="center-center"
-              className="md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0"
-            >
-              <div className="flex gap-x-[15px] md:gap-x-[30px] items-start">
-                <img src="/images/icons/markbg.png" alt="" className="" />
-                <div className="md:max-w-[400px]">
-                  <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">
-                    Industry Insights
-                  </h3>
-                  <p className="font-dmsans font-regular text-[18.5px] leading-[24px] pb-[20px] md:pb-0 text-[#9b9b9b]">
-                    Benefit from the experience of seasoned instructors and
-                    industry professionals. Gain a deeper understanding of the
-                    field from their shared insights, best practices, and
-                    real-world examples.
-                  </p>{" "}
-                </div>
-              </div>
-            </Animation>
-            <Animation
-              style="fade-left"
-              placement="center-center"
-              className="md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0"
-            >
-              <div className="flex gap-x-[15px] md:gap-x-[30px] items-start">
-                <img src="/images/icons/markbg.png" alt="j" className="" />
-                <div className="md:max-w-[400px]">
-                  <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">
-                    In-demand Skills
-                  </h3>
-                  <p className="text-[#9b9b9b] font-dmsans font-regular text-[18.5px] leading-[24px]">
-                    Acquire the latest and most sought-after skills in the tech
-                    industry. Equip yourself with the skills that companies are
-                    actively seeking. Engage in practical, real-world projects
-                    that mirror the challenges encountered in the industry.
-                  </p>
-                </div>
-              </div>
-            </Animation>
-          </div>
-        </div>
-        <Animation
-          style="zoom-in-down"
-          placement="center-center"
-          className="md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0"
-        >
-          <div className="mt-[13px] md:ml-[28px] flex flex-col md:flex-row items-center gap-x-[80px] gap-y-[40px] justify-center flex-wrap">
-            <div className="mt-[40px] max-w-[299px]">
-              <div className="flex items-center">
-                <img src="/images/icons/beginner.png" alt="beginner icon" />
-                <h1 className="font-[700] font-space text-[24px] leading-[38px] text-white ml-[16px]">
-                  Beginner Level
-                </h1>
-              </div>
-              <p className="mt-[13px] font-dmsans font-[700] text-[15px] leading-[20px] text-[#9b9b9b] ">
-                With our beginner-friendly approach, you'll build a solid
-                foundation and gain the confidence needed to navigate the
-                exciting world of tech.
-              </p>
-            </div>
-            <div className="mt-[40px] max-w-[299px]">
-              <div className="flex items-center">
-                <img src="/images/icons/online.png" alt="beginner icon" />
-                <h1 className="font-[700] font-space text-[24px] leading-[38px] text-white ml-[16px]">
-                  Online and Physical
-                </h1>
-              </div>
-              <p className="mt-[13px] font-dmsans font-[700] text-[15px] leading-[20px] text-[#9b9b9b] ">
-                Tailor your educational experience to fit your schedule and
-                preference.
-              </p>
-            </div>
-            <div className="mt-[40px] max-w-[299px]">
-              <div className="flex items-center">
-                <img src="/images/icons/lectures.png" alt="beginner icon" />
-                <h1 className="font-[700] font-space text-[24px] leading-[38px] text-white ml-[16px]">
-                  Lectures are Flexible
-                </h1>
-              </div>
-              <p className="mt-[13px] font-dmsans font-[700] text-[15px] leading-[20px] text-[#9b9b9b] ">
-                At Devcent, we offer the flexibility to take your lectures at
-                your convenient time.
-              </p>
-            </div>
-            {/* </div>
-				<div className='mt-[13px] md:ml-[28px] md:grid grid-cols-3 gap-4 place-items-center'> */}
-            <div className="mt-[40px] max-w-[299px]">
-              <div className="flex items-center">
-                <img src="/images/icons/certificate.png" alt="beginner icon" />
-                <h1 className="font-[700] font-space text-[24px] leading-[38px] text-white ml-[16px]">
-                  Certificates
-                </h1>
-              </div>
-              <p className="mt-[13px] font-dmsans font-[700] text-[15px] leading-[20px] text-[#9b9b9b] ">
-                Earn a certificate upon successful completion of our courses.
-              </p>
-            </div>
-            <div className="mt-[40px] max-w-[299px]">
-              <div className="flex items-center">
-                <img src="/images/icons/language.png" alt="beginner icon" />
-                <h1 className="font-[700] font-space text-[24px] leading-[38px] text-white ml-[16px]">
-                  Language
-                </h1>
-              </div>
-              <p className="mt-[13px] font-dmsans font-[700] text-[15px] leading-[20px] text-[#9b9b9b] ">
-                Our courses are conducted in the English Language.
-              </p>
-            </div>
-          </div>
-        </Animation>
-        {/* </div> */}
       </section>
       <section className="relative z-20  py-[52px]  text-white bg-[url('/images/testimonybg.jpg')] bg-cover bg-fixed bg-center h-[120vh] break overflow-hidden w-screen">
         <div
