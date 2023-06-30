@@ -55,6 +55,7 @@ export default function TestimonyCarousel(props) {
       animation="slide"
       indicatorIconButtonProps={{ className: "text-white" }}
       activeIndicatorIconButtonProps={{ className: "text-black" }}
+      interval={20000}
     >
       {items.map((item, i) => (
         <Item key={i} item={item} />
@@ -66,7 +67,7 @@ export default function TestimonyCarousel(props) {
 function Item(props) {
   return (
     <div className="w-full my-5 flex flex-col items-center justify-center h-full">
-      <p className="text-[#9b9b9b] mt-[30px] md:mt-[50px] mb-[30px] md:mb-[54px] font-dmsans font-[400] text-[18px] leading-[30px] md:leading-[45px] text-center mx-[15px] md:w-[758px]">
+      <p className="text-[rgba(255,255,255,0.8)] mt-[30px] md:mt-[50px] mb-[30px] md:mb-[54px] font-dmsans font-[400] text-[18px] leading-[30px] md:leading-[45px] text-center mx-[15px] md:w-[758px]">
         {props.item.description}
       </p>
       <img

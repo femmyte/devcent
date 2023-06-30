@@ -343,7 +343,7 @@ const Index = () => {
           </div>
         </div>
       </section>
-      <section className="pt-[70px] pb-[40px] md:pb-[200px] bg-black text-white">
+      <section className="pt-[70px] pb-[40px] md:pb-[90px] bg-black text-white">
         <div className={`${styles.maxWidth}`}>
           <h3 className="font-space font-[700] text-[32px] leading-[35.2px] text-center text-primaryYellow">
             WHAT YOU STAND TO GAIN
@@ -445,10 +445,10 @@ const Index = () => {
           <Animation
             style="zoom-in-down"
             placement="center-center"
-            className="md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[50px] xl:mb-0"
+            className="md:w-[550px] flex flex-col justify-center items-center md:items-start mb-[40px] xl:mb-0"
           >
-            <div className="mt-[13px] md:ml-[28px] flex flex-col md:flex-row items-center gap-x-[80px] gap-y-[40px] justify-center flex-wrap">
-              <div className="mt-[40px] max-w-[299px]">
+            <div className="mt-[13px] md:ml-[28px] flex flex-col md:flex-row items-center gap-x-[80px] justify-center flex-wrap">
+              <div className="md:mt-[40px] max-w-[299px]">
                 <div className="flex items-center">
                   <img src="/images/icons/beginner.png" alt="beginner icon" />
                   <h1 className="font-[700] font-space text-[24px] leading-[38px] text-white ml-[16px]">
@@ -519,7 +519,7 @@ const Index = () => {
           className="absolute top-0 left-0 right-0 bottom-0 h-[120vh] z-[1]"
           style={{
             background:
-              "linear-gradient(261.98deg, rgba(0, 7, 2, 0.9) 8.27%, rgba(6, 7, 0, 0.8) 91.06%)",
+              "linear-gradient(261.98deg, rgba(0, 7, 2, 0.7) 8.27%, rgba(6, 7, 0, 0.6) 91.06%)",
           }}
         />
         <div
