@@ -25,7 +25,7 @@ const Index = () => {
       <Nav />
       <section className="bg-black w-full">
         <div
-          className={`${styles.maxWidth} md:px-[3rem] lg:px-auto py-[60px] md:py-[100px] lg:pt-[140px] lg:pb-[90px] flex flex-col lg:flex-row gap-x-[50px] items-center text-white z-10 relative`}
+          className={`${styles.maxWidth} md:px-[3rem] lg:px-auto pt-[60px] md:py-[100px] lg:pt-[140px] lg:pb-[90px] flex flex-col lg:flex-row gap-x-[50px] items-center text-white z-10 relative`}
         >
           <div className="w-full lg:w-[56%] text-center md:text-left">
             <h1 className="text-[#FFBA0E] text-[35px] md:text-[48px] font-[700] leading-[40px] md:leading-[58px] font-space h-[15rem]">
@@ -55,7 +55,7 @@ const Index = () => {
               </Link>
             </div>
           </div>
-          <div className="w-4/5 mx-auto lg:mx-[initial] lg:w-[40%]">
+          <div className="mx-auto lg:mx-[initial] lg:w-[43%]">
             <img
               src="/images/hero.png"
               // className='App-logo'
@@ -365,7 +365,7 @@ const Index = () => {
                 <div className="flex gap-x-[15px] md:gap-x-[30px] items-start">
                   <img src="/images/icons/markbg.png" alt="mark" className="" />
                   <div className="">
-                    <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">
+                    <h3 className="font-space font-[700] text-white text-[24px] leading-[25px] mb-[12px]">
                       Global Community
                     </h3>
                     <p className="font-dmsans font-regular text-[18.5px] leading-[24px] pb-[30px] md:pb-0 text-[#9b9b9b]">
@@ -385,7 +385,7 @@ const Index = () => {
                 <div className="flex gap-x-[15px] md:gap-x-[30px] items-start">
                   <img src="/images/icons/markbg.png" alt="mark" className="" />
                   <div className="">
-                    <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">
+                    <h3 className="font-space font-[700] text-white text-[24px] leading-[25px] mb-[12px]">
                       Support and Mentorship
                     </h3>
                     <p className="font-dmsans font-regular text-[18.5px] leading-[24px] text-[#9b9b9b]">
@@ -407,7 +407,7 @@ const Index = () => {
                 <div className="flex gap-x-[15px] md:gap-x-[30px] items-start">
                   <img src="/images/icons/markbg.png" alt="" className="" />
                   <div className="">
-                    <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">
+                    <h3 className="font-space font-[700] text-white text-[24px] leading-[25px] mb-[12px]">
                       Industry Insights
                     </h3>
                     <p className="font-dmsans font-regular text-[18.5px] leading-[24px] pb-[30px] md:pb-0 text-[#9b9b9b]">
@@ -427,7 +427,7 @@ const Index = () => {
                 <div className="flex gap-x-[15px] md:gap-x-[30px] items-start">
                   <img src="/images/icons/markbg.png" alt="j" className="" />
                   <div className="">
-                    <h3 className="font-sora font-[700] text-white text-[24px] leading-[25px] mb-[12px]">
+                    <h3 className="font-space font-[700] text-white text-[24px] leading-[25px] mb-[12px]">
                       In-demand Skills
                     </h3>
                     <p className="text-[#9b9b9b] font-dmsans font-regular text-[18.5px] leading-[24px]">
@@ -522,13 +522,15 @@ const Index = () => {
               "linear-gradient(261.98deg, rgba(0, 7, 2, 0.9) 8.27%, rgba(6, 7, 0, 0.8) 91.06%)",
           }}
         />
-        <div className="relative z-10 flex flex-col h-full items-center justify-center w-full">
-          <h1 className="text-[#FFBA0E] text-[30px] md:text-[40px] font-[700] leading-[40px] md:leading-[58px] font-space mb-[30px] text-center px-[20px]">
+        <div
+          className={`${styles.maxWidth} relative z-10 flex flex-col h-full transition-all duration-600 ease-in-out items-center justify-center`}
+        >
+          <h1 className="text-[#FFBA0E] text-[30px] transition-all duration-600 ease-in-out md:text-[40px] font-[700] leading-[40px] md:leading-[58px] font-space mb-[30px] text-center px-[20px]">
             {" "}
             WHAT OUR ALUMNUS ARE SAYING
           </h1>
           <img src="/images/icons/quote.png" alt="quote acon" />
-          <div className="w-full md:w-[80%] h-[80%] mx-auto">
+          <div className="w-full md:w-[80%] mx-auto transition-all duration-600 ease-in-out">
             <TestimonyCarousel />
           </div>
         </div>

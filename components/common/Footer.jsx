@@ -1,3 +1,4 @@
+import styles from "@/styles/tailwind";
 import React from "react";
 
 const Footer = () => {
@@ -13,8 +14,10 @@ const Footer = () => {
       <div className="relative bg-[url('/images/footerbg.png')] min-h-auto bg-cover bg-center overflow-hidden pt-[50px]">
         {/* <div className="absolute top-[1px] left-0 right-0 bottom-0 min-h-[100vh] z-[1]" /> */}
 
-        <div className="lg:flex gap-[30px] px-[25px] md:px-[50px] pt-[20px] md:pt-[100px] justify-between   text-white">
-          <div className="flex flex-col justify-center items-center mb-[50px] md:flex-[30%]">
+        <div
+          className={`${styles.maxWidth} xl:flex gap-[30px] md:px-[50px] pt-[20px] md:pt-[100px] justify-between text-white`}
+        >
+          <div className="md:w-[70%] lg:w-[60%] md:mx-auto flex flex-col justify-center items-center mb-[50px] xl:flex-[30%]">
             <img src="/images/logo.png" alt="devcent logo" className="" />
             <p className="text-[#9b9b9b] font-[400] font-dmsans text-[16px] mt-[24px] text-center">
               We are a dedicated IT Training Establishment . We have excelled in
@@ -23,7 +26,7 @@ const Footer = () => {
             </p>
           </div>
 
-          <div className="flex px-[15px] justify-between flex-wrap md:flex-[70%] text-white">
+          <div className="flex justify-center gap-x-[50px] flex-wrap xl:flex-[70%] text-white">
             <div className="md:w-[101px] mb-[20px] md:mb-0">
               <h3 className="font-[500] font-space text-[20px] leading-[22px]">
                 Company
@@ -74,7 +77,7 @@ const Footer = () => {
               </h3>
               <div className="flex justify-center md:justify-start items-center gap-x-[15px] md:gap-x-[30px] mb-[29px]">
                 <img src="/images/icons/location.png" alt="" />
-                <p className="text-[#9b9b9b] font-dmsans font-[400] leading-[22px] text-center">
+                <p className="max-w-[400px] text-[#9b9b9b] font-dmsans font-[400] leading-[22px] text-center">
                   By Lyceum, road 1 house 2, Seidu Ayodeji Balogun street, Gra
                   Ibara housing Estate, Abeokuta
                 </p>
