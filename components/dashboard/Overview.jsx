@@ -4,6 +4,7 @@ import { balanceCourse } from "services/paymentService";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useUserStore } from "store/useUserStore";
+
 const DashboardCard = ({ icon, figure, title, middle, bg, textColor }) => (
   <div
     className={`${
