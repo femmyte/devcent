@@ -42,7 +42,7 @@ const Index = () => {
                 }}
               />
             </h1>
-            <p className="mx-auto md:mx-[initial] sm:w-[80%] md:w-[70%] lg:w-[initial] text-[20px] md:text-[24px] leading-6 md:leading-10 my-[20px]">
+            <p className="text-[#9b9b9b] mx-auto md:mx-[initial] sm:w-[80%] md:w-[70%] lg:w-[initial] text-[20px] md:text-[24px] leading-6 md:leading-10 my-[20px]">
               Master your craft and unleash your potential with our
               Online/Physical training from the best industry experts.
             </p>
