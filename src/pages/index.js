@@ -330,10 +330,10 @@ const Index = () => {
 						<p className='mt-[13px] ml-[10px] text-black'>
 							Perfect for beginners
 						</p> */}
-                <div className="mx-auto xl:w-1/2 mb-[20px] xl:mb-0">
+                <div className="w-full flex justify-center mb-[20px] xl:mb-0">
                   <Link
                     href="/signup"
-                    className="block mt-[20px] xl:my-[40px] mx-auto text-[#E40084] border border-[#E40084] py-[10px] xl:py-[20px] px-[20px] xl:px-[56px] font-dmsans font-bold text-[18px] rounded-lg hover:animate-pulse ease-out duration-300 text-center"
+                    className="block mt-[20px] xl:my-[40px] mx-auto text-[#E40084] border border-[#E40084] py-[10px] px-[20px] font-dmsans font-bold text-[18px] rounded-lg hover:animate-pulse ease-out duration-300 text-center"
                   >
                     Join now
                   </Link>

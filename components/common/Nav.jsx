@@ -146,7 +146,7 @@ const Nav = ({ path }) => {
                 </Link>
                 <Link
                   href="/signup"
-                  className=" text-white bg-[#E40084] w-[149px] text-center font-source rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 py-[10px] px-[20px]"
+                  className=" text-white bg-[#E40084] w-[149px] text-center font-source rounded-lg  hover:bg-primaryYellow hover:animate-pulse ease-out duration-300 py-[5px] px-[10px]"
                 >
                   Get Started
                 </Link>

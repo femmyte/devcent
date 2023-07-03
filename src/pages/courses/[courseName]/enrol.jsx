@@ -40,6 +40,7 @@ const Enrol = () => {
   const half = amount / 2;
   const [state, setState] = useState({
     paymentPlan: "",
+    classSchedule: "",
     firstName: "",
     lastName: "",
     email: "",
@@ -67,8 +68,11 @@ const Enrol = () => {
     e.preventDefault();
     setErrorEnrol("");
 
+    console.log(state.classSchedule);
+
     if (
       !state.paymentPlan ||
+      !state.classSchedule ||
       !state.firstName ||
       !state.lastName ||
       !state.email ||
@@ -91,6 +95,7 @@ const Enrol = () => {
         {
           courseId: course.courseId,
           paymentPlan: state.paymentPlan,
+          classSchedule: state.classSchedule,
           firstName: state.firstName,
           lastName: state.lastName,
           email: state.email,
@@ -137,7 +142,7 @@ const Enrol = () => {
               <p className="mt-[20px] md:mt-[66px] font-source font-[700] text-[28px] md:text-[32px] leading-[40.2px]">
                 Payment Plan
               </p>
-              <p className="my-[18px] md:my-[24px] font-source font-[700] text-[24px] leading-[30.2px] text-[#9b9b9b]">
+              <p className="my-[18px] md:my-[20px] font-source font-[700] text-[24px] leading-[30.2px] text-[#9b9b9b]">
                 Select a payment plan <span className="text-red-600">*</span>
               </p>
               <div className="mb-[20px]">
@@ -175,7 +180,27 @@ const Enrol = () => {
                 </label>
               </div>
 
-              <p className="mt-[30px] md:mt-[66px] font-source font-[700] text-[28px] md:text-[32px] leading-[40.2px]  mb-[24px]">
+              <p className="mt-[20px] md:mt-[50px] font-source font-[700] text-[28px] md:text-[32px] leading-[40.2px]">
+                Class Schedule
+              </p>
+              <p className="my-[18px] md:my-[20px] font-source font-[700] text-[24px] leading-[30.2px] text-[#9b9b9b]">
+                Select time <span className="text-red-600">*</span>
+              </p>
+              <div className="mb-[20px] text-[#747474]">
+                <select
+                  name="classSchedule"
+                  id="class-schedule"
+                  onChange={handleChange}
+                  className="w-[200px] py-[5px]"
+                >
+                  <option value="">choose</option>
+                  <option value="8:00AM - 11:00AM">8:00AM - 11:00AM</option>
+                  <option value="11:00AM - 2:00PM">11:00AM - 2:00PM</option>
+                  <option value="2:00PM - 5:00PM">2:00PM - 5:00PM</option>
+                </select>
+              </div>
+
+              <p className="mt-[30px] md:mt-[50px] font-source font-[700] text-[28px] md:text-[32px] leading-[40.2px]  mb-[24px]">
                 Personal Details
               </p>
               <div className="md:flex gap-x-8 justify-between  mb-[24px]">
