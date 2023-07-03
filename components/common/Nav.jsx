@@ -132,7 +132,7 @@ const Nav = ({ path }) => {
                 //     : "/"
                 // }
                 href="/user/overview"
-                className=" text-white bg-[#E40084] w-[140px] text-center py-[8px] px-[20px]  font-source rounded-lg  hover:bg-primaryYellow"
+                className=" text-white bg-[#E40084] w-[140px] text-center py-[5px] px-[10px]  font-source rounded-lg  hover:bg-primaryYellow"
               >
                 Dashboard
               </Link>
