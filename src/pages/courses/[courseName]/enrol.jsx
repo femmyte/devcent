@@ -40,7 +40,8 @@ const Enrol = () => {
   const half = amount / 2;
   const [state, setState] = useState({
     paymentPlan: "",
-    classSchedule: "",
+    classDay: "",
+    classTime: "",
     firstName: "",
     lastName: "",
     email: "",
@@ -72,7 +73,8 @@ const Enrol = () => {
 
     if (
       !state.paymentPlan ||
-      !state.classSchedule ||
+      !state.classDay ||
+      !state.classTime ||
       !state.firstName ||
       !state.lastName ||
       !state.email ||
@@ -95,7 +97,8 @@ const Enrol = () => {
         {
           courseId: course.courseId,
           paymentPlan: state.paymentPlan,
-          classSchedule: state.classSchedule,
+          classDay: state.classDay,
+          classTime: state.classTime,
           firstName: state.firstName,
           lastName: state.lastName,
           email: state.email,
@@ -184,13 +187,32 @@ const Enrol = () => {
                 Class Schedule
               </p>
               <p className="my-[18px] md:my-[20px] font-source font-[700] text-[24px] leading-[30.2px] text-[#9b9b9b]">
+                Select day <span className="text-red-600">*</span>
+              </p>
+              <div className="mb-[20px] text-[#747474]">
+                <select
+                  name="classDay"
+                  id="classDay"
+                  onChange={handleChange}
+                  value={state.classDay}
+                  required
+                  className="w-[200px] py-[5px]"
+                >
+                  <option value="">choose</option>
+                  <option value="Week day">Week day (Mon-Thu)</option>
+                  <option value="Week end">Week end (Fri-Sat)</option>
+                </select>
+              </div>
+              <p className="my-[18px] md:my-[20px] font-source font-[700] text-[24px] leading-[30.2px] text-[#9b9b9b]">
                 Select time <span className="text-red-600">*</span>
               </p>
               <div className="mb-[20px] text-[#747474]">
                 <select
-                  name="classSchedule"
-                  id="class-schedule"
+                  name="classTime"
+                  id="classTime"
                   onChange={handleChange}
+                  value={state.classTime}
+                  required
                   className="w-[200px] py-[5px]"
                 >
                   <option value="">choose</option>
@@ -302,7 +324,7 @@ const Enrol = () => {
                     htmlFor="province"
                     className="font-source font-[600] text-[24px] leading-[30px] text-[#9b9b9b] mb-[16px]"
                   >
-                    Province <span className="text-red-600">*</span>
+                    RCCG Province <span className="text-red-600">*</span>
                   </label>
                   <input
                     type="text"
