@@ -1,5 +1,7 @@
 import http from "./httpService";
 
+const apiPath = "users";
+
 const config = {
   headers: {
     "Content-Type": "application/json",
@@ -9,15 +11,25 @@ const config = {
 // GET Request:
 
 export function getUserInfo(id, accessToken) {
-  return http.get(`/users/${id}`, {
+  return http.get(`/${apiPath}/${id}`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
   });
 }
 
+export async function getUsers(role, accessToken) {
+  const { data } = await http.get(`/${apiPath}?role=${role}`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+
+  return data;
+}
+
 export async function getUserPayments(id, accessToken) {
-  const { data } = await http.get(`/users/${id}/payments`, {
+  const { data } = await http.get(`/${apiPath}/${id}/payments`, {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },

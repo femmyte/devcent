@@ -126,12 +126,12 @@ const Nav = ({ path }) => {
 
             {authenticated ? (
               <Link
-                // href={
-                //   session?.data?.user?.role
-                //     ? dashboardLinks[session?.data?.user.role]
-                //     : "/"
-                // }
-                href="/user/overview"
+                href={
+                  session?.data?.user?.role
+                    ? dashboardLinks[session?.data?.user.role]
+                    : "/"
+                }
+                // href="/user/overview"
                 className=" text-white bg-[#E40084] w-[140px] text-center py-[5px] px-[10px]  font-source rounded-lg  hover:bg-primaryYellow"
               >
                 Dashboard
