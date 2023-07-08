@@ -15,6 +15,10 @@ const PaymentTable = ({ payments, session }) => {
   const columnHelper = createColumnHelper();
 
   const columns = [
+    columnHelper.accessor("paymentId", {
+      header: () => "Payment Id",
+      cell: (info) => info.getValue(),
+    }),
     columnHelper.accessor("transaction_id", {
       header: () => "Transaction Id",
       cell: (info) => info.getValue(),

@@ -9,7 +9,8 @@ import { useUserStore } from "store/useUserStore";
 
 const Payment = () => {
   const router = useRouter();
-  const { status, tx_ref, transaction_id, courseName } = router.query;
+  const { status, tx_ref, transaction_id, courseName, isBalance } =
+    router.query;
 
   const { updateUserInfo } = useUserStore((state) => state);
 
@@ -57,8 +58,11 @@ const Payment = () => {
       processCoursePayment();
 
     // if user cancel payment
-    if (status === "cancelled") router.replace(`/courses/${courseName}/enrol`);
-  }, [status, tx_ref, transaction_id, courseName, router, token]);
+    if (status === "cancelled") {
+      if (isBalance) router.replace("/user/payments");
+      else router.replace(`/courses/${courseName}/enrol`);
+    }
+  }, [status, tx_ref, transaction_id, courseName, router, token, isBalance]);
 
   return (
     <div className="w-full flex items-center justify-center min-h-screen bg-white text-black">
