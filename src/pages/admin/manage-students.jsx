@@ -29,7 +29,7 @@ const ManageStudents = () => {
   return (
     <div>
       <DashboardLayout>
-        <div className="w-full px-[20px] text-white">
+        <div className="px-[20px] text-white">
           <div className="mb-[25px] md:mb-[40px]">
             <p className="font-space font-[700] text-[20px] leading-[25.5px]">
               Manage Students
@@ -38,7 +38,7 @@ const ManageStudents = () => {
               View all registered students
             </p>
           </div>
-          <div className="container overflow-x-auto p-4 pb-10 bg-white text-black shadow rounded-[7.4px]">
+          <div className="container overflow-x-scroll p-4 pb-10 bg-white text-black shadow rounded-[7.4px]">
             <div>
               <div className="text-[#6941c6] font-bold ml-[15px] mb-2">
                 Total: {students.length}
