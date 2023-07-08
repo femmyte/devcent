@@ -34,7 +34,7 @@ export const links = [
         icon: <HiOutlineUserGroup />,
       },
       {
-        name: "payment",
+        name: "payments",
         icon: <HiOutlineUserGroup />,
       },
       {

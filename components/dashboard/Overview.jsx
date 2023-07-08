@@ -1,6 +1,5 @@
 import React from "react";
 import Chart from "./Chart";
-import { balanceCourse } from "services/paymentService";
 import { useSession } from "next-auth/react";
 import { useRouter } from "next/router";
 import { useUserStore } from "store/useUserStore";
@@ -54,19 +53,6 @@ const Overview = () => {
   const { userInfo } = useUserStore((state) => state);
   const router = useRouter();
   const { data } = useSession();
-
-  const handlePayBalance = async () => {
-    try {
-      const { data: resData } = await balanceCourse(
-        "/courses/Backend-Development-14246154/balance",
-        data.accessToken
-      );
-      router.push(resData.paymentPage);
-    } catch (error) {
-      console.log(error);
-      console.log(error?.response?.data?.message);
-    }
-  };
 
   return (
     <section className="pl-[15px] flex flex-col md:flex-row items-center justify-center gap-y-[20px] md:gap-y-0 md:gap-x-[30px] mt-[25px] md:mt-[48px]">
