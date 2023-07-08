@@ -6,6 +6,8 @@ const config = {
   },
 };
 
+// GET Request:
+
 export function getUserInfo(id, accessToken) {
   return http.get(`/users/${id}`, {
     headers: {
@@ -13,6 +15,18 @@ export function getUserInfo(id, accessToken) {
     },
   });
 }
+
+export async function getUserPayments(id, accessToken) {
+  const { data } = await http.get(`/users/${id}/payments`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+
+  return data;
+}
+
+// PUT Request:
 
 export async function updateUserProfile({ url, form, accessToken }) {
   const { data } = await http.put(url, form, {
@@ -24,6 +38,8 @@ export async function updateUserProfile({ url, form, accessToken }) {
 
   return data;
 }
+
+// POST Request:
 
 export async function uploadProfilePicture(url, form, accessToken) {
   const { data } = await http.post(url, form, {

@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useMemo } from "react";
 import { useRouter } from "next/router";
+import { useSession } from "next-auth/react";
 import {
   createColumnHelper,
   flexRender,
@@ -8,6 +9,7 @@ import {
 } from "@tanstack/react-table";
 import DashboardLayout from "../../../components/dashboard/DashboardLayout";
 import withStudentAuth from "components/auth/withStudentAuth";
+import { getUserPayments } from "services/userService";
 
 const defaultData = [
   {
@@ -39,44 +41,92 @@ const defaultData = [
 const columnHelper = createColumnHelper();
 
 const columns = [
-  columnHelper.accessor("firstName", {
+  columnHelper.accessor("transaction_id", {
+    header: () => "Transaction Id",
     cell: (info) => info.getValue(),
     footer: (info) => info.column.id,
   }),
-  columnHelper.accessor((row) => row.lastName, {
-    id: "lastName",
-    cell: (info) => <i>{info.getValue()}</i>,
-    header: () => <span>Last Name</span>,
+  columnHelper.accessor("paymentPlan", {
+    id: "outstanding",
+    header: () => "Outstanding",
+    cell: (info) =>
+      info.getValue() === "part-payment" ? (
+        <button className="text-white bg-primaryPurple rounded-md px-2 py-1 hover:bg-purple-400">
+          Pay balance
+        </button>
+      ) : (
+        <span>-</span>
+      ),
     footer: (info) => info.column.id,
   }),
-  columnHelper.accessor("age", {
-    header: () => "Age",
+  columnHelper.accessor("course.name", {
+    header: () => "Course",
     cell: (info) => info.renderValue(),
     footer: (info) => info.column.id,
   }),
-  columnHelper.accessor("visits", {
-    header: () => <span>Visits</span>,
+  columnHelper.accessor("paymentPlan", {
+    header: () => "Payment Plan",
+    cell: (info) => info.renderValue(),
     footer: (info) => info.column.id,
   }),
-  columnHelper.accessor("status", {
-    header: "Status",
+  columnHelper.accessor("amount", {
+    header: () => "Amount",
+    cell: (info) => info.renderValue(),
     footer: (info) => info.column.id,
   }),
-  columnHelper.accessor("progress", {
-    header: "Profile Progress",
+
+  columnHelper.accessor("createdAt", {
+    header: () => "Date",
+    cell: (info) => <span>{new Date(info.getValue()).toDateString()}</span>,
     footer: (info) => info.column.id,
   }),
+  // columnHelper.accessor((row) => row.lastName, {
+  //   id: "lastName",
+  //   cell: (info) => <i>{info.getValue()}</i>,
+  //   header: () => <span>Last Name</span>,
+  //   footer: (info) => info.column.id,
+  // }),
+  // columnHelper.accessor("visits", {
+  //   header: () => <span>Visits</span>,
+  //   footer: (info) => info.column.id,
+  // }),
+  // columnHelper.accessor("status", {
+  //   header: "Status",
+  //   footer: (info) => info.column.id,
+  // }),
+  // columnHelper.accessor("progress", {
+  //   header: "Profile Progress",
+  //   footer: (info) => info.column.id,
+  // }),
 ];
 
 const Payment = () => {
+  const { data: session } = useSession();
   const [data, setData] = useState([...defaultData]);
-  const rerender = useState({})[1];
+  const [payments, setPayments] = useState([]);
 
   const table = useReactTable({
-    data,
+    data: payments,
     columns,
     getCoreRowModel: getCoreRowModel(),
   });
+
+  useEffect(() => {
+    const getPayments = async () => {
+      try {
+        const data = await getUserPayments(
+          session.user?._id,
+          session?.accessToken
+        );
+
+        setPayments(data.payments);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getPayments();
+  }, [session]);
 
   return (
     <>
@@ -90,9 +140,14 @@ const Payment = () => {
               Fulfill any outstanding payments
             </p>
           </div>
-          <div className="container mx-auto p-4 bg-white text-black shadow rounded-[7.4px]">
-            <div className="overflow-x-auto">
-              <table className="min-w-full">
+          <div className="max-w-[900px] overflow-x-auto p-4 pb-10 bg-white text-black shadow rounded-[7.4px]">
+            <div>
+              <span className="text-[#6941c6] ml-[15px]">
+                Total: {payments.length}
+              </span>
+            </div>
+            <div className="">
+              <table className="w-[800px] md:w-full">
                 <thead>
                   {table.getHeaderGroups().map((headerGroup) => (
                     <tr key={headerGroup.id} className="text-[#667085] border">
