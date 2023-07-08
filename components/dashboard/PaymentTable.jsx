@@ -8,7 +8,7 @@ import {
   useReactTable,
 } from "@tanstack/react-table";
 import { balanceCourse } from "services/paymentService";
-import { userPayments } from "lib/data/table";
+// import { userPayments } from "lib/data/table";
 
 const PaymentTable = ({ payments, session }) => {
   const router = useRouter();
@@ -25,7 +25,7 @@ const PaymentTable = ({ payments, session }) => {
       cell: (info) => {
         // console.log(info.row.original?.course._id);
         const id = info.row.original?.course._id;
-        const paymentCount = userPayments.filter(
+        const paymentCount = payments.filter(
           (payment) => payment.course._id === id
         ).length;
 
@@ -66,7 +66,7 @@ const PaymentTable = ({ payments, session }) => {
   ];
 
   const table = useReactTable({
-    data: userPayments,
+    data: payments,
     columns,
     getCoreRowModel: getCoreRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
@@ -86,7 +86,7 @@ const PaymentTable = ({ payments, session }) => {
   }
 
   return (
-    <div>
+    <div className="w-full">
       <table className="w-[900px] md:w-full">
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
@@ -115,8 +115,8 @@ const PaymentTable = ({ payments, session }) => {
         </tbody>
       </table>
       <div className="h-4" />
-      {userPayments.length > 10 && (
-        <div className="w-[900px] md:w-full flex justify-end">
+      {payments.length > 10 && (
+        <div className="w-[900px] md:w-full flex justify-end pr-2 md:pr-[initial]">
           <div className="flex items-center gap-2">
             <button
               className="border rounded px-2 py-1"

@@ -32,7 +32,7 @@ const Payments = () => {
   return (
     <>
       <DashboardLayout>
-        <div className="w-full px-[25px] text-white">
+        <div className="w-full px-[20px] text-white">
           <div className="mb-[25px] md:mb-[40px]">
             <p className="font-space font-[700] text-[20px] leading-[25.5px]">
               Payments
