@@ -20,8 +20,6 @@ const Balance = () => {
     // console.log(status, tx_ref, transaction_id);
 
     const processCoursePayment = async () => {
-      console.log("Processing...");
-      console.log(token);
       try {
         const { data } = await processPayment(
           "/payments/process-payment",
@@ -53,7 +51,7 @@ const Balance = () => {
       processCoursePayment();
 
     // if user cancel payment
-    if (status === "cancelled") router.replace(`/courses/${courseName}/enrol`);
+    if (status === "cancelled") router.replace("/user/payments");
   }, [status, tx_ref, transaction_id, courseName, router, token]);
 
   return (
