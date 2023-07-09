@@ -1,430 +1,201 @@
-import React, { useState, useEffect } from 'react';
-import Nav from 'components/common/Nav';
-import Meta from 'components/common/Meta';
+import React, { useState, useEffect } from "react";
+import Nav from "components/common/Nav";
+import Meta from "components/common/Meta";
 // import CourseCard from "components/uiux/CourseCard";
-import Instructor from 'components/common/Instructor';
-import Footer from 'components/common/Footer';
-import { FiArrowDownRight, FiArrowRight } from 'react-icons/fi';
-import Link from 'next/link';
-import axios from 'axios';
-import FullLoader from 'components/loaders/FullLoader';
-import { useFetch } from 'services/hooks/fetch';
-import FullError from 'components/error/FullError';
+import Instructor from "components/common/Instructor";
+import Footer from "components/common/Footer";
+import { FiArrowDownRight, FiArrowRight } from "react-icons/fi";
+import Link from "next/link";
+import axios from "axios";
+import FullLoader from "components/loaders/FullLoader";
+import { useFetch } from "services/hooks/fetch";
+import FullError from "components/error/FullError";
 
 const CourseCard = ({
-	background,
-	title,
-	children,
-	img,
-	first,
-	position,
-	about,
+  background,
+  title,
+  children,
+  img,
+  first,
+  position,
+  about,
 }) => {
-	// ['#521C3C', '#3C2B68', '000000', '#19201D', '#433C28', '#1B2531']
-	// bg.map(bg=> console.log(bg))
-	// background == 1 ? '#521C3C' : 2 ? '#3C2B68' : 3 ? '000000' : 4 ? '#19201D' : 5 ? '#433C28' : '#1B2531'
-	return (
-		<div
-			className={`${position != about ? ' md:pt-0' : ''} ${
-				first && 'pt-0'
-			}`}
-		>
-			<div
-				className={`${
-					position === 2
-						? 'flex-col-reverse flex md:flex-row-reverse'
-						: 'flex-col-reverse flex md:flex-row'
-				} md:flex  md:justify-between  my-0 md:mx-0 md:w-full`}
-			>
-				<article
-					className={` w-full md:w-[50%] bg-[$] py-[30px] md:pt-[100px] px-[20px] md:px-[50px] text-white`}
-					style={{ backgroundColor: background }}
-				>
-					{children}
-				</article>
-				<img
-					src={`/images/courses/${img}`}
-					alt={title}
-					className='w-full md:w-[50%]'
-					// className={`${
-					//   second ? 'md:ml-[70px]' : 'md:mr-[72px]'
-					// } max-w-6/7 mx-auto md:mx-0 md:max-w-[600px]`}
-				/>
-			</div>
-		</div>
-	);
+  // ['#521C3C', '#3C2B68', '000000', '#19201D', '#433C28', '#1B2531']
+  // bg.map(bg=> console.log(bg))
+  // background == 1 ? '#521C3C' : 2 ? '#3C2B68' : 3 ? '000000' : 4 ? '#19201D' : 5 ? '#433C28' : '#1B2531'
+  return (
+    <div
+      className={`${position != about ? " md:pt-0" : ""} ${first && "pt-0"}`}
+    >
+      <div
+        className={`${
+          position === 2
+            ? "flex-col-reverse flex md:flex-row-reverse"
+            : "flex-col-reverse flex md:flex-row"
+        } md:flex  md:justify-between  my-0 md:mx-0 md:w-full`}
+      >
+        <article
+          className={` w-full md:w-[50%] bg-[$] py-[30px] md:pt-[100px] px-[20px] md:px-[50px] text-white`}
+          style={{ backgroundColor: background }}
+        >
+          {children}
+        </article>
+        <img
+          src={`/images/courses/${img}`}
+          alt={title}
+          className="w-full md:w-[50%]"
+          // className={`${
+          //   second ? 'md:ml-[70px]' : 'md:mr-[72px]'
+          // } max-w-6/7 mx-auto md:mx-0 md:max-w-[600px]`}
+        />
+      </div>
+    </div>
+  );
 };
 
 const Courses = () => {
-	const [courses, setCourses] = useState([]);
+  const [courses, setCourses] = useState([]);
 
-	const { data, isInitialLoading, isSuccess, isError } = useFetch(
-		`/courses/all-course`,
-		'get-courses'
-	);
+  const { data, isInitialLoading, isSuccess, isError } = useFetch(
+    `/courses/all-course`,
+    "get-courses"
+  );
 
-	useEffect(() => {
-		if (isSuccess) {
-			setCourses(data.courses);
-		}
-	}, [isSuccess, data]);
-	console.log(courses);
-	let otherInfo = [
-		{
-			background: '#521C3C',
-			img: 'uiux.avif',
-			position: 1,
-			courseId: '21197094',
-		},
-		{
-			background: '#1B2531',
-			img: 'data.avif',
-			position: 2,
-			courseId: '83224682',
-		},
-		{
-			background: '#3C2B68',
-			img: 'backendweb.avif',
-			position: 1,
-			courseId: '14246154',
-		},
-		{
-			background: '#000000',
-			img: 'fullstack.jpg',
-			position: 2,
-			courseId: '63748970',
-		},
-		{
-			background: '#19201D',
-			img: 'cybersecurity.avif',
-			position: 1,
-			courseId: '18556101',
-		},
-		{
-			background: '#433C28',
-			img: 'frontend.jpg',
-			position: 2,
-			courseId: '15113559',
-		},
-		{
-			background: '#085937',
-			img: 'cloudcom.avif',
-			position: 1,
-			courseId: '11611476',
-		},
-		{
-			background: '#80054a',
-			img: 'digital.jpg',
-			position: 2,
-			courseId: '83868296',
-		},
-	];
+  useEffect(() => {
+    if (isSuccess) {
+      setCourses(data.courses);
+    }
+  }, [isSuccess, data]);
+  console.log(courses);
+  let otherInfo = [
+    {
+      background: "#521C3C",
+      img: "uiux.avif",
+      position: 1,
+      courseId: "21197094",
+    },
+    {
+      background: "#1B2531",
+      img: "data.avif",
+      position: 2,
+      courseId: "83224682",
+    },
+    {
+      background: "#3C2B68",
+      img: "backendweb.avif",
+      position: 1,
+      courseId: "14246154",
+    },
+    {
+      background: "#000000",
+      img: "fullstack.jpg",
+      position: 2,
+      courseId: "63748970",
+    },
+    {
+      background: "#19201D",
+      img: "cybersecurity.avif",
+      position: 1,
+      courseId: "18556101",
+    },
+    {
+      background: "#433C28",
+      img: "frontend.jpg",
+      position: 2,
+      courseId: "15113559",
+    },
+    {
+      background: "#085937",
+      img: "cloudcom.avif",
+      position: 1,
+      courseId: "11611476",
+    },
+    {
+      background: "#80054a",
+      img: "digital.jpg",
+      position: 2,
+      courseId: "83868296",
+    },
+  ];
 
-	const combinedObj = otherInfo.map((item) => {
-		// use the objects common identifier, such as "courseId"
-		const matchingObject = courses.find(
-			(obj) => obj.courseId === item.courseId
-		);
+  const combinedObj = otherInfo.map((item) => {
+    // use the objects common identifier, such as "courseId"
+    const matchingObject = courses.find(
+      (obj) => obj.courseId === item.courseId
+    );
 
-		if (matchingObject) {
-			// Merge the properties from both arrays
-			return { ...item, ...matchingObject };
-		}
+    if (matchingObject) {
+      // Merge the properties from both arrays
+      return { ...item, ...matchingObject };
+    }
 
-		return item; // Or handle the case where there is no matching object
-	});
+    return item; // Or handle the case where there is no matching object
+  });
 
-	if (isInitialLoading) {
-		return <FullLoader />;
-	}
-	if (isError) {
-		return <FullError />;
-	}
-	return (
-		<>
-			<Meta />
-			<Nav />
-			<div className='bg-black'>
-				<section className='md:h-[95vh] py-[4rem] md:py-0 flex flex-col items-center justify-center bg-black'>
-					<h1 className='font-space font-[700] text-[30px] md:text-[96px] leading-[35px] md:leading-[94.1px] text-[#ffba0e] '>
-						Our Courses
-					</h1>
-					<p
-						className='font-dmsans font-[400] text-[24px] mt-[18px] md:mt-[80px] leading-[31.25px] mx-[15px] md:w-[750px] lg:w-[842px] text-white
-          '
-					>
-						Our range of Skill resources will help you Build your
-						career with as few bumps as possible. From pitching to
-						clients, showing your work, or securing your business’s
-						future, we’ve got what you need.
-					</p>
-				</section>
-				<section className='gap-y-[120px] text-white w-screen'>
-					{combinedObj.map((course, i) => {
-						return (
-							<CourseCard
-								img={course.img}
-								background={course.background}
-								key={course.courseId}
-								position={course.position}
-							>
-								<h3 className='font-space font-[700] text-24px] leading-[19px]'>
-									{course.name}
-								</h3>
-								<p className='font-[400] font-dmsans text-[15px] leading-[27px]'>
-									{course.description}
-								</p>
-								<p className='mt-[20px] md:mt-[36px] mb-[8px] font-dmsans font-[500] text-[24px]'>
-									Ready to take a career in {course.name}
-								</p>
-								<div className='flex items-center gap-x-[20px]'>
-									<Link
-										href={`/courses/${course.urlName}`}
-										className='font-sora font-[600] text-[16px] leading-[20px]'
-									>
-										Join us now
-									</Link>
-									<FiArrowRight />
-								</div>
-							</CourseCard>
-						);
-					})}
-
-					{/* 
-					<CourseCard img='uiux' background='#521C3C'>
-						<h3 className='font-space font-[700] text-24px] leading-[19px]'>
-							UI/UX Design
-						</h3>
-						<p className='font-[400] font-dmsans text-[15px] leading-[27px]'>
-							Transform your passion for design into a career with
-							our UI/UX Design Training. Learn the latest design
-							tools, techniques and methodologies from industry
-							experts, and build a portfolio of work that
-							showcases your skills. Whether you're just starting
-							out or looking to advance your career, our training
-							program will equip you with the knowledge and
-							hands-on experience needed to succeed in the dynamic
-							world of UI/UX design. Enroll now and take the first
-							step towards your dream career in design!
-						</p>
-						<p className='mt-[20px] md:mt-[36px] mb-[8px] font-dmsans font-[500] text-[24px]'>
-							Ready to take a career in UI/UX?
-						</p>
-						<div className='flex items-center gap-x-[20px]'>
-							<Link
-								href='/courses/uiux'
-								className='font-sora font-[600] text-[16px] leading-[20px]'
-							>
-								Join us now
-							</Link>
-							<FiArrowRight />
-						</div>
-					</CourseCard>
-					<CourseCard img='dataScience' background='#3C2B68' second>
-						<h3 className='font-space font-[700] text-24px] leading-[19px]'>
-							Data Science
-						</h3>
-						<p className='font-[400] font-dmsans text-[15px] leading-[27px]'>
-							Unlock the power of data with our Data Science
-							Training. Learn to manipulate, analyze and visualize
-							complex data sets using cutting-edge tools and
-							techniques. Our program covers everything from data
-							wrangling to machine learning, giving you a
-							comprehensive understanding of the field. Led by
-							experienced instructors, you'll gain hands-on
-							experience with real-world projects, and graduate
-							with a portfolio of work to showcase your skills to
-							potential employers. Whether you're new to data
-							science or looking to expand your skillset, our
-							training program will prepare you for a successful
-							career in this high-demand field. Enroll now and
-							start your journey towards becoming a data
-							scientist!
-						</p>
-						<p className='mt-[20px] md:mt-[36px] mb-[8px] font-dmsans font-[500] text-[24px]'>
-							Ready to take a career in Data Science
-						</p>
-						<div className='flex items-center gap-x-[20px]'>
-							<Link
-								href=''
-								className='font-sora font-[600] text-[16px] leading-[20px]'
-							>
-								Join us now
-							</Link>
-							<FiArrowRight />
-						</div>
-					</CourseCard>
-					<CourseCard img='backend' background='#000000'>
-						<h3 className='font-space font-[700] text-24px] leading-[19px]'>
-							Back-end Development
-						</h3>
-						<p className='font-[400] font-dmsans text-[15px] leading-[27px]'>
-							Take your coding skills to the next level with our
-							Back-End Development Training. Learn to build
-							robust, scalable and secure web applications from
-							scratch using the latest back-end development
-							technologies. Our program covers everything from
-							server-side programming to database management,
-							giving you a comprehensive understanding of the
-							back-end development process. With hands-on
-							experience working on real-world projects, you'll
-							graduate with a portfolio of work to showcase your
-							skills to potential employers. Whether you're new to
-							back-end development or looking to advance your
-							career, our training program will equip you with the
-							knowledge and skills needed to succeed in this
-							dynamic field. Enroll now and start your journey
-							towards becoming a back-end developer!
-						</p>
-						<p className='mt-[20px] md:mt-[36px] mb-[8px] font-dmsans font-[500] text-[24px]'>
-							Ready to take a career in Back-end Development
-						</p>
-						<div className='flex items-center gap-x-[20px]'>
-							<Link
-								href=''
-								className='font-sora font-[600] text-[16px] leading-[20px]'
-							>
-								Join us now
-							</Link>
-							<FiArrowRight />
-						</div>
-					</CourseCard>
-					<CourseCard img='fullstack' background='#19201D' second>
-						<h3 className='font-space font-[700] text-24px] leading-[19px]'>
-							Full Stack Web{' '}
-						</h3>
-						<p className='font-[400] font-dmsans text-[15px] leading-[27px]'>
-							Become a full-stack web developer with our
-							comprehensive Full-Stack Web Development Training.
-							Learn to build dynamic, responsive and interactive
-							web applications using both front-end and back-end
-							development technologies. Our program covers
-							everything from HTML and CSS to JavaScript, React,
-							Node.js, and more, giving you a complete
-							understanding of the web development process. With
-							hands-on experience working on real-world projects,
-							you'll graduate with a portfolio of work to showcase
-							your skills to potential employers. Whether you're
-							just starting out or looking to advance your career,
-							our training program will prepare you for a
-							successful career in full-stack web development.
-							Enroll now and take the first step towards becoming
-							a full-stack web developer!
-						</p>
-						<p className='mt-[20px] md:mt-[36px] mb-[8px] font-dmsans font-[500] text-[24px]'>
-							Ready to take a career in Full Stack Web
-						</p>
-						<div className='flex items-center gap-x-[20px]'>
-							<Link
-								href=''
-								className='font-sora font-[600] text-[16px] leading-[20px]'
-							>
-								Join us now
-							</Link>
-							<FiArrowRight />
-						</div>
-					</CourseCard>
-					<CourseCard img='cyber' background='#433C28'>
-						<h3 className='font-space font-[700] text-24px] leading-[19px]'>
-							Cyber Security
-						</h3>
-						<p className='font-[400] font-dmsans text-[15px] leading-[27px]'>
-							Protect against cyber threats with our Cyber
-							Security Training. Learn the latest security
-							techniques and methodologies to secure computer
-							networks, data and applications from unauthorized
-							access, attacks and breaches. Our program covers
-							everything from network security to cryptography,
-							giving you a comprehensive understanding of the
-							cyber security landscape. With hands-on experience
-							working on real-world projects, you'll graduate with
-							a portfolio of work to showcase your skills to
-							potential employers. Whether you're new to cyber
-							security or looking to advance your career, our
-							training program will equip you with the knowledge
-							and skills needed to succeed in this critical field.
-							Enroll now and start your journey towards becoming a
-							cyber security expert!
-						</p>
-						<p className='mt-[20px] md:mt-[36px] mb-[8px] font-dmsans font-[500] text-[24px]'>
-							Ready to take a career in Cyber Security
-						</p>
-						<div className='flex items-center gap-x-[20px]'>
-							<Link
-								href=''
-								className='font-sora font-[600] text-[16px] leading-[20px]'
-							>
-								Join Us Now
-							</Link>
-							<FiArrowRight />
-						</div>
-					</CourseCard>
-					<CourseCard img='frotend' background='#1B2531' second>
-						<h3 className='font-space font-[700] text-24px] leading-[19px]'>
-							Front-end Development
-						</h3>
-						<p className='font-[400] font-dmsans text-[15px] leading-[27px]'>
-							Unlock your potential as a front-end web developer
-							with our Front-End Development Training. Learn to
-							build stunning, user-friendly and responsive web
-							applications using the latest front-end development
-							technologies. Our program covers everything from
-							HTML and CSS to JavaScript, React, and more, giving
-							you a comprehensive understanding of the front-end
-							development process. With hands-on experience
-							working on real-world projects, you'll graduate with
-							a portfolio of work to showcase your skills to
-							potential employers. Whether you're new to front-end
-							development or looking to advance your career, our
-							training program will prepare you for a successful
-							career in this fast-paced field. Enroll now and
-							start your journey towards becoming a front-end
-							developer!
-						</p>
-						<p className='mt-[20px] md:mt-[36px] mb-[8px] font-dmsans font-[500] text-[24px]'>
-							Ready to take a career in Front-end Development
-						</p>
-						<div className='flex items-center gap-x-[20px]'>
-							<Link
-								href=''
-								className='font-sora font-[600] text-[16px] leading-[20px]'
-							>
-								Join us now
-							</Link>
-							<FiArrowRight />
-						</div>
-					</CourseCard> */}
-				</section>
-				<section className="px-[20px] md:px-[57px] py-[62px] bg-black md:bg-[url('/images/devcentbg.png')] min-h-[110vh] w-[100vw] overflow-hidden ">
-					{/* <h3 className='font-space font-[700] text-[32px] leading-[35.2px] text-center text-white'>
-						LEARN WITH THE BEST
-					</h3> */}
-					<div className='md:flex gap-x-[50px] mb-[60px]'>
-						<Instructor />
-						{/* <Instructor
-							img='mary'
-							name='Mariam Omotola'
-							role='UI Designer, DevCent'
-							description="Mariam has enjoyed working in UX design across a variety of domains at Google, from YouTube, to technical cloud platforms. She is particularly interested in bringing a human touch to products. She received her Master's in Human Computer Interaction from The University of Michigan."
-						/>
-						<Instructor
-							img='tosin'
-							name='Fakile Tosin'
-							role='UI Designer, Tinacle'
-							description="Tosin has enjoyed working in UX design across a variety of domains at Google, from YouTube, to technical cloud platforms. He is particularly interested in bringing a human touch to products. She received her Master's in Human Computer Interaction from The University of Michigan."
-						/>
-						<Instructor
-							img='alalade'
-							name='Olanrewaju Alalade'
-							role='UI Designer, DevCent'
-							description="Olanrewaju has enjoyed working in UX design across a variety of domains at Google, from YouTube, to technical cloud platforms. He is particularly interested in bringing a human touch to products. She received her Master's in Human Computer Interaction from The University of Michigan."
-						/> */}
-					</div>
-				</section>
-				<Footer />
-			</div>
-		</>
-	);
+  if (isInitialLoading) {
+    return <FullLoader />;
+  }
+  if (isError) {
+    return <FullError />;
+  }
+  return (
+    <>
+      <Meta />
+      <Nav />
+      <div className="bg-black">
+        <section className="md:h-[95vh] py-[4rem] md:py-0 flex flex-col items-center justify-center bg-black">
+          <h1 className="font-space font-[700] text-[30px] md:text-[96px] leading-[35px] md:leading-[94.1px] text-[#ffba0e] ">
+            Our Courses
+          </h1>
+          <p
+            className="font-dmsans font-[400] text-[24px] mt-[18px] md:mt-[80px] leading-[31.25px] mx-[15px] md:w-[750px] lg:w-[842px] text-white
+          "
+          >
+            Our range of Skill resources will help you Build your career with as
+            few bumps as possible. From pitching to clients, showing your work,
+            or securing your business’s future, we’ve got what you need.
+          </p>
+        </section>
+        <section className="gap-y-[120px] text-white w-screen">
+          {combinedObj.map((course, i) => {
+            return (
+              <CourseCard
+                img={course.img}
+                background={course.background}
+                key={course.courseId}
+                position={course.position}
+              >
+                <h3 className="font-space font-[700] text-24px] leading-[19px]">
+                  {course.name}
+                </h3>
+                <p className="font-[400] font-dmsans text-[15px] leading-[27px]">
+                  {course.description}
+                </p>
+                <p className="mt-[20px] md:mt-[36px] mb-[8px] font-dmsans font-[500] text-[24px]">
+                  Ready to take a career in {course.name}
+                </p>
+                <div className="flex items-center gap-x-[20px]">
+                  <Link
+                    href={`/courses/${course.urlName}`}
+                    className="font-sora font-[600] text-[16px] leading-[20px]"
+                  >
+                    Join us now
+                  </Link>
+                  <FiArrowRight />
+                </div>
+              </CourseCard>
+            );
+          })}
+        </section>
+        <section className="px-[20px] md:px-[57px] py-[62px] bg-black md:bg-[url('/images/devcentbg.png')] min-h-[110vh] w-[100vw] overflow-hidden ">
+          <div className="md:flex gap-x-[50px] mb-[60px]">
+            <Instructor />
+          </div>
+        </section>
+        <Footer />
+      </div>
+    </>
+  );
 };
 
 export default Courses;
