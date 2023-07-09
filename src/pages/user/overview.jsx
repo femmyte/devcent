@@ -5,7 +5,7 @@ import Schedular from "components/dashboard/SchedularPart";
 import React, { useEffect, useState } from "react";
 import { FiCalendar } from "react-icons/fi";
 import DashboardLayout from "../../../components/dashboard/DashboardLayout";
-import courseInfo from "../../../courseInfo";
+import courseInfo from "../../../lib/data/courseInfo";
 import { getSession, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useUserStore } from "store/useUserStore";

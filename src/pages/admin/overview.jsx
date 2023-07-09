@@ -2,7 +2,7 @@ import OverviewComponent from "components/admin/dashboard/Overview";
 import React, { useEffect, useState } from "react";
 import DashboardLayout from "../../../components/admin/dashboard/DashboardLayout";
 import UserTable from "../../../components/admin/dashboard/UserTable";
-import courseInfo from "../../../courseInfo";
+import courseInfo from "../../../lib/data/courseInfo";
 import { getSession, useSession } from "next-auth/react";
 import Link from "next/link";
 import { useStateContext } from "AuthContext";

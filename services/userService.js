@@ -38,6 +38,16 @@ export async function getUserPayments(id, accessToken) {
   return data;
 }
 
+export async function getAllPayments(accessToken) {
+  const { data } = await http.get(`/${apiPath}/payments/all-payments`, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
+  });
+
+  return data;
+}
+
 // PUT Request:
 
 export async function updateUserProfile({ url, form, accessToken }) {

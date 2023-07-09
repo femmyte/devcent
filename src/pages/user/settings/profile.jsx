@@ -8,7 +8,7 @@ import DateInput from "components/common/DateSelector";
 import { useUserStore } from "store/useUserStore";
 import ButtonLoader from "components/loaders/ButtonLoader";
 import { toast } from "react-toastify";
-import { useProfileUpdate } from "services/hooks/users";
+import { useProfileUpdate } from "services/hooks/commons";
 import { uploadProfilePicture } from "services/userService";
 import { storage } from "lib/helpers/firebase";
 import { v4 as uuidv4 } from "uuid";

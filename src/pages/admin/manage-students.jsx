@@ -17,7 +17,6 @@ const ManageStudents = () => {
         const data = await getUsers("student", session?.accessToken);
 
         setStudents(data.users);
-        console.log(data.users);
       } catch (error) {
         toast("Problem fetching data");
       }

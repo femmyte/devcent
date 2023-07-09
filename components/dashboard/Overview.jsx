@@ -29,6 +29,7 @@ const DashboardCard = ({ icon, figure, title, middle, bg, textColor }) => (
     </div>
   </div>
 );
+
 const Card = ({ title, number, icon }) => {
   return (
     <div className=" w-[175px] h-[95px] bg-[#323131] text-neutral-content p-[16px] flex items-center justify-center mt-[24px] mb-[16px] rounded-[8px]">
@@ -49,6 +50,7 @@ const Card = ({ title, number, icon }) => {
     </div>
   );
 };
+
 const Overview = () => {
   const { userInfo } = useUserStore((state) => state);
   const router = useRouter();
