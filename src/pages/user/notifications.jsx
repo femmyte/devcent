@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { signOut } from 'next-auth/react';
 import { useRouter } from 'next/router';
-import DashboardLayout from '../../../components/dashboard/DashboardLayout';
+import DashboardLayout from 'components/dashboard/common/layout/Dashboard';
 import { IoIosArrowForward } from 'react-icons/io';
 import {
 	MdOutlineMarkEmailRead,

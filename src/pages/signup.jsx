@@ -3,7 +3,7 @@ import GoogleButton from '../../components/common/GoogleButton';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useSession } from 'next-auth/react';
-import Alert from 'components/dashboard/Alert';
+import Alert from 'components/common/Alert';
 import Meta from 'components/common/Meta';
 import { createAccount } from 'services/commonService';
 import ButtonLoader from 'components/loaders/ButtonLoader';

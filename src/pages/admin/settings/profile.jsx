@@ -1,7 +1,7 @@
 import DashboardLayout from 'components/dashboard/common/layout/Dashboard';
 import ProfileImage from 'components/dashboard/common/forms/ProfileImage';
 import ProfileDetails from 'components/dashboard/common/forms/ProfileDetails';
-import withStudentAuth from 'components/auth/withStudentAuth';
+import withAdminAuth from 'components/auth/withAdminAuth';
 
 const Profile = () => {
 	return (
@@ -14,4 +14,4 @@ const Profile = () => {
 	);
 };
 
-export default withStudentAuth(Profile);
+export default withAdminAuth(Profile);
