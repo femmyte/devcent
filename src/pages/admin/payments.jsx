@@ -4,7 +4,7 @@ import { useSession } from 'next-auth/react';
 import DashboardLayout from 'components/dashboard/common/layout/Dashboard';
 import { getAllPayments } from 'services/userService';
 import { toast } from 'react-toastify';
-import PaymentTable from 'components/admin/dashboard/PaymentTable';
+import PaymentTable from 'components/dashboard/admin/PaymentTable';
 import withAdminAuth from 'components/auth/withAdminAuth';
 
 const Payments = () => {
