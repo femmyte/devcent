@@ -1,7 +1,6 @@
 import React from 'react';
 import NotificationCard from './NotificationCard';
-import { MdGridOn, MdToggleOff, MdToggleOn } from 'react-icons/md';
-import { IoToggle } from 'react-icons/io5';
+
 const index = () => {
 	return (
 		<div className='px-[20px]'>
