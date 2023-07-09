@@ -76,8 +76,8 @@ const PaymentTable = ({ payments, session }) => {
   }
 
   return (
-    <div className="w-full">
-      <table className="w-[900px] md:w-full">
+    <div className="">
+      <table className="w-[1200px] xl:w-full">
         <thead>
           {table.getHeaderGroups().map((headerGroup) => (
             <tr key={headerGroup.id} className="text-[#667085] border">
@@ -106,7 +106,7 @@ const PaymentTable = ({ payments, session }) => {
       </table>
       <div className="h-4" />
       {payments.length > 10 && (
-        <div className="w-[900px] md:w-full flex justify-end pr-2 md:pr-[initial]">
+        <div className="w-[1200px] xl:w-full flex justify-end pr-2 md:pr-[initial]">
           <div className="flex items-center gap-2">
             <button
               className="border rounded px-2 py-1"

@@ -38,7 +38,7 @@ const Payments = () => {
               Manage student payments
             </p>
           </div>
-          <div className="container overflow-x-auto p-4 pb-10 bg-white text-black shadow rounded-[7.4px]">
+          <div className="container overflow-x-scroll p-4 pb-10 bg-white text-black shadow rounded-[7.4px]">
             <div>
               <div className="text-[#6941c6] font-bold ml-[15px] mb-2">
                 Total: {payments.length}
